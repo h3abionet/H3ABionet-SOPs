@@ -3,3 +3,5 @@ description: Standard Operating Procedures for data analysis in the H3ABionet Co
 github: false
 show_downloads: false
 theme: jekyll-theme-cayman
+sidebar: toc
+#url: https://example.com
