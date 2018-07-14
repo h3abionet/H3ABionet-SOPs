@@ -1,7 +1,16 @@
 title: H3ABioNet Standard Operating Procedures
 description: Standard Operating Procedures for data analysis in the H3ABionet Consortium
 github: false
-show_downloads: false
+show_downloads: true 
 theme: jekyll-theme-cayman
 sidebar: toc
 #url: https://example.com
+
+docs_list_title: ACME Documentation
+docs:
+- title: Introduction
+  url: introduction.html
+- title: Configuration
+  url: configuration.html
+- title: Deployment
+  url: deployment.html

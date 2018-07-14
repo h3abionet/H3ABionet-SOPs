@@ -12,7 +12,7 @@ This website hosts the Standard Operating Procedures (SOPs) for common data anal
 
 These SOPs were meant to help various H3ABioNet nodes in their [accreditaiton](https://h3abionet.org/tools-and-resources/sops) [^1].
 
-You can use the buttoms at the top of the page to navigate those various SOPs, or the side panel to access the subsections within each.
+You can use the buttons at the top of the page to navigate those various SOPs, or the side panel to access the subsections within each.
 
 Feedback is also welcome! Please feel free to fork this site, open an issue or a pull request.
 
