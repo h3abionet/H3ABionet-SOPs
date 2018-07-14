@@ -1,0 +1,28 @@
+rnatoc:
+- page: Introduction 
+  url: RNA-Seq#introduction 
+- page: Glossary 
+  url: RNA-Seq#glossary-of-associated-terms-and-jargon
+- page: Procedural steps
+  url: RNA-Seq#procedural-steps
+  subfolderitems:
+    - page: Quality check 
+      url: RNA-Seq#step-1-1-quality-check
+    - page: Trimming and clean-up
+      url: RNA-Seq#step-1-2-adaptor-and-quality-trimming-removal-of-very-short-reads
+    - page: Generating counts
+      url: RNA-Seq#step-2-2-count-generation
+    - page: Collecting & tabulating alignment stats
+      url: RNA-Seq#step-2-3-collecting-and-tabulating-alignment-stats
+    - page: Outlier/ Batch detection
+      url: RNA-Seq#step-3-1-qc-and-outlier-batch-detection
+    - page: Normalization
+      url: RNA-Seq#step-3-2-remove-low-count-genes-and-normalize
+    - page: Differential expression statistics
+      url: RNA-Seq#step-3-3-statistics-for-differential-expression
+- page: Galaxy
+  url: RNA-Seq#galaxy
+- page: References
+  url: RNA-Seq#references
+
+
