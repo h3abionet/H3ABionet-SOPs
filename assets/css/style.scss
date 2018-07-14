@@ -2,3 +2,9 @@
 ---
 
 @import 'jekyll-theme-cayman';
+
+.result li.active a {
+	color: red;
+	cursor: default;
+}
+

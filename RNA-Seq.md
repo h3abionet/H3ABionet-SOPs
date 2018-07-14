@@ -4,6 +4,7 @@ title: RNA-Seq data processing and gene expression analysis
 author: "Jenny Zadeh, Radhika Khetani, Jessica Holmes, Chris Fields"
 date: "July 4, 2018"
 version: "3.0"
+sidebar: rnatoc
 ---
 
 # RNA-Seq data processing and gene expression analysis
@@ -344,7 +345,7 @@ In any statistical test of differential expression between groups, the amount of
 ####
 
 
-#### _Working with Galaxy_
+#### _Working with Galaxy_ {#galaxy}
 
 _A note about Galaxy_
 
