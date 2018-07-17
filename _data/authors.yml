@@ -1,0 +1,43 @@
+default_author:
+  name             : "Pipelines and Computing Work Package"
+  avatar           : "/assets/images/logo-h3abionet.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  bio              : "A product of NATF, led by Victor Jongeneel"
+  home             : "http://h3abionet.org/" # null (default), "absolute or relative url to link to author home"
+  facebook         : H3ABioNet
+  github           : h3abionet
+  twitter          : H3ABioNet
+  youtube          : "https://www.youtube.com/channel/UCMYQE_GYsOKY6-j8z9N6Adw"
+
+Jenny Zadeh:
+  name: "Jenny Zadeh"
+  uri: 
+  email: 
+  bio: 
+  avatar: 
+  twitter: 
+
+Radhika_Khetani:
+  name: "Radhika Khetani"
+  uri: 
+  email: "rkhetani@hsph.harvard.edu"
+  bio: 
+  avatar: "/assets/images/radhika_avatar.jpg"
+  twitter: "rs_khetani"
+
+Jessica_Holmes:
+  name: "Jessica (Kirkpatrick) Holmes"
+  uri: 
+  email: "krkptrc2@illinois.edu "
+  bio: ""
+
+  avatar: 
+  twitter: 
+
+Chris_Fields:
+  name: "Christopher J. Fields"
+  uri: 
+  email: "cjfields@illinois.edu"
+  bio: ""
+  avatar: "/assets/images/chris_avatar.jpeg"
+  twitter: "cjfields"
+

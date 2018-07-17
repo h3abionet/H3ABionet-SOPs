@@ -1,0 +1,50 @@
+# main links
+main:
+   #  - title: "About"
+   #    url: https://h3abionet.org/tools-and-resources/sops 
+  - title: "Human Variant calling"
+    url: /Variant-Calling/
+  - title: "Genome Wide Association Studies"
+    url: /GWAS/
+  - title: "RNA Sequencing Data Analysis"
+    url: /RNA-Seq/
+  - title: "16S Diversity analysis"
+    url: /16s-rRNA/
+
+rnatoc:
+- title: Introduction 
+  url: RNA-Seq#introduction 
+- title: Glossary 
+  url: RNA-Seq#glossary-of-associated-terms-and-jargon
+- title: Procedural steps
+  #  url: RNA-Seq#procedural-steps
+  children: 
+    - title: Phase I preprocessing the raw reads
+      url: RNA-Seq#phase-1-preprocessing-of-the-raw-reads
+      children:
+        - title: Quality check
+          url: RNA-Seq#step-1-1-quality-check
+        - title: Trimming and clean-up
+          url: RNA-Seq#step-1-2-adaptor-and-quality-trimming-removal-of-very-short-reads
+    - title: Phase II Counting features
+      url: RNA-Seq#phase-2-determining-how-many-read-counts-are-associated-with-known-genes
+      children:
+        - title: Generating counts
+          url: RNA-Seq#step-2-2-count-generation
+        - title: Collecting & tabulating alignment stats
+          url: RNA-Seq#step-2-3-collecting-and-tabulating-alignment-stats
+    - title: Phase III Statistical analysis
+      url: RNA-Seq#phase-3-statistical-analysis
+      children:
+        - title: Outlier/ Batch detection
+          url: RNA-Seq#step-3-1-qc-and-outlier-batch-detection
+        - title: Normalization
+          url: RNA-Seq#step-3-2-remove-low-count-genes-and-normalize
+        - title: Differential expression statistics
+          url: RNA-Seq#step-3-3-statistics-for-differential-expression
+- title: Galaxy
+  url: RNA-Seq#galaxy
+- title: References
+  url: RNA-Seq#references
+
+
