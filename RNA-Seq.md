@@ -70,7 +70,7 @@ Tools are suggested in the protocols below.
 **Figure 1.** Steps in the Workflow.   
 
 
-![alt_text](/assets/images/RNA-Seq-Overview.png "image_tooltip")
+![alt_text]({{ site.baseurl }}/assets/images/RNA-Seq-Overview.png "image_tooltip")
 
 
 
