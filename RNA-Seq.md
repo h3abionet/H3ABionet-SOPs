@@ -1,7 +1,6 @@
 ---
 layout: single 
 title: RNA-Seq data processing and gene expression analysis
-author: "Jenny Zadeh, Radhika Khetani, Jessica Holmes, Chris Fields"
 date: "July 4, 2018"
 version: "3.0"
 #sidebar:
