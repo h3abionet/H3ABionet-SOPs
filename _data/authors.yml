@@ -8,7 +8,7 @@ default_author:
   twitter          : H3ABioNet
   youtube          : "https://www.youtube.com/channel/UCMYQE_GYsOKY6-j8z9N6Adw"
 
-Jenny Zadeh:
+Jenny_Zadeh:
   name: "Jenny Zadeh"
   uri: 
   email: "drnevich@illinois.edu" 
@@ -29,8 +29,7 @@ Jessica_Holmes:
   uri: 
   email: "krkptrc2@illinois.edu "
   bio: ""
-
-  avatar: 
+  avatar: "/assets/images/Jessica.jpeg"
   twitter: 
 
 Chris_Fields:
@@ -38,6 +37,6 @@ Chris_Fields:
   uri: 
   email: "cjfields@illinois.edu"
   bio: ""
-  avatar: "/assets/images/chris_avatar.jpeg"
+  avatar: "/assets/images/ChristopherJFields.png"
   twitter: "cjfields"
 

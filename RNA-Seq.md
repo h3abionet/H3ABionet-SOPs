@@ -42,10 +42,9 @@ The procedures outlined below are recommendations to the H3ABioNet groups planni
 
 
 
-
 ## Procedural steps {#procedural-steps}
 
-[This protocol paper ](http://www.nature.com/nprot/journal/v7/n3/full/nprot.2012.016.html)(Trapnell _et al. _2012) was a very good resource for understanding the procedural steps involved in any RNA-Seq analysis. The datasets they use in that paper are freely available, but the source of RNA was the fruitfly _Drosophila melanogaster_, and not Human tissue. In addition, they exclusively use the "tuxedo" suite developed in their group.
+[This protocol paper ](http://www.nature.com/nprot/journal/v7/n3/full/nprot.2012.016.html)[^1] was a very good resource for understanding the procedural steps involved in any RNA-Seq analysis. The datasets they use in that paper are freely available, but the source of RNA was the fruitfly _Drosophila melanogaster_, and not Human tissue. In addition, they exclusively use the "tuxedo" suite developed in their group.
 
 Several papers are now available that describe the steps in greater detail for preparing and analyzing RNA-Seq data, including using more recent statistical tools:
 
@@ -78,7 +77,7 @@ Tools are suggested in the protocols below.
 The following steps prepare reads for analysis and should be always performed prior to alignment.
 
 
-#### _Step 1.1: Quality check _ {#step-1-1-quality-check}
+#### Step 1.1: Quality check  {#step-1-1-quality-check}
 
 The overall quality of the sequence information received from the sequencing center will determine how the quality trimming should be set up in Step 1.2. Tools like [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) will enable the collection of this information. Sequencing facilities usually produce read files in FASTQ format, which contain a base sequence and a quality score for each base in a read. FastQC measures several metrics associated with the raw sequence data in the FASTQ file, including read length, average quality score at each sequenced base, GC content, presence of any overrepresented sequences (k-mers), and so on. The key metric to watch for is the graph representing the average quality scores (see figure 2), and the range of scores at each base along the length of the reads (reads are usually the same length at this time, and this length is the X-axis, the Y-axis has the quality scores). Note that for large projects, you may collate all of the FastQC reports by using a tool like [MultiQC](http://multiqc.info). MultiQC will generate an html file that visually summarizes these metrics across all samples, as well as provide tab-delimited files containing all the FastQC stats.
 
@@ -108,15 +107,15 @@ One tool that deals with all of these issues at once is [Trimmomatic](http://www
 **Alternative Tools:**
 
 
-    _For adaptor trimming_ - Trim_Galore, BBMap, Flexbar (Dodt _et al._ 2012) and one of the many tools [listed here](https://omictools.com/adapter-trimming-category).
+  *  _For adaptor trimming_ - Trim_Galore, BBMap, Flexbar (Dodt _et al._ 2012) and one of the many tools [listed here](https://omictools.com/adapter-trimming-category).
 
 
-    _For trimming low quality bases from the ends of reads** **_- Trim_Galore, BBMap, FASTX-Toolkit (fastq_quality_filter), PrinSeq, SolexaQA (Cox _et al._ 2010).
+  * _For trimming low quality bases from the ends of reads** **_- Trim_Galore, BBMap, FASTX-Toolkit (fastq_quality_filter), PrinSeq, SolexaQA (Cox _et al._ 2010).
 
 
-    _For removing very short reads_ - PrinSeq, Trim_Galore
+  * _For removing very short reads_ - PrinSeq, Trim_Galore
 
-**_Step 1.3: Quality recheck _**
+** Step 1.3: Quality recheck **
 
 Once the trimming step is complete, it is always good practice to make sure that your dataset looks better by rerunning FastQC on the trimmed data. The metrics to compare between trimmed and raw fastq data, in the context of the tool FastQC are listed below:
 
@@ -349,7 +348,6 @@ In any statistical test of differential expression between groups, the amount of
 
 #### _Working with Galaxy_ {#galaxy}
 
-_A note about Galaxy_
 
 If it is desirable to perform all processing in Galaxy, it should not be a problem for smaller experiments with a 1:1 comparisons between samples. For experiments with a large number of samples, and also for complex comparisons (e.g. 2x2 factorial design), Galaxy may not work as well; we instead recommend learning and using the command line tools and R/Bioconductor. However, Galaxy can be used to test parameter settings on a subset of the data, prior to switching over to command line for the whole analysis. Another issue of note, though Galaxy is quite good with data provenance,the latest versions of tools may not be available in Galaxy's Tool Shed (in particular those available in R/Bioconductor); In most cases Galaxy's excellent data provenance tracking will keep track of the versions used, so please make a note of the version numbers.  
 
@@ -368,5 +366,7 @@ The [Galaxy Tool Shed](https://toolshed.g2.bx.psu.edu) lists all tools currently
 
 
 ## References {#references}
+[^1]: Trapnell, Cole, et al. ["Differential gene and transcript expression analysis of RNA-seq experiments with TopHat and Cufflinks."](https://www.nature.com/articles/nprot.2012.016) Nature protocols 7.3 (2012): 562.
+
 
 [https://genome.ucsc.edu/ENCODE/protocols/dataStandards/RNA_standards_v1_2011_May.pdf](https://genome.ucsc.edu/ENCODE/protocols/dataStandards/RNA_standards_v1_2011_May.pdf)
