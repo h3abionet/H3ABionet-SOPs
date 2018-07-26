@@ -1,5 +1,5 @@
 ---
-layout: single 
+layout: single
 title: RNA-Seq data processing and gene expression analysis
 author: "Jenny Zadeh, Radhika Khetani, Jessica Holmes, Chris Fields"
 date: "July 4, 2018"
@@ -10,7 +10,7 @@ toc: true
 #header:
 #  image: /assets/images/H3ABioNet_high_res.png
 author_profile: true
-authors: 
+authors:
  - Jenny_Zadeh
  - Radhika_Khetani
  - Jessica_Holmes
@@ -79,7 +79,7 @@ Tools are suggested in the protocols below.
 The following steps prepare reads for analysis and should be always performed prior to alignment.
 
 
-#### _Step 1.1: Quality check _ {#step-1-1-quality-check}
+#### _Step 1.1: Quality check_ {#step-1-1-quality-check}
 
 The overall quality of the sequence information received from the sequencing center will determine how the quality trimming should be set up in Step 1.2. Tools like [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) will enable the collection of this information. Sequencing facilities usually produce read files in FASTQ format, which contain a base sequence and a quality score for each base in a read. FastQC measures several metrics associated with the raw sequence data in the FASTQ file, including read length, average quality score at each sequenced base, GC content, presence of any overrepresented sequences (k-mers), and so on. The key metric to watch for is the graph representing the average quality scores (see figure 2), and the range of scores at each base along the length of the reads (reads are usually the same length at this time, and this length is the X-axis, the Y-axis has the quality scores). Note that for large projects, you may collate all of the FastQC reports by using a tool like [MultiQC](http://multiqc.info). MultiQC will generate an html file that visually summarizes these metrics across all samples, as well as provide tab-delimited files containing all the FastQC stats.
 
@@ -117,7 +117,7 @@ One tool that deals with all of these issues at once is [Trimmomatic](http://www
 
     _For removing very short reads_ - PrinSeq, Trim_Galore
 
-**_Step 1.3: Quality recheck _**
+**_Step 1.3: Quality recheck_**
 
 Once the trimming step is complete, it is always good practice to make sure that your dataset looks better by rerunning FastQC on the trimmed data. The metrics to compare between trimmed and raw fastq data, in the context of the tool FastQC are listed below:
 
