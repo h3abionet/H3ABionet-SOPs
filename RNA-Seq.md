@@ -69,7 +69,6 @@ Tools are suggested in the protocols below.
 ---
 **Figure 1.** Steps in the Workflow.   
 
-###
 
 ![alt_text](/assets/images/RNA-Seq-Overview.png "image_tooltip")
 
@@ -138,8 +137,6 @@ Once the trimming step is complete, it is always good practice to make sure that
 ![alt_text](/assets/images/RNA-Seq-FASTQC2.png "image_tooltip")
 
 ---
-
-###
 
 
 ### _<span style="text-decoration:underline;">Phase 2: Determining how many read counts are associated with known genes</span>_ {#phase-2-determining-how-many-read-counts-are-associated-with-known-genes}
@@ -313,7 +310,6 @@ You may also find it easier to collate all of the summary data from FastQC, STAR
 Apart from FASTQC, other standard QC metrics that rely on an alignment are not available, such as Picard's tools, or a more complete assessment of read fates.  Salmon and kallisto both provide output that give basic overall statistics such and the number of reads mapped, and MultiQC can also summarize this information for all samples.
 
 
-###
 
 
 ### _<span style="text-decoration:underline;">Phase 3: Statistical analysis</span>_ {#phase-3-statistical-analysis}
@@ -350,7 +346,6 @@ The main goal of most RNA-Seq is detection of differential expression between tw
 In any statistical test of differential expression between groups, the amount of change from group to group must be evaluated by how much variation there is among the replicates of a group and how many replicates were used. These three factors, the amount of change, the amount of variation and the number of replicates are combined by the statistical test into one "p-value" which assesses the amount of evidence for differential expression. The traditional p-value cutoff of 0.05 for significance means that if you were to randomly sample two sets of replicates from the sample population 100 times, only 5 times would the value of the test statistic be larger than what you did see. This is a reasonable threshold when you only test a single gene, but in RNA-Seq you are measuring and testing thousands of genes at the same time. Therefore, some sort of adjustment of the p-values needs to be done. The most popular method is the False Discovery Rate method (Benjamimi & Hochberg, 1991), which adjusts the p-values so that the entire set of genes with values less than 0.05 is expected to contain 5% false-positives. Depending on the goals of your experiment, the FDR p-value threshold can be raised to gain more true-positives at the expense of a higher false-positive rate. However, keep in mind that the FDR correction depends on how many genes have low p-values compared with the number expected to to have low p-values and the lack of any genes with reasonably low p-values does not mean that no genes were truly changing.
 
 
-####
 
 
 #### _Working with Galaxy_ {#galaxy}
