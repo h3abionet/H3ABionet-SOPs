@@ -37,7 +37,30 @@
               {% assign active = "" %}
             {% endif %}
 
-            <li><a href="{{ child_url }}" class="{{ active }}">{{ child.title }}</a></li>
+            <li><a href="{{ child_url }}" class="{{ active }}"> <h3> {{ child.title }} <h3> </a></li>
+
+            {% if child.grandchildren != null %}
+            <ul>
+            {% for grandchild in child.grandchildren %}
+              {% comment %} internal/external URL check {% endcomment %}
+              {% if grandchild.url contains "://" %}
+                {% assign grandchild_url = grandchild.url %}
+              {% else %}
+                {% assign grandchild_url = grandchild.url | relative_url %}
+              {% endif %}
+   
+              {% comment %} set "active" class on current page {% endcomment %}
+              {% if grandchild.url == page.url %}
+                {% assign active = "active" %}
+              {% else %}
+                {% assign active = "" %}
+              {% endif %}
+
+              <li><a href="{{ grandchild_url }}" class="{{ active }}">{{ grandchild.title }}</a></li>
+            {% endfor %}
+           </ul>
+           {% endif %}
+
           {% endfor %}
         </ul>
         {% endif %}

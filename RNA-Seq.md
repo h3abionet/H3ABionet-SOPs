@@ -3,8 +3,8 @@ layout: single
 title: RNA-Seq data processing and gene expression analysis
 date: "July 4, 2018"
 version: "3.0"
-#sidebar:
-#  nav: "rnatoc"
+sidebar:
+  nav: "rnatoc"
 toc: true
 #header:
 #  image: /assets/images/H3ABioNet_high_res.png
