@@ -18,7 +18,7 @@ authors:
 
 ## Introduction {#introduction}
 
-This document briefly outlines the essential steps in the process of analyzing gene expression data using RNA sequencing (mRNA, specifically). and recommends commonly used tools and techniques for this purpose. It is assumed in this document that the experimental design is simple and that differential expression is being assessed between 2 experimental conditions, i.e. a simple 1:1 comparison, with some information about analyzing data from complex experimental designs. The focus of the SOP is on single-end strand-specific reads, however special measures to be taken for analysis of paired-end data are also briefly discussed. The recommended coverage for RNA-Seq on human samples is 30-50 million reads (single-end), with a minimum of three replicates per condition, preferably more if one can budget accordingly.  Preference is also generally given for a higher number of replicates with a lower per-sample sequence yield (15-20 million reads) if there is a tradeoff between the number of reads per sample and the total number of replicates.
+This document briefly outlines the essential steps in the process of analyzing gene expression data using RNA sequencing (mRNA, specifically), and recommends commonly used tools and techniques for this purpose. It is assumed in this document that the experimental design is simple and that differential expression is being assessed between 2 experimental conditions, i.e. a simple 1:1 comparison, with some information about analyzing data from complex experimental designs. The focus of the SOP is on single-end strand-specific reads, however special measures to be taken for analysis of paired-end data are also briefly discussed. The recommended coverage for RNA-Seq on human samples is 30-50 million reads (single-end), with a minimum of three replicates per condition, preferably more if one can budget accordingly.  Preference is also generally given for a higher number of replicates with a lower per-sample sequence yield (15-20 million reads) if there is a tradeoff between the number of reads per sample and the total number of replicates.
 
 The procedures outlined below are recommendations to the H3ABioNet groups planning to do differential gene expression analysis on human RNA-Seq data, and are not meant to be prescriptive. Our goal is to help the groups set up their procedures and workflows, and to provide an overview of the main steps involved and the tools that can be used to implement them.
 
@@ -38,13 +38,13 @@ The procedures outlined below are recommendations to the H3ABioNet groups planni
     *   FPKM - Fragments Per Kilobase per Million mapped reads (for PE data)
     *   CPM - Counts Per Million
 *   TMM
-    *   This is a type of normalization and is an acronym for "Trimmed Mean of Ms" ([Robinson and Oshlack, Genome Biology, 2010](http://genomebiology.com/2010/11/3/R25/abstract)).
+    *   This is a type of normalization and is an acronym for "Trimmed Mean of Ms"[^1]. 
 
 
 
 ## Procedural steps {#procedural-steps}
 
-[This protocol paper ](http://www.nature.com/nprot/journal/v7/n3/full/nprot.2012.016.html)[^1] was a very good resource for understanding the procedural steps involved in any RNA-Seq analysis. The datasets they use in that paper are freely available, but the source of RNA was the fruitfly _Drosophila melanogaster_, and not Human tissue. In addition, they exclusively use the "tuxedo" suite developed in their group.
+[This protocol paper ](http://www.nature.com/nprot/journal/v7/n3/full/nprot.2012.016.html)[^2] was a very good resource for understanding the procedural steps involved in any RNA-Seq analysis. The datasets they use in that paper are freely available, but the source of RNA was the fruitfly _Drosophila melanogaster_, and not Human tissue. In addition, they exclusively use the "tuxedo" suite developed in their group.
 
 Several papers are now available that describe the steps in greater detail for preparing and analyzing RNA-Seq data, including using more recent statistical tools:
 
@@ -77,24 +77,25 @@ Tools are suggested in the protocols below.
 The following steps prepare reads for analysis and should be always performed prior to alignment.
 
 
-#### Step 1.1: Quality check  {#step-1-1-quality-check}
+#### _Step 1.1: Quality check_  {#step-1-1-quality-check}
 
-The overall quality of the sequence information received from the sequencing center will determine how the quality trimming should be set up in Step 1.2. Tools like [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) will enable the collection of this information. Sequencing facilities usually produce read files in FASTQ format, which contain a base sequence and a quality score for each base in a read. FastQC measures several metrics associated with the raw sequence data in the FASTQ file, including read length, average quality score at each sequenced base, GC content, presence of any overrepresented sequences (k-mers), and so on. The key metric to watch for is the graph representing the average quality scores (see figure 2), and the range of scores at each base along the length of the reads (reads are usually the same length at this time, and this length is the X-axis, the Y-axis has the quality scores). Note that for large projects, you may collate all of the FastQC reports by using a tool like [MultiQC](http://multiqc.info). MultiQC will generate an html file that visually summarizes these metrics across all samples, as well as provide tab-delimited files containing all the FastQC stats.
+The overall quality of the sequence information received from the sequencing center will determine how the quality trimming should be set up in Step 1.2. Tools like [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) will enable the collection of this information. Sequencing facilities usually produce read files in FASTQ format, which contain a base sequence and a quality score for each base in a read. FastQC measures several metrics associated with the raw sequence data in the FASTQ file, including read length, average quality score at each sequenced base, GC content, presence of any overrepresented sequences (k-mers), and so on. The key metric to watch for is the graph representing the average quality scores (see Figure 2), and the range of scores at each base along the length of the reads (reads are usually the same length at this time, and this length is the X-axis, the Y-axis has the quality scores). Note that for large projects, you may collate all of the FastQC reports by using a tool like [MultiQC](http://multiqc.info). MultiQC will generate an html file that visually summarizes these metrics across all samples, as well as provide tab-delimited files containing all the FastQC stats.
 
-_Note: FastQC has very stringent criteria to assess whether the data "Pass" or "Fail" for a given metric it measures, so even if it looks like your data has "failed" with respect to a given metric, please read carefully about the criteria employed. In most situations a "failed" reading for multiple metrics is not a death sentence for the dataset._
+_**Note:**_ _FastQC has very stringent criteria to assess whether the data "Pass" or "Fail" for a given metric it measures, so even if it looks like your data has "failed" with respect to a given metric, please read carefully about the criteria employed. In most situations a "failed" reading for multiple metrics is not a death sentence for the dataset._
 
 
 
 ---
-**Figure 2.** Graphs generated by FastQC detailing the average quality scores across all reads at each base.  
 
-![FastQC per-base quality scores](/assets/images/RNA-Seq-FASTQC.png "image_tooltip")
+| ![FastQC per-base quality scores](/assets/images/RNA-Seq-FASTQC.png "image_tooltip") |
+| :--: | 
+| Figure 2. Graphs generated by FastQC detailing the average quality scores across all reads at each base.  | 
 
 ---
 
 #### _Step 1.2: Adaptor and Quality trimming + Removal of very short reads_ {#step-1-2-adaptor-and-quality-trimming-removal-of-very-short-reads}
 
-In this step we deal with** 3 major preprocessing steps** that clean up the data and reduce noise in the overall analysis.
+In this step we deal with _**3 major preprocessing steps**_  that clean up the data and reduce noise in the overall analysis.
 
 1.  Adaptors (glossary term) are artificial pieces of DNA introduced prior to sequencing to ensure that the DNA fragment being sequenced attaches to the sequencing flow cell. Usually these adaptors get sequenced, and have already been removed from the reads. But sometimes bits of adaptors are left behind, anywhere from 90% to 20% of the adaptor length. These need to be removed from the reads. The adaptor sequence for this step will have to be obtained from the same source as the sequence data.
 
@@ -102,20 +103,20 @@ In this step we deal with** 3 major preprocessing steps** that clean up the data
 
 3.  Once the adaptor remnants and low quality ends have been trimmed, some reads may end up being very short (i.e. <20 bases). These short reads are likely to align to multiple (wrong) locations on the reference, introducing noise. Hence any reads that are shorter than a predetermined cutoff (e.g. 20) need to be removed
 
-One tool that deals with all of these issues at once is [Trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic), though there are there are various alternatives that can perform these 3 clean up steps either combined or one after the other; these are  listed below. For data that are paired ended, it is very important to perform the trimming for both read1 and read2 simultaneously. This is because all downstream applications expect paired information, and if one of the 2 reads is lost because it is too short, then the other read becomes unpaired (orphaned) and cannot be used properly for most applications. Trimmomatic has 2 modes, one for single end data (SE) and another one for paired end data (PE). If using paired end reads, please be sure to use the PE mode with both read1 and read2 FASTQ  files for the same run.
+One tool that deals with all of these issues at once is [Trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic), though there are various alternatives that can perform these 3 clean up steps either combined or one after the other; these are  listed below. For data that are paired ended, it is very important to perform the trimming for both read1 and read2 simultaneously. This is because all downstream applications expect paired information, and if one of the 2 reads is lost because it is too short, then the other read becomes unpaired (orphaned) and cannot be used properly for most applications. Trimmomatic has 2 modes, one for single end data (SE) and another one for paired end data (PE). If using paired end reads, please be sure to use the PE mode with both read1 and read2 FASTQ  files for the same run.
 
 **Alternative Tools:**
 
 
-  *  _For adaptor trimming_ - Trim_Galore, BBMap, Flexbar (Dodt _et al._ 2012) and one of the many tools [listed here](https://omictools.com/adapter-trimming-category).
+  *  _For adaptor trimming_: Trim_Galore, BBMap, Flexbar (Dodt _et al._ 2012) and one of the many tools [listed here](https://omictools.com/adapter-trimming-category).
 
 
-  * _For trimming low quality bases from the ends of reads** **_- Trim_Galore, BBMap, FASTX-Toolkit (fastq_quality_filter), PrinSeq, SolexaQA (Cox _et al._ 2010).
+  * _For trimming low quality bases from the ends of reads_: Trim_Galore, BBMap, FASTX-Toolkit (fastq_quality_filter), PrinSeq, SolexaQA (Cox _et al._ 2010).
 
 
-  * _For removing very short reads_ - PrinSeq, Trim_Galore
+  * _For removing very short reads_: PrinSeq, Trim_Galore
 
-** Step 1.3: Quality recheck **
+#### _Step 1.3: Quality recheck_
 
 Once the trimming step is complete, it is always good practice to make sure that your dataset looks better by rerunning FastQC on the trimmed data. The metrics to compare between trimmed and raw fastq data, in the context of the tool FastQC are listed below:
 
@@ -130,11 +131,15 @@ Once the trimming step is complete, it is always good practice to make sure that
 
 
 ---
-**Figure 3.** Graphs generated by FastQC detailing the change in average base quality across all reads after trimming in an example dataset.   
 
-![FastQC average quality score before and after trimming](/assets/images/RNA-Seq-FASTQC2.png "image_tooltip")
+| ![FastQC average quality score before and after trimming](/assets/images/RNA-Seq-FASTQC2.png "image_tooltip") |
+| :--: | 
+| Figure 3. Graphs generated by FastQC detailing the change in average base quality across all reads after trimming in an example dataset. |
+
 
 ---
+
+
 
 
 ### _<span style="text-decoration:underline;">Phase 2: Determining how many read counts are associated with known genes</span>_ {#phase-2-determining-how-many-read-counts-are-associated-with-known-genes}
@@ -156,11 +161,11 @@ When performing alignments it is imperative to set up the parameters properly to
 *   Are the data made up of single-end reads or paired-end reads?
 *   Are the data stranded, if so, was the standard dUTP method employed (STAR can detect this automatically)?
 
-The other information that should be provided when setting up the alignment is the gene annotation information, a **GTF **or** GFF3** file that contains the information about the location of all the genes in the context of the reference genome (a **FASTA** file). It is very important to pick the gene annotation file that corresponds to the reference genome, i.e. the same version number and from the same source (Ensembl, UCSC or NCBI).
+The other information that should be provided when setting up the alignment is the gene annotation information, a **GTF** or **GFF3** file that contains the information about the location of all the genes in the context of the reference genome (a **FASTA** file). It is very important to pick the gene annotation file that corresponds to the reference genome, i.e. the same version number and from the same source (Ensembl, UCSC or NCBI).
 
 Note, that most all aligners require an index file to be created from the reference genome (a **FASTA** file). This helps speed up alignment drastically. For STAR, this index can be created using the "genomeGenerate" mode with or without an annotation file.
 
-Once the alignment is complete, the final result will be a file in **SAM** or **BAM** format. For a STAR run, the main alignment output will end in "Aligned.out.sam" by default, but it may also be returned in a sorted or unsorted **BAM **file. In addition, there are two log files that are returned from STAR that report the progress of the run and save a summary of the final results. There is also a splice junctions (SJ) file that details high confidence splice junctions.
+Once the alignment is complete, the final result will be a file in **SAM** or **BAM** format. For a STAR run, the main alignment output will end in "Aligned.out.sam" by default, but it may also be returned in a sorted or unsorted **BAM** file. In addition, there are two log files that are returned from STAR that report the progress of the run and save a summary of the final results. There is also a splice junctions (SJ) file that details high confidence splice junctions.
 
 
 
@@ -189,8 +194,8 @@ We recommend using featureCounts to collect the raw gene count information; this
 
 
 
-*   Different sources have slightly different formats, so it is essential to specify how the counting needs to be performed, irrespective of the counting tool employed. Gene counts should be collected for each gene ("-g" set as gene_id, for featureCounts), and at the level of the exon ("-t" set as exon, for featureCounts).
-*   Are the data stranded, if so, was the standard dUTP method employed ("-s" set as 2 for reverse, using featureCounts)?
+*   Different sources have slightly different formats, so it is essential to specify how the counting needs to be performed, irrespective of the counting tool employed. Gene counts should be collected for each gene (`-g` set as gene_id, for featureCounts), and at the level of the exon (`-t` set as exon, for featureCounts).
+*   Are the data stranded, if so, was the standard dUTP method employed (`-s` set as 2 for reverse, using featureCounts)?
 
 The final output of any of these programs is a tab-delimited file with gene names in column one and counts in the second column. featureCounts will return an additional file that ends in ".summary" that specifies the number of reads that did not map only to one gene, split into various categories. It is normal for the total sum of all the rows in this file to be higher than the number of aligned reads for a sample, because if one read maps to two locations, featureCounts will count it twice in the "Unassigned_MultiMapping" category.
 
@@ -205,7 +210,7 @@ Counts are already generated and can be skipped
 
 ##### **Protocol 1**
 
-For a given RNA-Seq run it is valuable to collect several stats related to the alignment and counting steps; this is an important step in the evaluation process. There are many tools that gather this information from the **SAM** or **BAM **output file, e.g samtools' flagstat, Picard's CollectAlignmentSummaryMetrics. However there are quirks with each reporting tool, hence it is recommended to collect this information as described in the table below.
+For a given RNA-Seq run it is valuable to collect several stats related to the alignment and counting steps; this is an important step in the evaluation process. There are many tools that gather this information from the **SAM** or **BAM** output file, e.g samtools' flagstat, Picard's CollectAlignmentSummaryMetrics. However there are quirks with each reporting tool, hence it is recommended to collect this information as described in the table below.
 
 
 <table>
@@ -366,7 +371,13 @@ The [Galaxy Tool Shed](https://toolshed.g2.bx.psu.edu) lists all tools currently
 
 
 ## References {#references}
-[^1]: Trapnell, Cole, et al. ["Differential gene and transcript expression analysis of RNA-seq experiments with TopHat and Cufflinks."](https://www.nature.com/articles/nprot.2012.016) Nature protocols 7.3 (2012): 562.
+[^1]: Robinson, Mark D., and Alicia Oshlack. ["A scaling normalization method for differential expression analysis of RNA-seq data."](https://genomebiology.biomedcentral.com/articles/10.1186/gb-2010-11-3-r25) Genome biology 11.3 (2010): R25.
+[^2]: Trapnell, Cole, et al. ["Differential gene and transcript expression analysis of RNA-seq experiments with TopHat and Cufflinks."](https://www.nature.com/articles/nprot.2012.016) Nature protocols 7.3 (2012): 562.
 
 
-[https://genome.ucsc.edu/ENCODE/protocols/dataStandards/RNA_standards_v1_2011_May.pdf](https://genome.ucsc.edu/ENCODE/protocols/dataStandards/RNA_standards_v1_2011_May.pdf)
+[^2]: [https://genome.ucsc.edu/ENCODE/protocols/dataStandards/RNA_standards_v1_2011_May.pdf](https://genome.ucsc.edu/ENCODE/protocols/dataStandards/RNA_standards_v1_2011_May.pdf)
+
+[//]: <> (These are common abbreviations in the page.)
+*[H3ABioNet]: The Bioinformatics Network within the H3Africa Consortium
+*[FASTQ]: Standard format of raw sequence data. Quality scores assigned in the FASTQ files represent the probability that a certain base was called incorrectly. These scores are encoded in various ways and it is important to know the type of encoding for a given FASTQ file.
+

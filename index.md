@@ -1,7 +1,7 @@
 ---
 layout: single
-#header:
-#  image: /assets/images/H3ABioNet_high_res.png
+header:
+  image: /assets/images/H3ABioNet_high_res.png
 author_profile: true
 authors: default_author
 ---
@@ -18,7 +18,7 @@ These SOPs were meant to help various H3ABioNet nodes in their [accreditation](h
 
 You can use the buttons at the top of the page to navigate those various SOPs, or the side panel to access the subsections within each.
 
-Feedback is also welcome! Please feel free to fork this site, open an issue or a pull request.
+Feedback is also welcome! Please feel free to [fork this repo](https://github.com/h3abionet/H3ABionet-SOPs), open an issue or a pull request.
 
 
 ## References
