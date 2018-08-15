@@ -3,6 +3,7 @@ layout: single
 title: RNA-Seq data processing and gene expression analysis
 date: "July 4, 2018"
 version: "3.0"
+classes: wide
 sidebar:
   nav: "rnatoc"
 toc: true
