@@ -1,14 +1,11 @@
 ---
-layout: single
 title: RNA-Seq data processing and gene expression analysis
-date: "July 4, 2018"
-version: "3.0"
-classes: wide
-sidebar:
-  nav: "rnatoc"
-toc: true
-#header:
-#  image: /assets/images/H3ABioNet_high_res.png
+keywords: rna-seq, ngs
+tags: [genomic_analysis]
+last_updated: July 4, 2018
+
+sidebar: rna_sidebar
+permalink: RNA-Seq.html  
 author_profile: true
 authors:
  - Jenny_Zadeh
@@ -342,5 +339,4 @@ The [Galaxy Tool Shed](https://toolshed.g2.bx.psu.edu) lists all tools currently
 [//]: <> (These are common abbreviations in the page.)
 *[H3ABioNet]: The Bioinformatics Network within the H3Africa Consortium
 *[FASTQ]: Standard format of raw sequence data. Quality scores assigned in the FASTQ files represent the probability that a certain base was called incorrectly. These scores are encoded in various ways and it is important to know the type of encoding for a given FASTQ file.
-
 

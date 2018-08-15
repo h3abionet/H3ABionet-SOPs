@@ -1,0 +1,47 @@
+
+
+entries:
+- title: sidebar 
+  product: H3ABioNet SOPs
+  version: 2018
+  folders:
+
+  - title: 
+    output: pdf
+    type: frontmatter
+    folderitems:
+    - title:
+      url: /titlepage.html
+      output: pdf
+      type: frontmatter
+    - title:
+      url: /tocpage.html
+      output: pdf
+      type: frontmatter
+
+  - title: RNA-Seq
+    output: web, pdf
+    folderitems:
+            
+    - title: Introduction 
+      url: RNA-Seq#introduction 
+      output: web, pdf
+      type: homepage
+ 
+    - title: Glossary of associated terms and jargon
+      url: RNA-Seq#glossary-of-associated-terms-and-jargon
+      output: web, pdf
+
+    - title: Procedural steps
+      url: RNA-Seq#procedural-steps
+      output: web, pdf
+
+    - title: Working with Galaxy
+      url: RNA-Seq#galaxy
+      output: web, pdf
+
+    - title: References
+      url: RNA-Seq#references
+      output: web, pdf
+
+
