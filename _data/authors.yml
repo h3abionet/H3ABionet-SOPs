@@ -10,33 +10,40 @@ default_author:
 
 Jenny_Zadeh:
   name: "Jenny Zadeh"
-  uri: 
-  email: "drnevich@illinois.edu" 
-  bio: 
-  avatar: "/assets/images/JennyDrnevichZadeh.png" 
-  twitter: 
+  uri:
+  email: "drnevich@illinois.edu"
+  bio:
+  avatar: "/assets/images/JennyDrnevichZadeh.png"
+  twitter:
 
 Radhika_Khetani:
   name: "Radhika Khetani"
-  uri: 
+  uri:
   email: "rkhetani@hsph.harvard.edu"
-  bio: 
+  bio:
   avatar: "/assets/images/radhika_avatar.jpg"
   twitter: "rs_khetani"
 
 Jessica_Holmes:
   name: "Jessica (Kirkpatrick) Holmes"
-  uri: 
+  uri:
   email: "krkptrc2@illinois.edu "
   bio: ""
   avatar: "/assets/images/Jessica.jpeg"
-  twitter: 
+  twitter:
 
 Chris_Fields:
   name: "Christopher J. Fields"
-  uri: 
+  uri:
   email: "cjfields@illinois.edu"
   bio: ""
   avatar: "/assets/images/ChristopherJFields.png"
   twitter: "cjfields"
 
+Gerrit_Botha:
+  name: "Gerrit Botha"
+  uri:
+  email: ""
+  bio:
+  avatar: "/assets/images/Gerrit_Botha.jpeg"
+  twitter:
