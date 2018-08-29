@@ -4,6 +4,7 @@ keywords: 16s rRNA, microbiome
 tags: [genomics_analysis]
 last_updated: September 17, 2014
 sidebar: 16Smicro_sidebar
+permalink: 16s-rRNA.html
 author_profile: true
 authors:
  - Gerrit_Botha
@@ -196,9 +197,10 @@ Additional statistical tests between samples or groups of samples can be done in
 <span style="text-decoration:underline;">Software</span>:  QIIME, R packages (phyloseq, ade4)
 
 
-##Appendix {#appendix}
+## Appendix
+{#appendix}
 
-####**_Tools referred to in SOP_** {#tools}
+#### **_Tools referred to in SOP_** {#tools}
 
 *   FASTQC - [http://www.bioinformatics.babraham.ac.uk/projects/fastqc](http://www.bioinformatics.babraham.ac.uk/projects/fastqc)
 *   PRINSEQ - [http://edwards.sdsu.edu/cgi-bin/prinseq/prinseq.cgi](http://edwards.sdsu.edu/cgi-bin/prinseq/prinseq.cgi)
