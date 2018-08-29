@@ -1,7 +1,7 @@
 ---
 title: RNA-Seq data processing and gene expression analysis
 keywords: rna-seq, ngs
-tags: [genomic_analysis]
+tags: [genomics_analysis]
 last_updated: July 4, 2018
 
 sidebar: rna_sidebar
