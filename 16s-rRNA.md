@@ -101,7 +101,7 @@ The SOP describes the essential steps for processing 16S rRNA gene sequences. Th
 
 **Schematic workflow of the analysis**
 
-| ![16s analysis pipeline]({{ site.baseurl }}/assets/images/16s-Overview.png "image_tooltip") |
+| ![16s analysis pipeline]({{ site.baseurl }}/assets/images/16s-overview.png "image_tooltip") |
 | :--: |
 | Figure 1. Steps in 16s Analysis Workflow |
 
