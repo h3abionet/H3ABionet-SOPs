@@ -19,7 +19,7 @@ rnatoc:
 - title: Procedural steps
   url: RNA-Seq#procedural-steps
   children:
-    - title: Phase I preprocessing of the raw reads
+    - title: Phase I Preprocessing of the raw reads
       url: RNA-Seq#phase-1-preprocessing-of-the-raw-reads
       grandchildren:
         - title: Quality check
@@ -46,3 +46,53 @@ rnatoc:
   url: RNA-Seq#galaxy
 - title: References
   url: RNA-Seq#references
+
+
+16Smicrotoc:
+- title: Introduction
+  url: 16s-rRNA/#introduction
+- title: Glossary of associated terms and jargon
+  url: 16s-rRNA/#glossary
+- title: Schematic workflow of the analysis
+  url: 16s-rRNA/#workflow
+  children:
+    - title: Phase I Preprocessing of reads
+      url: 16s-rRNA/#preprocessing
+      grandchildren:
+        - title: QC plots and stats
+          url: 16s-rRNA/#qc_plots
+        - title: Trim and filter reads
+          url: 16s-rRNA/#trim
+        - title: Paired read stitching
+          url: 16s-rRNA/#stitching
+        - title: Chimera detection
+          url: 16s-rRNA/#chimera
+    - title: Phase II OTU picking, classification and phylogenetic tree generation
+      url: 16s-rRNA/#phase2
+      grandchildren:
+        - title: OTU picking
+          url: 16s-rRNA/#otu_picking
+        - title: Classification
+          url: 16s-rRNA/#classification
+        - title: Alignment
+          url: 16s-rRNA/#alignment
+        - title: Create phylogenetic tree
+          url: 16s-rRNA/#phylogene
+    - title: Phase III Measure diversity and other statistical analysis
+      url: 16s-rRNA/#phase3
+      grandchildren:
+        - title: Determine alpha diversity
+          url: 16s-rRNA/#alpha_diversity
+        - title: Determine beta diversity
+          url: 16s-rRNA/#beta_diversity
+        - title: Other statistical analysis
+          url: 16s-rRNA/#other
+- title: Appendix
+  url: 16s-rRNA/#appendix
+  children:
+    - title: Tools referred to in SOP
+      url: 16s-rRNA/#tools
+    - title: Databases referred to in SOP
+      url: 16s-rRNA/#databases
+- title: References
+  url: 16s-rRNA/#references
