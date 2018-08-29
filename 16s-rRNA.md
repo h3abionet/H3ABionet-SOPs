@@ -50,7 +50,7 @@ The SOP describes the essential steps for processing 16S rRNA gene sequences. Th
    </td>
   </tr>
   <tr>
-   <td>OTU
+   <td>Operational Taxonomic Unit (OTU)
    </td>
    <td>An operational taxonomic unit is an operational definition of a species or group of species often used when only DNA sequence data is available.
    </td>
@@ -121,7 +121,7 @@ The first step in the data preprocessing is to check the quality of bases in all
 
 **_Trim and Filter reads_**
 
-At the 3' end of reads there are often adaptor sequences left from library preparation. These adaptor bases need to be removed, and low quality bases need to be trimmed off. Any of the indicated programs can be used for this. Bokulich et al. 2013 recommend a minimum phred quality score of 3 to trim low quality bases at the ends of the reads. Jeraldo et al. 2014 (in review) recommend trimming the 3' end of the reads with a moving average score of 15, with a window size of 4 bases and to removal of any reads shorter than 75% of the original read length. It is also recommended that reads containing ambiguous bases (N) be discarded.
+At the 3' end of reads there are often adaptor sequences left from library preparation. These adaptor bases need to be removed, and low quality bases need to be trimmed off. Any of the indicated programs can be used for this. Bokulich et al. 2013 [^1] recommend a minimum phred quality score of 3 to trim low quality bases at the ends of the reads. Jeraldo et al. 2014 (in review) recommend trimming the 3' end of the reads with a moving average score of 15, with a window size of 4 bases and to removal of any reads shorter than 75% of the original read length. It is also recommended that reads containing ambiguous bases (N) be discarded.
 
 <span style="text-decoration:underline;">Software</span>: Trimmomatic, PRINSEQ, SolexaQA
 
@@ -203,7 +203,8 @@ Additional statistical tests between samples or groups of samples can be done in
 
 **References**
 
-*   Bokulich NA, Subramanian S, Faith JJ, Gevers D, Gordon JI, et al. (2013) Quality-filtering vastly improves diversity estimates from Illumina amplicon sequencing. Nat Methods 10: 57–59. doi: 10.1038/nmeth.2276
+[^1]:  Bokulich NA, Subramanian S, Faith JJ, Gevers D, Gordon JI, et al. (2013) Quality-filtering vastly improves diversity estimates from Illumina amplicon sequencing. Nat Methods 10: 57–59. doi: 10.1038/nmeth.2276
+
 *   Edgar RC, Haas BJ, Clemente JC, Quince C, Knight R (2011) UCHIME improves sensitivity and speed of chimera detection. Bioinformatics 27: 2194-2200. doi: 10.1093/bioinformatics/btr381
 *   Quince C, Lanzen A, Curtis TP, Davenport RJ, Hall N, Head IM, Read LF, Sloan WT: Accurate determination of microbial diversity from 454 pyrosequencing data. Nat Methods 2009, 6:639-641.
 
@@ -242,3 +243,9 @@ Additional statistical tests between samples or groups of samples can be done in
 *   RDP classifier - [http://rdp.cme.msu.edu/](http://rdp.cme.msu.edu/)
 
 <!-- GD2md-html version 1.0β11 -->
+
+[//]: <> (Below are the common abbreviations in the page.)
+*[SOPs]: Standard Operating Procedures
+*[16S rRNA]: 16S ribosomal RNA
+*[OTU]: Operational Taxonomic Unit
+*[Q score]: Phred Quality score, a measure of sequencing accuracy.
