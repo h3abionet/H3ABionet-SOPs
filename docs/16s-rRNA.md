@@ -197,7 +197,7 @@ Additional statistical tests between samples or groups of samples can be done in
 <span style="text-decoration:underline;">Software</span>:  QIIME, R packages (phyloseq, ade4)
 
 
-## Appendix
+## Appendix 
 {#appendix}
 
 #### **_Tools referred to in SOP_** {#tools}

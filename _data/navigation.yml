@@ -2,10 +2,10 @@
 main:
    #  - title: "About"
    #    url: https://h3abionet.org/tools-and-resources/sops
-  - title: "Human Variant calling"
-    url: /Variant-Calling/
-  - title: "Genome Wide Association Studies"
-    url: /GWAS/
+  # - title: "Human Variant calling"
+  #   url: /Variant-Calling/
+  # - title: "Genome Wide Association Studies"
+  #   url: /GWAS/
   - title: "RNA Sequencing Data Analysis"
     url: /RNA-Seq/
   - title: "16S Diversity analysis"

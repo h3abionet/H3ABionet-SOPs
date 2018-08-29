@@ -12,25 +12,25 @@ topnav_dropdowns:
   folders:
     - title: Genomic Analyses 
       folderitems:
-        - title: Human variant calling 
-          url: Variant-Calling 
-        - title: Genome Wide Association Studies
-          url: GWAS
+        # - title: Human variant calling 
+        #   url: Variant-Calling 
+        # - title: Genome Wide Association Studies
+        #   url: GWAS
         - title: RNA Sequencing data analysis
           url: RNA-Seq.html
         - title: 16S Diversity analysis 
           url: 16s-rRNA 
 
-    - title: Data governance
-      folderitems:
-        - title: tst1 
-          url: some_url
-        - title: tst2
-          url: some_url
-        - title: tst3
-          url: some_url
+    # - title: Data governance
+    #   folderitems:
+    #     - title: tst1 
+    #       url: some_url
+    #     - title: tst2
+    #       url: some_url
+    #     - title: tst3
+    #       url: some_url
 
-    - title: Software development
-      folderitems:
-      - title: tst
-        url: some_url
+    # - title: Software development
+    #   folderitems:
+    #   - title: tst
+    #     url: some_url
