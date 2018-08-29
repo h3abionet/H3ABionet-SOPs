@@ -133,7 +133,7 @@ When the combined length of reads sequenced from both ends of DNA fragments is l
 
 **_Chimera detection_**
 
-Chimeras are artifacts of PCR. These are formed during PCR cycles by the joining of two or more different parent DNA templates. If these chimeras are not removed they may be recognized as novel sequences during the alignment process and therefore mislead interpretation. At present there are no tools that can remove chimeras completely without throwing away non-chimeric sequences. Of the various tools available, UCHIME was found to perform better than ChimeraSlayer, which was the best program to detect chimeras before UCHIME was developed (Edgar et al. 2011). To remove chimeras from 454 sequences Perseus can also be used (Quince et al. 2011).
+Chimeras are artifacts of PCR. These are formed during PCR cycles by the joining of two or more different parent DNA templates. If these chimeras are not removed they may be recognized as novel sequences during the alignment process and therefore mislead interpretation. At present there are no tools that can remove chimeras completely without throwing away non-chimeric sequences. Of the various tools available, UCHIME was found to perform better than ChimeraSlayer, which was the best program to detect chimeras before UCHIME was developed[^2]. To remove chimeras from 454 sequences Perseus can also be used[^3].
 
 <span style="text-decoration:underline;">Software</span>: UCHIME, ChimeraSlayer, Perseus
 
@@ -175,7 +175,7 @@ An alternate option to most of the steps mentioned in phase 1 and phase 2 is to 
 
 **Phase 3: Measure diversity and other statistical analysis**
 
-** **
+
 
 OTU information (number of OTUs, abundance of OTUs) and the phylogenetic tree generated from the phase 2 is utilized to estimate diversity within and between samples. Additional statistical analysis to test the significance of the diversities can also be done.
 
@@ -203,10 +203,11 @@ Additional statistical tests between samples or groups of samples can be done in
 
 **References**
 
-[^1]:  Bokulich NA, Subramanian S, Faith JJ, Gevers D, Gordon JI, et al. (2013) Quality-filtering vastly improves diversity estimates from Illumina amplicon sequencing. Nat Methods 10: 57–59. doi: 10.1038/nmeth.2276
+[^1]: Bokulich, Nicholas A., et al. ["Quality-filtering vastly improves diversity estimates from Illumina amplicon sequencing."](https://www.nature.com/articles/nmeth.2276) Nature methods 10.1 (2013): 57.
 
-*   Edgar RC, Haas BJ, Clemente JC, Quince C, Knight R (2011) UCHIME improves sensitivity and speed of chimera detection. Bioinformatics 27: 2194-2200. doi: 10.1093/bioinformatics/btr381
-*   Quince C, Lanzen A, Curtis TP, Davenport RJ, Hall N, Head IM, Read LF, Sloan WT: Accurate determination of microbial diversity from 454 pyrosequencing data. Nat Methods 2009, 6:639-641.
+[^2]:  Edgar, Robert C., et al. ["UCHIME improves sensitivity and speed of chimera detection."](https://academic.oup.com/bioinformatics/article/27/16/2194/255262) Bioinformatics 27.16 (2011): 2194-2200.
+
+[^3]: Quince, Christopher, et al. ["Accurate determination of microbial diversity from 454 pyrosequencing data."](https://www.nature.com/articles/nmeth.1361) Nature methods 6.9 (2009): 639.
 
 **Appendix**
 
@@ -249,3 +250,4 @@ Additional statistical tests between samples or groups of samples can be done in
 *[16S rRNA]: 16S ribosomal RNA
 *[OTU]: Operational Taxonomic Unit
 *[Q score]: Phred Quality score, a measure of sequencing accuracy.
+*[PCR]: 
