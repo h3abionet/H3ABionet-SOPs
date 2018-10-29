@@ -370,7 +370,7 @@ This is useful information for making predictions for the clients and collaborat
 The following questions relate specifically to the phases denoted above.
 
 
-#### PHASE I - Preprocessing of the raw reads
+#### PHASE 1 - Preprocessing of the raw reads
 
 
 *   What percentage of the reads were removed during the quality trimming step?
@@ -378,7 +378,7 @@ The following questions relate specifically to the phases denoted above.
 *   What tools were used for assessing quality of the reads?
 
 
-#### PHASE II - Determining how many read counts are associated with known genes
+#### PHASE 2 - Determining how many read counts are associated with known genes
 
 _Alignment and generation of gene/transcript counts_
 
@@ -393,25 +393,25 @@ _Pseudoalignment-based methods_
 *   How do counts between the two methods (alignment vs. pseudoalignment) compare?
 
 
-#### PHASE III - Initial differential gene expression analysis
+#### PHASE 3 - Initial differential gene expression analysis
 
 *   Describe the normalization methods used for both statistical analysis and visualizations and why the methods were selected.
 *   During the initial stages of analysis, do experimental samples cluster as expected i.e. based on the experimental conditions? What other information can be gained from sample clustering?
 *   Which statistical methods and options did you pick and why?
 *   Which filtering method/s did you use for filtering out the low expressed genes/ transcripts?
+*   What would be the next steps for your analysis, given the results of Phase 3?
 
+#### Questions on additional analyses
 
-#### Additional analyses
+Additional downstream tertiary analyses are very commonly performed using RNA-Seq data, for example gene set enrichment, isoform analysis, surrogate variables analysis, or weighted gene coexpression network analysis.  As these are highly dependent on the data available and the results (particularly from differential expression analysis), we do not cover them in detail, and thus **these are not currently part of the accreditation exercise**.
 
-Though not specifically covered above, additional downstream analyses are very commonly performed using RNA-Seq data, for example gene set enrichment, isoform analysis, surrogate variables analysis, or weighted gene coexpression network analysis.  The following questions are not comprehensive but are meant to convey what should be considered when performing these.
+Nodes are more than welcome to attempt these, however.  Should these be attempted, the following questions (though not comprehensive) may help guide what is expected regarding reporting of results.
 
-
-*   How many read counts are found to be associated with known, novel genes and transcripts that differentially expressed between your sample groups? How is this influenced by your choice of software, reference genome version and annotation, and parameters?
-*   What method/s did you use for the identification of alternative splicing and why? Provide splice variants with list of exons associated with each isoform.
-*   Where did you get additional annotation information on the genes (i.e., gene names, symbols, GO terms, KEGG pathways) and when was that resource last updated?
-*   What is the impact of the experiment on biological pathways and processes?, i.e.  how many Gene Ontology (GO) terms were found to be over-represented within differentially expressed genes?
-*   What would be the next steps for your analysis, given this information?
-*   Were methods used to adjust for potentially unknown factors in your analysis, such as unknown confounding variables?  If so, how did this influence your results?
+*   *Alternative reference genomes* - How does changing the reference genome and annotation used influence your final results, choice of software, and parameters?
+*   *Isoform analysis* - What method/s did you use for the identification of alternative splicing and why? Provide splice variants with list of exons associated with each isoform.
+*   *Pathway annotation source* - Where did you get additional annotation information on the genes (i.e., gene names, symbols, GO terms, KEGG pathways) and when was that resource last updated?
+*   *General pathway analyses* - What is the impact of the experiment on biological pathways and processes?, i.e.  how many Gene Ontology (GO) terms were found to be over-represented within differentially expressed genes?
+*   *Assessing for unknown signals in analyses* - Were methods used to adjust for potentially unknown factors in your analysis, such as unknown confounding variables?  If so, how did this influence your results?
 
 ## References {#references}
 [^1]: Robinson, Mark D., and Alicia Oshlack. ["A scaling normalization method for differential expression analysis of RNA-seq data."](https://genomebiology.biomedcentral.com/articles/10.1186/gb-2010-11-3-r25) Genome biology 11.3 (2010): R25.
