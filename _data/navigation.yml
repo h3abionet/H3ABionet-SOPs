@@ -4,12 +4,13 @@ main:
    #    url: https://h3abionet.org/tools-and-resources/sops
   # - title: "Human Variant calling"
   #   url: /Variant-Calling/
-  # - title: "Genome Wide Association Studies"
-  #   url: /GWAS/
+  - title: "Genome Wide Association Studies"
+    url: /GWAS/
   - title: "RNA Sequencing Data Analysis"
     url: /RNA-Seq/
   - title: "16S Diversity analysis"
     url: /16s-rRNA/
+
 
 rnatoc:
 - title: Introduction
@@ -96,3 +97,20 @@ rnatoc:
       url: 16s-rRNA/#databases
 - title: References
   url: 16s-rRNA/#references
+
+
+gwastoc:
+- title: Introduction
+  url: GWAS#introduction
+- title: Genotype calling
+  url: GWAS#callling
+- title: Sources of errors
+  url: GWAS#errors
+- title: Calling  quality
+  url: GWAS#quality
+- title: Quality control
+  url: GWAS#qc
+- title: Association Study
+  url: GWAS#assoc
+- title: References
+  url: GWAS#ref

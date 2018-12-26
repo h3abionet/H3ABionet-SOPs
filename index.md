@@ -10,7 +10,7 @@ This website hosts the Standard Operating Procedures (SOPs) for common data anal
 
 
 * Human Variant calling
-* Genome Wide Association Studies
+* [Genome Wide Association Studies](./GWAS/) 
 * [Gene expression analysis using RNA-Seq](./RNA-Seq/)
 * [16s microbiome analysis](./16s-rRNA/)
 

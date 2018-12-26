@@ -47,3 +47,17 @@ Gerrit_Botha:
   bio:
   avatar: "/assets/images/Gerrit_Botha.jpeg"
   twitter:
+
+
+Scott_Hazelhurst:
+  name: "Scott Hazelhurst"
+  uri:	"http://dept.ee.wits.ac.za/~scott"
+  email: "scott.hazelhurst@wits.ac.za"
+  avatar: "/assets/images/scottdhead.jpg"
+  twitter: shazeZA
+
+
+Segun_Fatumo:
+  name: "Segun Fatumo"
+  email: segunfatumo@gmail.com
+
