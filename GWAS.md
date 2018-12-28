@@ -20,7 +20,7 @@ GWAS is a key workflow of the H3A. Our recommended approach to SOP is shown belo
 
 While this SOP is designed for bioinformaticists doing the GWAS analysis once the data is ready, we recommend that it be studied thoroughly to help plan the entire process. This GWAS is written as a general guide for bioinformaticists, and in particular to assist groups undertaking H3ABioNet accreditation, both to prepare for and do the accreditation exercisde.
 
-*Disclaimer: * Although we hope this SP is educational and will help groups learn to do GWAS, it is not meant as a tutorial or a complete checklist. *Groups undertaking accreditation should realise that accreditation is undertaking by an independent international evaluation committee*
+*Disclaimer: * Although we hope this SP is educational and will help groups learn to do GWAS, it is not meant as a tutorial or a complete checklist. *Groups undertaking accreditation should realise that accreditation is undertaking by an independent international evaluation committee, and while they will have regard to the SOP, they make their decision at their own discretion.*
 
 
 
@@ -102,11 +102,9 @@ These can be measured per sample or per SNP.  Good graphs to look at are _call r
 
 If biological replicates have been included in your study (a good idea), the concordance between these replicates should be examined as these will give good empirical evidence of thquality of genotyping. Similarly, if there are big differences in genoyping for biological replicates, these may indicate problems in sample handling.
 
-## Quality control
+## Quality control {#qc}
 
 The following should be checked in the QC process:
-
-## Missingness
 
 * Missingness 
   * Missingness at the SNP-level. SNPs with high missingness should be removed. Usually this is set at the 1-2% level. (PLINK `--geno` option)
@@ -235,6 +233,16 @@ A common strategy is to genotype a subset of the samples on a high coverage arra
 ###Meta analyses
 
 
-## References
+## References {#ref}
+
+
+* Highland et al, 2018. Quality Control Analysis of Add Health GWAS Data. https://www.cpc.unc.edu/projects/addhealth/documentation/guides/AH_GWAS_QC.pdf    (Example of a good QC)
+
+
+* Illumina Inc, 2014. Infinium Genotyping Data Analysis. https://www.illumina.com/Documents/products/technotes//technote_infinium_genotyping_data_analysis.pdf
+
+
 
 * Turner et al. [Quality Control Procedures for Genome Wide Association Studies](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3066182/). _Current Protoclols in Human Genetics_, 2011,
+
+* Zeggini and Morris 2010. Analysis of Complex Disease Association Studies: A Practical Guide. Academic Press.
