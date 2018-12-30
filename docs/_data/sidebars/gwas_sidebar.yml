@@ -1,0 +1,120 @@
+# This is the sidebar TOC for the GWAS page. Only 2 level nesting is allowable in this theme!
+
+entries:
+- title: sidebar
+  product: GWAS SOP
+  version: 2.0
+  folders:
+   
+  - title:
+    output: pdf
+    type: frontmatter
+    folderitems:
+    - title:
+      url: /titlepage.html
+      output: pdf
+      type: frontmatter
+    - title:
+      url: /tocpage.html
+      output: pdf
+      type: frontmatter
+     
+  - title: Introduction 
+    output: web, pdf
+    folderitems:
+        #    - title: Introduction
+        #      url: GWAS#introduction 
+        #      output: web, pdf 
+    - title: Tool and file format
+      url: GWAS#tools-file-format
+      output: web, pdf
+    - title: Glossary of associated terms and jargon
+      url: GWAS#glossary-of-associated-terms-and-jargon
+      output: web, pdf
+          
+  - title: Genotype calling 
+    output: web, pdf
+    folderitems:
+    - title: Genotype calling
+      url: GWAS#calling
+      output: web, pdf
+
+  - title: Sources of error
+    output: web, pdf
+    folderitems: 
+    - title: Plate Level errors 
+      url: GWAS#plate-errors
+      output: web, pdf
+    - title: Batch level errors
+      url: GWAS#batch-errors
+      output: web, pdf
+    - title: Site level errors
+      url: GWAS#site-errors
+      output: web, pdf
+    - title: Case/control or phenotype  differences
+      url: GWAS#case-control-errors
+      output: web, pdf
+    - title: Population structure
+      url: GWAS#population-structure
+      output: web, pdf
+    - title: Random errors 
+      url: GWAS#random-errors
+      output: web, pdf
+     
+  - title: Calling quality 
+    output: web, pdf
+    folderitems:
+    - title: Calling quality 
+      url: GWAS#quality
+      output: web, pdf
+  
+  - title: Quality control 
+    output: web, pdf
+    folderitems:
+    - title: Strand errors
+      url: GWAS#strand-errors
+      output: web, pdf
+    - title: Build errors
+      url: GWAS#build-errors
+      output: web, pdf
+    - title: Merging data from different genotype experiments
+      url: GWAS#merging-data
+      output: web, pdf
+   
+  - title: Association Study 
+    output: web, pdf
+    folderitems:
+    - title: Population stratification 
+      url: GWAS#strafication
+      output: web, pdf
+    - title: Autosomal, X, Y and MT SNPs
+      url: GWAS#snps
+      output: web, pdf
+    - title: Association testing for single locus
+      url: GWAS#single-locus
+      output: web, pdf
+    - title: Multiple testing 
+      url: GWAS#multiple-testing
+      output: web, pdf
+    - title: Covariates
+      url: GWAS#covariates
+      output: web, pdf
+    - title: Imputation
+      url: GWAS#imputation
+      output: web, pdf
+    - title: Multi-locus testing
+      url: GWAS#multi-locus-testing
+      output: web, pdf
+    - title: Replication
+      url: GWAS#replication
+      output: web, pdf
+    - title: Meta analyses
+      url: GWAS#meta-analyses
+      output: web, pdf
+
+  - title: References
+    output: web, pdf
+    folderitems:
+    - title: Used references
+      url: GWAS#references
+      output: web, pdf

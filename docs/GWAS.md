@@ -1,13 +1,11 @@
 ---
-layout: single
 title: H3ABionet GWAS SOP
-date: "23 December 2018"
-version: "2.0"
-classes: wide
-sidebar:
-  nav: "gwastoc"
-permalink: GWAS.html
-toc: true
+keywords: GWAS, population structure, association testing 
+tags: [genomics_analysis]
+last_updated: December 23, 2018 
+
+sidebar: gwas_sidebar
+permalink: GWAS.html  
 author_profile: true
 authors:
  - Scott_Hazelhurst
@@ -24,7 +22,7 @@ While this SOP is designed for bioinformaticists doing the GWAS analysis once th
 
 
 
-### Tool and file format
+### Tool and file format {#tools-file-format}
 This SOP assumes that is that much data is in the binary format used by the PLINK software suite. However, this is not mean to say that PLINK is the only or even best tool to be used.  The PLINK binary format (hereafter referred to as bped) encodes a dataset as a set of three files, with the following suffixes to their names:
 
 * .bed: this is the binary genotype data, stored as 2 bits per genotype per sample
@@ -58,27 +56,27 @@ Effort should be made to detect and eliminate any such problems.
 
 Problems may occur randomly but there may also be due to non-random effects. For examples, a problem with a particular consignment of reagents may make two or three days' worth of DNA extraction unreliable. The better record keeping there is of samples, the easier it is to work out problems. Particular considerations are.
 
-### Plate Level errors
+### Plate Level errors {#plate-errors}
 
 Currently (2019), samples are processed in batches of 96 wells (8x12), with one sample per well.  Comparative QC should be done across the plates according to the QC parameters described below. If an entire plate is found to be found to behave poorly, it should be removed. 
 
-### Batch level
+### Batch level {#batch-errors}
 
 A batch is a set of samples that are processed together. Ideally for consistency, all samples would be processed at the same   time (collected, DNA extraction, genotyping) but for any real study this is not practical. As an example, in one H3A project, the samples were divided into four roughly equal batches, each batch corresponding to one campaign of DNA extractions. Batches 1-3 were shipped together to the genotyping centre and genotyped, and about 6 months later Batch 4 was shipped and genotyped. In this case, the group had to compare the four batches with each other and compare batch 1-3 with batch 4.
 
 There may be different ways of dividing samples into batches (e.g. by recruitment stratum, when DNA extracted etc).
 
-### Site level
+### Site level {#site-errors}
 
 If participants are recruited in different places, differences may occur due to the way in which samples are handled at these places.
 
-### Case/control or phenotype  differences
+### Case/control or phenotype  differences {#case-control-errors}
 
 Of course, the whole purpose of a GWAS is to discover genetic differences between cases and controls. However, in a well designed study it very highly unlikely that the condition or disease of interest will cause observable differences at the genomic level. If there are overall genomic differences then this is most probably due to the way in which participants were sampled or the different processes in which DNA was extracted or genotyped. For example, a study might recruit 3000 cases and use results from a matched cohort for controls. As different people/labs might be responsible for collection and processing, even if indentical arrays are used and genotyping is done at the same centre, there may be systemic errors.
 
 One useful phenotype to use for QC is sex. For many studies, it would not be expected that in the autosomal SNPs that there are differences at the genomic ldevel. 
 
-### Population structure
+### Population structure {#population-structure}
 
 As discussed later, population structure is a potential confounding factor. This may also make QC more difficult. In a highly homogeneous sample, one would not expect there to be significant genomic level difference between plates (e.g., when doing a PC analysis). However, in a large multi-country project with diverse ancestries, this would not be unexpected. This is especially because unless a deliberate effort is made to randomise (which may be not be practical) it is likely that bacthes of samples from the same site are likely to be processed close to each other.
 
@@ -86,7 +84,7 @@ A particular concern in a study with population structure is if the number of ca
 
 
 
-### Random errors
+### Random errors {#random-errors}
 
 Many errors will be due to random effects at either the SNP or individual level. The systematic errors above are often detected by comparing groups of things with each other, while random effects are usually detected using some experiment-wide cut-off
 
@@ -143,17 +141,17 @@ The following should be checked in the QC process:
   Chromosomal abnormalities such as aneuploidy or long stretches of homozygosity should be tested for and the causes identified. These cases should be examined with a geneticist to determined possible causes and decide whether the sample should be removed.
 
 
-### Strand errors
+### Strand errors {#strand-errors}
 
 As a byproduct of the genotyping technology, and the annotation data that accompanies the chips, SNP data from both Illumina and Affymetrix platforms may be reported as the allele on either the “forward” or “reverse” strand. Although the information to orient these calls properly is contained within the annotation data, conversion from the native format to PLINK format can be tricky, and errors will not be evident in “ambiguous” A­T/G­C SNPs. Therefore it is prudent to check that the alleles reported in the bim file match the known alleles in dbSNP or on the Ensembl genome browser. Another easy check is to identify the control samples that are often included in the dataset (eg samples from HapMap) and compare these to their known genotypes.
 
 This is a particular problem when you will be merging your data with other sets.
 
 
-### Build errors
+### Build errors {#build-errors}
 
 
-### Merging data from different genotype experiments
+### Merging data from different genotype experiments {#merging-data}
 
 
 
@@ -170,7 +168,7 @@ Some steps below may be repeat QC steps mentioned above. If QC has been done tho
 
 
 
-### Population stratification
+### Population stratification {#strafication}
 Population stratification refers to structure within the sample group that is the result of systematic genetic differences between individuals that correlate with the phenotypic data. This could result in allele frequency differences that are due to ancestral proportion differences between cases and controls being mistaken for an association with the phenotype.
 
 Population structure be can used
@@ -195,12 +193,12 @@ Different types and levels of structure can be observed. At one extreme, samplin
 
 
 
-### Autosomal, X, Y and MT SNPs
+### Autosomal, X, Y and MT SNPs {#snps}
 
 Many GWASes only consider the haploid chromosomes and so only autosomal SNP are considered.
 
  
-### Association testing for single locus 
+### Association testing for single locus  {#single-locus}
 
 The most common tests are single locus testing. Most GWAS tools provide multiple tests and insight into your biological question is needed. For example, if it is known that the disease being studied is recessive or dominant the correct variation on the association test can be used
 
@@ -210,30 +208,30 @@ Some of the approaches are
 * mixed models approaches (e.g., GEMMA, BOLTLMM) which 
 
 
-### Multiple testing
+### Multiple testing {#multiple-testing}
 
 Multiple testing should be dealt with, for example using Bonferroni correction or permuation testing.
 
-### Covariates
+### Covariates {#covariates}
 
 Covariates include population structure, sex, smoking , age, socio-economic status. How to handle covariates is complex. Crudely there are two types of covariates:
 * confounding covariates where not including the co-variate may cause false signals. Population structure is a good example of  this. These are often covariates which mediate the genomic background (like population structure)
 * covariates where not taking them into account will hide signals
 
-### Imputation
+### Imputation {#imputation}
 
 Imputation can be done in two modes -- first, one can use imputation just to fill in missing genotypes. Second, imputation can be done to impute values for as many postions as pssoble
 
-### Multi-locus testing
+### Multi-locus testing {#multi-locus-testing}
 
-### Replication
+### Replication {#replication}
 The relatively low power of most GWAS designs means that a substantial number of false positives can be expected to be generated, so validation via replication in an independent population is an important part of most studies.
 A common strategy is to genotype a subset of the samples on a high coverage array, and then follow up with targeted genotyping of markers that appear interesting, on a larger number of samples
 
-###Meta analyses
+### Meta analyses {#meta-analyses}
 
 
-## References {#ref}
+## References {#references}
 
 
 * Highland et al, 2018. Quality Control Analysis of Add Health GWAS Data. https://www.cpc.unc.edu/projects/addhealth/documentation/guides/AH_GWAS_QC.pdf    (Example of a good QC)
