@@ -1,21 +1,3 @@
----
-layout: single
-title: RNA-Seq data processing and gene expression analysis
-date: "July 4, 2018"
-version: "3.0"
-classes: wide
-sidebar:
-  nav: "rnatoc"
-toc: true
-#header:
-#  image: /assets/images/H3ABioNet_high_res.png
-author_profile: true
-authors:
- - Jenny_Zadeh
- - Radhika_Khetani
- - Jessica_Holmes
- - Chris_Fields
----
 
 ## Introduction {#introduction}
 
