@@ -1,9 +1,0 @@
-a few hints:
-
-- To add emphasis on warning blocks:
-{: .notice-warning}  // hint from: https://mmistakes.github.io/minimal-mistakes/docs/utility-classes/
-
-- Dropdown menu:
-https://www.taniarascia.com/responsive-dropdown-navigation-bar/
-https://gist.github.com/alunward/0223f16985f778d2bb7df8f605404146
-
