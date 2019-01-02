@@ -6,6 +6,7 @@ last_updated: July 4, 2018
 summary: "This document outlines the essential steps in the process of analyzing gene expression data using RNA sequencing (mRNA, specifically), under simple experimental design between 2 conditions. "
 sidebar: rna_sidebar
 permalink: RNA-Seq.html  
+folder: genomics_analysis/RNA-Seq
 author_profile: true
 authors:
  - Jenny_Zadeh

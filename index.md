@@ -13,10 +13,10 @@ permalink: index.html
 This website hosts the Standard Operating Procedures (SOPs) for common data analysis tasks within the [H3ABioNet](https://h3abionet.org/) consortium, which are:
 
 
-* Human Variant calling
-* Genome Wide Association Studies
-* [Gene expression analysis using RNA-Seq](./RNA-Seq/)
-* 16s microbiome analysis
+* [Human Variant calling](./Variant-Calling)
+* [Genome Wide Association Studies](./GWAS)
+* [Gene expression analysis using RNA-Seq](./RNA-Seq)
+* [16s microbiome analysis](./16s-rRNA)
 
 These SOPs were meant to help various H3ABioNet nodes in their [accreditation](https://h3abionet.org/tools-and-resources/sops) [^1].
 

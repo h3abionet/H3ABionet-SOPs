@@ -12,7 +12,7 @@ site_title: H3ABioNet Standard Operating Procedures
 company_name: H3ABioNet 
 # this appears in the footer
 
-github_editme_path: h3abionet/H3ABionet-SOPs/tree/master
+github_editme_path: h3abionet/H3ABionet-SOPs/tree/master/
 # if you're using Github, provide the basepath to the branch you've created for reviews, following the sample here. if not, leave this value blank.
 
 disqus_shortname: 

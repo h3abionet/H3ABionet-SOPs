@@ -6,6 +6,7 @@ last_updated: Fall, 2018
 summary: "This document briefly outlines the essential steps in calling short germline variants, and recommends tools that have gained community acceptance for this purpose."
 sidebar: varcall_sidebar
 permalink: Variant-Calling.html
+folder: genomics_analysis/Variant-Calling
 author_profile: true
 authors:
  - Azza_Ahmed

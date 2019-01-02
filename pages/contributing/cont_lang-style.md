@@ -6,6 +6,7 @@ last_updated: 1 2, 2019
 summary: "This page describes a few language tips for authoring content on this site" 
 sidebar: cont_sidebar
 permalink: cont_lang-style.html  
+folder: contributing
 author_profile: true
 authors:
  - Azza_Ahmed 

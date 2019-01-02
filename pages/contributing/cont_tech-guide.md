@@ -6,6 +6,7 @@ last_updated: 1 2, 2019
 summary: "This page describes a few technical tips for authoring content on this site" 
 sidebar: cont_sidebar
 permalink: cont_tech-guide.html  
+folder: contributing
 author_profile: true
 authors:
  - Azza_Ahmed 
@@ -29,7 +30,10 @@ Thank you for your interest in contributing to this effort! These SOPs are publi
 
 <div markdown="span" class="alert alert-success" role="alert"><i class="fa fa-check-square-o"></i> <b>Tip: </b> This site is built using [Jekyll](https://jekyllrb.com/) and hosted on [github pages](https://pages.github.com/). A complete and detailed coverage of the Jekyll theme used for building this site, the Documentation theme, is available [here](https://idratherbewriting.com/documentation-theme-jekyll/). </div>
 
-- To add ad-hoc pages, just place the markdown file in the root directory. Add a frontmatter similar to this at top (or copy-paste and modify the contents of the file `template_frontmatter.md`). Your content should follow.
+- Format your content in markdown (the theme uses the `kramdown` flavour), and place your markdown file within the `pages` folder. If you have been working with Google docs, then the [GD2md-html Google Docs add-on](https://github.com/evbacher/gd2md-html/wiki) can do the conversion efficiently. If your content is lenghthy, then you may wish to split it up for more managable navigation.
+
+- Append appropriate frontmatter to the top of your markdown. Below is a generic example, that you may copy-paste from the file [`template_frontmatter.md`](https://github.com/h3abionet/H3ABionet-SOPs/blob/master/template_frontmatter.md) as well.
+
 
 ```
 
@@ -42,9 +46,10 @@ summary: <summary of the page if desired>
 sidebar: <The *.yml navigation file in _data/sidebars (see below for details)> 
 hide_sidebar: true #Use this if you don't wish to include a sidebar. Otherwise, the default sops_sidebar.yml will appear
 permalink: <the same name as your file, with .html extension>
+folder: <the name of the folder within the pages directory that contains your markdown content>
 author_profile: true # if you wish to add authors details
 authors:
- - <list of authors, whose names are in the authors.yml file>
+ - <list of authors, whose details are in the authors.yml file>
 ---
 
 <Your intended page content, formatted in markdown. >

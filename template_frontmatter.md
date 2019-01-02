@@ -6,6 +6,7 @@ last_updated: Month day, year
 summary: "some useful summary to appear in your page"
 sidebar: sops_sidebar
 permalink: template_frontmatter.html  
+folder: folder within the pages directory
 author_profile: true
 authors:
  - Jenny_Zadeh

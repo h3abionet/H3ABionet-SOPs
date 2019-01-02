@@ -6,6 +6,7 @@ last_updated: September 17, 2014
 summary: "This document briefly outlines the processing of 16s rRNA data, and provides guidance to key concepts and terms used"
 sidebar: 16Smicro_sidebar
 permalink: 16s-rRNA.html
+folder: genomics_analysis/16s-rRNA/
 author_profile: true
 authors:
  - Gerrit_Botha
