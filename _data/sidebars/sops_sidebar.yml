@@ -1,0 +1,43 @@
+
+
+entries:
+- title: sidebar 
+  product: name of SOP
+  version: 2 
+  folders:
+
+  - title: 
+    output: pdf
+    type: frontmatter
+    folderitems:
+    - title:
+      url: /titlepage.html
+      output: pdf
+      type: frontmatter
+    - title:
+      url: /tocpage.html
+      output: pdf
+      type: frontmatter
+
+  - title: SOP name 
+    output: web, pdf
+    folderitems:
+            
+    - title: Introduction 
+      url: frontmatter#introduction 
+      output: web, pdf
+      type: homepage
+ 
+    - title: Glossary of associated terms and jargon
+      url: frontmatter#glossary-of-associated-terms-and-jargon
+      output: web, pdf
+
+    - title: Procedural steps
+      url: frontmatter#procedural-steps
+      output: web, pdf
+
+    - title: References
+      url: frontmatter#references
+      output: web, pdf
+
+
