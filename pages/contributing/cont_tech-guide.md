@@ -20,10 +20,49 @@ Thank you for your interest in contributing to this effort! These SOPs are publi
 
 ## Project tree {#tree} 
 
+Below is a tree of key files and folders within this site that would need editing for adding new content. This is a simplistic tree to suggest where to place content, and is not meant to help with functional changes to the theme itself.
 
+``` bash
+.
+├── _config.yml          #Specific site configurations
+├── index.md             #Main landing page of the site
+├── authors.yml          #Contact details for authors- inactive now
+├── README.md            #Github readme file
+├── template_frontmatter.md   #Sample page frontmatter file
+├── pages                     #Folder of site pages, arranged per the top navigation bar categories
+│   ├── genomics_analysis
+│   │   ├── 16s-rRNA
+│   │   │   └── 16s-rRNA.md
+│   │   └── Variant-Calling
+│   │       └── Variant-Calling.md
+│   └── tags                 #Folder of all tags in all pages
+│       ├── tag_documentation.md
+│       └── tag_genomics_analysis.md
+├── _data
+│   ├── sidebars            #Folder of all sidebars in the site
+│   │   ├── sops_sidebar.yml
+│   │   └── varcall_sidebar.yml
+│   ├── tags.yml            #File of all tags present in the site
+│   └── topnav.yml          #File of top navigation contents
+├── assets
+│   └── images
+│       ├── 16s-overview.png
+│       ├── author1_image.png
+│       ├── author2_image.jpeg
+│       └── VarCall.png
+├── pdf
+│   └── mydoc.pdf
+├── pdfconfigs
+│   ├── config_mydoc_pdf.yml
+│   ├── prince-list.txt
+│   ├── titlepage.html
+│   └── tocpage.html
+└── pdf-mydoc.sh 
+```
 ## Road map {#road-map}
-[] Add authors' contact details next to the pages they contribute to
 
+- Add authors' contact details next to the pages they contribute to
+- Generate pdf files of the SOPs
 
 ## Tips for contributing new content: {#handy-tips}
 
@@ -52,7 +91,7 @@ authors:
  - <list of authors, whose details are in the authors.yml file>
 ---
 
-<Your intended page content, formatted in markdown. >
+<Your intended page content, formatted in kramdown. >
 
 ```
 
