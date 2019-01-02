@@ -106,7 +106,7 @@ The Genome Analysis Toolkit (GATK) distributed by the Broad Institute of Harvard
 <p id="gdcalert1" > </</p>
 
 
-![alt_text](images/VarCall-NGS-StandardOperatingProcedures-H3ABioNet0.png "image_tooltip")
+![alt_text](assets/images/VarCall.png "image_tooltip")
  \
 Figure 1: Steps in the variant calling workflow.
 
