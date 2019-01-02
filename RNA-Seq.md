@@ -3,7 +3,7 @@ title: RNA-Seq data processing and gene expression analysis
 keywords: rna-seq, ngs
 tags: [genomics_analysis]
 last_updated: July 4, 2018
-
+summary: "This document outlines the essential steps in the process of analyzing gene expression data using RNA sequencing (mRNA, specifically), under simple experimental design between 2 conditions. "
 sidebar: rna_sidebar
 permalink: RNA-Seq.html  
 author_profile: true

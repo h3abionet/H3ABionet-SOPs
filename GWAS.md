@@ -3,7 +3,7 @@ title: GWAS data processing
 keywords: GWAS, population structure, association testing 
 tags: [genomics_analysis]
 last_updated: December 23, 2018 
-
+summary: "This SOP is intended to layout best practices for GWAS data processing, especially for groups undertaking H3ABioNet accreditation exercises"
 sidebar: gwas_sidebar
 permalink: GWAS.html  
 author_profile: true

@@ -3,7 +3,7 @@ title: Variant calling in human whole genome/exome sequencing data
 keywords: wgs, wes, ngs
 tags: [genomics_analysis]
 last_updated: Fall, 2018
-
+summary: "This document briefly outlines the essential steps in calling short germline variants, and recommends tools that have gained community acceptance for this purpose."
 sidebar: varcall_sidebar
 permalink: Variant-Calling.html
 author_profile: true
