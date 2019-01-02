@@ -47,3 +47,22 @@ sidebar: sops_sidebar
 ```
 
 - For top navigation, simply edit the file: `_data/topnav.yml`
+
+- To insert special boxes to your page: warning, note, tip, info, ... etc, you may use the following `div`s in your markdown:
+
+|**Type**         | **class** |
+| --------------- | -----------
+| tip             | '<div class="alert alert-success" role="alert"><i class="fa fa-check-square-o"></i> <b>Tip: </b>'
+| note            | '<div class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i> <b>Note: </b>'
+| important       | '<div class="alert alert-warning" role="alert"><i class="fa fa-warning"></i> <b>Important: </b>'
+| warning         | '<div class="alert alert-danger" role="alert"><i class="fa fa-exclamation-circle"></i> <b>Warning: </b>'end: '</div>'
+| callout_danger  | '<div class="bs-callout bs-callout-danger">'
+| callout_default | '<div class="bs-callout bs-callout-default">'
+| callout_primary | '<div class="bs-callout bs-callout-primary">'
+| callout_success | '<div class="bs-callout bs-callout-success">'
+| callout_info    | '<div class="bs-callout bs-callout-info">'
+| callout_warning | '<div class="bs-callout bs-callout-warning">'
+| hr_faded        | '<hr class="faded"/>'
+| hr_shaded       | '<hr class="shaded"/>'
+
+

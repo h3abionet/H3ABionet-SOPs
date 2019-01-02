@@ -249,13 +249,9 @@ wget -r ftp://gsapubftp-anonymous@ftp.broadinstitute.org/bundle/b37
 ### Alphabetized list of recommended tools {#alphabetized-list-of-recommended-tools}
 
  
-
-
-{: .notice-warning} 
-Using Galaxy
-If it is desirable to perform all processing in Galaxy 52, then it is possible to construct a complete workflow by including the needed tools from its toolshed. The majority of the tools below can be found in the toolshed and incorporated readily. A complete coverage is beyond the scope of this SOP, and hence, the interested reader is referred to the galaxy project site for more details (https://galaxyproject.org/ )
-
-
+<div markdown="span" class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i> <b>Note on Galaxy:</b> 
+If it is desirable to perform all processing in Galaxy <sup><a href="">52</a></sup>, then it is possible to construct a complete workflow by including the needed tools from its toolshed. The majority of the tools below can be found in the toolshed and incorporated readily. A complete coverage is beyond the scope of this SOP, and hence, the interested reader is referred to the galaxy project site for more details (https://galaxyproject.org/ )
+</div>
 
 
 
@@ -289,10 +285,7 @@ perl annotate_variation.pl -downdb 1000g humandb/
 perl annotate_variation.pl -filter -dbtype 1000g_ceu example/ex1.human humandb/
 ```
 
-
-
-Note: By default, all the above commands work on variants files in hg18 (human genome NCBI build 36) coordinate. If your file is in hg19 coordinate, add "-buildver hg19" in every command.
-
+<div markdown="span" class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i> <b>Note:</b>  By default, all the above commands work on variants files in hg18 (human genome NCBI build 36) coordinate. If your file is in hg19 coordinate, add "-buildver hg19" in every command. </div>
  
 
 
