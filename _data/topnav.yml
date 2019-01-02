@@ -20,17 +20,17 @@ topnav_dropdowns:
           url: RNA-Seq
         - title: 16S Diversity analysis 
           url: 16s-rRNA 
+    - title: Contributing 
+      folderitems:
+        - title: Technical Guide
+          url: cont_tech-guide
+        - title: Language & Style
+          url: cont_lang-style
 
-    # - title: Data governance
-    #   folderitems:
-    #     - title: tst1 
-    #       url: some_url
-    #     - title: tst2
-    #       url: some_url
-    #     - title: tst3
-    #       url: some_url
+  #   - title:  
+  #     folderitems:
+  #      - title: 
+  #        url: 
+  #      - title: 
+  #        url: 
 
-    # - title: Software development
-    #   folderitems:
-    #   - title: tst
-    #     url: some_url

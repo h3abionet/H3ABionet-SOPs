@@ -9,8 +9,7 @@ Thank you for your interest in contributing to this effort! These SOPs are publi
 # Documentation
 
 # Road map (milestones we like to eventually achieve)
-
-# PRs
+[] Add authors' contact details next to the pages they contribute to
 
 # Changelog <probably this should go elsewhere?>
 

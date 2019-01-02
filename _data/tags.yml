@@ -5,3 +5,5 @@ allowed-tags:
   - genomics_analysis
   - data_governance
   - software_development
+  - documentation
+  - formatting

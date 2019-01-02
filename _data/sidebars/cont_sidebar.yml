@@ -1,0 +1,48 @@
+
+
+entries:
+- title: sidebar 
+  product: Contribution Guide
+  version: 1.0
+  folders:
+
+  - title: 
+    output: pdf
+    type: frontmatter
+    folderitems:
+    - title:
+      url: /titlepage.html
+      output: pdf
+      type: frontmatter
+    - title:
+      url: /tocpage.html
+      output: pdf
+      type: frontmatter
+
+  - title: Technical Guide 
+    output: web, pdf
+    folderitems:
+    - title: Overview 
+      url:  cont_tech-guide#overview
+      output: web, pdf
+    - title: Project tree
+      url: cont_tech-guide#tree
+      output: web, pdf
+    - title: Road map
+      url: cont_tech-guide#road-map
+      output: web, pdf
+    - title: Handy tips
+      url: cont_tech-guide#handy-tips
+      output: web, pdf
+    - title: Changelog
+      url: cont_tech-guide#changelog
+      output: web, pdf
+
+  - title: Language & Style
+    output: web, pdf
+    folderitems:
+    - title: Handy tips
+      url: cont_lang-style#tips
+      output: web, pdf
+ 
+
