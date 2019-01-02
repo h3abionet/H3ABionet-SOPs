@@ -1,6 +1,6 @@
 # How to contribute
 
-Thank you for your interest in contributing to this effort! This SOP is published openly with the aim of helping the greater bioinformatics community, so we love to recieve contributions. There are many ways to do so, from reporting typos, issues, suggesting content, ... etc.
+Thank you for your interest in contributing to this effort! These SOPs are published openly with the aim of helping the greater bioinformatics community, so we love to recieve contributions. There are many ways to do so, from reporting typos, issues, suggesting content, ... etc.
 
  To make it easier, we created this guide- let's dive in!
 
@@ -14,11 +14,11 @@ Thank you for your interest in contributing to this effort! This SOP is publishe
 
 # Changelog <probably this should go elsewhere?>
 
-# Where to start/ Project organization:
+# Tips for contributing new content: 
 
-(Specific for the documentation theme. This is a quick guide adopted from https://idratherbewriting.com/documentation-theme-jekyll/)
+(This is a quick guide adopted from https://idratherbewriting.com/documentation-theme-jekyll/)
 
-- To add ad-hoc pages, just place the markdown file in the root directory. Add a frontmatter similar to this at top (or copy-paste and modify the contents of the file `frontmatter.md`). Your content should follow.
+- To add ad-hoc pages, just place the markdown file in the root directory. Add a frontmatter similar to this at top (or copy-paste and modify the contents of the file `template_frontmatter.md`). Your content should follow.
 
 ```
 

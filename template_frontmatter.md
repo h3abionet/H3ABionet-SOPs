@@ -1,11 +1,11 @@
 ---
 title: Title of your page- will appear at the browser window 
 keywords: keywords 
-tags: [tags]
-last_updated: Winter, 2019
-
+tags: [comma seperated list of tags]
+last_updated: Month day, year
+summary: "some useful summary to appear in your page"
 sidebar: sops_sidebar
-permalink: frontmatter.html  
+permalink: template_frontmatter.html  
 author_profile: true
 authors:
  - Jenny_Zadeh

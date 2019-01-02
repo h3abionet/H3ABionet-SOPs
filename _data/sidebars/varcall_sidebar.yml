@@ -29,6 +29,7 @@ entries:
       output: web, pdf
     - title: Important note
       url: VarCall#important-note
+      output: web,pdf
 
   - title: Procedural steps
     url: VarCall#procedural-steps

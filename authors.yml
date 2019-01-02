@@ -54,10 +54,43 @@ Scott_Hazelhurst:
   uri:	"http://dept.ee.wits.ac.za/~scott"
   email: "scott.hazelhurst@wits.ac.za"
   avatar: "/assets/images/scottdhead.jpg"
-  twitter: shazeZA
+  twitter: "shazeZA"
 
 
 Segun_Fatumo:
   name: "Segun Fatumo"
-  email: segunfatumo@gmail.com
+  email: "segunfatumo@gmail.com"
+
+Azza_Ahmed:
+   name: "Azza E Ahmed"
+   uri:
+   email:
+   bio: ""
+   avatar:
+   twitter:
+
+Matthew_Weber:
+   name: "Mathewe Weber"
+   uri:
+   email: 
+   bio: ""
+   avatar:
+   twitter:
+
+Faisal_Fadlelmola:
+   name: "Faisal M Fadlelmola"
+   uri:
+   email:
+   bio: ""
+   avatar:
+   twitter:
+
+Luidmila_Mainzer:
+   name: "Luidmila S Mainzer"
+   uri:
+   email:
+   bio: ""
+   avatar:
+   twitter:
+
 
