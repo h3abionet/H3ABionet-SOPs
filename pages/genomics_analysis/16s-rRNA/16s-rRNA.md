@@ -95,6 +95,12 @@ The SOP describes the essential steps for processing 16S rRNA gene sequences. Th
    <td>Beta diversity distance metric based on the phylogenetic distance between the members of communities/samples. Unifrac captures the total amount of evolution that is unique to each sample.
    </td>
   </tr>
+  <tr>
+   <td>ASV
+   </td>
+   <td>Amplicon sequence variance
+   </td>
+  </tr>
 </table>
 
 ### Schematic workflow of the analysis {#workflow}
@@ -102,10 +108,6 @@ The SOP describes the essential steps for processing 16S rRNA gene sequences. Th
 | ![16s analysis pipeline]({{ site.baseurl }}/assets/images/16s-overview.png "image_tooltip") |
 | :--: |
 | Figure 1. Steps in 16s Analysis Workflow |
-
-
-
-
 
 ## Phase 1: Preprocessing of reads {#preprocessing}
 
@@ -119,11 +121,11 @@ _Output_: high quality reads ready for OTU picking
 
 The first step in the data preprocessing is to check the quality of bases in all the reads. Once we understand the quality spectrum of the reads, we can decide on the parameters for trimming low quality bases. If the raw reads are not demultiplexed, demultiplexing should be performed before proceeding to the next step. Illumina's CASAVA or QIIME tools can perform the demultiplexing task.
 
-<span style="text-decoration:underline;">Software</span>: FASTQC, PRINSEQ, SolexaQA
+<span style="text-decoration:underline;">Software</span>: FASTQC, MutliQC, PRINSEQ, SolexaQA
 
 ### **_Trim and Filter reads_** {#trim}
 
-At the 3' end of reads there are often adaptor sequences left from library preparation. These adaptor bases need to be removed, and low quality bases need to be trimmed off. Any of the indicated programs can be used for this. Bokulich et al. 2013 [^1] recommend a minimum phred quality score of 3 to trim low quality bases at the ends of the reads. Jeraldo et al. 2014 (in review) recommend trimming the 3' end of the reads with a moving average score of 15, with a window size of 4 bases and to removal of any reads shorter than 75% of the original read length. It is also recommended that reads containing ambiguous bases (N) be discarded.
+Data received from sequencing facilities might still contain sequencing artefacts and would therefor need to be removed or reads need to be filtered. For example at the 3' end of reads there are often adaptor sequences left from library preparation. These adaptor bases need to be removed, and low quality bases need to be trimmed off. Any of the indicated programs can be used for this. Bokulich et al. 2013 [^1] recommend a minimum phred quality score of 3 to trim low quality bases at the ends of the reads. Jeraldo et al. 2014 (in review) recommend trimming the 3' end of the reads with a moving average score of 15, with a window size of 4 bases and to removal of any reads shorter than 75% of the original read length. It is also recommended that reads containing ambiguous bases (N) be discarded.
 
 <span style="text-decoration:underline;">Software</span>: Trimmomatic, PRINSEQ, SolexaQA
 
@@ -139,10 +141,6 @@ Chimeras are artifacts of PCR. These are formed during PCR cycles by the joining
 
 <span style="text-decoration:underline;">Software</span>: UCHIME, ChimeraSlayer, Perseus
 
-
-
-
-
 ## Phase 2: OTU picking, classification and phylogenetic tree generation {#phase2}
 
 During this phase reads are processed so that comparisons between samples can be made. The first step is to cluster reads based on similarity into OTUs and to select a representative sequence for each OTU. Each OTU is then classified by comparison to a reference database and a phylogeny inference is made based on sequence alignment and the construction of a phylogenetic tree.
@@ -156,6 +154,12 @@ _Output_: OTUs, representative sequences, OTU table with classification and abun
 OTU picking is the clustering of the preprocessed reads into OTUs. The clusters are formed based on sequence identity. The identity threshold can be defined by the user. Sequences that are more than 97% identical are conventionally assumed to be derived from the same bacterial species/OTU. Other identity percentages can be used, depending on the granularity of the desired clusters and the known divergence in 16S sequences of the OTUs of interest. Three approaches for OTU picking exist. 1) de novo OTU picking groups sequences based on levels of pairwise sequence identity; 2) closed reference OTU picking aligns and groups sequences relative to a reference database, and sequences that are not >97% identical to a known reference are discarded 3) open-reference OTU picking starts with alignment to a reference database, but if the read does not match a known sequence it is not discarded but sent for de novo OTU picking. After the sequences have been clustered into OTUs and counted to estimate OTU abundance, a representative sequence is picked for each OTU. Each OTU is therefore represented by a single sequence and this will speed up downstream analysis. There are multiple choices to select a representative sequence. It can be the first sequence, the longest sequence, the seed sequence used in OTU picking, the most abundant sequence or a random sequence.
 
 <span style="text-decoration:underline;">Software</span>: UPARSE, QIIME
+
+### **_ASV prediction_** {#asv_prediction}
+
+Exact ASV prediction prove to be a good alternative to OTU picking (Callahan, B. J. et al 2016 [^4]). The process infers sample sequences exactly and resolve differences to as little as one nucleotide sequences. This approach allows for more accurate taxonomic classification and has additional benefits such as the reuse of previously processed sample ASVs in future projects (Callahan, B. J. et al 2017 [^5]). DADA2 is an R package that contains a complete pipeline read processing, ASV prediction and classification. QIIME2 has a DADA2 interface though there might be limitations on what settings can be configured when running through QIIME2 and not natively through R.
+
+<span style="text-decoration:underline;">Software</span>: DADA2, QIIME2
 
 ### **_Classification_** {#classification}
 
@@ -179,13 +183,7 @@ The phylogenetic tree represents the relationship between the sequences in terms
 
 An alternate option to most of the steps mentioned in phase 1 and phase 2 is to run IM-TORNADO (Jeraldo et al. 2014 in review). IM-TORNADO is an integrated pipeline that takes demultiplexed reads and trims low quality bases, does paired read stitching, removes chimeras and generates OTU table, phylogenetic tree and assigns taxonomy. Unique feature of IM-TORNADO is that it can analyze paired reads that do not overlap. Non-overlapping paired reads are typically generated from non-overlapping variable regions of 16S rRNA. Such studies try to utilize information in two variable regions instead of one variable region as in any standard 16S rRNA study to define OTUs.
 
-
-
-
-
 ## **Phase 3: Measure diversity and other statistical analysis** {#phase3}
-
-
 
 OTU information (number of OTUs, abundance of OTUs) and the phylogenetic tree generated from the phase 2 is utilized to estimate diversity within and between samples. Additional statistical analysis to test the significance of the diversities can also be done.
 
@@ -199,7 +197,7 @@ Alpha diversity is a measure of diversity within a sample. It gives an indicatio
 
 <span style="text-decoration:underline;">Software</span>:  mothur, QIIME
 
-### **_Determine beta diversity_** {#beta_diversity}
+### **_Determine beta diversity_** {#beta_diversity}that there is on using the free version of usearch
 
 Beta diversity is a measure of diversity between samples. One of the most commonly used metrics is the Unifrac distance that compares samples using phylogenetic information. An all-by all or pairwise matrix of the beta diversity metrics between all the samples in the study is generated and can be visualized in different ways such as a tree, graph, network etc. Mothur and QIIME have several tools to generate distance metrics, phylogenetic trees and PCoA plots.
 
@@ -211,15 +209,17 @@ Additional statistical tests between samples or groups of samples can be done in
 
 <span style="text-decoration:underline;">Software</span>:  QIIME, R packages (phyloseq, ade4)
 
+## Additional notes
+ In the SOP we refer both to QIIME and QIIME2. QIIME2 is more of a platform / command line interface than the original QIIME that contained a set of Python wrapper scripts. The QIIME developers suggest migrating to QIIME2.
 
-
-
+ vsearch is an open source alternative to usearch and our testing showed that it performs equally well on the H3ABioNet test dataset. There is no 64 bit memory limitation when using vsearch.
 
 ## Appendices {#appendices}
 
 ### **_Tools referred to in SOP_** {#tools}
 
 *   FASTQC - [http://www.bioinformatics.babraham.ac.uk/projects/fastqc](http://www.bioinformatics.babraham.ac.uk/projects/fastqc)
+*   MultiQC - [https://multiqc.info/](https://multiqc.info/)
 *   PRINSEQ - [http://edwards.sdsu.edu/cgi-bin/prinseq/prinseq.cgi](http://edwards.sdsu.edu/cgi-bin/prinseq/prinseq.cgi)
 *   SolexaQA - [http://www.biomedcentral.com/1471-2105/11/485](http://www.biomedcentral.com/1471-2105/11/485)
 *   PEAR - [http://bioinformatics.oxfordjournals.org/content/early/2013/10/18/bioinformatics.btt593.full.pdf](http://bioinformatics.oxfordjournals.org/content/early/2013/10/18/bioinformatics.btt593.full.pdf)
@@ -229,6 +229,7 @@ Additional statistical tests between samples or groups of samples can be done in
 *   ChimeraSlayer - [http://nebc.nox.ac.uk/bioinformatics/docs/chimeraslayer.html](http://nebc.nox.ac.uk/bioinformatics/docs/chimeraslayer.html)
 *   Perseus - [http://www.biomedcentral.com/1471-2105/12/38/](http://www.biomedcentral.com/1471-2105/12/38/)
 *   UPARSE - [http://www.drive5.com/uparse/](http://www.drive5.com/uparse/)
+*   vsearch = [https://github.com/torognes/vsearch](https://github.com/torognes/vsearch)
 *   UCLUST - [http://www.drive5.com/uclust/downloads1_2_22q.html](http://www.drive5.com/uclust/downloads1_2_22q.html)
 *   RDP classifier - [http://sourceforge.net/projects/rdp-classifier/files/rdp-classifier/](http://sourceforge.net/projects/rdp-classifier/files/rdp-classifier/)
 *   RTAX - [https://github.com/davidsoergel/rtax](https://github.com/davidsoergel/rtax)
@@ -238,10 +239,12 @@ Additional statistical tests between samples or groups of samples can be done in
 *   IM-TORNADO - [http://sourceforge.net/projects/imtornado/](http://sourceforge.net/projects/imtornado/)
 *   Mothur - [http://www.mothur.org/](http://www.mothur.org/)
 *   QIIME - [http://qiime.org/](http://qiime.org/)
+*   QIIME2 - [https://qiime2.org/](https://qiime2.org/)
 *   UNIFRAC - [http://bmf.colorado.edu/unifrac/](http://bmf.colorado.edu/unifrac/)
 *   R packages
     *   phyloseq - [http://www.bioconductor.org/packages/release/bioc/html/phyloseq.html](http://www.bioconductor.org/packages/release/bioc/html/phyloseq.html)
     *   ade4 - [http://cran.r-project.org/web/packages/ade4/index.html](http://cran.r-project.org/web/packages/ade4/index.html)
+    *   DADA2 - [https://benjjneb.github.io/dada2](https://benjjneb.github.io/dada2)
 
 ### **_Databases referred to in SOP_** {#databases}
 
@@ -249,16 +252,12 @@ Additional statistical tests between samples or groups of samples can be done in
 *   Greengenes - [http://greengenes.lbl.gov/](http://greengenes.lbl.gov/)
 *   RDP classifier - [http://rdp.cme.msu.edu/](http://rdp.cme.msu.edu/)
 
-
-
-
-
 ## H3ABioNet Assessment exercises
- 
+
 ### Practice dataset {#practice_dataset}
 The input datasets and metadata can be accessed [here](http://h3data.cbio.uct.ac.za/assessments/16SrRNADiversityAnalysis/practice).
 
-### Input data assessment Questions {#input-assessment-questions} 
+### Input data assessment Questions {#input-assessment-questions}
 
 * Were the number, length and quality of the reads obtained in line with what would be expected for the sequencing platform used?
 * Was the input dataset of sufficiently good quality to perform the analysis?
@@ -295,10 +294,6 @@ This is useful information for making predictions for the clients and collaborat
 * When groups of samples were compared (e.g. treatment 1 vs. treatment 2) based on distance metrics, such as unifrac, was there any particular clustering pattern observed?	 	 	
 * Were 	any of the OTUs significantly correlated to any of the treatments or other metadata?
 
-
-
-
-
 ## **References** {#references}
 
 [^1]: Bokulich, Nicholas A., et al. ["Quality-filtering vastly improves diversity estimates from Illumina amplicon sequencing."](https://www.nature.com/articles/nmeth.2276) Nature methods 10.1 (2013): 57.
@@ -306,6 +301,10 @@ This is useful information for making predictions for the clients and collaborat
 [^2]:  Edgar, Robert C., et al. ["UCHIME improves sensitivity and speed of chimera detection."](https://academic.oup.com/bioinformatics/article/27/16/2194/255262) Bioinformatics 27.16 (2011): 2194-2200.
 
 [^3]: Quince, Christopher, et al. ["Accurate determination of microbial diversity from 454 pyrosequencing data."](https://www.nature.com/articles/nmeth.1361) Nature methods 6.9 (2009): 639.
+
+[^4]: Callahan, B. J., et al. ["DADA2: High-resolution sample inference from Illumina amplicon data."](https://www.nature.com/articles/nmeth.3869) Nature methods, 13.7 (2016), 581-3.
+
+[^5]: Callahan, B. J., et al. ["Exact sequence variants should replace operational taxonomic units in marker-gene data analysis."](https://www.nature.com/articles/ismej2017119) The ISME journal, 11(12), 2639-2643.
 
 
 [//]: <> (Below are the common abbreviations in the page.)
