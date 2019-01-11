@@ -197,7 +197,7 @@ Alpha diversity is a measure of diversity within a sample. It gives an indicatio
 
 <span style="text-decoration:underline;">Software</span>:  mothur, QIIME
 
-### **_Determine beta diversity_** {#beta_diversity}that there is on using the free version of usearch
+### **_Determine beta diversity_** {#beta_diversity}
 
 Beta diversity is a measure of diversity between samples. One of the most commonly used metrics is the Unifrac distance that compares samples using phylogenetic information. An all-by all or pairwise matrix of the beta diversity metrics between all the samples in the study is generated and can be visualized in different ways such as a tree, graph, network etc. Mothur and QIIME have several tools to generate distance metrics, phylogenetic trees and PCoA plots.
 
