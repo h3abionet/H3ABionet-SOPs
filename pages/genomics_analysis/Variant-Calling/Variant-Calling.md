@@ -112,31 +112,31 @@ The Genome Analysis Toolkit (GATK) distributed by the Broad Institute of Harvard
 Figure 1: Steps in the variant calling workflow.
 
 
-## Procedural steps {#procedural-steps}
+### Procedural steps {#procedural-steps}
 
 The publication by <sup><a href="http://f1000.com/work/citation?ids=476159&pre=&suf=&sa=0">11</a></sup> provides a good discussion of the common tools and approaches for variant calling. Also see the older <sup><a href="http://f1000.com/work/citation?ids=163053&pre=&suf=&sa=0">12</a></sup> .
 
 
-### Phase 1: Preprocessing of the raw reads {#phase-1-preprocessing-of-the-raw-reads}
+## Phase 1: Preprocessing of the raw reads {#phase-1-preprocessing-of-the-raw-reads}
 
 The following steps prepare reads for analysis and must be performed in sequence.
 
  
 
 
-#### _Step 1.1: Adaptor trimming_ {#step-1-1-adaptor-trimming}
+### _Step 1.1: Adaptor trimming_ {#step-1-1-adaptor-trimming}
 
 Sequencing facilities usually produce read files in fastq format <sup><a href="http://f1000.com/work/citation?ids=396544&pre=&suf=&sa=0">13</a></sup>, which contain a base sequence and a quality score for each base in a read. Usually the adaptor sequences have already been removed from the reads, but sometimes bits of adapters are left behind, anywhere from 90% to 20% of the adaptor length. These need to be removed from the reads. This can be done using your own script based on a sliding window algorithm. A number of tools will also perform this operation: Trimmomatic<sup><a href="http://f1000.com/work/citation?ids=63413&pre=&suf=&sa=0">14</a></sup>,  Fastx-toolkit (fastx_clipper), Bioconductor (ShortRead package), Flexbar <sup><a href="http://f1000.com/work/citation?ids=2310122&pre=&suf=&sa=0">15</a></sup>, as well as a number of tools listed on BioScholar <sup><a href="http://f1000.com/work/citation?ids=3856235&pre=&suf=&sa=0">16</a></sup>  and Omics tools <sup><a href="http://f1000.com/work/citation?ids=3856234&pre=&suf=&sa=0">17</a></sup> databases.
 
 Selection of the tool to use depends on the amount of adaptor sequence leftover in the data. This can be assessed manually by grepping for parts of known adaptor sequences on the command line.
 
 
-#### _Step 1.2: Quality trimming_ {#step-1-2-quality-trimming}
+### _Step 1.2: Quality trimming_ {#step-1-2-quality-trimming}
 
 Once the adaptors have been trimmed, it is useful to inspect the quality of reads in bulk, and try to trim low quality nucleotides <sup><a href="http://f1000.com/work/citation?ids=396608&pre=&suf=&sa=0">18</a></sup>. Also, frequently the quality tends to drop off toward one end of the read. FASTQC <sup><a href="http://f1000.com/work/citation?ids=2912288&pre=&suf=&sa=0">19</a></sup> and PrinSeq <sup><a href="http://f1000.com/work/citation?ids=1434650&pre=&suf=&sa=0">20</a></sup> will show that very nicely . These read ends with low average quality can then be trimmed, if desired, using Trimmomatic <sup><a href="http://f1000.com/work/citation?ids=63413&pre=&suf=&sa=0">14</a></sup>, FASTX-Toolkit fastq_quality_filter, PrinSeq, or SolexaQA <sup><a href="http://f1000.com/work/citation?ids=1432281&pre=&suf=&sa=0">21</a></sup>.
 
 
-#### _Step 1.3: Removal of very short reads_ {#step-1-3-removal-of-very-short-reads}
+### _Step 1.3: Removal of very short reads_ {#step-1-3-removal-of-very-short-reads}
 
 Once the adaptor remnants and low quality ends have been trimmed, some reads may end up being very short (i.e. <20 bases). These short reads are likely to align to multiple (wrong) locations on the reference, introducing noise into the variation calls. They can be removed using PrinSeq, Trimmomatic (using the MINLEN option), or a simple in-house script. Minimum acceptable read length should be chosen based on the length of sequencing fragment: longer for longer fragments, shorter for shorter ones – it is a matter of some experimentation with the data.
 
@@ -145,11 +145,11 @@ The three pre-processing steps above can be parallelized by chunking the initial
  
 
 
-### Phase 2: Initial variant discovery {#phase-2-initial-variant-discovery}
+## Phase 2: Initial variant discovery {#phase-2-initial-variant-discovery}
 
 Analysis proceeds as a series of the following sequential steps.
 
- _Step 2.1 Alignment_
+### _Step 2.1 Alignment_ {#step-2-1-alignment}
 
 Reads need to be aligned to the reference genome in order to identify the similar and polymorphic regions in the sample. As of 2016, the GATK team recommends their b37 bundle as the standard reference for Whole Exome and Whole Genome Sequencing analyses pending the completion of the GRcH38/Hg38 bundle <sup><a href="http://f1000.com/work/citation?ids=3860499&pre=&suf=&sa=0">22</a></sup>. However, the 2018 functional equivalence specifications recommends the GRCh38DH from the 1000 Genomes project <sup><a href="http://f1000.com/work/citation?ids=5243366&pre=&suf=&sa=0">9</a></sup>. Either way, a number of aligners can perform the alignment task. 
 
@@ -158,13 +158,13 @@ Among these, BWA MEM <sup><a href="http://f1000.com/work/citation?ids=3860509&pr
 The output file is usually in a binary BAM format <sup><a href="http://f1000.com/work/citation?ids=48787&pre=&suf=&sa=0">27</a></sup>, still taking tens or hundreds of Gigabytes of hard disk space. The alignment step tends to be I/O intensive, so it is useful to place the reference onto an SDD, as opposed to HDD, to speed up the process. The alignment can be easily parallelized by chunking the data into subsets of reads and aligning each subset independently, then combining the results.
 
 
-#### _Step 2.2: De-duplication_ {#step-2-2-de-duplication}
+### _Step 2.2: De-duplication_ {#step-2-2-de-duplication}
 
 The presence of duplicate reads in a sequencing project is a notorious problem. The causes are discussed in a blog post by Eric Vallabh Minikel (2012) <sup><a href="http://f1000.com/work/citation?ids=3856248&pre=&suf=&sa=0">28</a></sup>. Duplicately sequenced molecules should not be counted as additional evidence for or against a putative variant – they must be removed prior to the analysis. A number of tools can be used including: samblaster <sup><a href="http://f1000.com/work/citation?ids=791611&pre=&suf=&sa=0">29</a></sup>, sambamba <sup><a href="http://f1000.com/work/citation?ids=791612&pre=&suf=&sa=0">30</a></sup>, the commercial novosort from the novocraft suit <sup><a href="http://f1000.com/work/citation?ids=3860494&pre=&suf=&sa=0">31</a></sup>, Picard, and FASTX-Toolkit has fastx_collapser for this purpose.  Additionally, MarkDuplicates is shipped as part of GATK4, but is called from Picard tools <sup><a href="http://f1000.com/work/citation?ids=3860492&pre=&suf=&sa=0">32</a></sup> in older GATK releases. For functional equivalence <sup><a href="http://f1000.com/work/citation?ids=5243366&pre=&suf=&sa=0">9</a></sup>, it is recommended to use Picard tools v>2.4.1.
 
 De-duplication can also be performed by a simple in-house written Perl script.
 
-_Step 2.3 Artifact removal: local realignment around indels_
+### _Step 2.3 Artifact removal: local realignment around indels_ {#setp-2-3-realignment}
 
 Some artifacts may arise due to the alignment stage, especially around indels where reads covering the start or the end of an indel are often incorrectly mapped. This results in mismatches between the reference and reads near the misalignment region, which can easily be mistaken for SNPs. Thus, the realignment stage aims to correct these artifacts by transforming those regions with misalignment due to indels into reads with a consensus indel for correct variant calling.
 
@@ -175,12 +175,12 @@ The inclusion of the realignment stage in a variant calling pipeline depends on 
 Ultimately however, characteristics of the dataset at hand would dictate whether realignment and other clean-up stages are needed. Ebbert et al paper for example argues against PCR duplicates removal <sup><a href="http://f1000.com/work/citation?ids=3611322&pre=&suf=&sa=0">40</a></sup>, while Olson et al recommends all the stages of clean up applied to the dataset at hand <sup><a href="http://f1000.com/work/citation?ids=3797219&pre=&suf=&sa=0">41</a></sup>. Some experimentation is therefore recommended when handling real datasets.
 
 
-#### _Step 2.4: Base quality score recalibration_ {#step-2-4-base-quality-score-recalibration}
+### _Step 2.4: Base quality score recalibration_ {#step-2-4-base-quality-score-recalibration}
 
 Base quality scores, which refer to the per-base error estimates assigned by the sequencing machine to each called base, can often be inaccurate or biased. The recalibration stage aims to correct for these errors via an empirical error model built based on the characteristics of the data at hand <sup><a href="http://f1000.com/work/citation?ids=148564&pre=&suf=&sa=0">33</a></sup>. The quality score recalibration can be performed using GATK's BQSR protocol <sup><a href="http://f1000.com/work/citation?ids=148564&pre=&suf=&sa=0">33</a></sup>, which is also the recommendation for functional equivalence, along with specific reference genome files <sup><a href="http://f1000.com/work/citation?ids=5243366&pre=&suf=&sa=0">9</a></sup>. For speed up of analysis, and if using GATK < v4, one may skip the PrintReads step and pass the output from BaseRecalibrator to the HaplotypeCaller directly. Bioconductor's ReQON is an alternative tool <sup><a href="http://f1000.com/work/citation?ids=3727012&pre=&suf=&sa=0">42</a></sup> for this purpose.
 
 
-#### _Step 2.5 Calling the variants_ {#step-2-5-calling-the-variants}
+### _Step 2.5 Calling the variants_ {#step-2-5-calling-the-variants}
 
 There is no single "best" approach to capture all the genetic variations. For germline variants, <sup><a href="http://f1000.com/work/citation?ids=476159&pre=&suf=&sa=0">11</a></sup>  suggest using a consensus of results from three tools:
 
@@ -197,7 +197,7 @@ The variant calls are usually produced in the form of VCF files <sup><a href="ht
  
 
 
-#### _Step 2.6 Statistical filtering_ {#step-2-6-statistical-filtering}
+### _Step 2.6 Statistical filtering_ {#step-2-6-statistical-filtering}
 
 The VCF files resulting from the previous steps frequently have many sites that are not really genetic variants, but rather machine artifacts that make the site statistically non-reference. In small studies, hard filtering of variants based on annotations of genomic context is typically sufficient. 
 
@@ -208,7 +208,7 @@ While, it requires expertise to define appropriate filtering thresholds, Heng Li
  
 
 
-### _Phase 3: Variant annotation and prioritization</_ {#phase-3-variant-annotation-and-prioritization}
+## _Phase 3: Variant annotation and prioritization</_ {#phase-3-variant-annotation-and-prioritization}
 
 This phase serves to select those variants that are of particular interest, depending on the research problem at hand. The methods are specific to the problem, thus we do not elaborate on them, and only provide a list of some commonly used tools below:
 
@@ -1045,4 +1045,14 @@ VCF can be easily converted to GVF using the vaast_converter script, included wi
 
 
 
-
+[//]: <> (These are common abbreviations in the page.)
+*[H3ABioNet]: The Bioinformatics Network within the H3Africa Consortium
+*[FASTQ]: Standard format of raw sequence data. Quality scores assigned in the FASTQ files represent the probability that a certain base was called incorrectly. These scores are encoded in various ways and it is important to know the type of encoding for a given FASTQ file.
+*[Adapter]: Short nucleotide sequences added on to the ends of the DNA fragments that are to be sequenced.
+*[Lane]: The basic machine unit for sequencing. The lane reflects the basic independent run of an NGS machine. For Illumina machines, this is the physical sequencing lane.
+*[Library]: A unit of DNA preparation that at some point is physically pooled together.  Multiple lanes can be run from aliquots from the same library. The DNA library is the natural unit that is being sequenced. For example, if the library has limited complexity, then many sequences are duplicated and will result in a high duplication rate across lanes
+*[NGS]: Next Generation sequencing
+*[WGS]: Whole Genome Sequencing
+*[sample]: A single individual, such as human CEPH NA12878. Multiple libraries with different properties can be constructed from the original sample DNA source. Here we treat samples as independent individuals whose genome sequence we are attempting to determine. From this perspective, tumor/normal samples are different despite coming from the same individual.
+*[SNV]: Single nucleotide variant, whether in a non-coding region or in a coding regoin such that it is synonymous or nonsynonymous (which is then classified as missense or nonsense variant).
+*[Functional equivalence]:  Specifications intended to eliminate batch effects and promote data interoperability by standardizing pipeline implementations: used tools, versions of these tools, and versions of reference genomic files. Large genomic databases, like gnomAD and TOPmed are being processed by pipelines adhering to these specifications.
