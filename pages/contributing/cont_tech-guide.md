@@ -71,40 +71,19 @@ Below is a tree of key files and folders within this site that would need editin
 
 - Format your content in markdown (the theme uses the `kramdown` flavour), and place your markdown file within the `pages` folder. If you have been working with Google docs, then the [GD2md-html Google Docs add-on](https://github.com/evbacher/gd2md-html/wiki) can do the conversion efficiently. If your content is lenghthy, then you may wish to split it up for more managable navigation.
 
-- Append appropriate frontmatter to the top of your markdown. Below is a generic example, that you may copy-paste from the file [`template_frontmatter.md`](https://github.com/h3abionet/H3ABionet-SOPs/blob/master/template_frontmatter.md) as well.
+- Append appropriate frontmatter to the top of your markdown. You can simply copy-paste from the file [`template_sop.md`](https://github.com/h3abionet/H3ABionet-SOPs/blob/master/template_sop.md) as a starter.
 
+- For the `tags` to work, you still need to define them in `_data/tags.yml` file. Additionally, you need to create corresponding markdown pages in `pages/tags` with the tag name and 
 
-```
+- For the sidebar, it should refer to a file of the intended table of contents found in the directory `_data/sidebars`.  An example file is provided [sops_sidebar.yml](https://github.com/h3abionet/H3ABionet-SOPs/blob/master/_data/sidebars/sops_sidebar.yml). Simply, put the name of this file in your frontmatter above for it to work. For more information about its format, refer to [this guide](https://idratherbewriting.com/documentation-theme-jekyll/#configure-the-sidebar) and [this one](https://idratherbewriting.com/documentation-theme-jekyll/#sidebar-syntax).
 
----
-title: <title of your page- will appear at the browser window>
-tags: [comma seperated list of tags] 
-keywords: <relevant keywords to your content, for search engine> 
-last_updated: <date of last update- appears at the bottom of the pate>
-summary: <summary of the page if desired> 
-sidebar: <The *.yml navigation file in _data/sidebars (see below for details)> 
-hide_sidebar: true #Use this if you don't wish to include a sidebar. Otherwise, the default sops_sidebar.yml will appear
-permalink: <the same name as your file, with .html extension>
-folder: <the name of the folder within the pages directory that contains your markdown content>
-author_profile: true # if you wish to add authors details
-authors:
- - <list of authors, whose details are in the authors.yml file>
----
-
-<Your intended page content, formatted in kramdown. >
-
-```
-
-- For the `tags`, you still need to define them in `_data/tags.yml` file. Additionally, you need to create corresponding markdown pages in `pages/tags` with the tag name and 
-
-- For the sidebar, it should refer to a file of the intended table of contents to be found in _data/sidebars  An example is sops_sidebar.yml, and it can be added as below. For more information about its format, refer to [this guide](https://idratherbewriting.com/documentation-theme-jekyll/#configure-the-sidebar) and [this one](https://idratherbewriting.com/documentation-theme-jekyll/#sidebar-syntax).
-
-
-```
-sidebar: sops_sidebar
-```
 
 - For top navigation, simply edit the file: `_data/topnav.yml`
+
+- It is desirable to have a `hover-over` tooltip helpers next to key abbreviations or terms in each SOP. The convention here is to put such content at the end of a given SOP file, and start the section with `[\\]:`. Next, put each term in tits own line, `*[term]: explanation`. Again, the [template page](https://github.com/h3abionet/H3ABionet-SOPs/blob/master/template_sop.md) has some examples.
+
+- `References` are included as footnotes in this site. In markdown, this means using a `[^number]` for inline citations, and `[^number]: complete citation details in Vancuver style?` for biblography. 
+
 
 - To insert special boxes to your page: warning, note, tip, info, ... etc, you may use the following `div`s in your markdown:
 
