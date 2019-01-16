@@ -86,6 +86,7 @@ Below is a tree of key files and folders within this site that would need editin
 
 <div markdown="span" class="alert alert-success" role="alert"><i class="fa fa-check-square-o"></i> <b>Tip: </b> I find it easier to numerically number referneces when migrating a lenghty page (say from a Google word document) into the site. However, once all is settled, and future edits are made, labelling referneces (in a `latex` manner for example) is easier to do (and maintain)! </div>
 
+`<div markdown="span" class="alert alert-danger" role="alert"><i class="fa fa-exclamation-circle"></i> <b>Warning: </b> Footnotes do not appear within tables. </div>`
 
 - To insert special boxes to your page: warning, note, tip, info, ... etc, you may use the following `div`s in your markdown:
 
