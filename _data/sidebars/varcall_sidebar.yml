@@ -23,41 +23,45 @@ entries:
     output: web, pdf
     folderitems:
     - title: Introduction 
-      url: VarCall#introduction 
+      url: Variant-Calling#introduction 
     - title: Glossary of associated terms and jargon
-      url: VarCall#glossary-of-associated-terms-and-jargon
+      url: Variant-Calling#glossary-of-associated-terms-and-jargon
       output: web, pdf
     - title: Important note
-      url: VarCall#important-note
+      url: Variant-Calling#important-note
       output: web,pdf
 
   - title: Procedural steps
-    url: VarCall#procedural-steps
+    url: Variant-Calling#procedural-steps
     output: web, pdf
     folderitems:
     - title: Phase I. Preprocessing raw reads 
-      url: VarCall#phase-1-preprocessing-of-the-raw-reads
+      url: Variant-Calling#phase-1-preprocessing-of-the-raw-reads
       output: web, pdf
     - title: Phase II. Initial variant discovery
-      url: VarCall#phase-2-initial-variant-discovery
+      url: Variant-Calling#phase-2-initial-variant-discovery
       output: web, pdf
     - title: Phase III. Variant annotation and prioritization
-      url: VarCall#phase-3-variant-annotation-and-prioritization
+      url: Variant-Calling#phase-3-variant-annotation-and-prioritization
       output: web, pdf
 
   - title: Appendices
-    url: VarCall#useful-resources
+    url: Variant-Calling#useful-resources
     output: web, pdf
     folderitems:
     - title: Useful Resources
-      url: VarCall#useful-resources
+      url: Variant-Calling#useful-resources
       output: web, pdf
     - title: List of tools
-      url: VarCall#alphabetized-list-of-re commended-tools
+      url: Variant-Calling#alphabetized-list-of-re commended-tools
       output: web, pdf
 
   - title: Bibliography
-    url: VarCall#bibliography
+    url: Variant-Calling#bibliography
     output: web, pdf
+    folderitems:
+    - title: Bibliiography
+      url: Variant-Calling#bibliography
+      output: web, pdf
 
 
