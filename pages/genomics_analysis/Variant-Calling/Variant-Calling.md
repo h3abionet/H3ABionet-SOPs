@@ -20,79 +20,52 @@ authors:
 
 This document briefly outlines the essential steps (Figure 1) in the process of making genetic variant calls, and recommends tools that have gained community acceptance for this purpose. It is assumed that the purpose of the study is to detect short germline or somatic variants in a single sample. Recommended coverage for acceptable quality of calls in a research setting is around 30-50x for whole genome and 70-100x for exome sequencing, but lower coverage is discussed as well.
 
-The procedures outlined below are recommendations to the H3ABioNet groups planning to do variant calling on human genome data, and are not meant to be prescriptive. Our goal is to help the groups set up their procedures and workflows, and to provide an overview of the main steps involved and the tools that can be used to implement them. For optimizing a workflow or an individual analysis step, the reader is referred to [^1–3].
+The procedures outlined below are recommendations to the H3ABioNet groups planning to do variant calling on human genome data, and are not meant to be prescriptive. Our goal is to help the groups set up their procedures and workflows, and to provide an overview of the main steps involved and the tools that can be used to implement them. For optimizing a workflow or an individual analysis step, the reader is referred to [^1]<sup>,</sup>[^2]<sup>,</sup>[^3].
 
 ### Glossary of associated terms and jargon {#glossary-of-associated-terms-and-jargon}
 The table below (partly borrowed from the GATK dictionary [^4] ) provides definitions of the basic terms used.
 
+Adapters
+: Short nucleotide sequences added on to the ends of the DNA fragments that are to be sequenced [^5] <sup>,</sup>[^6]<sup>,</sup>[^7]). Functions: 
+1. permit binding to the flow cell; 
+2. allow for PCR enrichment of adaptor-ligated DNA only; 
+3. allow for indexing or "barcoding" of samples, so multiple DNA libraries can be mixed together into 1 sequencing lane.
 
-<table>
-  <tr>
-   <td> Adapters  </td>
-   <td> Short nucleotide sequences added on to the ends of the DNA fragments that are to be sequenced.  [^5–7]). Functions: 
-       <ol>
-         <li>permit binding to the flow cell; </li>
-         <li>allow for PCR enrichment of adaptor-ligated DNA only; </li>
-         <li>allow for indexing or "barcoding" of samples, so multiple DNA libraries can be mixed together into 1 sequencing lane.</li>
-       </ol>
-   </td>
-  </tr>
-  <tr>
-   <td> Genetic variant  </td>
-   <td> 
-     <ol>
-       <li>single nucleotide variation (SNV) </li>
-       <li>small (<10 nt) insertions/deletions (indels) </li>
-       <li>copy number variation (outside the scope of this document)</li>
-    </ol>
-   </td>
-  </tr>
-  <tr>
-   <td> Lane  </td>
-   <td> The basic machine unit for sequencing. The lane reflects the basic independent run of an NGS machine. For Illumina machines, this is the physical sequencing lane.  </td>
-  </tr>
-  <tr>
-   <td>Library </td>
-   <td> A unit of DNA preparation that at some point is physically pooled together.  Multiple lanes can be run from aliquots from the same library. The DNA library is the natural unit that is being sequenced. For example, if the library has limited complexity, then many sequences are duplicated and will result in a high duplication rate across lanes. See [^8] for more details. </td>
-  </tr>
-  <tr>
-   <td> NGS </td>
-   <td> Next generation sequencing. </td>
-  </tr>
-  <tr>
-   <td> WGS  </td>
-   <td> Whole Genome Sequencing. </td>
-  </tr>
-  <tr>
-   <td> Sample </td>
-   <td> A single individual, such as human CEPH NA12878. Multiple libraries with different properties can be constructed from the original sample DNA source. Here we treat samples as independent individuals whose genome sequence we are attempting to determine. From this perspective, tumor/normal samples are different despite coming from the same individual. </td>
-  </tr>
-  <tr>
-   <td> SNV </td>
-   <td> Single nucleotide variant. Types:
-        <ol>
-            <li> In a non-coding region </li>
-            <li> In a coding region: 
-            <ol>
-                 <li> synonymous </li>
-                 <li> nonsynonymous  
-                 <ol>
-                    <li> missense </li>
-                    <li> nonsense </li>  
-                 </ol> </li> 
-             </ol> </li> 
-         </ol>
-   </td>
-  </tr>
-  <tr>
-   <td> Functional Equivalence specifications [^9]   </td>
-   <td>  Specifications intended to eliminate batch effects and promote data interoperability by standardizing pipeline implementations: used tools, versions of these tools, and versions of reference genomic files. Large genomic databases, like gnomAD and TOPmed are being processed by pipelines adhering to these specifications.  </td>
-  </tr>
-  <tr>
-   <td> Functional equivalence [^9] </td>
-   <td> Two variant calling pipelines are functionally equivalent if they can be run independently on the same raw WGS data to produce aligned files (BAM or CRAM files) that yield genome variation maps (VCF files) that have >98% similarity when analyzed by the same variant caller(s).  </td>
-  </tr>
-</table>
+Genetic variant 
+: This can be:
+1. single nucleotide variation (SNV)
+2. small (<10 nt) insertions/deletions (indels)
+3. copy number variation (outside the scope of this document)
+
+Lane 
+: The basic machine unit for sequencing. The lane reflects the basic independent run of an NGS machine. For Illumina machines, this is the physical sequencing lane. 
+
+Library
+: A unit of DNA preparation that at some point is physically pooled together.  Multiple lanes can be run from aliquots from the same library. The DNA library is the natural unit that is being sequenced. For example, if the library has limited complexity, then many sequences are duplicated and will result in a high duplication rate across lanes. See [^8] for more details.
+
+NGS
+: Next generation sequencing.
+
+WGS 
+: Whole Genome Sequencing.
+
+Sample
+: A single individual, such as human CEPH NA12878. Multiple libraries with different properties can be constructed from the original sample DNA source. Here we treat samples as independent individuals whose genome sequence we are attempting to determine. From this perspective, tumor/normal samples are different despite coming from the same individual.
+
+SNV
+: Single nucleotide variant.
+* In a non-coding region 
+* In a coding region: 
+    1. synonymous 
+    2. nonsynonymous  
+       1. missense
+       2. nonsense
+
+Functional Equivalence specifications [^9]  
+:  Specifications intended to eliminate batch effects and promote data interoperability by standardizing pipeline implementations: used tools, versions of these tools, and versions of reference genomic files. Large genomic databases, like gnomAD and TOPmed are being processed by pipelines adhering to these specifications. 
+
+Functional equivalence [^9]
+: Two variant calling pipelines are functionally equivalent if they can be run independently on the same raw WGS data to produce aligned files (BAM or CRAM files) that yield genome variation maps (VCF files) that have >98% similarity when analyzed by the same variant caller(s). 
 
 
 
@@ -135,7 +108,7 @@ Selection of the tool to use depends on the amount of adaptor sequence leftover 
 
 ### _Step 1.2: Quality trimming_ {#step-1-2-quality-trimming}
 
-Once the adaptors have been trimmed, it is useful to inspect the quality of reads in bulk, and try to trim low quality nucleotides [^18]. Also, frequently the quality tends to drop off toward one end of the read. FASTQC [^19] and PrinSeq [^20] will show that very nicely . These read ends with low average quality can then be trimmed, if desired, using Trimmomatic <[^14], FASTX-Toolkit fastq_quality_filter, PrinSeq, or SolexaQA [^21].
+Once the adaptors have been trimmed, it is useful to inspect the quality of reads in bulk, and try to trim low quality nucleotides [^18]. Also, frequently the quality tends to drop off toward one end of the read. FASTQC [^19] and PrinSeq [^20] will show that very nicely . These read ends with low average quality can then be trimmed, if desired, using Trimmomatic [^14], FASTX-Toolkit fastq_quality_filter, PrinSeq, or SolexaQA [^21].
 
 
 ### _Step 1.3: Removal of very short reads_ {#step-1-3-removal-of-very-short-reads}
@@ -155,7 +128,7 @@ Analysis proceeds as a series of the following sequential steps.
 
 Reads need to be aligned to the reference genome in order to identify the similar and polymorphic regions in the sample. As of 2016, the GATK team recommends their b37 bundle as the standard reference for Whole Exome and Whole Genome Sequencing analyses pending the completion of the GRcH38/Hg38 bundle [^22]. However, the 2018 functional equivalence specifications recommends the GRCh38DH from the 1000 Genomes project <[^9]. Either way, a number of aligners can perform the alignment task. 
 
-Among these, BWA MEM [^23] and bowtie2 [^24] have become trusted tools for short reads Illumina data, because they are accurate, fast, well supported, and open-source. Combined with variant callers, different aligners can offer different performance advantages with respect to SNPs, InDels and other structural variants, benchmarked in works like  [^23,25,26]. Functional equivalence specifications recommends BWA-MEM v0.7.15 in particular (with at least the following parameters `-K 100000000 -Y`, and without `-M` so that split reads are marked as supplementary reads in congruence with BAM specification ). 
+Among these, BWA MEM [^23] and bowtie2 [^24] have become trusted tools for short reads Illumina data, because they are accurate, fast, well supported, and open-source. Combined with variant callers, different aligners can offer different performance advantages with respect to SNPs, InDels and other structural variants, benchmarked in works like  [^23]<sup>,</sup>[^25]<sup>,</sup>[^26]. Functional equivalence specifications recommends BWA-MEM v0.7.15 in particular (with at least the following parameters `-K 100000000 -Y`, and without `-M` so that split reads are marked as supplementary reads in congruence with BAM specification ). 
 
 The output file is usually in a binary BAM format [^27], still taking tens or hundreds of Gigabytes of hard disk space. The alignment step tends to be I/O intensive, so it is useful to place the reference onto an SDD, as opposed to HDD, to speed up the process. The alignment can be easily parallelized by chunking the data into subsets of reads and aligning each subset independently, then combining the results.
 
@@ -237,7 +210,7 @@ https://github.com/h3abionet/h3agatk
 A configurable Swift-t implementation (different tools, versions and options can be interchanged, so it is easy to confirm to functional equivalence specifications 9 ):
 https://github.com/ncsa/Swift-T-Variant-Calling 
 
-The GATK Resource Bundle 51
+The GATK Resource Bundle [^51]
 The GATK resource bundle is a collection of standard files for working with human resequencing data with the GATK. Until the Hg38 bundle is complete, the b37 resources remain the standard data. To access the bundle on the FTP server, use the following login credentials:
 Location: ftp.broadinstitute.org/bundle/b37
 Username: gsapubftp-anonymous
@@ -653,7 +626,7 @@ Creates a Gaussian mixture model by looking at the annotations values over a hig
 
 *   
 **HuVariome**--------------------------------------------------------------------[http://huvariome.erasmusmc.nl/](http://huvariome.erasmusmc.nl/)
-The HuVariome project aims to determine rare and common genetic variation in a Northern European population (Benelux) based on whole genome sequencing results. Variations, their population frequencies and the functional impact are stored in the HuVariome Database. Users who provide samples for inclusion within the database are able to access the full content of the database<sup>*</sup>, whilst guests can access the public set of genomes published by Complete Genomics.
+The HuVariome project aims to determine rare and common genetic variation in a Northern European population (Benelux) based on whole genome sequencing results. Variations, their population frequencies and the functional impact are stored in the HuVariome Database. Users who provide samples for inclusion within the database are able to access the full content of the database, whilst guests can access the public set of genomes published by Complete Genomics.
 
 Has a straightforward web interface.
 
@@ -887,163 +860,147 @@ VCF can be easily converted to GVF using the vaast_converter script, included wi
 ## Bibliography {#bibliography}
 
 
-[^1]:    [1.	Heldenbrand, J. R. et al. Performance benchmarking of GATK3.8 and GATK4. BioRxiv (2018). doi:10.1101/348565](http://f1000.com/work/bibliography/5430965)
+[^1]: Heldenbrand, J. R. et al. [Performance benchmarking of GATK3.8 and GATK4](). BioRxiv (2018). doi:10.1101/348565
 
+[^2]: Laurie, S. et al. [From Wet-Lab to Variations: Concordance and Speed of Bioinformatics Pipelines for Whole Genome and Whole Exome Sequencing](). Hum. Mutat. 37, 1263–1271 (2016).
 
-[^2]:    [2.	Laurie, S. et al. From Wet-Lab to Variations: Concordance and Speed of Bioinformatics Pipelines for Whole Genome and Whole Exome Sequencing. Hum. Mutat. 37, 1263–1271 (2016).](http://f1000.com/work/bibliography/4457142)
+[^3]: Hwang, S., Kim, E., Lee, I. & Marcotte, E. M. [Systematic comparison of variant calling pipelines using gold standard personal exome variants](). Sci. Rep. 5, 17875 (2015).
 
+[^4]: GATK Dictionary. at <https://software.broadinstitute.org/gatk/documentation/topic?name=dictionary>
 
-[^3]:    [3.	Hwang, S., Kim, E., Lee, I. & Marcotte, E. M. Systematic comparison of variant calling pipelines using gold standard personal exome variants. Sci. Rep. 5, 17875 (2015).](http://f1000.com/work/bibliography/1312214)
+[^5]: Myllykangas, S., Buenrostro, J. & Ji, H. P. in Bioinformatics for High Throughput Sequencing 11–25 (Springer New York, 2012). doi:10.1007/978-1-4614-0782-9_2
 
+[^6]: Schiemer, J. Illumina TruSeq DNA Adapters De-Mystifie .
 
-[^4]:    [4.	GATK | Dictionary. at <https://software.broadinstitute.org/gatk/documentation/topic?name=dictionary>](http://f1000.com/work/bibliography/5873217)
+[^7]: Goodwin, S., McPherson, J. D. & McCombie, W. R. Coming of age: ten years of next-generation sequencing technologies. Nat. Rev. Genet. 17, 333–351 (2016).
 
 
-[^5]:    [5.	Myllykangas, S., Buenrostro, J. & Ji, H. P. in Bioinformatics for High Throughput Sequencing 11–25 (Springer New York, 2012). doi:10.1007/978-1-4614-0782-9_2](http://f1000.com/work/bibliography/253364)
+[^8]: Head, S. R. et al. Library construction for next-generation sequencing: overviews and challenges. BioTechniques 56, 61–4, 66, 68, passim (2014).
 
 
-[^6]:    [6.	Schiemer, J. Illumina TruSeq DNA Adapters De-Mystifie .](http://f1000.com/work/bibliography/5873162)
+[^9]: Regier, A. A. et al. Functional equivalence of genome sequencing analysis pipelines enables harmonized variant calling across human genetics projects. BioRxiv (2018). doi:10.1101/269316
 
 
-[^7]:    [7.	Goodwin, S., McPherson, J. D. & McCombie, W. R. Coming of age: ten years of next-generation sequencing technologies. Nat. Rev. Genet. 17, 333–351 (2016).](http://f1000.com/work/bibliography/1459092)
+[^10]: broadinstitute/gatk: Official code repository for GATK versions 4 and up. at <https://github.com/broadinstitute/gatk>
 
 
-[^8]:    [8.	Head, S. R. et al. Library construction for next-generation sequencing: overviews and challenges. BioTechniques 56, 61–4, 66, 68, passim (2014).](http://f1000.com/work/bibliography/581709)
+[^11]: Pabinger, S. et al. A survey of tools for variant analysis of next-generation genome sequencing data. Brief. Bioinformatics 15, 256–278 (2014).
 
 
-[^9]:    [9.	Regier, A. A. et al. Functional equivalence of genome sequencing analysis pipelines enables harmonized variant calling across human genetics projects. BioRxiv (2018). doi:10.1101/269316](http://f1000.com/work/bibliography/5243366)
+[^12]: Nielsen, R., Paul, J. S., Albrechtsen, A. & Song, Y. S. Genotype and SNP calling from next-generation sequencing data. Nat. Rev. Genet. 12, 443–451 (2011).
 
 
-[^10]:    [10.	broadinstitute/gatk: Official code repository for GATK versions 4 and up. at <https://github.com/broadinstitute/gatk>](http://f1000.com/work/bibliography/5845613)
+[^13]: Cock, P. J. A., Fields, C. J., Goto, N., Heuer, M. L. & Rice, P. M. The Sanger FASTQ file format for sequences with quality scores, and the Solexa/Illumina FASTQ variants. Nucleic Acids Res. 38, 1767–1771 (2010).
 
 
-[^11]:    [11.	Pabinger, S. et al. A survey of tools for variant analysis of next-generation genome sequencing data. Brief. Bioinformatics 15, 256–278 (2014).](http://f1000.com/work/bibliography/476159)
+[^14]: Bolger, A. M., Lohse, M. & Usadel, B. Trimmomatic: a flexible trimmer for Illumina sequence data. Bioinformatics 30, 2114–2120 (2014).
 
 
-[^12]:    [12.	Nielsen, R., Paul, J. S., Albrechtsen, A. & Song, Y. S. Genotype and SNP calling from next-generation sequencing data. Nat. Rev. Genet. 12, 443–451 (2011).](http://f1000.com/work/bibliography/163053)
+[^15]: Dodt, M., Roehr, J. T., Ahmed, R. & Dieterich, C. FLEXBAR-Flexible Barcode and Adapter Processing for Next-Generation Sequencing Platforms. Biology (Basel) 1, 895–905 (2012).
 
 
-[^13]:    [13.	Cock, P. J. A., Fields, C. J., Goto, N., Heuer, M. L. & Rice, P. M. The Sanger FASTQ file format for sequences with quality scores, and the Solexa/Illumina FASTQ variants. Nucleic Acids Res. 38, 1767–1771 (2010).](http://f1000.com/work/bibliography/396544)
+[^16]: Tools to remove adapter sequences from next-generation sequencing data, Genomics Gateway. at <http://bioscholar.com/genomics/tools-remove-adapter-sequences-next-generation-sequencing-data/>
 
 
-[^14]:    [14.	Bolger, A. M., Lohse, M. & Usadel, B. Trimmomatic: a flexible trimmer for Illumina sequence data. Bioinformatics 30, 2114–2120 (2014).](http://f1000.com/work/bibliography/63413)
+[^17]: Adapter trimming software tools, WGS analysis - OMICtools. at <https://omictools.com/adapter-trimming-category>
 
 
-[^15]:    [15.	Dodt, M., Roehr, J. T., Ahmed, R. & Dieterich, C. FLEXBAR-Flexible Barcode and Adapter Processing for Next-Generation Sequencing Platforms. Biology (Basel) 1, 895–905 (2012).](http://f1000.com/work/bibliography/2310122)
+[^18]: Del Fabbro, C., Scalabrin, S., Morgante, M. & Giorgi, F. M. An extensive evaluation of read trimming effects on Illumina NGS data analysis. PLoS ONE 8, e85024 (2013).
 
 
-[^16]:    [16.	Tools to remove adapter sequences from next-generation sequencing data | Genomics Gateway. at <http://bioscholar.com/genomics/tools-remove-adapter-sequences-next-generation-sequencing-data/>](http://f1000.com/work/bibliography/3856235)
+[^19]: Babraham Bioinformatics - FastQC A Quality Control tool for High Throughput Sequence Data. at <http://www.bioinformatics.babraham.ac.uk/projects/fastqc/>
 
 
-[^17]:    [17.	Adapter trimming software tools | WGS analysis - OMICtools. at <https://omictools.com/adapter-trimming-category>](http://f1000.com/work/bibliography/3856234)
+[^20]: Schmieder, R. & Edwards, R. Quality control and preprocessing of metagenomic datasets. Bioinformatics 27, 863–864 (2011).
 
 
-[^18]:    [18.	Del Fabbro, C., Scalabrin, S., Morgante, M. & Giorgi, F. M. An extensive evaluation of read trimming effects on Illumina NGS data analysis. PLoS ONE 8, e85024 (2013).](http://f1000.com/work/bibliography/396608)
+[^21]: Cox, M. P., Peterson, D. A. & Biggs, P. J. SolexaQA: At-a-glance quality assessment of Illumina second-generation sequencing data. BMC Bioinformatics 11, 485 (2010).
 
 
-[^19]:    [19.	Babraham Bioinformatics - FastQC A Quality Control tool for High Throughput Sequence Data. at <http://www.bioinformatics.babraham.ac.uk/projects/fastqc/>](http://f1000.com/work/bibliography/2912288)
+[^22]: GATK Doc Article #1213. at <https://software.broadinstitute.org/gatk/documentation/article.php?id=1213>
 
 
-[^20]:    [20.	Schmieder, R. & Edwards, R. Quality control and preprocessing of metagenomic datasets. Bioinformatics 27, 863–864 (2011).](http://f1000.com/work/bibliography/1434650)
+[^23]: Li, H. Aligning sequence reads, clone sequences and assembly contigs with BWA-MEM. (2013).
 
 
-[^21]:    [21.	Cox, M. P., Peterson, D. A. & Biggs, P. J. SolexaQA: At-a-glance quality assessment of Illumina second-generation sequencing data. BMC Bioinformatics 11, 485 (2010).](http://f1000.com/work/bibliography/1432281)
+[^24]: Langmead, B. & Salzberg, S. L. Fast gapped-read alignment with Bowtie 2. Nat. Methods 9, 357–359 (2012).
 
 
-[^22]:    [22.	GATK | Doc Article #1213. at <https://software.broadinstitute.org/gatk/documentation/article.php?id=1213>](http://f1000.com/work/bibliography/3860499)
+[^25]: Li, H. & Homer, N. A survey of sequence alignment algorithms for next-generation sequencing. Brief. Bioinformatics 11, 473–483 (2010).
 
 
-[^23]:    [23.	Li, H. Aligning sequence reads, clone sequences and assembly contigs with BWA-MEM. (2013).](http://f1000.com/work/bibliography/3860509)
+[^26]: Thankaswamy-Kosalai, S., Sen, P. & Nookaew, I. Evaluation and assessment of read-mapping by multiple next-generation sequencing aligners based on genome-wide characteristics. Genomics 109, 186–191 (2017).
 
 
-[^24]:    [24.	Langmead, B. & Salzberg, S. L. Fast gapped-read alignment with Bowtie 2. Nat. Methods 9, 357–359 (2012).](http://f1000.com/work/bibliography/48791)
+[^27]: Li, H. et al. The Sequence Alignment/Map format and SAMtools. Bioinformatics 25, 2078–2079 (2009).
 
 
-[^25]:    [25.	Li, H. & Homer, N. A survey of sequence alignment algorithms for next-generation sequencing. Brief. Bioinformatics 11, 473–483 (2010).](http://f1000.com/work/bibliography/162596)
+[^28]: How PCR duplicates arise in next-generation sequencing. at <http://www.cureffi.org/2012/12/11/how-pcr-duplicates-arise-in-next-generation-sequencing/>
 
 
-[^26]:    [26.	Thankaswamy-Kosalai, S., Sen, P. & Nookaew, I. Evaluation and assessment of read-mapping by multiple next-generation sequencing aligners based on genome-wide characteristics. Genomics 109, 186–191 (2017).](http://f1000.com/work/bibliography/4756110)
+[^29]: Faust, G. G. & Hall, I. M. SAMBLASTER: fast duplicate marking and structural variant read extraction. Bioinformatics 30, 2503–2505 (2014).
 
 
-[^27]:    [27.	Li, H. et al. The Sequence Alignment/Map format and SAMtools. Bioinformatics 25, 2078–2079 (2009).](http://f1000.com/work/bibliography/48787)
+[^30]: Tarasov, A., Vilella, A. J., Cuppen, E., Nijman, I. J. & Prins, P. Sambamba: fast processing of NGS alignment formats. Bioinformatics 31, 2032–2034 (2015).
 
 
-[^28]:    [28.	How PCR duplicates arise in next-generation sequencing. at <http://www.cureffi.org/2012/12/11/how-pcr-duplicates-arise-in-next-generation-sequencing/>](http://f1000.com/work/bibliography/3856248)
+[^31]: NOVOCRAFT TECHNOLOGIES SDN BHD. Novocraft. NOVOCRAFT TECHNOLOGIES SDN BHD at <http://www.novocraft.com/>
 
 
-[^29]:    [29.	Faust, G. G. & Hall, I. M. SAMBLASTER: fast duplicate marking and structural variant read extraction. Bioinformatics 30, 2503–2505 (2014).](http://f1000.com/work/bibliography/791611)
+[^32]: Picard Tools - By Broad Institute. at <https://broadinstitute.github.io/picard/>
 
 
-[^30]:    [30.	Tarasov, A., Vilella, A. J., Cuppen, E., Nijman, I. J. & Prins, P. Sambamba: fast processing of NGS alignment formats. Bioinformatics 31, 2032–2034 (2015).](http://f1000.com/work/bibliography/791612)
+[^33]: DePristo, M. A. et al. A framework for variation discovery and genotyping using next-generation DNA sequencing data. Nat. Genet. 43, 491–498 (2011).
 
 
-[^31]:    [31.	NOVOCRAFT TECHNOLOGIES SDN BHD. Novocraft. NOVOCRAFT TECHNOLOGIES SDN BHD at <http://www.novocraft.com/>](http://f1000.com/work/bibliography/3860494)
+[^34]: Albers, C. A. et al. Dindel: accurate indel calls from short-read data. Genome Res. 21, 961–973 (2011).
 
 
-[^32]:    [32.	Picard Tools - By Broad Institute. at <https://broadinstitute.github.io/picard/>](http://f1000.com/work/bibliography/3860492)
+[^35]: Homer, N. & Nelson, S. F. Improved variant discovery through local re-alignment of short-read next-generation sequencing data using SRMA. Genome Biol. 11, R99 (2010).
 
 
-[^33]:    [33.	DePristo, M. A. et al. A framework for variation discovery and genotyping using next-generation DNA sequencing data. Nat. Genet. 43, 491–498 (2011).](http://f1000.com/work/bibliography/148564)
+[^36]: Van der Auwera, G. A. et al. From FastQ data to high confidence variant calls: the Genome Analysis Toolkit best practices pipeline. Curr. Protoc. Bioinformatics 11, 11.10.1-11.10.33 (2013).
 
 
-[^34]:    [34.	Albers, C. A. et al. Dindel: accurate indel calls from short-read data. Genome Res. 21, 961–973 (2011).](http://f1000.com/work/bibliography/162173)
+[^37]: Rimmer, A. et al. Integrating mapping-, assembly- and haplotype-based approaches for calling variants in clinical sequencing applications. Nat. Genet. 46, 912–918 (2014).
 
 
-[^35]:    [35.	Homer, N. & Nelson, S. F. Improved variant discovery through local re-alignment of short-read next-generation sequencing data using SRMA. Genome Biol. 11, R99 (2010).](http://f1000.com/work/bibliography/1433017)
+[^38]: Garrison, E. & Marth, G. Haplotype-based variant detection from short-read sequencing. arXiv (2012).
 
 
-[^36]:    [36.	Van der Auwera, G. A. et al. From FastQ data to high confidence variant calls: the Genome Analysis Toolkit best practices pipeline. Curr. Protoc. Bioinformatics 11, 11.10.1-11.10.33 (2013).](http://f1000.com/work/bibliography/791610)
+[^39]: Poplin, R. et al. Scaling accurate genetic variant discovery to tens of thousands of samples. BioRxiv (2017). doi:10.1101/201178](http://f1000.com/work/bibliography/4511943)
 
 
-[^37]:    [37.	Rimmer, A. et al. Integrating mapping-, assembly- and haplotype-based approaches for calling variants in clinical sequencing applications. Nat. Genet. 46, 912–918 (2014).](http://f1000.com/work/bibliography/632865)
+[^40]: Ebbert, M. T. W. et al. Evaluating the necessity of PCR duplicate removal from next-generation sequencing data and a comparison of approaches. BMC Bioinformatics 17 Suppl 7, 239 (2016).
 
 
-[^38]:    [38.	Garrison, E. & Marth, G. Haplotype-based variant detection from short-read sequencing. arXiv (2012).](http://f1000.com/work/bibliography/5872973)
+[^41]: Olson, N. D. et al. Best practices for evaluating single nucleotide variant calling methods for microbial genomics. Front. Genet. 6, 235 (2015).
 
 
-[^39]:    [39.	Poplin, R. et al. Scaling accurate genetic variant discovery to tens of thousands of samples. BioRxiv (2017). doi:10.1101/201178](http://f1000.com/work/bibliography/4511943)
+[^42]: Cabanski, C. R. et al. ReQON: a Bioconductor package for recalibrating quality scores from next-generation sequencing data. BMC Bioinformatics 13, 221 (2012).
 
 
-[^40]:    [40.	Ebbert, M. T. W. et al. Evaluating the necessity of PCR duplicate removal from next-generation sequencing data and a comparison of approaches. BMC Bioinformatics 17 Suppl 7, 239 (2016).](http://f1000.com/work/bibliography/3611322)
+[^43]: Bansal, V. A statistical method for the detection of variants from next-generation resequencing of DNA pools. Bioinformatics 26, i318-24 (2010).
 
+[^44]: Cibulskis, K. et al. Sensitive detection of somatic point mutations in impure and heterogeneous cancer samples. Nat. Biotechnol. 31, 213–219 (2013).
 
-[^41]:    [41.	Olson, N. D. et al. Best practices for evaluating single nucleotide variant calling methods for microbial genomics. Front. Genet. 6, 235 (2015).](http://f1000.com/work/bibliography/3797219)
+[^45]: Danecek, P. et al. The variant call format and VCFtools. Bioinformatics 27, 2156–2158 (2011).
 
+[^46]: Li, H. Toward better understanding of artifacts in variant calling from high-coverage samples. Bioinformatics 30, 2843–2851 (2014).
 
-[^42]:    [42.	Cabanski, C. R. et al. ReQON: a Bioconductor package for recalibrating quality scores from next-generation sequencing data. BMC Bioinformatics 13, 221 (2012).](http://f1000.com/work/bibliography/3727012)
+[^47]: hail-is/hail: Scalable genomic data analysis. at <https://github.com/hail-is/hail>
 
+[^48]: Paila, U., Chapman, B. A., Kirchner, R. & Quinlan, A. R. GEMINI: integrative exploration of genetic variation and genome annotations. PLoS Comput. Biol. 9, e1003153 (2013).
 
-[^43]:    [43.	Bansal, V. A statistical method for the detection of variants from next-generation resequencing of DNA pools. Bioinformatics 26, i318-24 (2010).](http://f1000.com/work/bibliography/568892)
+[^49]: Peng, G. et al. Rare variant detection using family-based sequencing analysis. Proc Natl Acad Sci USA 110, 3985–3990 (2013).
 
+[^50]: Boyle, A. P. et al. Annotation of functional variation in personal genomes using RegulomeDB. Genome Res. 22, 1790–1797 (2012).
 
-[^44]:    [44.	Cibulskis, K. et al. Sensitive detection of somatic point mutations in impure and heterogeneous cancer samples. Nat. Biotechnol. 31, 213–219 (2013).](http://f1000.com/work/bibliography/387325)
+[^51]: What's in the resource bundle and how can I get it? — GATK-Forum. at <https://gatkforums.broadinstitute.org/gatk/discussion/1213/whats-in-the-resource-bundle-and-how-can-i-get-it>
 
+[^52]: Afgan, E. et al. The Galaxy platform for accessible, reproducible and collaborative biomedical analyses: 2018 update. Nucleic Acids Res. 46, W537–W544 (2018).
 
-[^45]:    [45.	Danecek, P. et al. The variant call format and VCFtools. Bioinformatics 27, 2156–2158 (2011).](http://f1000.com/work/bibliography/111675)
-
-
-[^46]:    [46.	Li, H. Toward better understanding of artifacts in variant calling from high-coverage samples. Bioinformatics 30, 2843–2851 (2014).](http://f1000.com/work/bibliography/111696)
-
-
-[^47]:    [47.	hail-is/hail: Scalable genomic data analysis. at <https://github.com/hail-is/hail>](http://f1000.com/work/bibliography/5248374)
-
-
-[^48]:    [48.	Paila, U., Chapman, B. A., Kirchner, R. & Quinlan, A. R. GEMINI: integrative exploration of genetic variation and genome annotations. PLoS Comput. Biol. 9, e1003153 (2013).](http://f1000.com/work/bibliography/111734)
-
-
-[^49]:    [49.	Peng, G. et al. Rare variant detection using family-based sequencing analysis. Proc Natl Acad Sci USA 110, 3985–3990 (2013).](http://f1000.com/work/bibliography/148333)
-
-
-[^50]:    [50.	Boyle, A. P. et al. Annotation of functional variation in personal genomes using RegulomeDB. Genome Res. 22, 1790–1797 (2012).](http://f1000.com/work/bibliography/111653)
-
-
-[^51]:    [51.	What's in the resource bundle and how can I get it? — GATK-Forum. at <https://gatkforums.broadinstitute.org/gatk/discussion/1213/whats-in-the-resource-bundle-and-how-can-i-get-it>](http://f1000.com/work/bibliography/5873228)
-
-
-[^52]:    [52.	Afgan, E. et al. The Galaxy platform for accessible, reproducible and collaborative biomedical analyses: 2018 update. Nucleic Acids Res. 46, W537–W544 (2018).](http://f1000.com/work/bibliography/5642638)
-
-
-[^53]:    [53.	Stephens, Z. D. et al. Simulating Next-Generation Sequencing Datasets from Empirical Mutation and Sequencing Models. PLoS ONE 11, e0167047 (2016).](http://f1000.com/work/bibliography/5873226)
+[^53]: Stephens, Z. D. et al. Simulating Next-Generation Sequencing Datasets from Empirical Mutation and Sequencing Models. PLoS ONE 11, e0167047 (2016).
 
 
 
