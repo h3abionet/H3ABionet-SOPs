@@ -61,6 +61,8 @@ Below is a tree of key files and folders within this site that would need editin
 ```
 ## Road map {#road-map}
 
+- Split lenghty pages into smaller chunks
+- Create diagrams for SOP pages
 - Add authors' contact details next to the pages they contribute to
 - Generate pdf files of the SOPs
 
