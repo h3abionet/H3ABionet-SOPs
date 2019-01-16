@@ -82,7 +82,9 @@ Below is a tree of key files and folders within this site that would need editin
 
 - It is desirable to have a `hover-over` tooltip helpers next to key abbreviations or terms in each SOP. The convention here is to put such content at the end of a given SOP file, and start the section with `[\\]:`. Next, put each term in tits own line, `*[term]: explanation`. Again, the [template page](https://github.com/h3abionet/H3ABionet-SOPs/blob/master/template_sop.md) has some examples.
 
-- `References` are included as footnotes in this site. In markdown, this means using a `[^number]` for inline citations, and `[^number]: complete citation details in Vancuver style?` for biblography. 
+- `References` are included as footnotes in this site. In markdown, this means using a `[^lable]` for inline citations, and `[^lable]: complete citation details in Vancuver style?` for biblography. Note that the `lable` does not need to be numeric, as this will be done automatically by the engine
+
+<div markdown="span" class="alert alert-success" role="alert"><i class="fa fa-check-square-o"></i> <b>Tip: </b> I find it easier to numerically number referneces when migrating a lenghty page (say from a Google word document) into the site. However, once all is settled, and future edits are made, labelling referneces (in a `latex` manner for example) is easier to do (and maintain)! </div>
 
 
 - To insert special boxes to your page: warning, note, tip, info, ... etc, you may use the following `div`s in your markdown:
