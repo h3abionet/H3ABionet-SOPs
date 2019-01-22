@@ -314,7 +314,7 @@ The main goal of most RNA-Seq is detection of differential expression between tw
 
 In any statistical test of differential expression between groups, the amount of change from group to group must be evaluated by how much variation there is among the replicates of a group and how many replicates were used. These three factors, the amount of change, the amount of variation and the number of replicates are combined by the statistical test into one "p-value" which assesses the amount of evidence for differential expression. The traditional p-value cutoff of 0.05 for significance means that if you were to randomly sample two sets of replicates from the sample population 100 times, only 5 times would the value of the test statistic be larger than what you did see. This is a reasonable threshold when you only test a single gene, but in RNA-Seq you are measuring and testing thousands of genes at the same time. Therefore, some sort of adjustment of the p-values needs to be done. The most popular method is the False Discovery Rate method (Benjamimi & Hochberg, 1991), which adjusts the p-values so that the entire set of genes with values less than 0.05 is expected to contain 5% false-positives. Depending on the goals of your experiment, the FDR p-value threshold can be raised to gain more true-positives at the expense of a higher false-positive rate. However, keep in mind that the FDR correction depends on how many genes have low p-values compared with the number expected to to have low p-values and the lack of any genes with reasonably low p-values does not mean that no genes were truly changing.
 
-#### _Working with Galaxy_ {#galaxy}
+#### _Working with Galaxy_ 
 
 
 If it is desirable to perform all processing in Galaxy, it should not be a problem for smaller experiments with a 1:1 comparisons between samples. For experiments with a large number of samples, and also for complex comparisons (e.g. 2x2 factorial design), Galaxy may not work as well; we instead recommend learning and using the command line tools and R/Bioconductor. However, Galaxy can be used to test parameter settings on a subset of the data, prior to switching over to command line for the whole analysis. Another issue of note, though Galaxy is quite good with data provenance,the latest versions of tools may not be available in Galaxy's Tool Shed (in particular those available in R/Bioconductor); In most cases Galaxy's excellent data provenance tracking will keep track of the versions used, so please make a note of the version numbers.  
@@ -331,7 +331,7 @@ The [Galaxy Tool Shed](https://toolshed.g2.bx.psu.edu) lists all tools currently
 *   Salmon
 
 
-## Questions to consider.
+## Questions to consider. {#questions}
 
 ### **A. General questions**
 
