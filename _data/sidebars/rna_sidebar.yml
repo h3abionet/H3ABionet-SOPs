@@ -69,11 +69,11 @@ entries:
   #        url: RNA-Seq#step-3-3-statistics-for-differential-expression
   #        output: web, pdf
      
-  - title: Working with Galaxy
+  - title: Questions to consider
     output: web, pdf
     folderitems:
     - title: Working with Galaxy
-      url: RNA-Seq#galaxy
+      url: RNA-Seq#questions
       output: web, pdf
     
   - title: References
