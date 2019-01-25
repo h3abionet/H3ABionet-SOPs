@@ -423,49 +423,92 @@ Nodes are more than welcome to attempt these, however.  Should these be attempte
 
 ## References {#references}
 [^1]: Robinson, Mark D., and Alicia Oshlack. A scaling normalization method for differential expression analysis of RNA-seq data. Genome biology 11.3 (2010): R25. (https://doi.org/10.1186/gb-2010-11-3-r25)
+
 [^2]: Trapnell, C., Roberts, A., Goff, L., Pertea, G., Kim, D., Kelley, D. R., ... & Pachter, L. (2012). Differential gene and transcript expression analysis of RNA-seq experiments with TopHat and Cufflinks. Nature protocols, 7(3), 562. (https://doi.org/10.1038/nprot.2012.016)
+
 [^3]: Love MI, Anders S, Kim V and Huber W. RNA-Seq workflow: gene-level exploratory analysis and differential expression [version 2; referees: 2 approved]. F1000Research 2016, 4:1070 (https://doi.org/10.12688/f1000research.7035.2)
+
 [^4]: Law CW, Alhamdoosh M, Su S et al. RNA-seq analysis is easy as 1-2-3 with limma, Glimma and edgeR [version 3; referees: 3 approved]. F1000Research 2018, 5:1408 (https://doi.org/10.12688/f1000research.9005.3)
+
 [^5]: Bray, N. L., Pimentel, H., Melsted, P., & Pachter, L. (2016). Near-optimal probabilistic RNA-seq quantification. Nature biotechnology, 34(5), 525. (https://doi.org/10.1038/nbt.3519)
+
 [^6]: Patro, R., Duggal, G., Love, M. I., Irizarry, R. A., & Kingsford, C. (2017). Salmon provides fast and bias-aware quantification of transcript expression. Nature methods, 14(4), 417. (https://doi.org/10.1038/nmeth.4197)
+
 [^7]: Andrews, S. (2010). [FastQC: a quality control tool for high throughput sequence data.]( https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
+
 [^8]: Ewels, P., Magnusson, M., Lundin, S., & Käller, M. (2016). MultiQC: summarize analysis results for multiple tools and samples in a single report. Bioinformatics, 32(19), 3047-3048. (https://doi.org/10.1093/bioinformatics/btw354)
+
 [^9]: Bolger, A. M., Lohse, M., & Usadel, B. (2014). Trimmomatic: a flexible trimmer for Illumina sequence data. Bioinformatics, 30(15), 2114-2120. (https://doi.org/10.1093/bioinformatics/btu170)
+
 [^10]: [Trim Galore](http://www.bioinformatics.babraham.ac.uk/projects/trim_galore/)
+
 [^11]: [BBMap]( https://sourceforge.net/projects/bbmap/)
+
 [^12]: Dodt, M., Roehr, J. T., Ahmed, R., & Dieterich, C. (2012). FLEXBAR—flexible barcode and adapter processing for next-generation sequencing platforms. Biology, 1(3), 895-905. (https://doi.org/10.3390/biology1030895)
+
 [^13]: Gordon, A., & Hannon, G. (2010). [Fastx-toolkit. FASTQ/A short-reads pre-processing tools. ]( http://hannonlab.cshl.edu/fastx_toolkit.) Unpublished 
+
 [^14]: (PRINSEQ) Schmieder, R., & Edwards, R. (2011). Quality control and preprocessing of metagenomic datasets. Bioinformatics, 27(6), 863-864. (https://doi.org/10.1093/bioinformatics/btr026)
+
 [^15]: Cox, M. P., Peterson, D. A., & Biggs, P. J. (2010). SolexaQA: At-a-glance quality assessment of Illumina second-generation sequencing data. BMC bioinformatics, 11(1), 485. (https://doi.org/10.1186/1471-2105-11-485)
+
 [^16]: Patro, R., Mount, S. M., & Kingsford, C. (2014). Sailfish enables alignment-free isoform quantification from RNA-seq reads using lightweight algorithms. Nature biotechnology, 32(5), 462. (https://doi.org/10.1038/nbt.2862)
+
 [^17]: Bray, N. L., Pimentel, H., Melsted, P., & Pachter, L. (2016). Near-optimal probabilistic RNA-seq quantification. Nature biotechnology, 34(5), 525. (https://doi.org/10.1038/nbt.3519)
+
 [^18]: Patro, R., Duggal, G., Love, M. I., Irizarry, R. A., & Kingsford, C. (2017). Salmon provides fast and bias-aware quantification of transcript expression. Nature methods, 14(4), 417. (https://doi.org/10.1038/nmeth.4197)
+
 [^19]: Dobin, A., Davis, C. A., Schlesinger, F., Drenkow, J., Zaleski, C., Jha, S., ... & Gingeras, T. R. (2013). STAR: ultrafast universal RNA-seq aligner. Bioinformatics, 29(1), 15-21. (https://doi.org/10.1093/bioinformatics/bts635)
+
 [^20]: Kim, D., Langmead, B., & Salzberg, S. L. (2015). HISAT: a fast spliced aligner with low memory requirements. Nature methods, 12(4), 357. (https://doi.org/10.1038/nmeth.3317)
+
 [^21]: Wu, T. D., & Nacu, S. (2010). Fast and SNP-tolerant detection of complex variants and splicing in short reads. Bioinformatics, 26(7), 873-881. (https://doi.org/10.1093/bioinformatics/btq057)
+
 [^22]: Huang, S., Zhang, J., Li, R., Zhang, W., He, Z., Lam, T. W., ... & Yiu, S. M. (2011). SOAPsplice: genome-wide ab initio detection of splice junctions from RNA-Seq data. Frontiers in genetics, 2, 46. (https://doi.org/10.3389/fgene.2011.00046)
+
 [^23]: Anders, S., Pyl, P. T., & Huber, W. (2015). HTSeq—a Python framework to work with high-throughput sequencing data. Bioinformatics, 31(2), 166-169. (https://doi.org/10.1093/bioinformatics/btu638)
+
 [^24]: Liao, Y., Smyth, G. K., & Shi, W. (2013). featureCounts: an efficient general purpose program for assigning sequence reads to genomic features. Bioinformatics, 30(7), 923-930. (https://doi.org/10.1093/bioinformatics/btt656)
+
 [^25]: (Cufflinks) Trapnell, C., Williams, B. A., Pertea, G., Mortazavi, A., Kwan, G., Van Baren, M. J., ... & Pachter, L. (2010). Transcript assembly and quantification by RNA-Seq reveals unannotated transcripts and isoform switching during cell differentiation. Nature biotechnology, 28(5), 511. (https://doi.org/10.1038/nbt.1621)
+
 [^26]: Li, H., Handsaker, B., Wysoker, A., Fennell, T., Ruan, J., Homer, N., ... & Durbin, R. (2009). The sequence alignment/map format and SAMtools. Bioinformatics, 25(16), 2078-2079. (https://doi.org/10.1093/bioinformatics/btp352)
+
 [^27]: http://broadinstitute.github.io/picard/
+
 [^28]: Gentleman, R. C., Carey, V. J., Bates, D. M., Bolstad, B., Dettling, M., Dudoit, S., ... & Hornik, K. (2004). Bioconductor: open software development for computational biology and bioinformatics. Genome biology, 5(10), R80. (https://doi.org/10.1186/gb-2004-5-10-r80)
+
 [^29]: Soneson, C., Love, M. I., & Robinson, M. D. (2015). Differential analyses for RNA-seq: transcript-level estimates improve gene-level inferences. F1000Research, 4. (https://doi.org/10.12688/f1000research.7563.2)
+
 [^30]: Gautier L, Cope L, Bolstad BM, Irizarry RA (2004). affy—analysis of Affymetrix GeneChip data at the probe level. Bioinformatics, 20(3), 307–315. ISSN 1367-4803, (https://doi.org/10.1093/bioinformatics/btg405)
+
 [^31]: Pertea, M., Pertea, G. M., Antonescu, C. M., Chang, T. C., Mendell, J. T., & Salzberg, S. L. (2015). StringTie enables improved reconstruction of a transcriptome from RNA-seq reads. Nature biotechnology, 33(3), 290. (https://doi.org/10.1038/nbt.3122)
+
 [^32]: Dillies, M. A., Rau, A., Aubert, J., Hennequet-Antier, C., Jeanmougin, M., Servant, N., ... & Guernec, G. (2013). A comprehensive evaluation of normalization methods for Illumina high-throughput RNA sequencing data analysis. Briefings in bioinformatics, 14(6), 671-683. (https://doi.org/10.1093/bib/bbs046)
+
 [^33]Anders S, Huber W (2010). “Differential expression analysis for sequence count data.” Genome Biology, 11, R106. doi: 10.1186/gb-2010-11-10-r106
+
 [^34]: Love M.I., Huber W., Anders S. (2014). Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2. Genome Biology, 15, 550. (https://doi.org/10.1186/s13059-014-0550-8)
+
 [^35]: Robinson MD, McCarthy DJ, Smyth GK (2010). edgeR: a Bioconductor package for differential expression analysis of digital gene expression data. Bioinformatics, 26(1), 139-140. (https://doi.org/10.1093/bioinformatics/btp616)
+
 [^36]: McCarthy, J. D, Chen, Yunshun, Smyth, K. G (2012). Differential expression analysis of multifactor RNA-Seq experiments with respect to biological variation. Nucleic Acids Research, 40(10), 4288-4297. (https://doi.org/10.1093/nar/gks042)
+
 [^37]: Benjamini, Y., & Hochberg, Y. (1995). Controlling the false discovery rate: a practical and powerful approach to multiple testing. Journal of the royal statistical society. Series B (Methodological), 289-300.
+
 [^38]: Afgan, E., Baker, D., Batut, B., Van Den Beek, M., Bouvier, D., Čech, M., ... & Guerler, A. (2018). The Galaxy platform for accessible, reproducible and collaborative biomedical analyses: 2018 update. Nucleic acids research, 46(W1), W537-W544. (https://doi.org/10.1093/nar/gky379)
+
 [^39]: Ashburner, M., Ball, C. A., Blake, J. A., Botstein, D., Butler, H., Cherry, J. M., ... & Harris, M. A. (2000). Gene Ontology: tool for the unification of biology. Nature genetics, 25(1), 25. (https://doi.org/10.1038/75556)
+
 [^40]: Kanehisa, M., & Goto, S. (2000). KEGG: kyoto encyclopedia of genes and genomes. Nucleic acids research, 28(1), 27-30.
+
 [^41]: Leek, J.T., & Peng, R. D. (2015). Reproducible research can still be wrong. Proceedings of the National Academy of Sciences 112 (6) 1645-1646; DOI: 10.1073/pnas.1421412111
+
 [^42]: Reproducibility in Science: A Guide to enhancing reproducibility in scientific results and writing. http://ropensci.github.io/reproducibility-guide/
+
 [^43]: Peng, R. D. (2011). Reproducible Research in Computational Science. Science Vol. 334, Issue 6060, pp. 1226-1227
 DOI: 10.1126/science.1213847
+
 
 [//]: <> (These are common abbreviations in the page.)
 *[H3ABioNet]: The Bioinformatics Network within the H3Africa Consortium
