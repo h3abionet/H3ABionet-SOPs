@@ -330,7 +330,20 @@ The [Galaxy Tool Shed](https://toolshed.g2.bx.psu.edu) lists all tools currently
 
 ## Questions to consider. {#questions}
 
-### **A. General questions**
+### **A. Reproducible Research** {#reproducbilty}
+
+In any experiment where computation plays a critical role in generating the results and conclusions, researchers should ensure that the presentation of their work includes reproducibility, meaning “the ability to recompute data analytic results given an observed dataset and knowledge of the data analysis pipeline.”^41. This is distinct from the concept of replicability, in which “the chance that an independent experiment targeting the same scientific question will produce a consistent result”^41. 
+For a RNA-Seq experiment, reproducible means documenting in detail all the steps taken from the original fastq files through the end of the statistical analysis and any downstream data mining. The reasons to do this are multifold, three of which are: 1) so reviewers can assess whether the computational steps are valid and match what was described in the report, 2) to serve as a record for your lab, a “computational” notebook equivalent to the laboratory notebook and 3) to serve as a teaching guide for colleagues to use in other experiments^42 [(see Introduction)](http://ropensci.github.io/reproducibility-guide/sections/introduction/). The typical Methods section allowed in a publication only gives a brief description of the steps taken and is not sufficient for reproducibility. Instead, the documentation for reproducibility can go into supplementary files and typically includes codes for software calls and parameters, statistical analysis and generation of figures and tables for the publication. Advanced users can create versioned-controlled Rmarkdown-type documents that integrate codes with figures, graphs and written explanations^42 [(see Tools)](http://ropensci.github.io/reproducibility-guide/sections/tools/) but simple README.txt and AnalysisCodes.R files can also suffice. Beware to limit the manual manipulation of intermediate files, which is difficult to describe and hence difficult to reproduce. Instead, the output files from one section should be the input files for the next section, or else manually-created files should be put in the supplemental as well.
+Finally, note that reproducible research documentation is addition to, and not a replacement for, the written report that describes the reasons behind the selected choices and synthesizes the overall understanding and issues involved in RNA-Seq analysis.
+For more information and guidance, see:
+https://www.pnas.org/content/112/6/1645^41
+http://ropensci.github.io/reproducibility-guide/^42
+http://science.sciencemag.org/content/334/6060/1226.full^43
+https://simplystatistics.org/2014/06/06/the-real-reason-reproducible-research-is-important/
+
+
+
+### **B. General questions** {#general}
 
 These questions, originally derived for the 16S analysis, relate to other sequencing workflows as well.
 
@@ -360,7 +373,7 @@ This is useful information for making predictions for the clients and collaborat
 *   How did the underlying hardware perform?
 *   Was it possible to do other things, or run other analyses on the same computer at the same time?
 
-### **B. Analysis-specific questions**
+### **C. Analysis-specific questions** {#analysis}
 
 The following questions relate specifically to the phases denoted above.
 
@@ -449,6 +462,10 @@ Nodes are more than welcome to attempt these, however.  Should these be attempte
 [^38]: Afgan, E., Baker, D., Batut, B., Van Den Beek, M., Bouvier, D., Čech, M., ... & Guerler, A. (2018). The Galaxy platform for accessible, reproducible and collaborative biomedical analyses: 2018 update. Nucleic acids research, 46(W1), W537-W544. (https://doi.org/10.1093/nar/gky379)
 [^39]: Ashburner, M., Ball, C. A., Blake, J. A., Botstein, D., Butler, H., Cherry, J. M., ... & Harris, M. A. (2000). Gene Ontology: tool for the unification of biology. Nature genetics, 25(1), 25. (https://doi.org/10.1038/75556)
 [^40]: Kanehisa, M., & Goto, S. (2000). KEGG: kyoto encyclopedia of genes and genomes. Nucleic acids research, 28(1), 27-30.
+[^41]: Leek, J.T., & Peng, R. D. (2015). Reproducible research can still be wrong. Proceedings of the National Academy of Sciences 112 (6) 1645-1646; DOI: 10.1073/pnas.1421412111
+[^42]: Reproducibility in Science: A Guide to enhancing reproducibility in scientific results and writing. http://ropensci.github.io/reproducibility-guide/
+[^43]: Peng, R. D. (2011). Reproducible Research in Computational Science. Science Vol. 334, Issue 6060, pp. 1226-1227
+DOI: 10.1126/science.1213847
 
 [//]: <> (These are common abbreviations in the page.)
 *[H3ABioNet]: The Bioinformatics Network within the H3Africa Consortium
