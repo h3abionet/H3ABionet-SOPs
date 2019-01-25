@@ -85,6 +85,6 @@ entries:
   - title: References
     output: web, pdf
     folderitems:
-    - title: Used references
+    - title: References
       url: RNA-Seq#references
       output: web, pdf
