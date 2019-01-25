@@ -72,8 +72,14 @@ entries:
   - title: Questions to consider
     output: web, pdf
     folderitems:
-    - title: Working with Galaxy
-      url: RNA-Seq#questions
+    - title: Reproducible research
+      url: RNA-Seq#reproducbility
+      output: web, pdf
+    - title: General questions
+      url: RNA-Seq#general
+      output: web, pdf
+    - title: Analysis-specific questions
+      url: RNA-Seq#analysis
       output: web, pdf
     
   - title: References
