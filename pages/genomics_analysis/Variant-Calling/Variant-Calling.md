@@ -73,16 +73,9 @@ Functional equivalence [^9]
 
 The Genome Analysis Toolkit (GATK) distributed by the Broad Institute of Harvard and MIT (see[ http://www.broadinstitute.org/gatk/](http://www.broadinstitute.org/gatk/)) is a commonly used framework and toolbox for many of the tasks described below. In its latest 4.0 release, the GATK is now completely open source. While we recommend GATK tools for many of the tasks, we try also to provide alternatives for those organizations that cannot or do not wish to use GATK (i.e for licensing reasons with older GATK versions). Please also note that while the key analysis steps remain the same, the GATK4 is intended to become a spark-based rewrite of GATK3. Many GATK4 tools come in spark-capable or non-spark-capable modes, and can run locally, on a Spark cluster or on Google Cloud Dataproc [^10]. There are some differences in invocation highlighted below, and where tools names have changed this is also indicated. A better introduction to the GATK3 is found here: [https://software.broadinstitute.org/gatk/documentation/quickstart?v=3](https://software.broadinstitute.org/gatk/documentation/quickstart?v=3)   and to the GATK4 is found here [https://software.broadinstitute.org/gatk/documentation/quickstart?v=4](https://software.broadinstitute.org/gatk/documentation/quickstart?v=4)  . Their computational performance is discussed here [^1].
 
-
-
-
-
-<p id="gdcalert1" > </</p>
-
-
-![alt_text](assets/images/VarCall.png "image_tooltip")
- \
-Figure 1: Steps in the variant calling workflow.
+| ![Variant Calling pipeline steps](assets/images/VarCall.png "image_tooltip") |
+| :--: |
+| Figure 1: Steps in the variant calling workflow |
 
 
 ### Procedural steps {#procedural-steps}
@@ -1015,3 +1008,7 @@ VCF can be easily converted to GVF using the vaast_converter script, included wi
 *[sample]: A single individual, such as human CEPH NA12878. Multiple libraries with different properties can be constructed from the original sample DNA source. Here we treat samples as independent individuals whose genome sequence we are attempting to determine. From this perspective, tumor/normal samples are different despite coming from the same individual.
 *[SNV]: Single nucleotide variant, whether in a non-coding region or in a coding regoin such that it is synonymous or nonsynonymous (which is then classified as missense or nonsense variant).
 *[Functional equivalence]:  Specifications intended to eliminate batch effects and promote data interoperability by standardizing pipeline implementations: used tools, versions of these tools, and versions of reference genomic files. Large genomic databases, like gnomAD and TOPmed are being processed by pipelines adhering to these specifications.
+*[Functional Equivalence]:  Specifications intended to eliminate batch effects and promote data interoperability by standardizing pipeline implementations: used tools, versions of these tools, and versions of reference genomic files. Large genomic databases, like gnomAD and TOPmed are being processed by pipelines adhering to these specifications.
+*[GATK]: The Genome Analysis Toolkit, a commonly used framework and toolbox for Variant Calling
+*[BAM]: Binary Alignment Format
+*[VCF]: Variant Calling Format
