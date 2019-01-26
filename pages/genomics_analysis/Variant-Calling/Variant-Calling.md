@@ -863,7 +863,7 @@ VCF can be easily converted to GVF using the vaast_converter script, included wi
 
 [^5]: Myllykangas, S., Buenrostro, J. & Ji, H. P. Overview of sequencing technology platforms. InBioinformatics for High Throughput Sequencing 11–25 (Springer New York, 2012). doi:10.1007/978-1-4614-0782-9_2
 
-[^6]: Schiemer, J. Illumina TruSeq DNA Adapters De-Mystifie .
+[^6]: Schiemer, J. Illumina TruSeq DNA Adapters De-Mystifie available from <http://tucf-genomics.tufts.edu/documents/protocols/TUCF_Understanding_Illumina_TruSeq_Adapters.pdf> .
 
 [^7]: Goodwin, S., McPherson, J. D. & McCombie, W. R. [Coming of age: ten years of next-generation sequencing technologies](https://www.nature.com/articles/nrg.2016.49). Nat. Rev. Genet. 17, 333–351 (2016).
 
