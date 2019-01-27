@@ -427,15 +427,15 @@ Nodes are more than welcome to attempt these, however.  Should these be attempte
 
 ## **References** {#references}
 
-[^1]: Robinson, Mark D., and Alicia Oshlack. A scaling normalization method for differential expression analysis of RNA-seq data. Genome biology 11.3 (2010): R25. (https://doi.org/10.1186/gb-2010-11-3-r25)
+[^1]: Robinson, Mark D., and Alicia Oshlack. [A scaling normalization method for differential expression analysis of RNA-seq data.](https://doi.org/10.1186/gb-2010-11-3-r25) Genome biology 11.3 (2010): R25. 
 
-[^2]: Trapnell, C., Roberts, A., Goff, L., Pertea, G., Kim, D., Kelley, D. R., ... & Pachter, L. (2012). Differential gene and transcript expression analysis of RNA-seq experiments with TopHat and Cufflinks. Nature protocols, 7(3), 562. (https://doi.org/10.1038/nprot.2012.016)
+[^2]: Trapnell, C., Roberts, A., Goff, L., Pertea, G., Kim, D., Kelley, D. R., ... & Pachter, L. (2012). [Differential gene and transcript expression analysis of RNA-seq experiments with TopHat and Cufflinks.](https://doi.org/10.1038/nprot.2012.016) Nature protocols, 7(3), 562. 
 
-[^3]: Love MI, Anders S, Kim V and Huber W. RNA-Seq workflow: gene-level exploratory analysis and differential expression [version 2; referees: 2 approved]. F1000Research 2016, 4:1070. (https://doi.org/10.12688/f1000research.7035.2)
+[^3]: Love MI, Anders S, Kim V and Huber W. [RNA-Seq workflow: gene-level exploratory analysis and differential expression.](https://doi.org/10.12688/f1000research.7035.2) F1000Research 2016, 4:1070. 
 
-[^4]: Law CW, Alhamdoosh M, Su S et al. RNA-seq analysis is easy as 1-2-3 with limma, Glimma and edgeR [version 3; referees: 3 approved]. F1000Research 2018, 5:1408. (https://doi.org/10.12688/f1000research.9005.3)
+[^4]: Law CW, Alhamdoosh M, Su S et al. [RNA-seq analysis is easy as 1-2-3 with limma, Glimma and edgeR.](https://doi.org/10.12688/f1000research.9005.3) F1000Research 2018, 5:1408. 
 
-[^5]: Bray, N. L., Pimentel, H., Melsted, P., & Pachter, L. (2016). Near-optimal probabilistic RNA-seq quantification. Nature biotechnology, 34(5), 525. (https://doi.org/10.1038/nbt.3519)
+[^5]: Bray, N. L., Pimentel, H., Melsted, P., & Pachter, L. (2016). [Near-optimal probabilistic RNA-seq quantification.](https://doi.org/10.1038/nbt.3519) Nature biotechnology, 34(5), 525. 
 
 [^6]: Patro, R., Duggal, G., Love, M. I., Irizarry, R. A., & Kingsford, C. (2017). Salmon provides fast and bias-aware quantification of transcript expression. Nature methods, 14(4), 417. (https://doi.org/10.1038/nmeth.4197)
 
@@ -507,12 +507,11 @@ Nodes are more than welcome to attempt these, however.  Should these be attempte
 
 [^40]: Kanehisa, M., & Goto, S. (2000). KEGG: kyoto encyclopedia of genes and genomes. Nucleic acids research, 28(1), 27-30.
 
-[^41]: Leek, J.T., & Peng, R. D. (2015). Reproducible research can still be wrong. Proceedings of the National Academy of Sciences 112 (6) 1645-1646; DOI: 10.1073/pnas.1421412111
+[^41]: Leek, J.T., & Peng, R. D. (2015). Reproducible research can still be wrong. Proceedings of the National Academy of Sciences 112 (6) 1645-1646; DOI: 10.1073/pnas.1421412111.
 
-[^42]: Reproducibility in Science: A Guide to enhancing reproducibility in scientific results and writing. http://ropensci.github.io/reproducibility-guide/
+[^42]: [Reproducibility in Science: A Guide to enhancing reproducibility in scientific results and writing.](http://ropensci.github.io/reproducibility-guide/)
 
-[^43]: Peng, R. D. (2011). Reproducible Research in Computational Science. Science Vol. 334, Issue 6060, pp. 1226-1227
-DOI: 10.1126/science.1213847
+[^43]: Peng, R. D. (2011). Reproducible Research in Computational Science. Science Vol. 334, Issue 6060, pp. 1226-1227. DOI: 10.1126/science.1213847
 
 
 [//]: <> (These are common abbreviations in the page.)
