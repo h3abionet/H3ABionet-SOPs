@@ -429,7 +429,7 @@ Nodes are more than welcome to attempt these, however.  Should these be attempte
 
 [^1]: Robinson, Mark D., and Alicia Oshlack. [A scaling normalization method for differential expression analysis of RNA-seq data.](https://doi.org/10.1186/gb-2010-11-3-r25) Genome biology 11.3 (2010): R25. 
 
-[^2]: Trapnell, C., Roberts, A., Goff, L., Pertea, G., Kim, D., Kelley, D. R., ... & Pachter, L. (2012). [Differential gene and transcript expression analysis of RNA-seq experiments with TopHat and Cufflinks.](https://doi.org/10.1038/nprot.2012.016) Nature protocols, 7(3), 562.
+[^2]: Trapnell, C., Roberts, A., Goff, L., Pertea, G., Kim, D., Kelley, D. R., ... & Pachter, L. (2012). [Differential gene and transcript expression analysis of RNA-seq experiments with TopHat and Cufflinks.](https://doi.org/10.1038/nprot.2012.016) Nature protocols, 7(3), 562. 
 
 [^3]: Love MI, Anders S, Kim V and Huber W. [RNA-Seq workflow: gene-level exploratory analysis and differential expression.](https://doi.org/10.12688/f1000research.7035.2) F1000Research 2016, 4:1070. 
 
