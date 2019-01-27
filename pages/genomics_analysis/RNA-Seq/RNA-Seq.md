@@ -425,8 +425,7 @@ Nodes are more than welcome to attempt these, however.  Should these be attempte
 *   *General pathway analyses* - What is the impact of the experiment on biological pathways and processes?, i.e.  how many Gene Ontology (GO) terms were found to be over-represented within differentially expressed genes?
 *   *Assessing for unknown signals in analyses* - Were methods used to adjust for potentially unknown factors in your analysis, such as unknown confounding variables?  If so, how did this influence your results?
 
-## References {#references}
-
+## **References** {#references}
 
 [^1]: Robinson, Mark D., and Alicia Oshlack. A scaling normalization method for differential expression analysis of RNA-seq data. Genome biology 11.3 (2010): R25. (https://doi.org/10.1186/gb-2010-11-3-r25)
 
@@ -492,7 +491,7 @@ Nodes are more than welcome to attempt these, however.  Should these be attempte
 
 [^32]: Dillies, M. A., Rau, A., Aubert, J., Hennequet-Antier, C., Jeanmougin, M., Servant, N., ... & Guernec, G. (2013). A comprehensive evaluation of normalization methods for Illumina high-throughput RNA sequencing data analysis. Briefings in bioinformatics, 14(6), 671-683. (https://doi.org/10.1093/bib/bbs046)
 
-[^33]Anders S, Huber W (2010). “Differential expression analysis for sequence count data.” Genome Biology, 11, R106. doi: 10.1186/gb-2010-11-10-r106
+[^33]: Anders S, Huber W (2010). “Differential expression analysis for sequence count data.” Genome Biology, 11, R106. doi: 10.1186/gb-2010-11-10-r106
 
 [^34]: Love M.I., Huber W., Anders S. (2014). Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2. Genome Biology, 15, 550. (https://doi.org/10.1186/s13059-014-0550-8)
 
