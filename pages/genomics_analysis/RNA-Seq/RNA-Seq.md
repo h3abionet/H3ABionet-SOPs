@@ -431,9 +431,9 @@ Nodes are more than welcome to attempt these, however.  Should these be attempte
 
 [^2]: Trapnell, C., Roberts, A., Goff, L., Pertea, G., Kim, D., Kelley, D. R., ... & Pachter, L. (2012). Differential gene and transcript expression analysis of RNA-seq experiments with TopHat and Cufflinks. Nature protocols, 7(3), 562. (https://doi.org/10.1038/nprot.2012.016)
 
-[^3]: Love MI, Anders S, Kim V and Huber W. RNA-Seq workflow: gene-level exploratory analysis and differential expression [version 2; referees: 2 approved]. F1000Research 2016, 4:1070 (https://doi.org/10.12688/f1000research.7035.2)
+[^3]: Love MI, Anders S, Kim V and Huber W. RNA-Seq workflow: gene-level exploratory analysis and differential expression [version 2; referees: 2 approved]. F1000Research 2016, 4:1070. (https://doi.org/10.12688/f1000research.7035.2)
 
-[^4]: Law CW, Alhamdoosh M, Su S et al. RNA-seq analysis is easy as 1-2-3 with limma, Glimma and edgeR [version 3; referees: 3 approved]. F1000Research 2018, 5:1408 (https://doi.org/10.12688/f1000research.9005.3)
+[^4]: Law CW, Alhamdoosh M, Su S et al. RNA-seq analysis is easy as 1-2-3 with limma, Glimma and edgeR [version 3; referees: 3 approved]. F1000Research 2018, 5:1408. (https://doi.org/10.12688/f1000research.9005.3)
 
 [^5]: Bray, N. L., Pimentel, H., Melsted, P., & Pachter, L. (2016). Near-optimal probabilistic RNA-seq quantification. Nature biotechnology, 34(5), 525. (https://doi.org/10.1038/nbt.3519)
 
@@ -445,7 +445,7 @@ Nodes are more than welcome to attempt these, however.  Should these be attempte
 
 [^9]: Bolger, A. M., Lohse, M., & Usadel, B. (2014). Trimmomatic: a flexible trimmer for Illumina sequence data. Bioinformatics, 30(15), 2114-2120. (https://doi.org/10.1093/bioinformatics/btu170)
 
-[^10]: [Trim Galore](http://www.bioinformatics.babraham.ac.uk/projects/trim_galore/)
+[^10]: [Trim Galore.](http://www.bioinformatics.babraham.ac.uk/projects/trim_galore/)
 
 [^11]: [BBMap]( https://sourceforge.net/projects/bbmap/)
 
