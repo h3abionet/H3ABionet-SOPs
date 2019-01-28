@@ -50,6 +50,7 @@ Several papers are now available that describe the steps in greater detail for p
 
 *   [Love _et al._ 2016](https://f1000research.com/articles/4-1070/v2)[^3]
 *   [Law _et al._ 2016](https://f1000research.com/articles/5-1408/v2)[^4]
+*   [Conessa _et al._ 2016](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-0881-8)[^conessa]
 
 In addition, newer alignment-free methods have also been published and are increasingly being used in analysis (we include a second protocol detailing the use of these):
 
@@ -525,6 +526,8 @@ Nodes are more than welcome to attempt these, however.  Should these be attempte
 [^43]: Kanehisa, M., & Goto, S. (2000). KEGG: kyoto encyclopedia of genes and genomes. Nucleic acids research, 28(1), 27-30.
 
 [^limma]: Ritchie, ME, Phipson, B, Wu, D, Hu, Y, Law, CW, Shi, W, and Smyth, GK (2015). [limma powers differential expression analyses for RNA-sequencing and microarray studies](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4402510/). Nucleic Acids Research 43(7), e47.
+
+[^conessa]: Conesa, A., Madrigal, P., Tarazona S., ... & Mortazavi, A. 2016. [A survey of best practices for RNA-Seq data analysis.](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-0881-8) Genome Biology 17:13. https://doi.org/10.1186/s13059-016-0881-8
 
 [//]: <> (These are common abbreviations in the page.)
 *[H3ABioNet]: The Bioinformatics Network within the H3Africa Consortium
