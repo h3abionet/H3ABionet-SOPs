@@ -127,7 +127,7 @@ Once the trimming step is complete, it is always good practice to make sure that
 
 #### _Step 2.1: Generation of gene/transcript-level counts_ {#step-2-1-generation-of-gene-transcript-level-counts}
 
-Below are two protocols for generation of gene- and transcript-level counts.  Protocol 1 focuses on the classical alignment-based approach, whereas Protocol 2 uses recent advances in accelerated kmer-based 'pseudo-alignment'[^16,17,18] approaches for assigning reads to transcripts, which has some distinct advantages to alignment methods but rely on having a comprehensive and reliably annotated transcriptome.
+Below are two protocols for generation of gene- and transcript-level counts.  Protocol 1 focuses on the classical alignment-based approach, whereas Protocol 2 uses recent advances in accelerated kmer-based 'pseudo-alignment'[^16][^17][^18] approaches for assigning reads to transcripts, which has some distinct advantages to alignment methods but rely on having a comprehensive and reliably annotated transcriptome.
 
 
 ##### **Protocol 1: Alignment-based approach**
