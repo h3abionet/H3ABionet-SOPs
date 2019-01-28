@@ -48,8 +48,8 @@ The procedures outlined below are recommendations to the H3ABioNet groups planni
 
 Several papers are now available that describe the steps in greater detail for preparing and analyzing RNA-Seq data, including using more recent statistical tools:
 
-*   (Love _et al. _2016) [https://f1000research.com/articles/4-1070/v2](https://f1000research.com/articles/4-1070/v2)^3
-*   (Law _et al._ 2016) [https://f1000research.com/articles/5-1408/v2](https://f1000research.com/articles/5-1408/v2)^4
+*   (Love _et al. _2016) [https://f1000research.com/articles/4-1070/v2](https://f1000research.com/articles/4-1070/v2)[^3]
+*   (Law _et al._ 2016) [https://f1000research.com/articles/5-1408/v2](https://f1000research.com/articles/5-1408/v2)[^4]
 
 In addition, newer alignment-free methods have also been published and are increasingly being used in analysis (we include a second protocol detailing the use of these):
 
@@ -513,8 +513,6 @@ Nodes are more than welcome to attempt these, however.  Should these be attempte
 
 [^43]: Peng, R. D. (2011). Reproducible Research in Computational Science. Science Vol. 334, Issue 6060, pp. 1226-1227. DOI: 10.1126/science.1213847
 
-
-## **test**
 
 [//]: <> (These are common abbreviations in the page.)
 *[H3ABioNet]: The Bioinformatics Network within the H3Africa Consortium
