@@ -298,7 +298,7 @@ There are other QC steps that are recommended, like simple hierarchical clusteri
 
 ---
 
-| ![FastQC average quality score before and after trimming]({{ site.baseurl }}/assets/images/RNA-Seq-FASTQC2.png "image_tooltip") |
+| ![Distributions of expression values]({{ site.baseurl }}/assets/images/SOP_RNASeq_Fig4.png "image_tooltip") |
 | :--: |
 | Figure 4. Distributions of normalized expression values showing slight and extreme group/batch effects. |
 
