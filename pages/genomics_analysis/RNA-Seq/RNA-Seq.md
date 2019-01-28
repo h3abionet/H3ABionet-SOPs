@@ -97,10 +97,10 @@ In this step we deal with _**3 major preprocessing steps**_  that clean up the d
 One tool that deals with all of these issues at once is [Trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic)[^9], though there are various alternatives that can perform these 3 clean up steps either combined or one after the other; these are  listed below. For data that are paired ended, it is very important to perform the trimming for both read1 and read2 simultaneously. This is because all downstream applications expect paired information, and if one of the 2 reads is lost because it is too short, then the other read becomes unpaired (orphaned) and cannot be used properly for most applications. Trimmomatic has 2 modes, one for single end data (SE) and another one for paired end data (PE). If using paired end reads, please be sure to use the PE mode with both read1 and read2 FASTQ  files for the same run.
 
 **Alternative Tools:**
- *  _For adaptor trimming_: [Trim_Galore](http://www.bioinformatics.babraham.ac.uk/projects/trim_galore/), [BBMap](https://sourceforge.net/projects/bbmap/), Flexbar^12 and one of the many tools [listed here](https://omictools.com/adapter-trimming-category).
+ *  _For adaptor trimming_: [Trim_Galore](http://www.bioinformatics.babraham.ac.uk/projects/trim_galore/)[^10], [BBMap](https://sourceforge.net/projects/bbmap/)[^11], Flexbar[^12] and one of the many tools [listed here](https://omictools.com/adapter-trimming-category).
 
 
-  * _For trimming low quality bases from the ends of reads_: Trim_Galore, BBMap, FASTX-Toolkit (fastq_quality_filter), PrinSeq^14, SolexaQA^15.
+  * _For trimming low quality bases from the ends of reads_: Trim_Galore, BBMap, FASTX-Toolkit (fastq_quality_filter)[^13], PrinSeq[^14], SolexaQA[^15].
 
 
   * _For removing very short reads_: PrinSeq, Trim_Galore
@@ -127,7 +127,7 @@ Once the trimming step is complete, it is always good practice to make sure that
 
 #### _Step 2.1: Generation of gene/transcript-level counts_ {#step-2-1-generation-of-gene-transcript-level-counts}
 
-Below are two protocols for generation of gene- and transcript-level counts.  Protocol 1 focuses on the classical alignment-based approach, whereas Protocol 2 uses recent advances in accelerated kmer-based 'pseudo-alignment'^16,17,18 approaches for assigning reads to transcripts, which has some distinct advantages to alignment methods but rely on having a comprehensive and reliably annotated transcriptome.
+Below are two protocols for generation of gene- and transcript-level counts.  Protocol 1 focuses on the classical alignment-based approach, whereas Protocol 2 uses recent advances in accelerated kmer-based 'pseudo-alignment'[^16,17,18] approaches for assigning reads to transcripts, which has some distinct advantages to alignment methods but rely on having a comprehensive and reliably annotated transcriptome.
 
 
 ##### **Protocol 1: Alignment-based approach**
