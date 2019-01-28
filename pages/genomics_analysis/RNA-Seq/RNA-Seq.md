@@ -151,7 +151,7 @@ Once the alignment is completed, the first step is to check how many reads align
 
 A more recent alternative to alignment-based methods both dramatically increases the speed of the analysis and resolves some of issues that make analysis of transcripts or gene families problematic using alignment-based approaches.  These methods use an alternative approach that performs essentially a very lightweight 'alignment' that speeds up analysis, sometimes by orders of magnitude.  These approaches also generate (as output) estimated counts that can be imported into standard R-based workflows, thus combining the initial two steps in the alignment-based approach above.
 
-The speedups are based on the tool being used and are accomplished in slightly different ways, such as mapping kmers from the reads to a transcriptome-based de bruijn graph (exemplified by [kallisto](https://pachterlab.github.io/kallisto/)^17) or 'quasi-mapping' of reads to transcript positions in a simple transcriptome-based index (e.g. [Salmon](https://combine-lab.github.io/salmon/)^18).  These are normally followed by an expectation maximization (EM) step to resolve ambiguous assignments, re-proportioning reads based on evidence from the overall analysis.  Estimates of read counts to the transcripts can then be generated and used in downstream analyses.  For more background, a good independent summary of the 'pseudo-alignment' approach is found [here](http://tinyheero.github.io/2015/09/02/pseudoalignments-kallisto.html).  The EM step in particular has proven useful in finding additional genes or transcripts in data that were missed using alignment-based approaches, which normally skip ambiguously mapped sequences.
+The speedups are based on the tool being used and are accomplished in slightly different ways, such as mapping kmers from the reads to a transcriptome-based de bruijn graph (exemplified by [kallisto](https://pachterlab.github.io/kallisto/)[^17] or 'quasi-mapping' of reads to transcript positions in a simple transcriptome-based index (e.g. [Salmon](https://combine-lab.github.io/salmon/)[^18]).  These are normally followed by an expectation maximization (EM) step to resolve ambiguous assignments, re-proportioning reads based on evidence from the overall analysis.  Estimates of read counts to the transcripts can then be generated and used in downstream analyses.  For more background, a good independent summary of the 'pseudo-alignment' approach is found [here](http://tinyheero.github.io/2015/09/02/pseudoalignments-kallisto.html).  The EM step in particular has proven useful in finding additional genes or transcripts in data that were missed using alignment-based approaches, which normally skip ambiguously mapped sequences.
 
 A key difference in these procedures from the alignment approach is the tools require a transcriptome data set (not a reference genome).  This may be a problem if your reference genome annotation isn't of reasonably high quality, for instance if the transcripts described aren't well-annotated or incomplete.  However, these tools are of great use for well-characterized genomes such as human and mouse, and can also be used with transcriptome assemblies.  
 
@@ -286,7 +286,7 @@ Apart from FASTQC, other standard QC metrics that rely on an alignment are not a
 
 #### _Step 3.1: QC and outlier/batch detection_ {#step-3-1-qc-and-outlier-batch-detection}
 
-Alignment-based counts can normally be imported directly into R/Bioconductor[^28] , but estimated counts generated using Protocol 2 above will require importing using the _[tximport](https://bioconductor.org/packages/release/bioc/html/tximport.html)_^29 Bioconductor library.  This can also be used to summarize transcript-level information to gene counts.
+Alignment-based counts can normally be imported directly into R/Bioconductor[^28] , but estimated counts generated using Protocol 2 above will require importing using the _[tximport](https://bioconductor.org/packages/release/bioc/html/tximport.html)_[^29] Bioconductor library.  This can also be used to summarize transcript-level information to gene counts.
 
 As mentioned above, estimated transcript-level counts can be used in standard differential gene expression analyses steps, but these should be imported using tools like _[tximport](https://bioconductor.org/packages/release/bioc/html/tximport.html)_[^29] (for R/Bioconductor).   We also recommend using these tools to sum transcript-level information to gene-level counts for initial analyses.
 
@@ -340,10 +340,14 @@ For a RNA-Seq experiment, reproducible means documenting in detail all the steps
 Finally, note that reproducible research documentation is addition to, and not a replacement for, the written report that describes the reasons behind the selected choices and synthesizes the overall understanding and issues involved in RNA-Seq analysis.
 
 For more information and guidance, see:
-https://www.pnas.org/content/112/6/1645[^39]
-http://ropensci.github.io/reproducibility-guide/[^40]
-http://science.sciencemag.org/content/334/6060/1226.full[^41]
-https://simplystatistics.org/2014/06/06/the-real-reason-reproducible-research-is-important/
+
+[Leek & Peng 2015](https://www.pnas.org/content/112/6/1645)[^39]
+
+[rOpenSci's Reproducibilty Guide](http://ropensci.github.io/reproducibility-guide/)[^40]
+
+[Peng 2011](http://science.sciencemag.org/content/334/6060/1226.full)[^41]
+
+[Peng 2014 blog post at SimplyStatistics.org](https://simplystatistics.org/2014/06/06/the-real-reason-reproducible-research-is-important/)
 
 
 
