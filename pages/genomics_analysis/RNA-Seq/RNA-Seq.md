@@ -292,11 +292,18 @@ As mentioned above, estimated transcript-level counts can be used in standard di
 
 Once the counts have been generated, it is good practice to do some QC checks in addition to the ones listed above and to cluster the samples to see if there are any outliers or batch effects. Batch effects are usually caused by obtaining or processing the samples in batches and can obscure detection of expression differences if not adjust for statistically.
 
-Below are 2 examples of variation between samples plotted using the plotDensity function from the "affy"[^30] package in R (see note about R below). Whatever the shape of the distribution, ideally it will be about the same for all samples. One or two samples that are very different could be outliers, but if there are two or more distinct groups, see if they correspond to treatment groups or known or unknown batch effects.
+Figure 4 shows two examples of variation between samples plotted using the plotDensity function from the "affy"[^30] package in R (although the plotDensities function from the limma package[^limma] is a newer choice). Whatever the shape of the distribution, ideally it will be about the same for all samples. One or two samples that are very different could be outliers, but if there are two or more distinct groups, see if they correspond to treatment groups or known or unknown batch effects.
 
-There are other QC steps that are recommended, like simple hierarchical clustering (hclust + plot functions in base R) or Principal Component Analysis clustering (plotPCA function in the affy package). This will help validate the presence of outliers.
+There are other QC steps that are recommended, like simple hierarchical clustering (hclust + plot functions in base R) or Multidimensional Scaling clustering (plotMDS function in the limma package[^limma]). This will help validate the presence of outliers. Note that while StringTie[^31] has facilities for count generation, normalization and statistical analysis, it does not have any internal methods for sample QC or clustering. Instead, the R statistical software and add-on packages from Bioconductor[^28] are an excellent way to handle all aspects of statistical analysis of RNA-Seq data. They are free and available for any computer platform, although the command line interface can have a steep learning curve. Learning how to use R is well worth the time investment as it is a general tool for any sort of data manipulation, statistical analyses and graphing needs.
 
-_Note that while StringTie[^31] has facilities for count generation, normalization and statistical analysis, it does not have any internal methods for sample QC or clustering. Instead, the R statistical software and add-on packages from Bioconductor are an excellent way to handle all aspects of statistical analysis of RNA-Seq data. They are free and available for any computer platform, although the command line interface can have a steep learning curve. Learning how to use R is well worth the time investment as it is a general tool for any sort of data manipulation, statistical analyses and graphing needs._
+---
+
+| ![FastQC average quality score before and after trimming]({{ site.baseurl }}/assets/images/RNA-Seq-FASTQC2.png "image_tooltip") |
+| :--: |
+| Figure 4. Distributions of normalized expression values showing slight and extreme group/batch effects. |
+
+---
+
 
 #### _Step 3.2: Remove low count genes and normalize_ {#step-3-2-remove-low-count-genes-and-normalize}
 
@@ -516,6 +523,8 @@ Nodes are more than welcome to attempt these, however.  Should these be attempte
 [^42]: Ashburner, M., Ball, C. A., Blake, J. A., Botstein, D., Butler, H., Cherry, J. M., ... & Harris, M. A. (2000). [Gene Ontology: tool for the unification of biology.](https://doi.org/10.1038/75556) Nature genetics, 25(1), 25. 
 
 [^43]: Kanehisa, M., & Goto, S. (2000). KEGG: kyoto encyclopedia of genes and genomes. Nucleic acids research, 28(1), 27-30.
+
+[^limma]: Ritchie, ME, Phipson, B, Wu, D, Hu, Y, Law, CW, Shi, W, and Smyth, GK (2015). [limma powers differential expression analyses for RNA-sequencing and microarray studies](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4402510/). Nucleic Acids Research 43(7), e47.
 
 [//]: <> (These are common abbreviations in the page.)
 *[H3ABioNet]: The Bioinformatics Network within the H3Africa Consortium
