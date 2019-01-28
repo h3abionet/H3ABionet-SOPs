@@ -48,13 +48,13 @@ The procedures outlined below are recommendations to the H3ABioNet groups planni
 
 Several papers are now available that describe the steps in greater detail for preparing and analyzing RNA-Seq data, including using more recent statistical tools:
 
-*   (Love _et al. _2016) [https://f1000research.com/articles/4-1070/v2](https://f1000research.com/articles/4-1070/v2)[^3]
-*   (Law _et al._ 2016) [https://f1000research.com/articles/5-1408/v2](https://f1000research.com/articles/5-1408/v2)[^4]
+*   [Love _et al._ 2016](https://f1000research.com/articles/4-1070/v2)[^3]
+*   [Law _et al._ 2016](https://f1000research.com/articles/5-1408/v2)[^4]
 
 In addition, newer alignment-free methods have also been published and are increasingly being used in analysis (we include a second protocol detailing the use of these):
 
-*   (Bray _et al. _2016) [https://www.nature.com/articles/nbt.3519](https://www.nature.com/articles/nbt.3519)[^5]
-*   (Patro _et al._ 2017) [https://www.nature.com/articles/nmeth.4197](https://www.nature.com/articles/nmeth.4197)[^6]
+*   [Bray _et al._ 2016](https://www.nature.com/articles/nbt.3519)[^5]
+*   [Patro _et al._ 2017](https://www.nature.com/articles/nmeth.4197)[^6]
 
 Tools are suggested in the protocols below.
 
