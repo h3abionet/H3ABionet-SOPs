@@ -19,7 +19,7 @@ GWAS is a key workflow of the H3A. Our recommended approach to SOP is shown belo
 
 While this SOP is designed for bioinformaticists doing the GWAS analysis once the data is ready, we recommend that it be studied thoroughly to help plan the entire process. This GWAS is written as a general guide for bioinformaticists, and in particular to assist groups undertaking H3ABioNet accreditation, both to prepare for and do the accreditation exercisde.
 
-*Disclaimer: * Although we hope this SP is educational and will help groups learn to do GWAS, it is not meant as a tutorial or a complete checklist. *Groups undertaking accreditation should realise that accreditation is undertaking by an independent international evaluation committee, and while they will have regard to the SOP, they make their decision at their own discretion.*
+*Disclaimer: * Although we hope this SOP is educational and will help groups learn to do GWAS, it is not meant as a tutorial or a complete checklist. *Groups undertaking accreditation should realise that accreditation is undertaking by an independent international evaluation committee, and while they will have regard to the SOP, they make their decision at their own discretion.*
 
 
 
