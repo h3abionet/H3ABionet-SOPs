@@ -5,7 +5,7 @@ tags: [genomics_analysis]
 last_updated: Fall, 2018
 summary: "This document briefly outlines the essential steps in calling short germline variants, and recommends tools that have gained community acceptance for this purpose."
 sidebar: varcall_sidebar
-toc: false
+toc: true
 permalink: Variant-Calling.html
 folder: genomics_analysis/Variant-Calling
 author_profile: true
@@ -69,12 +69,6 @@ Functional equivalence [^9]
 : Two variant calling pipelines are functionally equivalent if they can be run independently on the same raw WGS data to produce aligned files (BAM or CRAM files) that yield genome variation maps (VCF files) that have >98% similarity when analyzed by the same variant caller(s). 
 
 
-
-### Important note {#important-note}
-
-The Genome Analysis Toolkit (GATK) distributed by the Broad Institute of Harvard and MIT (see[ http://www.broadinstitute.org/gatk/](http://www.broadinstitute.org/gatk/)) is a commonly used framework and toolbox for many of the tasks described below. In its latest 4.0 release, the GATK is now completely open source. While we recommend GATK tools for many of the tasks, we try also to provide alternatives for those organizations that cannot or do not wish to use GATK (i.e for licensing reasons with older GATK versions). Please also note that while the key analysis steps remain the same, the GATK4 is intended to become a spark-based rewrite of GATK3. Many GATK4 tools come in spark-capable or non-spark-capable modes, and can run locally, on a Spark cluster or on Google Cloud Dataproc [^10]. There are some differences in invocation highlighted below, and where tools names have changed this is also indicated. A better introduction to the GATK3 is found here: [https://software.broadinstitute.org/gatk/documentation/quickstart?v=3](https://software.broadinstitute.org/gatk/documentation/quickstart?v=3)   and to the GATK4 is found here [https://software.broadinstitute.org/gatk/documentation/quickstart?v=4](https://software.broadinstitute.org/gatk/documentation/quickstart?v=4)  . Their computational performance is discussed here [^1].
-
-
 ### Procedural steps {#procedural-steps}
 
 The publication by [^11] provides a good discussion of the common tools and approaches for variant calling. Also see the older [^12].
@@ -84,6 +78,11 @@ The figure below depicts the essential steps of the pipeline, which are detailed
 | ![Variant Calling pipeline steps](assets/images/VarCall.png "image_tooltip") |
 | :--: |
 | Figure 1: Steps in the variant calling workflow |
+
+
+### Important note {#important-note}
+
+The Genome Analysis Toolkit (GATK) distributed by the Broad Institute of Harvard and MIT (see[ http://www.broadinstitute.org/gatk/](http://www.broadinstitute.org/gatk/)) is a commonly used framework and toolbox for many of the tasks described below. In its latest 4.0 release, the GATK is now completely open source. While we recommend GATK tools for many of the tasks, we try also to provide alternatives for those organizations that cannot or do not wish to use GATK (i.e for licensing reasons with older GATK versions). Please also note that while the key analysis steps remain the same, the GATK4 is intended to become a spark-based rewrite of GATK3. Many GATK4 tools come in spark-capable or non-spark-capable modes, and can run locally, on a Spark cluster or on Google Cloud Dataproc [^10]. There are some differences in invocation highlighted below, and where tools names have changed this is also indicated. A better introduction to the GATK3 is found here: [https://software.broadinstitute.org/gatk/documentation/quickstart?v=3](https://software.broadinstitute.org/gatk/documentation/quickstart?v=3)   and to the GATK4 is found here [https://software.broadinstitute.org/gatk/documentation/quickstart?v=4](https://software.broadinstitute.org/gatk/documentation/quickstart?v=4)  . Their computational performance is discussed here [^1].
 
 
 ## Phase 1: Preprocessing of the raw reads {#phase-1-preprocessing-of-the-raw-reads}

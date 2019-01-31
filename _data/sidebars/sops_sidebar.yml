@@ -24,20 +24,20 @@ entries:
     folderitems:
             
     - title: Introduction 
-      url: frontmatter#introduction 
+      url: /frontmatter#introduction 
       output: web, pdf
       type: homepage
  
     - title: Glossary of associated terms and jargon
-      url: frontmatter#glossary-of-associated-terms-and-jargon
+      url: /frontmatter#glossary-of-associated-terms-and-jargon
       output: web, pdf
 
     - title: Procedural steps
-      url: frontmatter#procedural-steps
+      url: /frontmatter#procedural-steps
       output: web, pdf
 
     - title: References
-      url: frontmatter#references
+      url: /frontmatter#references
       output: web, pdf
 
 
