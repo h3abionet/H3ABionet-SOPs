@@ -5,6 +5,7 @@ tags: [genomics_analysis]
 last_updated: Fall, 2018
 summary: "This document briefly outlines the essential steps in calling short germline variants, and recommends tools that have gained community acceptance for this purpose."
 sidebar: varcall_sidebar
+toc: false
 permalink: Variant-Calling.html
 folder: genomics_analysis/Variant-Calling
 author_profile: true
@@ -18,7 +19,7 @@ authors:
 
 ## Introduction {#introduction}
 
-This document briefly outlines the essential steps (Figure 1) in the process of making genetic variant calls, and recommends tools that have gained community acceptance for this purpose. It is assumed that the purpose of the study is to detect short germline or somatic variants in a single sample. Recommended coverage for acceptable quality of calls in a research setting is around 30-50x for whole genome and 70-100x for exome sequencing, but lower coverage is discussed as well.
+This document briefly outlines the essential steps in the process of making genetic variant calls, and recommends tools that have gained community acceptance for this purpose. It is assumed that the purpose of the study is to detect short germline or somatic variants in a single sample. Recommended coverage for acceptable quality of calls in a research setting is around 30-50x for whole genome and 70-100x for exome sequencing, but lower coverage is discussed as well.
 
 The procedures outlined below are recommendations to the H3ABioNet groups planning to do variant calling on human genome data, and are not meant to be prescriptive. Our goal is to help the groups set up their procedures and workflows, and to provide an overview of the main steps involved and the tools that can be used to implement them. For optimizing a workflow or an individual analysis step, the reader is referred to [^1]<sup>,</sup>[^2]<sup>,</sup>[^3].
 
@@ -73,14 +74,16 @@ Functional equivalence [^9]
 
 The Genome Analysis Toolkit (GATK) distributed by the Broad Institute of Harvard and MIT (see[ http://www.broadinstitute.org/gatk/](http://www.broadinstitute.org/gatk/)) is a commonly used framework and toolbox for many of the tasks described below. In its latest 4.0 release, the GATK is now completely open source. While we recommend GATK tools for many of the tasks, we try also to provide alternatives for those organizations that cannot or do not wish to use GATK (i.e for licensing reasons with older GATK versions). Please also note that while the key analysis steps remain the same, the GATK4 is intended to become a spark-based rewrite of GATK3. Many GATK4 tools come in spark-capable or non-spark-capable modes, and can run locally, on a Spark cluster or on Google Cloud Dataproc [^10]. There are some differences in invocation highlighted below, and where tools names have changed this is also indicated. A better introduction to the GATK3 is found here: [https://software.broadinstitute.org/gatk/documentation/quickstart?v=3](https://software.broadinstitute.org/gatk/documentation/quickstart?v=3)   and to the GATK4 is found here [https://software.broadinstitute.org/gatk/documentation/quickstart?v=4](https://software.broadinstitute.org/gatk/documentation/quickstart?v=4)  . Their computational performance is discussed here [^1].
 
-| ![Variant Calling pipeline steps](assets/images/VarCall.png "image_tooltip") |
-| :--: |
-| Figure 1: Steps in the variant calling workflow |
-
 
 ### Procedural steps {#procedural-steps}
 
 The publication by [^11] provides a good discussion of the common tools and approaches for variant calling. Also see the older [^12].
+
+The figure below depicts the essential steps of the pipeline, which are detailed in the subsequent sections.
+
+| ![Variant Calling pipeline steps](assets/images/VarCall.png "image_tooltip") |
+| :--: |
+| Figure 1: Steps in the variant calling workflow |
 
 
 ## Phase 1: Preprocessing of the raw reads {#phase-1-preprocessing-of-the-raw-reads}
