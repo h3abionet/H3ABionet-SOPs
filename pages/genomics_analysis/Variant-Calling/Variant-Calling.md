@@ -167,7 +167,12 @@ The variant calls are usually produced in the form of VCF files [^45], occupying
  
 
 
-### _Step 2.6 Statistical filtering_ {#step-2-6-statistical-filtering}
+
+## _Phase 3: Variant annotation and prioritization_ {#phase-3-variant-annotation-and-prioritization}
+
+This last preliminary stage is highly dependent on the study design and objectives, so only a brief coverage is provided herein. 
+
+### _Statistical filtering_ {#statistical-filtering}
 
 The VCF files resulting from the previous steps frequently have many sites that are not really genetic variants, but rather machine artifacts that make the site statistically non-reference. In small studies, hard filtering of variants based on annotations of genomic context is typically sufficient. 
 
@@ -176,21 +181,15 @@ While, it requires expertise to define appropriate filtering thresholds, Heng Li
 [http://gatkforums.broadinstitute.org/discussion/39/variant-quality-score-recalibration-vqsr](http://gatkforums.broadinstitute.org/discussion/39/variant-quality-score-recalibration-vqsr)
 
  
-
-
-## _Phase 3: Variant annotation and prioritization_ {#phase-3-variant-annotation-and-prioritization}
+### Annotation and prioritization {#annotation--and-prioritization}
 
 This phase serves to select those variants that are of particular interest, depending on the research problem at hand. The methods are specific to the problem, thus we do not elaborate on them, and only provide a list of some commonly used tools below:
-
-
 
 *   Generating variant and sample-level annotations, and performing many other exploratory and filtration analysis types: Hail [^47]
 *   Exploring and prioritizing genetic variation in the the context of human disease: GEMINI [^48]
 *   Mendelian disease linked variants: VAR-MD, KGGSeq, FamSeq [^49].
 *   Predicting the deleteriousness of a non-synonymous single nucleotide variant: dbNSFP, HuVariome, Seattle-Seq, ANNOVAR, VAAST, snpEff
 *   Identifying variants within the regulatory regions: RegulomeDB [^50]
-
- 
 
 
 ## Appendices {#appendices}

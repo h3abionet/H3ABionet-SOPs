@@ -36,7 +36,7 @@ entries:
       output: web,pdf
 
   - title: Phase I. Preprocessing raw reads 
-    url: /Variant-Calling#procedural-steps
+    url: /Variant-Calling-2-0.html
     output: web, pdf
     folderitems:
     - title: Adaptor trimming 
@@ -50,34 +50,38 @@ entries:
       output: web, pdf
 
   - title: Phase II. Initial variant discovery
-    url: /Variant-Calling#phase-2-initial-variant-discovery
+    url: /Variant-Calling-3-0.html
     output: web, pdf
     folderitems:
-    - title: 
-      url: /Variant-Calling
+    - title: Alignment
+      url: /Variant-Calling-3-1.html
       output: web, pdf
-    - title: 
-      url: /Variant-Calling
+    - title: De-duplication 
+      url: /Variant-Calling-3-2.html
       output: web, pdf
-    - title: 
-      url: /Variant-Calling
+    - title: Local realignment around indels
+      url: /Variant-Calling-3-3.html
       output: web, pdf
-
+    - title: Base quality score recalibration 
+      url: /Variant-Calling-3-4.html
+      output: web, pdf
+    - title: Calling the variants
+      url: /Variant-Calling-3-5.html
+      output: web, pdf
 
   - title: Phase III. Variant annotation and prioritization
-    url: /Variant-Calling#phase-3-variant-annotation-and-prioritization
+    url: /Variant-Calling-4-0.html
     output: web, pdf
     folderitems:
-    - title: 
-      url: /Variant-Calling
+    - title: Statistical filtering
+      url: /Variant-Calling-4-1.html
+      output: web, pdf
+    - title: Annotation and prioritization
+      url: /Variant-Calling-4-2.html
       output: web, pdf
     - title: 
       url: /Variant-Calling
       output: web, pdf
-    - title: 
-      url: /Variant-Calling
-      output: web, pdf
-
 
   - title: Appendices
     url: /Variant-Calling#useful-resources
