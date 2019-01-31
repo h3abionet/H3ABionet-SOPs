@@ -1,6 +1,6 @@
 #!/bin/bash
 
-## Usage: ./split_long_sop.sh input_file.md
+## Usage: ./split_by_h2.sh input_file.md
 ##
 ## input_file.md a properly formatted markdown file of a working page 
 ### - It starts with proper frontmatter, and 

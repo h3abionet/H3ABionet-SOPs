@@ -232,7 +232,7 @@ A common strategy is to genotype a subset of the samples on a high coverage arra
 ### Meta analyses {#meta-analyses}
 
 
-## References {#references}
+## Bibliography {#bibliography} 
 
 
 * Highland et al, 2018. Quality Control Analysis of Add Health GWAS Data. https://www.cpc.unc.edu/projects/addhealth/documentation/guides/AH_GWAS_QC.pdf    (Example of a good QC)

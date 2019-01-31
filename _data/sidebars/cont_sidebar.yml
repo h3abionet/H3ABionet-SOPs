@@ -23,26 +23,20 @@ entries:
     output: web, pdf
     folderitems:
     - title: Overview 
-      url:  cont_tech-guide#overview
-      output: web, pdf
-    - title: Project tree
-      url: cont_tech-guide#tree
-      output: web, pdf
-    - title: Road map
-      url: cont_tech-guide#road-map
+      url: /cont_tech-guide-1.html
       output: web, pdf
     - title: Handy tips
-      url: cont_tech-guide#handy-tips
+      url: /cont_tech-guide-2.html
       output: web, pdf
-    - title: Changelog
-      url: cont_tech-guide#changelog
+    - title: Project tree
+      url: /cont_tech-guide-3.html
       output: web, pdf
 
   - title: Language & Style
     output: web, pdf
     folderitems:
     - title: Handy tips
-      url: cont_lang-style#tips
+      url: /cont_lang-style#tips
       output: web, pdf
  
 

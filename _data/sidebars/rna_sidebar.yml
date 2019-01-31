@@ -76,9 +76,9 @@ entries:
       url: RNA-Seq#galaxy
       output: web, pdf
     
-  - title: References
+  - title: Bibliography 
     output: web, pdf
     folderitems:
     - title: Used references
-      url: RNA-Seq#references
+      url: RNA-Seq#bibliography
       output: web, pdf

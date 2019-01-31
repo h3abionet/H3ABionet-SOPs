@@ -294,7 +294,7 @@ This is useful information for making predictions for the clients and collaborat
 * When groups of samples were compared (e.g. treatment 1 vs. treatment 2) based on distance metrics, such as unifrac, was there any particular clustering pattern observed?	 	 	
 * Were 	any of the OTUs significantly correlated to any of the treatments or other metadata?
 
-## **References** {#references}
+## Bibliography {#bibliography}
 
 [^1]: Bokulich, Nicholas A., et al. ["Quality-filtering vastly improves diversity estimates from Illumina amplicon sequencing."](https://www.nature.com/articles/nmeth.2276) Nature methods 10.1 (2013): 57.
 

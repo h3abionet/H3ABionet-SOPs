@@ -1,13 +1,13 @@
 #!/bin/bash
 
-## Usage: ./split_long_sop.sh input_file.md
+## Usage: ./split_by_h3.sh input_file.md
 ##
 ## input_file.md a properly formatted markdown file of a working page 
 ### - It starts with proper frontmatter, and 
 ### - is divided into h2 and h3 headers. 
-### - The last header section contains References and abbreviations of the page 
+### - The last header section contains References and abbreviations of the page  (The References section is named "Bibliography")
 
-## The result is a group of files split by level 2 headers
+## The result is a group of files split by level 3 headers
 ### - all files are consecutively named after the basename of input_file
 ### - frontmatter of all files is numbered and named accordingly
 ### - References and abbreviations section appended to each

@@ -411,7 +411,8 @@ Nodes are more than welcome to attempt these, however.  Should these be attempte
 *   *General pathway analyses* - What is the impact of the experiment on biological pathways and processes?, i.e.  how many Gene Ontology (GO) terms were found to be over-represented within differentially expressed genes?
 *   *Assessing for unknown signals in analyses* - Were methods used to adjust for potentially unknown factors in your analysis, such as unknown confounding variables?  If so, how did this influence your results?
 
-## References {#references}
+## Bibliography {#bibliography}
+
 [^1]: Robinson, Mark D., and Alicia Oshlack. ["A scaling normalization method for differential expression analysis of RNA-seq data."](https://genomebiology.biomedcentral.com/articles/10.1186/gb-2010-11-3-r25) Genome biology 11.3 (2010): R25.
 [^2]: Trapnell, Cole, et al. ["Differential gene and transcript expression analysis of RNA-seq experiments with TopHat and Cufflinks."](https://www.nature.com/articles/nprot.2012.016) Nature protocols 7.3 (2012): 562.
 

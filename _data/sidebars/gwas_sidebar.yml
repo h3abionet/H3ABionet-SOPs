@@ -112,9 +112,9 @@ entries:
       url: GWAS#meta-analyses
       output: web, pdf
 
-  - title: References
+  - title: Bibliography 
     output: web, pdf
     folderitems:
     - title: Used references
-      url: GWAS#references
+      url: GWAS#bibliography
       output: web, pdf
