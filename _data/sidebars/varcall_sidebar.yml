@@ -83,23 +83,23 @@ entries:
       url: /Variant-Calling
       output: web, pdf
 
+  - title: H3ABioNet Accreditation exercise 
+    url: /Variant-Calling-5.html
+    output: web, pdf
+    folderitems:
+    - title: Questions
+      url: /Variant-Calling-5.html
+      output: web, pdf
+
   - title: Appendices
-    url: /Variant-Calling#useful-resources
+    url: /Variant-Calling-6-0.html
     output: web, pdf
     folderitems:
     - title: Useful Resources
-      url: /Variant-Calling#useful-resources
+      url: /Variant-Calling-6-1.html
       output: web, pdf
     - title: List of tools
-      url: /Variant-Calling#alphabetized-list-of-re commended-tools
-      output: web, pdf
-
-  - title: Bibliography
-    url: /Variant-Calling#bibliography
-    output: web, pdf
-    folderitems:
-    - title: Bibliiography
-      url: /Variant-Calling#bibliography
+      url: /Variant-Calling-6-2.html
       output: web, pdf
 
 
