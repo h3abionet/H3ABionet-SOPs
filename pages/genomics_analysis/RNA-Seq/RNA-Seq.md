@@ -13,6 +13,7 @@ authors:
  - Radhika_Khetani
  - Jessica_Holmes
  - Chris_Fields
+ - Meng-Chun Tseng
 ---
 
 ## Introduction {#introduction}
@@ -47,13 +48,14 @@ The procedures outlined below are recommendations to the H3ABioNet groups planni
 
 Several papers are now available that describe the steps in greater detail for preparing and analyzing RNA-Seq data, including using more recent statistical tools:
 
-*   (Love _et al. _2016) [https://f1000research.com/articles/4-1070/v2](https://f1000research.com/articles/4-1070/v2)
-*   (Law _et al._ 2016) [https://f1000research.com/articles/5-1408/v2](https://f1000research.com/articles/5-1408/v2)
+*   [Love _et al._ 2016](https://f1000research.com/articles/4-1070/v2)[^3]
+*   [Law _et al._ 2016](https://f1000research.com/articles/5-1408/v2)[^4]
+*   [Conessa _et al._ 2016](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-0881-8)[^conessa]
 
 In addition, newer alignment-free methods have also been published and are increasingly being used in analysis (we include a second protocol detailing the use of these):
 
-*   (Bray _et al. _2016) [https://www.nature.com/articles/nbt.3519](https://www.nature.com/articles/nbt.3519)
-*   (Patro _et al._ 2017) [https://www.nature.com/articles/nmeth.4197](https://www.nature.com/articles/nmeth.4197)
+*   [Bray _et al._ 2016](https://www.nature.com/articles/nbt.3519)[^5]
+*   [Patro _et al._ 2017](https://www.nature.com/articles/nmeth.4197)[^6]
 
 Tools are suggested in the protocols below.
 
@@ -70,7 +72,7 @@ The following steps prepare reads for analysis and should be always performed pr
 
 #### _Step 1.1: Quality check_ {#step-1-1-quality-check}
 
-The overall quality of the sequence information received from the sequencing center will determine how the quality trimming should be set up in Step 1.2. Tools like [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) will enable the collection of this information. Sequencing facilities usually produce read files in FASTQ format, which contain a base sequence and a quality score for each base in a read. FastQC measures several metrics associated with the raw sequence data in the FASTQ file, including read length, average quality score at each sequenced base, GC content, presence of any overrepresented sequences (k-mers), and so on. The key metric to watch for is the graph representing the average quality scores (see Figure 2), and the range of scores at each base along the length of the reads (reads are usually the same length at this time, and this length is the X-axis, the Y-axis has the quality scores). Note that for large projects, you may collate all of the FastQC reports by using a tool like [MultiQC](http://multiqc.info). MultiQC will generate an html file that visually summarizes these metrics across all samples, as well as provide tab-delimited files containing all the FastQC stats.
+The overall quality of the sequence information received from the sequencing center will determine how the quality trimming should be set up in Step 1.2. Tools like [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)[^7] will enable the collection of this information. Sequencing facilities usually produce read files in FASTQ format, which contain a base sequence and a quality score for each base in a read. FastQC measures several metrics associated with the raw sequence data in the FASTQ file, including read length, average quality score at each sequenced base, GC content, presence of any overrepresented sequences (k-mers), and so on. The key metric to watch for is the graph representing the average quality scores (see Figure 2), and the range of scores at each base along the length of the reads (reads are usually the same length at this time, and this length is the X-axis, the Y-axis has the quality scores). Note that for large projects, you may collate all of the FastQC reports by using a tool like [MultiQC](http://multiqc.info)[^8]. MultiQC will generate an html file that visually summarizes these metrics across all samples, as well as provide tab-delimited files containing all the FastQC stats.
 
 _**Note:**_ _FastQC has very stringent criteria to assess whether the data "Pass" or "Fail" for a given metric it measures, so even if it looks like your data has "failed" with respect to a given metric, please read carefully about the criteria employed. In most situations a "failed" reading for multiple metrics is not a death sentence for the dataset._
 
@@ -93,16 +95,13 @@ In this step we deal with _**3 major preprocessing steps**_  that clean up the d
 
 3.  Once the adaptor remnants and low quality ends have been trimmed, some reads may end up being very short (i.e. <20 bases). These short reads are likely to align to multiple (wrong) locations on the reference, introducing noise. Hence any reads that are shorter than a predetermined cutoff (e.g. 20) need to be removed
 
-One tool that deals with all of these issues at once is [Trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic), though there are various alternatives that can perform these 3 clean up steps either combined or one after the other; these are  listed below. For data that are paired ended, it is very important to perform the trimming for both read1 and read2 simultaneously. This is because all downstream applications expect paired information, and if one of the 2 reads is lost because it is too short, then the other read becomes unpaired (orphaned) and cannot be used properly for most applications. Trimmomatic has 2 modes, one for single end data (SE) and another one for paired end data (PE). If using paired end reads, please be sure to use the PE mode with both read1 and read2 FASTQ  files for the same run.
+One tool that deals with all of these issues at once is [Trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic)[^9], though there are various alternatives that can perform these 3 clean up steps either combined or one after the other; these are  listed below. For data that are paired ended, it is very important to perform the trimming for both read1 and read2 simultaneously. This is because all downstream applications expect paired information, and if one of the 2 reads is lost because it is too short, then the other read becomes unpaired (orphaned) and cannot be used properly for most applications. Trimmomatic has 2 modes, one for single end data (SE) and another one for paired end data (PE). If using paired end reads, please be sure to use the PE mode with both read1 and read2 FASTQ  files for the same run.
 
 **Alternative Tools:**
-
-_For adaptor trimming_ - Trim_Galore, BBMap, Flexbar (Dodt _et al._ 2012) and one of the many tools [listed here](https://omictools.com/adapter-trimming-category).
-
-  *  _For adaptor trimming_: Trim_Galore, BBMap, Flexbar (Dodt _et al._ 2012) and one of the many tools [listed here](https://omictools.com/adapter-trimming-category).
+ *  _For adaptor trimming_: [Trim_Galore](http://www.bioinformatics.babraham.ac.uk/projects/trim_galore/)[^10], [BBMap](https://sourceforge.net/projects/bbmap/)[^11], Flexbar[^12] and one of the many tools [listed here](https://omictools.com/adapter-trimming-category).
 
 
-  * _For trimming low quality bases from the ends of reads_: Trim_Galore, BBMap, FASTX-Toolkit (fastq_quality_filter), PrinSeq, SolexaQA (Cox _et al._ 2010).
+  * _For trimming low quality bases from the ends of reads_: Trim_Galore, BBMap, FASTX-Toolkit (fastq_quality_filter)[^13], PrinSeq[^14], SolexaQA[^15].
 
 
   * _For removing very short reads_: PrinSeq, Trim_Galore
@@ -129,12 +128,12 @@ Once the trimming step is complete, it is always good practice to make sure that
 
 #### _Step 2.1: Generation of gene/transcript-level counts_ {#step-2-1-generation-of-gene-transcript-level-counts}
 
-Below are two protocols for generation of gene- and transcript-level counts.  Protocol 1 focuses on the classical alignment-based approach, whereas Protocol 2 uses recent advances in accelerated kmer-based 'pseudo-alignment' approaches for assigning reads to transcripts, which has some distinct advantages to alignment methods but rely on having a comprehensive and reliably annotated transcriptome.
+Below are two protocols for generation of gene- and transcript-level counts.  Protocol 1 focuses on the classical alignment-based approach, whereas Protocol 2 uses recent advances in accelerated kmer-based 'pseudo-alignment'[^16]<sup>, </sup>[^17]<sup>, </sup>[^18] approaches for assigning reads to transcripts, which has some distinct advantages to alignment methods but rely on having a comprehensive and reliably annotated transcriptome.
 
 
 ##### **Protocol 1: Alignment-based approach**
 
-Once the data are cleaned up, the next step is alignment to the reference genome. There are various tools available for this step, but it is important that the alignment tool chosen here is a "splice-aware" tool. That means that the tool should have the capability to align reads that contain exonic sequences from 2 exons on either side of one intron (also called intron-spanning reads). STAR, HISAT2, GSNAP, SOAPSplice are some of the many splice-aware aligners available. Note that TopHat used to be a very commonly-used tool from the Tuxedo suite, however this software is no longer supported and has been superseded by HISAT2 (recommended for human data).
+Once the data are cleaned up, the next step is alignment to the reference genome. There are various tools available for this step, but it is important that the alignment tool chosen here is a "splice-aware" tool. That means that the tool should have the capability to align reads that contain exonic sequences from 2 exons on either side of one intron (also called intron-spanning reads). STAR[^19], HISAT2[^20], GSNAP[^21], SOAPSplice[^22] are some of the many splice-aware aligners available. Note that TopHat used to be a very commonly-used tool from the Tuxedo suite, however this software is no longer supported and has been superseded by HISAT2 (recommended for human data).
 
 When performing alignments it is imperative to set up the parameters properly to ensure the best alignment. Irrespective of the aligner used, it needs the following information:
 
@@ -153,7 +152,7 @@ Once the alignment is completed, the first step is to check how many reads align
 
 A more recent alternative to alignment-based methods both dramatically increases the speed of the analysis and resolves some of issues that make analysis of transcripts or gene families problematic using alignment-based approaches.  These methods use an alternative approach that performs essentially a very lightweight 'alignment' that speeds up analysis, sometimes by orders of magnitude.  These approaches also generate (as output) estimated counts that can be imported into standard R-based workflows, thus combining the initial two steps in the alignment-based approach above.
 
-The speedups are based on the tool being used and are accomplished in slightly different ways, such as mapping kmers from the reads to a transcriptome-based de bruijn graph (exemplified by [kallisto](https://pachterlab.github.io/kallisto/)) or 'quasi-mapping' of reads to transcript positions in a simple transcriptome-based index (e.g. [Salmon](https://combine-lab.github.io/salmon/)).  These are normally followed by an expectation maximization (EM) step to resolve ambiguous assignments, re-proportioning reads based on evidence from the overall analysis.  Estimates of read counts to the transcripts can then be generated and used in downstream analyses.  For more background, a good independent summary of the 'pseudo-alignment' approach is found [here](http://tinyheero.github.io/2015/09/02/pseudoalignments-kallisto.html).  The EM step in particular has proven useful in finding additional genes or transcripts in data that were missed using alignment-based approaches, which normally skip ambiguously mapped sequences.
+The speedups are based on the tool being used and are accomplished in slightly different ways, such as mapping kmers from the reads to a transcriptome-based de bruijn graph (exemplified by [kallisto](https://pachterlab.github.io/kallisto/)[^17] or 'quasi-mapping' of reads to transcript positions in a simple transcriptome-based index (e.g. [Salmon](https://combine-lab.github.io/salmon/)[^18]).  These are normally followed by an expectation maximization (EM) step to resolve ambiguous assignments, re-proportioning reads based on evidence from the overall analysis.  Estimates of read counts to the transcripts can then be generated and used in downstream analyses.  For more background, a good independent summary of the 'pseudo-alignment' approach is found [here](http://tinyheero.github.io/2015/09/02/pseudoalignments-kallisto.html).  The EM step in particular has proven useful in finding additional genes or transcripts in data that were missed using alignment-based approaches, which normally skip ambiguously mapped sequences.
 
 A key difference in these procedures from the alignment approach is the tools require a transcriptome data set (not a reference genome).  This may be a problem if your reference genome annotation isn't of reasonably high quality, for instance if the transcripts described aren't well-annotated or incomplete.  However, these tools are of great use for well-characterized genomes such as human and mouse, and can also be used with transcriptome assemblies.  
 
@@ -163,7 +162,7 @@ Note, as these analyses generate estimated read counts as part of their output, 
 
 ##### **Protocol 1**
 
-Once it is determined that the alignment step was successful, the next step is to enumerate the number of reads that are associated with the genes. There are multiple tools to perform this step (e.g. HTSeq's htseq-count, Subread's featureCounts), in addition, there are statistical analysis tools that do not require this step (e.g. Cufflinks' Cuffdiff and Ballgown). Both scenarios will be tackled in Phase III.
+Once it is determined that the alignment step was successful, the next step is to enumerate the number of reads that are associated with the genes. There are multiple tools to perform this step (e.g. HTSeq's htseq-count[^23] , Subread's featureCounts[^24] ), in addition, there are statistical analysis tools that do not require this step (e.g. Cufflinks'[^25] Cuffdiff and Ballgown). Both scenarios will be tackled in Phase III.
 
 We recommend using featureCounts to collect the raw gene count information; this tool will require the alignment file (**BAM**), and the associated gene annotation file (**GTF**). Irrespective of the counting tool used, it needs the following information:
 
@@ -184,7 +183,7 @@ Counts are already generated and can be skipped
 
 ##### **Protocol 1**
 
-For a given RNA-Seq run it is valuable to collect several stats related to the alignment and counting steps; this is an important step in the evaluation process. There are many tools that gather this information from the **SAM** or **BAM** output file, e.g samtools' flagstat, Picard's CollectAlignmentSummaryMetrics. However there are quirks with each reporting tool, hence it is recommended to collect this information as described in the table below.
+For a given RNA-Seq run it is valuable to collect several stats related to the alignment and counting steps; this is an important step in the evaluation process. There are many tools that gather this information from the **SAM** or **BAM** output file, e.g samtools' flagstat[^26] , Picard's CollectAlignmentSummaryMetrics[^27] . However there are quirks with each reporting tool, hence it is recommended to collect this information as described in the table below.
 
 <table>
   <tr>
@@ -288,36 +287,43 @@ Apart from FASTQC, other standard QC metrics that rely on an alignment are not a
 
 #### _Step 3.1: QC and outlier/batch detection_ {#step-3-1-qc-and-outlier-batch-detection}
 
-Alignment-based counts can normally be imported directly into R/Bioconductor, but estimated counts generated using Protocol 2 above will require importing using the _[tximport](https://bioconductor.org/packages/release/bioc/html/tximport.html)_ Bioconductor library.  This can also be used to summarize transcript-level information to gene counts.
+Alignment-based counts can normally be imported directly into R/Bioconductor[^28] , but estimated counts generated using Protocol 2 above will require importing using the _[tximport](https://bioconductor.org/packages/release/bioc/html/tximport.html)_[^29] Bioconductor library.  This can also be used to summarize transcript-level information to gene counts.
 
-As mentioned above, estimated transcript-level counts can be used in standard differential gene expression analyses steps, but these should be imported using tools like _[tximport](https://bioconductor.org/packages/release/bioc/html/tximport.html)_ (for R/Bioconductor).   We also recommend using these tools to sum transcript-level information to gene-level counts for initial analyses.
+As mentioned above, estimated transcript-level counts can be used in standard differential gene expression analyses steps, but these should be imported using tools like _[tximport](https://bioconductor.org/packages/release/bioc/html/tximport.html)_[^29] (for R/Bioconductor).   We also recommend using these tools to sum transcript-level information to gene-level counts for initial analyses.
 
 Once the counts have been generated, it is good practice to do some QC checks in addition to the ones listed above and to cluster the samples to see if there are any outliers or batch effects. Batch effects are usually caused by obtaining or processing the samples in batches and can obscure detection of expression differences if not adjust for statistically.
 
-Below are 2 examples of variation between samples plotted using the plotDensity function from the "affy" package in R (see note about R below). Whatever the shape of the distribution, ideally it will be about the same for all samples. One or two samples that are very different could be outliers, but if there are two or more distinct groups, see if they correspond to treatment groups or known or unknown batch effects.
+Figure 4 shows two examples of variation between samples plotted using the plotDensity function from the "affy"[^30] package in R (although the plotDensities function from the limma package[^limma] is a newer choice). Whatever the shape of the distribution, ideally it will be about the same for all samples. One or two samples that are very different could be outliers, but if there are two or more distinct groups, see if they correspond to treatment groups or known or unknown batch effects.
 
-There are other QC steps that are recommended, like simple hierarchical clustering (hclust + plot functions in base R) or Principal Component Analysis clustering (plotPCA function in the affy package). This will help validate the presence of outliers.
+There are other QC steps that are recommended, like simple hierarchical clustering (hclust + plot functions in base R) or Multidimensional Scaling clustering (plotMDS function in the limma package[^limma]). This will help validate the presence of outliers. Note that while StringTie[^31] has facilities for count generation, normalization and statistical analysis, it does not have any internal methods for sample QC or clustering. Instead, the R statistical software and add-on packages from Bioconductor[^28] are an excellent way to handle all aspects of statistical analysis of RNA-Seq data. They are free and available for any computer platform, although the command line interface can have a steep learning curve. Learning how to use R is well worth the time investment as it is a general tool for any sort of data manipulation, statistical analyses and graphing needs.
 
-_Note that while StringTie has facilities for count generation, normalization and statistical analysis, it does not have any internal methods for sample QC or clustering. Instead, the R statistical software and add-on packages from Bioconductor are an excellent way to handle all aspects of statistical analysis of RNA-Seq data. They are free and available for any computer platform, although the command line interface can have a steep learning curve. Learning how to use R is well worth the time investment as it is a general tool for any sort of data manipulation, statistical analyses and graphing needs._
+---
+
+| ![Distributions of expression values]({{ site.baseurl }}/assets/images/SOP_RNASeq_Fig4.png "image_tooltip") |
+| :--: |
+| Figure 4. Distributions of normalized expression values showing slight and extreme group/batch effects. |
+
+---
+
 
 #### _Step 3.2: Remove low count genes and normalize_ {#step-3-2-remove-low-count-genes-and-normalize}
 
 The QC investigations in Step 3.1 should be done on the output from htseq-count, which typically is the entire transcriptome (all genes). However, for most eukaryotic species, only ~40-60% of genes are expressed in any given cell, tissue or age and so a large proportion of the genes may contain 0 or only a few reads. It is recommended to remove these genes because they do not contain enough information to be statistically valid and it reduces the amount of multiple hypothesis testing (Step 3.3). A common practice is to require a minimum number of reads in a minimum number of samples. Often 1 CPM (count per million, relative to the total number of reads in the sample) is used as the minimum threshold but this may need to be adjusted up or down depending on the total number of reads per sample to get a threshold between 5 and 20 reads per gene.
 
-The CPM adjustment is a minimal normalization that is necessary because of the normal large variation in total reads per sample. However, this assumes that the total number of reads _should_ have been the same for all samples. This assumption can often be violated by extremely high expression in a few genes in one treatment or if the DE genes are predominantly in one direction. The traditional FPKM normalization used in older tools such as Cufflinks' Cuffdiff cannot adjust for this and was one of the reasons FPKM was found to be inferior to other normalization methods, including Transcripts Per Million (or TPM; Dillies et al. 2012).
+The CPM adjustment is a minimal normalization that is necessary because of the normal large variation in total reads per sample. However, this assumes that the total number of reads _should_ have been the same for all samples. This assumption can often be violated by extremely high expression in a few genes in one treatment or if the DE genes are predominantly in one direction. The traditional FPKM normalization used in older tools such as Cufflinks' Cuffdiff cannot adjust for this and was one of the reasons FPKM was found to be inferior to other normalization methods, including Transcripts Per Million (or TPM[^32]).
 
-Which extra normalization, DESeq or TMM, to use in R depends on which package, DESeq2 or edgeR, you prefer to use in R for statistical analysis. Both use extra normalization methods that are comparable and adjust for moderate biases in the number and direction of gene expression changes. Both are based on negative binomial statistical modeling and were found to compare quite evenly. Both have functions for outputting normalized expression values for use in QC and downstream visualizations. These normalized expression values should be put through the same QC metrics in Step 3.1 to see if the extra normalization rectified any problems indicated. Severe outliers should be removed and the data re-normalized. Remaining batch effects should be adjusted for in the statistical model.
+Which extra normalization, DESeq[^33] or TMM, to use in R depends on which package, DESeq2[^34] or edgeR[^35]<sup>, </sup>[^36] , you prefer to use in R for statistical analysis. Both use extra normalization methods that are comparable and adjust for moderate biases in the number and direction of gene expression changes. Both are based on negative binomial statistical modeling and were found to compare quite evenly. Both have functions for outputting normalized expression values for use in QC and downstream visualizations. These normalized expression values should be put through the same QC metrics in Step 3.1 to see if the extra normalization rectified any problems indicated. Severe outliers should be removed and the data re-normalized. Remaining batch effects should be adjusted for in the statistical model.
 
 #### _Step 3.3: Statistics for differential expression_ {#step-3-3-statistics-for-differential-expression}
 
 The main goal of most RNA-Seq is detection of differential expression between two or more groups. This is done for thousands of genes with often only a few replicates per group, so a statistical method must be used. This field is still under development and various statistical methods have been proposed. Both DESeq2 and edgeR can handle paired samples, other batch effects and complex designs. The choice between the two can simply be made based on which one is easier to understand and implement for the user.
 
-In any statistical test of differential expression between groups, the amount of change from group to group must be evaluated by how much variation there is among the replicates of a group and how many replicates were used. These three factors, the amount of change, the amount of variation and the number of replicates are combined by the statistical test into one "p-value" which assesses the amount of evidence for differential expression. The traditional p-value cutoff of 0.05 for significance means that if you were to randomly sample two sets of replicates from the sample population 100 times, only 5 times would the value of the test statistic be larger than what you did see. This is a reasonable threshold when you only test a single gene, but in RNA-Seq you are measuring and testing thousands of genes at the same time. Therefore, some sort of adjustment of the p-values needs to be done. The most popular method is the False Discovery Rate method (Benjamimi & Hochberg, 1991), which adjusts the p-values so that the entire set of genes with values less than 0.05 is expected to contain 5% false-positives. Depending on the goals of your experiment, the FDR p-value threshold can be raised to gain more true-positives at the expense of a higher false-positive rate. However, keep in mind that the FDR correction depends on how many genes have low p-values compared with the number expected to to have low p-values and the lack of any genes with reasonably low p-values does not mean that no genes were truly changing.
+In any statistical test of differential expression between groups, the amount of change from group to group must be evaluated by how much variation there is among the replicates of a group and how many replicates were used. These three factors, the amount of change, the amount of variation and the number of replicates are combined by the statistical test into one "p-value" which assesses the amount of evidence for differential expression. The traditional p-value cutoff of 0.05 for significance means that if you were to randomly sample two sets of replicates from the sample population 100 times, only 5 times would the value of the test statistic be larger than what you did see. This is a reasonable threshold when you only test a single gene, but in RNA-Seq you are measuring and testing thousands of genes at the same time. Therefore, some sort of adjustment of the p-values needs to be done. The most popular method is the False Discovery Rate method[^37] , which adjusts the p-values so that the entire set of genes with values less than 0.05 is expected to contain 5% false-positives. Depending on the goals of your experiment, the FDR p-value threshold can be raised to gain more true-positives at the expense of a higher false-positive rate. However, keep in mind that the FDR correction depends on how many genes have low p-values compared with the number expected to to have low p-values and the lack of any genes with reasonably low p-values does not mean that no genes were truly changing.
 
-#### _Working with Galaxy_ {#galaxy}
+#### _Working with Galaxy_ 
 
 
-If it is desirable to perform all processing in Galaxy, it should not be a problem for smaller experiments with a 1:1 comparisons between samples. For experiments with a large number of samples, and also for complex comparisons (e.g. 2x2 factorial design), Galaxy may not work as well; we instead recommend learning and using the command line tools and R/Bioconductor. However, Galaxy can be used to test parameter settings on a subset of the data, prior to switching over to command line for the whole analysis. Another issue of note, though Galaxy is quite good with data provenance,the latest versions of tools may not be available in Galaxy's Tool Shed (in particular those available in R/Bioconductor); In most cases Galaxy's excellent data provenance tracking will keep track of the versions used, so please make a note of the version numbers.  
+If it is desirable to perform all processing in Galaxy[^38] , it should not be a problem for smaller experiments with a 1:1 comparisons between samples. For experiments with a large number of samples, and also for complex comparisons (e.g. 2x2 factorial design), Galaxy may not work as well; we instead recommend learning and using the command line tools and R/Bioconductor. However, Galaxy can be used to test parameter settings on a subset of the data, prior to switching over to command line for the whole analysis. Another issue of note, though Galaxy is quite good with data provenance,the latest versions of tools may not be available in Galaxy's Tool Shed (in particular those available in R/Bioconductor); In most cases Galaxy's excellent data provenance tracking will keep track of the versions used, so please make a note of the version numbers.  
 
 The [Galaxy Tool Shed](https://toolshed.g2.bx.psu.edu) lists all tools currently available through Galaxy.  Tools available in Galaxy mentioned above include:
 
@@ -331,9 +337,29 @@ The [Galaxy Tool Shed](https://toolshed.g2.bx.psu.edu) lists all tools currently
 *   Salmon
 
 
-## Questions to consider.
+## Questions to consider. {#questions}
 
-### **A. General questions**
+### **A. Reproducible Research** {#reproducbility}
+
+In any experiment where computation plays a critical role in generating the results and conclusions, researchers should ensure that the presentation of their work includes reproducibility, meaning “the ability to recompute data analytic results given an observed dataset and knowledge of the data analysis pipeline.”[^39]. This is distinct from the concept of replicability, in which “the chance that an independent experiment targeting the same scientific question will produce a consistent result”[^39]. 
+
+For a RNA-Seq experiment, reproducible means documenting in detail all the steps taken from the original fastq files through the end of the statistical analysis and any downstream data mining. The reasons to do this are multifold, three of which are: 1) so reviewers can assess whether the computational steps are valid and match what was described in the report, 2) to serve as a record for your lab, a “computational” notebook equivalent to the laboratory notebook and 3) to serve as a teaching guide for colleagues to use in other experiments[^40] [(see Introduction)](http://ropensci.github.io/reproducibility-guide/sections/introduction/). The typical Methods section allowed in a publication only gives a brief description of the steps taken and is not sufficient for reproducibility. Instead, the documentation for reproducibility can go into supplementary files and typically includes codes for software calls and parameters, statistical analysis and generation of figures and tables for the publication. Advanced users can create versioned-controlled Rmarkdown-type documents that integrate codes with figures, graphs and written explanations[^40] [(see Tools)](http://ropensci.github.io/reproducibility-guide/sections/tools/) but simple README.txt and AnalysisCodes.R files can also suffice. Beware to limit the manual manipulation of intermediate files, which is difficult to describe and hence difficult to reproduce. Instead, the output files from one section should be the input files for the next section, or else manually-created files should be put in the supplemental as well.
+
+Finally, note that reproducible research documentation is addition to, and not a replacement for, the written report that describes the reasons behind the selected choices and synthesizes the overall understanding and issues involved in RNA-Seq analysis.
+
+For more information and guidance, see:
+
+[Leek & Peng 2015](https://www.pnas.org/content/112/6/1645)[^39]
+
+[rOpenSci's Reproducibilty Guide](http://ropensci.github.io/reproducibility-guide/)[^40]
+
+[Peng 2011](http://science.sciencemag.org/content/334/6060/1226.full)[^41]
+
+[Peng 2014 blog post at SimplyStatistics.org](https://simplystatistics.org/2014/06/06/the-real-reason-reproducible-research-is-important/)
+
+
+
+### **B. General questions** {#general}
 
 These questions, originally derived for the 16S analysis, relate to other sequencing workflows as well.
 
@@ -363,7 +389,7 @@ This is useful information for making predictions for the clients and collaborat
 *   How did the underlying hardware perform?
 *   Was it possible to do other things, or run other analyses on the same computer at the same time?
 
-### **B. Analysis-specific questions**
+### **C. Analysis-specific questions** {#analysis}
 
 The following questions relate specifically to the phases denoted above.
 
@@ -407,17 +433,102 @@ Nodes are more than welcome to attempt these, however.  Should these be attempte
 
 *   *Alternative reference genomes* - How does changing the reference genome and annotation used influence your final results, choice of software, and parameters?
 *   *Isoform analysis* - What method/s did you use for the identification of alternative splicing and why? Provide splice variants with list of exons associated with each isoform.
-*   *Pathway annotation source* - Where did you get additional annotation information on the genes (i.e., gene names, symbols, GO terms, KEGG pathways) and when was that resource last updated?
+*   *Pathway annotation source* - Where did you get additional annotation information on the genes (i.e., gene names, symbols, GO (Gene Ontology)[^42] terms, KEGG[^43] pathways) and when was that resource last updated?
 *   *General pathway analyses* - What is the impact of the experiment on biological pathways and processes?, i.e.  how many Gene Ontology (GO) terms were found to be over-represented within differentially expressed genes?
 *   *Assessing for unknown signals in analyses* - Were methods used to adjust for potentially unknown factors in your analysis, such as unknown confounding variables?  If so, how did this influence your results?
 
 ## Bibliography {#bibliography}
 
-[^1]: Robinson, Mark D., and Alicia Oshlack. ["A scaling normalization method for differential expression analysis of RNA-seq data."](https://genomebiology.biomedcentral.com/articles/10.1186/gb-2010-11-3-r25) Genome biology 11.3 (2010): R25.
-[^2]: Trapnell, Cole, et al. ["Differential gene and transcript expression analysis of RNA-seq experiments with TopHat and Cufflinks."](https://www.nature.com/articles/nprot.2012.016) Nature protocols 7.3 (2012): 562.
+[^1]: Robinson, Mark D., and Alicia Oshlack. [A scaling normalization method for differential expression analysis of RNA-seq data.](https://doi.org/10.1186/gb-2010-11-3-r25) Genome biology 11.3 (2010): R25. 
 
+[^2]: Trapnell, C., Roberts, A., Goff, L., Pertea, G., Kim, D., Kelley, D. R., ... & Pachter, L. (2012). [Differential gene and transcript expression analysis of RNA-seq experiments with TopHat and Cufflinks.](https://doi.org/10.1038/nprot.2012.016) Nature protocols, 7(3), 562. 
 
-[^2]: [https://genome.ucsc.edu/ENCODE/protocols/dataStandards/RNA_standards_v1_2011_May.pdf](https://genome.ucsc.edu/ENCODE/protocols/dataStandards/RNA_standards_v1_2011_May.pdf)
+[^3]: Love MI, Anders S, Kim V and Huber W. [RNA-Seq workflow: gene-level exploratory analysis and differential expression.](https://doi.org/10.12688/f1000research.7035.2) F1000Research 2016, 4:1070. 
+
+[^4]: Law CW, Alhamdoosh M, Su S et al. [RNA-seq analysis is easy as 1-2-3 with limma, Glimma and edgeR.](https://doi.org/10.12688/f1000research.9005.3) F1000Research 2018, 5:1408. 
+
+[^5]: Bray, N. L., Pimentel, H., Melsted, P., & Pachter, L. (2016). [Near-optimal probabilistic RNA-seq quantification.](https://doi.org/10.1038/nbt.3519) Nature biotechnology, 34(5), 525. 
+
+[^6]: Patro, R., Duggal, G., Love, M. I., Irizarry, R. A., & Kingsford, C. (2017). [Salmon provides fast and bias-aware quantification of transcript expression.](https://doi.org/10.1038/nmeth.4197) Nature methods, 14(4), 417. 
+
+[^7]: Andrews, S. (2010). [FastQC: a quality control tool for high throughput sequence data.]( https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
+
+[^8]: Ewels, P., Magnusson, M., Lundin, S., & Käller, M. (2016). [MultiQC: summarize analysis results for multiple tools and samples in a single report.](https://doi.org/10.1093/bioinformatics/btw354) Bioinformatics, 32(19), 3047-3048. 
+
+[^9]: Bolger, A. M., Lohse, M., & Usadel, B. (2014). [Trimmomatic: a flexible trimmer for Illumina sequence data.](https://doi.org/10.1093/bioinformatics/btu170) Bioinformatics, 30(15), 2114-2120. 
+
+[^10]: [Trim Galore.](http://www.bioinformatics.babraham.ac.uk/projects/trim_galore/)
+
+[^11]: [BBMap]( https://sourceforge.net/projects/bbmap/)
+
+[^12]: Dodt, M., Roehr, J. T., Ahmed, R., & Dieterich, C. (2012). [FLEXBAR—flexible barcode and adapter processing for next-generation sequencing platforms.](https://doi.org/10.3390/biology1030895 Biology, 1(3), 895-905. )
+
+[^13]: Gordon, A., & Hannon, G. (2010). [Fastx-toolkit. FASTQ/A short-reads pre-processing tools.]( http://hannonlab.cshl.edu/fastx_toolkit.) Unpublished 
+
+[^14]: (PRINSEQ) Schmieder, R., & Edwards, R. (2011). [Quality control and preprocessing of metagenomic datasets.](https://doi.org/10.1093/bioinformatics/btr026) Bioinformatics, 27(6), 863-864. 
+
+[^15]: Cox, M. P., Peterson, D. A., & Biggs, P. J. (2010). [SolexaQA: At-a-glance quality assessment of Illumina second-generation sequencing data.](https://doi.org/10.1186/1471-2105-11-485) BMC bioinformatics, 11(1), 485. 
+
+[^16]: Patro, R., Mount, S. M., & Kingsford, C. (2014). [Sailfish enables alignment-free isoform quantification from RNA-seq reads using lightweight algorithms.](https://doi.org/10.1038/nbt.2862) Nature biotechnology, 32(5), 462. 
+
+[^17]: Bray, N. L., Pimentel, H., Melsted, P., & Pachter, L. (2016). [Near-optimal probabilistic RNA-seq quantification.](https://doi.org/10.1038/nbt.3519) Nature biotechnology, 34(5), 525. 
+
+[^18]: Patro, R., Duggal, G., Love, M. I., Irizarry, R. A., & Kingsford, C. (2017). [Salmon provides fast and bias-aware quantification of transcript expression.](https://doi.org/10.1038/nmeth.4197) Nature methods, 14(4), 417. 
+
+[^19]: Dobin, A., Davis, C. A., Schlesinger, F., Drenkow, J., Zaleski, C., Jha, S., ... & Gingeras, T. R. (2013). [STAR: ultrafast universal RNA-seq aligner.](https://doi.org/10.1093/bioinformatics/bts635) Bioinformatics, 29(1), 15-21. 
+
+[^20]: Kim, D., Langmead, B., & Salzberg, S. L. (2015). [HISAT: a fast spliced aligner with low memory requirements.](https://doi.org/10.1038/nmeth.3317) Nature methods, 12(4), 357. 
+
+[^21]: Wu, T. D., & Nacu, S. (2010). [Fast and SNP-tolerant detection of complex variants and splicing in short reads.](https://doi.org/10.1093/bioinformatics/btq057) Bioinformatics, 26(7), 873-881. 
+
+[^22]: Huang, S., Zhang, J., Li, R., Zhang, W., He, Z., Lam, T. W., ... & Yiu, S. M. (2011). [SOAPsplice: genome-wide ab initio detection of splice junctions from RNA-Seq data.](https://doi.org/10.3389/fgene.2011.00046) Frontiers in genetics, 2, 46. 
+
+[^23]: Anders, S., Pyl, P. T., & Huber, W. (2015). [HTSeq—a Python framework to work with high-throughput sequencing data.](https://doi.org/10.1093/bioinformatics/btu638) Bioinformatics, 31(2), 166-169. 
+
+[^24]: Liao, Y., Smyth, G. K., & Shi, W. (2013). [featureCounts: an efficient general purpose program for assigning sequence reads to genomic features.](https://doi.org/10.1093/bioinformatics/btt656) Bioinformatics, 30(7), 923-930. 
+
+[^25]: (Cufflinks) Trapnell, C., Williams, B. A., Pertea, G., Mortazavi, A., Kwan, G., Van Baren, M. J., ... & Pachter, L. (2010). [Transcript assembly and quantification by RNA-Seq reveals unannotated transcripts and isoform switching during cell differentiation.](https://doi.org/10.1038/nbt.1621) Nature biotechnology, 28(5), 511. 
+
+[^26]: Li, H., Handsaker, B., Wysoker, A., Fennell, T., Ruan, J., Homer, N., ... & Durbin, R. (2009). [The sequence alignment/map format and SAMtools.](https://doi.org/10.1093/bioinformatics/btp352) Bioinformatics, 25(16), 2078-2079. 
+
+[^27]: [Picard](http://broadinstitute.github.io/picard/)
+
+[^28]: Gentleman, R. C., Carey, V. J., Bates, D. M., Bolstad, B., Dettling, M., Dudoit, S., ... & Hornik, K. (2004). [Bioconductor: open software development for computational biology and bioinformatics.](https://doi.org/10.1186/gb-2004-5-10-r80) Genome biology, 5(10), R80. 
+
+[^29]: Soneson, C., Love, M. I., & Robinson, M. D. (2015). [Differential analyses for RNA-seq: transcript-level estimates improve gene-level inferences.](https://doi.org/10.12688/f1000research.7563.2) F1000Research, 4. 
+
+[^30]: Gautier L, Cope L, Bolstad BM, Irizarry RA (2004). [affy—analysis of Affymetrix GeneChip data at the probe level.](https://doi.org/10.1093/bioinformatics/btg405) Bioinformatics, 20(3), 307–315. ISSN 1367-4803, 
+
+[^31]: Pertea, M., Pertea, G. M., Antonescu, C. M., Chang, T. C., Mendell, J. T., & Salzberg, S. L. (2015). [StringTie enables improved reconstruction of a transcriptome from RNA-seq reads.](https://doi.org/10.1038/nbt.3122) Nature biotechnology, 33(3), 290. 
+
+[^32]: Dillies, M. A., Rau, A., Aubert, J., Hennequet-Antier, C., Jeanmougin, M., Servant, N., ... & Guernec, G. (2013). [A comprehensive evaluation of normalization methods for Illumina high-throughput RNA sequencing data analysis.](https://doi.org/10.1093/bib/bbs046) Briefings in bioinformatics, 14(6), 671-683. 
+
+[^33]: Anders S, Huber W (2010). [Differential expression analysis for sequence count data.](https://doi.org/ 10.1186/gb-2010-11-10-r106) Genome Biology, 11, R106. 
+
+[^34]: Love M.I., Huber W., Anders S. (2014). [Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2.](https://doi.org/10.1186/s13059-014-0550-8) Genome Biology, 15, 550. 
+
+[^35]: Robinson MD, McCarthy DJ, Smyth GK (2010). [edgeR: a Bioconductor package for differential expression analysis of digital gene expression data.](https://doi.org/10.1093/bioinformatics/btp616) Bioinformatics, 26(1), 139-140. 
+
+[^36]: McCarthy, J. D, Chen, Yunshun, Smyth, K. G (2012). [Differential expression analysis of multifactor RNA-Seq experiments with respect to biological variation.](https://doi.org/10.1093/nar/gks042) Nucleic Acids Research, 40(10), 4288-4297. 
+
+[^37]: Benjamini, Y., & Hochberg, Y. (1995). Controlling the false discovery rate: a practical and powerful approach to multiple testing. Journal of the royal statistical society. Series B (Methodological), 289-300.
+
+[^38]: Afgan, E., Baker, D., Batut, B., Van Den Beek, M., Bouvier, D., Čech, M., ... & Guerler, A. (2018). [The Galaxy platform for accessible, reproducible and collaborative biomedical analyses: 2018 update.](https://doi.org/10.1093/nar/gky379) Nucleic acids research, 46(W1), W537-W544. 
+
+[^39]: Leek, J.T., & Peng, R. D. (2015). [Reproducible research can still be wrong.](https://doi.org/10.1073/pnas.1421412111) Proceedings of the National Academy of Sciences 112 (6) 1645-1646 
+
+[^40]: [Reproducibility in Science: A Guide to enhancing reproducibility in scientific results and writing.](http://ropensci.github.io/reproducibility-guide/)
+
+[^41]: Peng, R. D. (2011). [Reproducible Research in Computational Science.](https://doi.org/10.1126/science.1213847) Science Vol. 334, Issue 6060, pp. 1226-1227.
+
+[^42]: Ashburner, M., Ball, C. A., Blake, J. A., Botstein, D., Butler, H., Cherry, J. M., ... & Harris, M. A. (2000). [Gene Ontology: tool for the unification of biology.](https://doi.org/10.1038/75556) Nature genetics, 25(1), 25. 
+
+[^43]: Kanehisa, M., & Goto, S. (2000). KEGG: kyoto encyclopedia of genes and genomes. Nucleic acids research, 28(1), 27-30.
+>>>>>>> 227db03128840ff47c620b164b5be96f94c776e3
+
+[^limma]: Ritchie, ME, Phipson, B, Wu, D, Hu, Y, Law, CW, Shi, W, and Smyth, GK (2015). [limma powers differential expression analyses for RNA-sequencing and microarray studies](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4402510/). Nucleic Acids Research 43(7), e47.
+
+[^conessa]: Conesa, A., Madrigal, P., Tarazona S., ... & Mortazavi, A. 2016. [A survey of best practices for RNA-Seq data analysis.](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-0881-8) Genome Biology 17:13. https://doi.org/10.1186/s13059-016-0881-8
 
 [//]: <> (These are common abbreviations in the page.)
 *[H3ABioNet]: The Bioinformatics Network within the H3Africa Consortium

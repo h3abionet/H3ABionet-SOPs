@@ -3,7 +3,7 @@
 entries:
 - title: sidebar
   product: RNA-Seq SOP
-  version: 3.0
+  version: 4.0
   folders:
    
   - title:
@@ -69,16 +69,22 @@ entries:
   #        url: RNA-Seq#step-3-3-statistics-for-differential-expression
   #        output: web, pdf
      
-  - title: Working with Galaxy
+  - title: Questions to consider
     output: web, pdf
     folderitems:
-    - title: Working with Galaxy
-      url: RNA-Seq#galaxy
+    - title: Reproducible research
+      url: RNA-Seq#reproducbility
+      output: web, pdf
+    - title: General questions
+      url: RNA-Seq#general
+      output: web, pdf
+    - title: Analysis-specific questions
+      url: RNA-Seq#analysis
       output: web, pdf
     
   - title: Bibliography 
     output: web, pdf
     folderitems:
-    - title: Used references
+    - title: References
       url: RNA-Seq#bibliography
       output: web, pdf
