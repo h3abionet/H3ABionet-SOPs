@@ -35,19 +35,49 @@ entries:
       url: /Variant-Calling-1-3.html
       output: web,pdf
 
-  - title: Procedural steps
+  - title: Phase I. Preprocessing raw reads 
     url: /Variant-Calling#procedural-steps
     output: web, pdf
     folderitems:
-    - title: Phase I. Preprocessing raw reads 
-      url: /Variant-Calling#phase-1-preprocessing-of-the-raw-reads
+    - title: Adaptor trimming 
+      url: /Variant-Calling-2-1.html
       output: web, pdf
-    - title: Phase II. Initial variant discovery
-      url: /Variant-Calling#phase-2-initial-variant-discovery
+    - title: Quality trimming
+      url: /Variant-Calling-2-2.html
       output: web, pdf
-    - title: Phase III. Variant annotation and prioritization
-      url: /Variant-Calling#phase-3-variant-annotation-and-prioritization
+    - title: Removal of very short reads
+      url: /Variant-Calling-2-3.html
       output: web, pdf
+
+  - title: Phase II. Initial variant discovery
+    url: /Variant-Calling#phase-2-initial-variant-discovery
+    output: web, pdf
+    folderitems:
+    - title: 
+      url: /Variant-Calling
+      output: web, pdf
+    - title: 
+      url: /Variant-Calling
+      output: web, pdf
+    - title: 
+      url: /Variant-Calling
+      output: web, pdf
+
+
+  - title: Phase III. Variant annotation and prioritization
+    url: /Variant-Calling#phase-3-variant-annotation-and-prioritization
+    output: web, pdf
+    folderitems:
+    - title: 
+      url: /Variant-Calling
+      output: web, pdf
+    - title: 
+      url: /Variant-Calling
+      output: web, pdf
+    - title: 
+      url: /Variant-Calling
+      output: web, pdf
+
 
   - title: Appendices
     url: /Variant-Calling#useful-resources
