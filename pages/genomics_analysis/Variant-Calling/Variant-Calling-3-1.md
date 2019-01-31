@@ -8,6 +8,10 @@ sidebar: varcall_sidebar
 toc: false
 permalink: Variant-Calling-3-1.html
 folder: genomics_analysis/Variant-Calling
+simple_map: true
+map_name: map_VariantCalling_phase2
+box_number: 1
+
 author_profile: true
 authors:
  - Azza_Ahmed

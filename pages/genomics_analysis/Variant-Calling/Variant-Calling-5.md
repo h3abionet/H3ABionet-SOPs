@@ -17,7 +17,7 @@ authors:
 
 ## H3ABioNet Next Gen Accreditation Questions
 
-The following are questions to keep in mind when running the NextGen Workflow during the H3ABioNet accreditation exercise. Use them to plan your work in a way that would allow gathering the necessary information for your final report. The report should not be limited to only providing brief answers to these questions; it is expected to be a well-rounded description of the process of running the workflow, and of the results. Please note that only [phases I](//Variant-Calling-2-0.html) and [phase II](/Variant-Calling-3-0.html) of the variant calling SOP need to be performed.
+The following are questions to keep in mind when running the NextGen Workflow during the H3ABioNet accreditation exercise. Use them to plan your work in a way that would allow gathering the necessary information for your final report. The report should not be limited to only providing brief answers to these questions; it is expected to be a well-rounded description of the process of running the workflow, and of the results. Please note that only _<a href="Variant-Calling-2-0.html">Phase I</a>_ and _<a href="Variant-Calling-3-0.html">Phase II</a>_ of the variant calling SOP need to be performed.
 
 ### Nature of the input dataset
 

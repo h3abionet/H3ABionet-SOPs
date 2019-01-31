@@ -18,17 +18,17 @@ filename=$1
 
 cp ${filename} bak.${filename}
 
-csplit --prefix ${filename%.*}_ -n 1 ${filename}  '/^## .*$/' '{*}'
+csplit --prefix ${filename%.*}- -n 1 ${filename}  '/^## .*$/' '{*}'
 
-subfiles=$( ls -1 ${filename%.*}_*   | wc -l)
+subfiles=$( ls -1 ${filename%.*}-*   | wc -l)
 
 for i in `seq 1 $subfiles` ; do
-    cat ${filename%.*}_0 ${filename%.*}_$i > ${filename%.*}_$i.md  #Copy header
-    cat ${filename%.*}_`expr $subfiles - 1` >> ${filename%.*}_$i.md #Copy abbreviations
-    rm  ${filename%.*}_$i
-    sed -i "s/${filename%.*}.html/${filename%.*}_$i.html/g" ${filename%.*}_$i.md
+    cat ${filename%.*}-0 ${filename%.*}-$i > ${filename%.*}-$i.md  #Copy header
+    cat ${filename%.*}-`expr $subfiles - 1` >> ${filename%.*}-$i.md #Copy abbreviations
+    rm  ${filename%.*}-$i
+    sed -i "s/${filename%.*}.html/${filename%.*}-$i.html/g" ${filename%.*}-$i.md
 done
 
 
 
-rm bak.${filename} ${filename%.*}_0 ${filename%.*}_`expr $subfiles - 1`.md ${filename%.*}_`expr $subfiles`.md 
+rm bak.${filename} ${filename%.*}-0 ${filename%.*}-`expr $subfiles - 1`.md ${filename%.*}-`expr $subfiles`.md 
