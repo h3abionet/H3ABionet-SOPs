@@ -13,19 +13,19 @@ topnav_dropdowns:
     - title: Genomic Analyses 
       folderitems:
         - title: Human variant calling 
-          url: Variant-Calling
+          url: /Variant-Calling-1-0.html
         - title: Genome Wide Association Studies
           url: GWAS
         - title: RNA Sequencing data analysis
-          url: RNA-Seq
+          url: /RNA-Seq
         - title: 16S Diversity analysis 
-          url: 16s-rRNA 
+          url: /16s-rRNA 
     - title: Contributing 
       folderitems:
         - title: Technical Guide
-          url: cont_tech-guide
+          url: /cont_tech-guide
         - title: Language & Style
-          url: cont_lang-style
+          url: /cont_lang-style
 
   #   - title:  
   #     folderitems:
