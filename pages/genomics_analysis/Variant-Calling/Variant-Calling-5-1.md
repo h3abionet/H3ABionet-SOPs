@@ -5,7 +5,7 @@ tags: [genomics_analysis]
 last_updated: Fall, 2018
 sidebar: varcall_sidebar
 toc: false 
-permalink: Variant-Calling-5-0.html
+permalink: Variant-Calling-5-1.html
 folder: genomics_analysis/Variant-Calling
 author_profile: true
 authors:
