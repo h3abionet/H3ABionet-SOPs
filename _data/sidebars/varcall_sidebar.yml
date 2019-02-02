@@ -87,9 +87,13 @@ entries:
     url: /Variant-Calling-5.html
     output: web, pdf
     folderitems:
-    - title: Questions
-      url: /Variant-Calling-5.html
+    - title: Training dataset
+      url: /Variant-Calling-5-0.html
       output: web, pdf
+    - title:  Accreditation Questions
+      url: /Variant-Calling-5-1.html
+      output: web, pdf
+
 
   - title: Appendices
     url: /Variant-Calling-6-0.html
