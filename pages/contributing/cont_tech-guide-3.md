@@ -41,8 +41,8 @@ Below is a tree of key files and folders within this site that would need editin
 ├── assets
 │   └── images              #Folder of images used within the site
 │       └── VarCall.png
-├── scripts 
-│   └── split_by_h2.sh     #Various scripts to help with automation of tasks 
+├── scripts                 #Various scripts to help with automation of tasks 
+│   └── split_by_h2.sh     
 ├── _includes
 │   └── custom             
 │       ├── usermap.html   #Template file for simple workflow maps
@@ -58,4 +58,3 @@ Below is a tree of key files and folders within this site that would need editin
 
 ```
 
-## Changelog {#changelog}

@@ -31,6 +31,9 @@ entries:
     - title: Project tree
       url: /cont_tech-guide-3.html
       output: web, pdf
+    - title: Change log 
+      url: /cont_tech-guide-4.html
+      output: web, pdf
 
   - title: Language & Style
     output: web, pdf

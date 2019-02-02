@@ -23,7 +23,7 @@ topnav_dropdowns:
     - title: Contributing 
       folderitems:
         - title: Technical Guide
-          url: /cont_tech-guide
+          url: /cont_tech-guide-1
         - title: Language & Style
           url: /cont_lang-style
 
