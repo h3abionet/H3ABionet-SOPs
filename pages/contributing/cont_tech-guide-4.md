@@ -5,7 +5,7 @@ tags: [documentation, formatting]
 last_updated: 1 2, 2019
 toc: false
 sidebar: cont_sidebar
-permalink: cont_tech-guide-3.html  
+permalink: cont_tech-guide-4.html  
 folder: contributing
 author_profile: true
 authors:
