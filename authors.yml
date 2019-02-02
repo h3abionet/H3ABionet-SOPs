@@ -48,14 +48,12 @@ Gerrit_Botha:
   avatar: "/assets/images/Gerrit_Botha.jpeg"
   twitter:
 
-
 Scott_Hazelhurst:
   name: "Scott Hazelhurst"
   uri:	"http://dept.ee.wits.ac.za/~scott"
   email: "scott.hazelhurst@wits.ac.za"
   avatar: "/assets/images/scottdhead.jpg"
   twitter: "shazeZA"
-
 
 Segun_Fatumo:
   name: "Segun Fatumo"
@@ -64,7 +62,7 @@ Segun_Fatumo:
 Azza_Ahmed:
    name: "Azza E Ahmed"
    uri:
-   email:
+   email: "azzaea@gmail.com"
    bio: ""
    avatar:
    twitter:
@@ -72,7 +70,7 @@ Azza_Ahmed:
 Matthew_Weber:
    name: "Mathewe Weber"
    uri:
-   email: 
+   email: "mrweber2@illinois.edu"
    bio: ""
    avatar:
    twitter:
@@ -80,7 +78,7 @@ Matthew_Weber:
 Faisal_Fadlelmola:
    name: "Faisal M Fadlelmola"
    uri:
-   email:
+   email: "faisal.mohamed@hotmail.com"
    bio: ""
    avatar:
    twitter:
@@ -88,7 +86,7 @@ Faisal_Fadlelmola:
 Luidmila_Mainzer:
    name: "Luidmila S Mainzer"
    uri:
-   email:
+   email: "lmainzer@illinois.edu"
    bio: ""
    avatar:
    twitter:
