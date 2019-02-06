@@ -15,17 +15,16 @@ authors:
  - Faisal_Fadlelmola
  - Luidmila_Mainzer
 ---
-### Useful Resources {#useful-resources}
+## Useful Resources {#useful-resources}
 
-Example complete implementations of a variant calling pipeline:
-The Broad institute WDL reference implementations of the GATK best practices:
-https://software.broadinstitute.org/gatk/best-practices/workflow?id=11145 
-The H3ABioNet CWL implementation of the best practices (GATK3.5):
-https://github.com/h3abionet/h3agatk 
-A configurable Swift-t implementation (different tools, versions and options can be interchanged, so it is easy to confirm to functional equivalence specifications 9 ):
-https://github.com/ncsa/Swift-T-Variant-Calling 
+### Example complete implementations of a variant calling pipeline:
 
-The GATK Resource Bundle [^51]
+* The Broad institute WDL reference implementations of the GATK best practices- [here](https://software.broadinstitute.org/gatk/best-practices/workflow?id=11145) 
+* The H3ABioNet CWL implementation of the best practices (GATK3.5)- [here](https://github.com/h3abionet/h3agatk)
+* A configurable Swift-t implementation (different tools, versions and options can be interchanged, so it is easy to confirm to functional equivalence specifications[^9] )- [here](https://github.com/ncsa/Swift-T-Variant-Calling )
+
+### The GATK Resource Bundle[^51]
+
 The GATK resource bundle is a collection of standard files for working with human resequencing data with the GATK. Until the Hg38 bundle is complete, the b37 resources remain the standard data. To access the bundle on the FTP server, use the following login credentials:
 Location: ftp.broadinstitute.org/bundle/b37
 Username: gsapubftp-anonymous
