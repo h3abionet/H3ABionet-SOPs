@@ -53,19 +53,19 @@ entries:
     url: /Variant-Calling-3-0.html
     output: web, pdf
     folderitems:
-    - title: Alignment
+    - title: Alignment and Deduplication
       url: /Variant-Calling-3-1.html
       output: web, pdf
-    - title: De-duplication 
+    - title: Local realignment around indels
       url: /Variant-Calling-3-2.html
       output: web, pdf
-    - title: Local realignment around indels
+    - title: Base quality score recalibration
       url: /Variant-Calling-3-3.html
       output: web, pdf
-    - title: Base quality score recalibration 
+    - title: Calling the variants 
       url: /Variant-Calling-3-4.html
       output: web, pdf
-    - title: Calling the variants
+    - title: Statistical Filtering 
       url: /Variant-Calling-3-5.html
       output: web, pdf
 
@@ -73,16 +73,10 @@ entries:
     url: /Variant-Calling-4-0.html
     output: web, pdf
     folderitems:
-    - title: Statistical filtering
-      url: /Variant-Calling-4-1.html
-      output: web, pdf
-    - title: Annotation and prioritization
-      url: /Variant-Calling-4-2.html
-      output: web, pdf
-    - title: 
-      url: /Variant-Calling
-      output: web, pdf
-
+     - title: Annotation and prioritization
+       url: /Variant-Calling-4.html
+       output: web, pdf
+   
   - title: H3ABioNet Accreditation exercise 
     url: /Variant-Calling-5.html
     output: web, pdf

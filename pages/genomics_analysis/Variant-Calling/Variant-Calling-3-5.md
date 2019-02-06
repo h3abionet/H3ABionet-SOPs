@@ -10,7 +10,7 @@ permalink: Variant-Calling-3-5.html
 folder: genomics_analysis/Variant-Calling
 simple_map: true
 map_name: map_VariantCalling_phase2
-box_number: 5
+box_number: 5 
 
 author_profile: true
 authors:
@@ -19,23 +19,15 @@ authors:
  - Faisal_Fadlelmola
  - Luidmila_Mainzer
 ---
-### _Step 2.5 Calling the variants_ {#step-2-5-calling-the-variants}
+### _Statistical filtering_ {#statistical-filtering}
 
-There is no single "best" approach to capture all the genetic variations. For germline variants, [^11]  suggest using a consensus of results from three tools:
+The VCF files resulting from the previous steps frequently have many sites that are not really genetic variants, but rather machine artifacts that make the site statistically non-reference. In small studies, hard filtering of variants based on annotations of genomic context is typically sufficient. 
 
+While, it requires expertise to define appropriate filtering thresholds, Heng Li provides some general guidelines in this paper [^46]. For experiments with a sufficiently large number of samples (30 or more), the GATK team designed the Variant Quality Score Recalibrator (VQSR) protocol to separate out the false positive machine artifacts from the true positive genetic variants using a Gaussian Mixture model based on the learned annotations of known datasets [^33]. A full tutorial is posted on GATK forums:
 
-
-1.  CRISP [^43],
-1.  HaplotypeCaller  [^36] from the GATK, and
-1.  mpileup from SAMtools (tutorial is available on the ANGUS site, Michigan State university[ http://ged.msu.edu/angus/tutorials-2012/snp_tutorial.html](http://ged.msu.edu/angus/tutorials-2012/snp_tutorial.html)).
-
-Recently, MuTect2 was added as a variant discovery tool to the GATK specifically for cancer variants. MuTect2 calls somatic SNPs and indels by combining the original MuTect [^44] with the HaplotypeCaller. The HaplotypeCaller relies on diploid assumption, while MuTect2 allows for different allelic fractions for each variant. This makes the caller useful in tumor variant discovery. Joint calling (GVCF generation) is not available in MuTect2.
-
-The variant calls are usually produced in the form of VCF files [^45], occupying much smaller size than the BAMs generating them.
+[http://gatkforums.broadinstitute.org/discussion/39/variant-quality-score-recalibration-vqsr](http://gatkforums.broadinstitute.org/discussion/39/variant-quality-score-recalibration-vqsr)
 
  
-
-
 ## Bibliography {#bibliography}
 
 

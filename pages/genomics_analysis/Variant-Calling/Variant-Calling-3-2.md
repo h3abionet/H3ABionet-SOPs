@@ -10,7 +10,7 @@ permalink: Variant-Calling-3-2.html
 folder: genomics_analysis/Variant-Calling
 simple_map: true
 map_name: map_VariantCalling_phase2
-box_number: 2
+box_number: 2 
 
 author_profile: true
 authors:
@@ -19,11 +19,16 @@ authors:
  - Faisal_Fadlelmola
  - Luidmila_Mainzer
 ---
-### _Step 2.2: De-duplication_ {#step-2-2-de-duplication}
+### _Step 2.3 Artifact removal: local realignment around indels_ {#setp-2-3-realignment}
 
-The presence of duplicate reads in a sequencing project is a notorious problem. The causes are discussed in a blog post by Eric Vallabh Minikel (2012) [^28]. Duplicately sequenced molecules should not be counted as additional evidence for or against a putative variant – they must be removed prior to the analysis. A number of tools can be used including: samblaster [^29], sambamba [^30], the commercial novosort from the novocraft suit <[^31], Picard, and FASTX-Toolkit has fastx_collapser for this purpose.  Additionally, MarkDuplicates is shipped as part of GATK4, but is called from Picard tools [^32] in older GATK releases. For functional equivalence [^9], it is recommended to use Picard tools v>2.4.1.
+Some artifacts may arise due to the alignment stage, especially around indels where reads covering the start or the end of an indel are often incorrectly mapped. This results in mismatches between the reference and reads near the misalignment region, which can easily be mistaken for SNPs. Thus, the realignment stage aims to correct these artifacts by transforming those regions with misalignment due to indels into reads with a consensus indel for correct variant calling.
 
-De-duplication can also be performed by a simple in-house written Perl script.
+Realignment can be accomplished using the GATK IndelRealigner [^33] ([https://software.broadinstitute.org/gatk/documentation/tooldocs/3.8-0/org_broadinstitute_gatk_tools_walkers_indels_IndelRealigner.php](https://software.broadinstitute.org/gatk/documentation/tooldocs/3.8-0/org_broadinstitute_gatk_tools_walkers_indels_IndelRealigner.php) ). Alternatives include Dindel [^34] ([https://github.com/genome/dindel-tgi](https://github.com/genome/dindel-tgi) ) and SRMA [^35] ([https://github.com/nh13/SRMA](https://github.com/nh13/SRMA) ). 
+
+The inclusion of the realignment stage in a variant calling pipeline depends on the variant caller used downstream. This stage might be of value when using non-haplotype-aware variant caller like the GATK's UnifiedGenotyper  [^36]. However, if the tool used for variant calling is haplotype-aware like Platypus [^37], FreeBayes [^38] or the HaplotypeCaller [^39], then it is not needed nor recommended. The GATK recommendations starting from their 3.6 release onwards, and the guidelines for functional equivalence [^9] also vote against this stage.
+
+Ultimately however, characteristics of the dataset at hand would dictate whether realignment and other clean-up stages are needed. Ebbert et al paper for example argues against PCR duplicates removal [^40], while Olson et al recommends all the stages of clean up applied to the dataset at hand [^41]. Some experimentation is therefore recommended when handling real datasets.
+
 
 ## Bibliography {#bibliography}
 

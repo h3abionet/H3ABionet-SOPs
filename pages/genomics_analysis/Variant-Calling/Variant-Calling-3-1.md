@@ -28,6 +28,12 @@ Among these, BWA MEM [^23] and bowtie2 [^24] have become trusted tools for short
 The output file is usually in a binary BAM format [^27], still taking tens or hundreds of Gigabytes of hard disk space. The alignment step tends to be I/O intensive, so it is useful to place the reference onto an SDD, as opposed to HDD, to speed up the process. The alignment can be easily parallelized by chunking the data into subsets of reads and aligning each subset independently, then combining the results.
 
 
+### _Step 2.2: De-duplication_ {#step-2-2-de-duplication}
+
+The presence of duplicate reads in a sequencing project is a notorious problem. The causes are discussed in a blog post by Eric Vallabh Minikel (2012) [^28]. Duplicately sequenced molecules should not be counted as additional evidence for or against a putative variant – they must be removed prior to the analysis. A number of tools can be used including: samblaster [^29], sambamba [^30], the commercial novosort from the novocraft suit <[^31], Picard, and FASTX-Toolkit has fastx_collapser for this purpose.  Additionally, MarkDuplicates is shipped as part of GATK4, but is called from Picard tools [^32] in older GATK releases. For functional equivalence [^9], it is recommended to use Picard tools v>2.4.1.
+
+De-duplication can also be performed by a simple in-house written Perl script.
+
 ## Bibliography {#bibliography}
 
 

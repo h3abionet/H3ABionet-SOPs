@@ -10,7 +10,7 @@ permalink: Variant-Calling-3-3.html
 folder: genomics_analysis/Variant-Calling
 simple_map: true
 map_name: map_VariantCalling_phase2
-box_number: 3
+box_number: 3 
 
 author_profile: true
 authors:
@@ -19,15 +19,9 @@ authors:
  - Faisal_Fadlelmola
  - Luidmila_Mainzer
 ---
-### _Step 2.3 Artifact removal: local realignment around indels_ {#setp-2-3-realignment}
+### _Step 2.4: Base quality score recalibration_ {#step-2-4-base-quality-score-recalibration}
 
-Some artifacts may arise due to the alignment stage, especially around indels where reads covering the start or the end of an indel are often incorrectly mapped. This results in mismatches between the reference and reads near the misalignment region, which can easily be mistaken for SNPs. Thus, the realignment stage aims to correct these artifacts by transforming those regions with misalignment due to indels into reads with a consensus indel for correct variant calling.
-
-Realignment can be accomplished using the GATK IndelRealigner [^33] ([https://software.broadinstitute.org/gatk/documentation/tooldocs/3.8-0/org_broadinstitute_gatk_tools_walkers_indels_IndelRealigner.php](https://software.broadinstitute.org/gatk/documentation/tooldocs/3.8-0/org_broadinstitute_gatk_tools_walkers_indels_IndelRealigner.php) ). Alternatives include Dindel [^34] ([https://github.com/genome/dindel-tgi](https://github.com/genome/dindel-tgi) ) and SRMA [^35] ([https://github.com/nh13/SRMA](https://github.com/nh13/SRMA) ). 
-
-The inclusion of the realignment stage in a variant calling pipeline depends on the variant caller used downstream. This stage might be of value when using non-haplotype-aware variant caller like the GATK's UnifiedGenotyper  [^36]. However, if the tool used for variant calling is haplotype-aware like Platypus [^37], FreeBayes [^38] or the HaplotypeCaller [^39], then it is not needed nor recommended. The GATK recommendations starting from their 3.6 release onwards, and the guidelines for functional equivalence [^9] also vote against this stage.
-
-Ultimately however, characteristics of the dataset at hand would dictate whether realignment and other clean-up stages are needed. Ebbert et al paper for example argues against PCR duplicates removal [^40], while Olson et al recommends all the stages of clean up applied to the dataset at hand [^41]. Some experimentation is therefore recommended when handling real datasets.
+Base quality scores, which refer to the per-base error estimates assigned by the sequencing machine to each called base, can often be inaccurate or biased. The recalibration stage aims to correct for these errors via an empirical error model built based on the characteristics of the data at hand [^33]. The quality score recalibration can be performed using GATK's BQSR protocol [^33], which is also the recommendation for functional equivalence, along with specific reference genome files [^9]. For speed up of analysis, and if using GATK < v4, one may skip the PrintReads step and pass the output from BaseRecalibrator to the HaplotypeCaller directly. Bioconductor's ReQON is an alternative tool [^42] for this purpose.
 
 
 ## Bibliography {#bibliography}
