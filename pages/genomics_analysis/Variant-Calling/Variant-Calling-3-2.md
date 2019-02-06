@@ -19,7 +19,7 @@ authors:
  - Faisal_Fadlelmola
  - Luidmila_Mainzer
 ---
-### _Step 2.3 Artifact removal: local realignment around indels_ {#setp-2-3-realignment}
+### _Step 2.2 Artifact removal: local realignment around indels_ {#setp-2-3-realignment}
 
 Some artifacts may arise due to the alignment stage, especially around indels where reads covering the start or the end of an indel are often incorrectly mapped. This results in mismatches between the reference and reads near the misalignment region, which can easily be mistaken for SNPs. Thus, the realignment stage aims to correct these artifacts by transforming those regions with misalignment due to indels into reads with a consensus indel for correct variant calling.
 

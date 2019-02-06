@@ -19,7 +19,7 @@ authors:
  - Faisal_Fadlelmola
  - Luidmila_Mainzer
 ---
-### _Statistical filtering_ {#statistical-filtering}
+### _Step 2.5 Statistical filtering_ {#statistical-filtering}
 
 The VCF files resulting from the previous steps frequently have many sites that are not really genetic variants, but rather machine artifacts that make the site statistically non-reference. In small studies, hard filtering of variants based on annotations of genomic context is typically sufficient. 
 

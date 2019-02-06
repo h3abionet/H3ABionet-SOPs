@@ -19,7 +19,7 @@ authors:
  - Faisal_Fadlelmola
  - Luidmila_Mainzer
 ---
-### _Step 2.5 Calling the variants_ {#step-2-5-calling-the-variants}
+### _Step 2.4 Calling the variants_ {#step-2-5-calling-the-variants}
 
 There is no single "best" approach to capture all the genetic variations. For germline variants, [^11]  suggest using a consensus of results from three tools:
 
