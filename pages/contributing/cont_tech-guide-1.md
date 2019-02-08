@@ -36,6 +36,10 @@ Before proposing any changes, test your changes first by building a local copy i
 - Add authors' contact details next to the pages they contribute to
 - Generate pdf files of the SOPs
 
+### Credit and Contributions
+
+We find it important that all contributors get credit for their work. Along with including your name in the `yml` header of your contributed effort, please make sure you also update the [authors.yml](https://github.com/h3abionet/H3ABionet-SOPs/blob/master/authors.yml) to include your contact details. 
+
 #### Notes
 
 [^1]: Jekyll is written in Ruby, and you need it installed for it to function (at least Ruby 2.1.0 is needed). On Ubuntu systems, you may run `ruby -v` at the prompt to check Ruby and its installed version.
