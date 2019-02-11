@@ -337,7 +337,11 @@ The [Galaxy Tool Shed](https://toolshed.g2.bx.psu.edu) lists all tools currently
 *   Salmon
 
 
-## Questions to consider. {#questions}
+## Aspects to consider. {#questions}
+
+### ** Practice dataset**##
+
+Some practice dataset for RNA seq analysis can be found [here](http://h3data.cbio.uct.ac.za/assessments/RNASeq/practice/)
 
 ### **A. Reproducible Research** {#reproducbility}
 

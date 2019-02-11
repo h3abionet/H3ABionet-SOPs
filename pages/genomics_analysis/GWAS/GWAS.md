@@ -231,6 +231,9 @@ A common strategy is to genotype a subset of the samples on a high coverage arra
 
 ### Meta analyses {#meta-analyses}
 
+## Practice data
+
+Practice dataset for GWAS studies can be found [here](http://h3data.cbio.uct.ac.za/assessments/GWAS/practice/)
 
 ## Bibliography {#bibliography} 
 
