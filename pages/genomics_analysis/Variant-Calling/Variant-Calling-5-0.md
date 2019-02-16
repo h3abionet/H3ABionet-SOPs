@@ -17,7 +17,7 @@ authors:
 
 ## H3ABioNet Next Gen Training dataset
 
-This link contains some practice data set: http://h3data.cbio.uct.ac.za/assessments/NextGenVariantCalling/practice/
+Practice data set for Variant Calling is available [here](http://h3data.cbio.uct.ac.za/assessments/NextGenVariantCalling/practice/)
 
 These are synthetic data, generated using the NEAT simulator[^53] to produce synthetic reads with "golden" variants inserted into the reference genome before "sequencing". This practice dataset was generated as WES for chromosome 1 at 50X, with mutation rates of 0.0005 and sequencing error rates at 0.005. Also posted is the reference that was used to generate the data, along with the golden vcf. 
 Finaly, posted are all the SNP and Indel files from the GATK bundle that were used to call variants to check concordance with GATK.
