@@ -1,0 +1,97 @@
+<div id="userMap">
+
+    <!-- Button trigger modal -->
+<button type="button" class="btn btn-default btn-lg modalButton1" data-toggle="modal" data-target="#myModal1">Counts generation</button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Gene/transcript level counts generation</h4>
+          </div>
+          <div class="modal-body">
+<p>Below are two protocols for generation of gene- and transcript-level counts.
+    Protocol 1 focuses on the classical alignment-based approach, whereas Protocol 2 uses recent advances in accelerated kmer-based
+    'pseudo-alignment'<sup>[1-3](#footnote1)</sup> approaches for assigning reads to transcripts,
+    which has some distinct advantages to alignment methods but rely on having a comprehensive and reliably annotated transcriptome:</p>
+    <ul>
+        <li><a href="RNA-Seq-3-1a.html">Protocol 1: Alignment-based approach</a></li>
+        <li><a href="RNA-Seq-3-1b.html">Protocol 2: Estimated counts using graph-based or similar approaches</a></li>
+    </ul>
+    <p>Bibliography</p>
+    <ol>
+        <li> Patro, R., Mount, S. M., & Kingsford, C. (2014). <a href="https://doi.org/10.1038/nbt.2862">Sailfish enables alignment-free isoform
+            quantification from RNA-seq reads using lightweight algorithms.</a> Nature biotechnology, 32(5), 462.
+        <li> Bray, N. L., Pimentel, H., Melsted, P., & Pachter, L. (2016). <a href="https://doi.org/10.1038/nbt.3519">Near-optimal probabilistic RNA-seq
+             quantification.</a> Nature biotechnology, 34(5), 525.
+        <li>Patro, R., Duggal, G., Love, M. I., Irizarry, R. A., & Kingsford, C. (2017). <a href="https://doi.org/10.1038/nmeth.4197">[Salmon provides
+            fast and bias-aware quantification of transcript expression.</a> Nature methods, 14(4), 417.
+    </ol>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+            <span class="complexArrow">→</span>
+
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-default btn-lg modalButton2" data-toggle="modal" data-target="#myModal2">Reads enumeration</button>
+            <!-- Modal -->
+            <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Reads enumeration</h4>
+                  </div>
+                  <div class="modal-body">
+
+                    <p>Here, this step depends on the protocol you followed in the previous step:</p>
+                    <ul>
+                        <li><a href="RNA-Seq-3-2a.html">Protocol 1: Alignment-based approach</a></li>
+                        <li><a href="RNA-Seq-3-2b.html">Protocol 2: Estimated counts using graph-based or similar approaches</a></li>
+                    </ul>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <span class="complexArrow">→</span>
+
+            <!-- Button trigger modal -->
+<button type="button" class="btn btn-default btn-lg modalButton3" data-toggle="modal" data-target="#myModal3">Tabulating stats</button>
+            <!-- Modal -->
+            <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Collecting & Tabulating stats</h4>
+                  </div>
+                  <div class="modal-body">
+                    <p>Again, this depends on the protocol you chose from the begining:</p>
+
+                        <ul>
+                            <li><a href="RNA-Seq-3-3a.html">Protocol 1: Alignment-based approach</a></li>
+                            <li><a href="RNA-Seq-3-3b.html">Protocol 2: Estimated counts using graph-based or similar approaches</a></li>
+                        </ul>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+<div class="clearfix"></div>
+
+</div>

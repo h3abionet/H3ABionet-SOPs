@@ -22,69 +22,88 @@ entries:
   - title: Introduction 
     output: web, pdf
     folderitems:
-    - title: General Introduction
-      url: RNA-Seq#introduction 
+    - title: Introduction
+      url: /RNA-Seq-1-0.html
       output: web, pdf 
     - title: Glossary of associated terms and jargon
-      url: RNA-Seq#glossary-of-associated-terms-and-jargon
+      url: /RNA-Seq-1-1.html
       output: web, pdf
-          
-  - title: Procedural steps
+    - title: Overall procedure
+      url: /RNA-Seq-1-2.html
+      output: web, pdf
+        
+  - title: Phase I. preprocessing raw reads
     output: web, pdf
     folderitems: 
-    - title: General protocol
-      url: RNA-Seq#procedural-steps
+    - title: Quality check
+      url: /RNA-Seq-2-1.html
       output: web, pdf
-    - title: Phase I. preprocessing raw reads
-      url: RNA-Seq#phase-1-preprocessing-of-the-raw-reads
+    - title: Adaptor and Quality Trimming
+      url: /RNA-Seq-2-2.html
       output: web, pdf
-  #      subfolders:
-  #      - title: Quality check
-  #        url: RNA-Seq#step-1-1-quality-check
-  #        output: web, pdf
-  #      - title: Trimming and clean-up
-  #        url: RNA-Seq#step-1-2-adaptor-and-quality-trimming-removal-of-very-short-reads
-  #        output: web, pdf
-    - title: Phase II. Counting features
-      url: RNA-Seq#phase-2-determining-how-many-read-counts-are-associated-with-known-genes
-      output: web, pdf
-  #      subfolders:
-  #      - title: Generating counts
-  #        url: RNA-Seq#step-2-2-count-generation
-  #        output: web, pdf
-  #      - title: Collecting & tabulating alignment stats
-  #        url: RNA-Seq#step-2-3-collecting-and-tabulating-alignment-stats
-  #        output: web, pdf
-    - title: Phase III. Statistical analysis
-      url: RNA-Seq#phase-3-statistical-analysis
-      output: web, pdf
-  #      subfolders:
-  #      - title: Outlier/ Batch detection
-  #        url: RNA-Seq#step-3-1-qc-and-outlier-batch-detection
-  #        output: web, pdf
-  #      - title: Normalization
-  #        url: RNA-Seq#step-3-2-remove-low-count-genes-and-normalize
-  #        output: web, pdf
-  #      - title: Differential expression statistics
-  #        url: RNA-Seq#step-3-3-statistics-for-differential-expression
-  #        output: web, pdf
-     
-  - title: Questions to consider
+    - title: Quality recheck
+      output: web,pdf
+      url: /RNA-Seq-2-3.html
+
+  - title: Phase II. Counting features
+    url: /RNA-Seq-3-0.html
     output: web, pdf
     folderitems:
+    - title: P1- Gene/Transcript level counts
+      url: /RNA-Seq-3-1a.html
+      output: web, pdf
+    - title: P2- Gene/Transcript level counts
+      url: /RNA-Seq-3-1b.html
+      output: web, pdf
+    - title: P1- Cout generation
+      url: /RNA-Seq-3-2a.html
+      output: web, pdf
+    - title: P2- Cout generation
+      url: /RNA-Seq-3-2b.html
+      output: web, pdf
+    - title: P1- Collecting & tabulating stats 
+      url: /RNA-Seq-3-3a.html
+      output: web, pdf
+    - title: P2- Collecting & tabulating stats 
+      url: /RNA-Seq-3-3b.html
+      output: web, pdf
+        
+  - title: Phase III. Statistical analysis
+    url: /RNA-Seq-4-0.html
+    output: web, pdf
+    folderitems:
+      - title: Outlier/ Batch detection
+        url: /RNA-Seq-4-1.html
+        output: web, pdf
+      - title: Removal of low count genes and Normalization
+        url: /RNA-Seq-4-2.html
+        output: web, pdf
+      - title: Differential expression statistics
+        url: /RNA-Seq-4-3.html
+        output: web, pdf
+ 
+  - title: Working with Galaxy 
+    output: web, pdf
+    folderitems:
+    - title: Note about Galaxy
+      output: web, pdf
+      url: /RNA-Seq-5.html
+    
+  - title: H3ABioNet Accreditation exercise
+    output: web, pdf
+    url: /RNA-Seq-6-0.html
+    folderitems:
+    - title: Practice dataset
+      url: /RNA-Seq-6-1.html
+      output: web, pdf
     - title: Reproducible research
-      url: RNA-Seq#reproducbility
+      url: /RNA-Seq-6-2.html
       output: web, pdf
     - title: General questions
-      url: RNA-Seq#general
+      url: /RNA-Seq-6-3.html
       output: web, pdf
     - title: Analysis-specific questions
-      url: RNA-Seq#analysis
+      url: /RNA-Seq-6-4.html
       output: web, pdf
     
-  - title: Bibliography 
-    output: web, pdf
-    folderitems:
-    - title: References
-      url: RNA-Seq#bibliography
-      output: web, pdf
+

@@ -17,7 +17,7 @@ topnav_dropdowns:
         - title: Genome Wide Association Studies
           url: GWAS
         - title: RNA Sequencing data analysis
-          url: /RNA-Seq
+          url: /RNA-Seq-1-0.html
         - title: 16S Diversity analysis 
           url: /16s-rRNA 
     - title: Contributing 
