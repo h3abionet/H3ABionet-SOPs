@@ -26,10 +26,15 @@ authors:
 ### The GATK Resource Bundle[^51]
 
 The GATK resource bundle is a collection of standard files for working with human resequencing data with the GATK. Until the Hg38 bundle is complete, the b37 resources remain the standard data. To access the bundle on the FTP server, use the following login credentials:
-Location: ftp.broadinstitute.org/bundle/b37
-Username: gsapubftp-anonymous
-Password:
-And download using:
+
+```
+ Location: ftp.broadinstitute.org/bundle/b37
+ Username: gsapubftp-anonymous
+ Password:
+```
+
+Or, simply  download using:
+
 ```
 wget -r ftp://gsapubftp-anonymous@ftp.broadinstitute.org/bundle/b37
 ```
