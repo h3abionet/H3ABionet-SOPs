@@ -15,7 +15,7 @@ company_name: H3ABioNet
 github_editme_path: h3abionet/H3ABionet-SOPs/tree/master/
 # if you're using Github, provide the basepath to the branch you've created for reviews, following the sample here. if not, leave this value blank.
 
-disqus_shortname: 
+disqus_shortname: https-h3abionet-github-io-h3abionet-sops 
 # if you're using disqus for comments, add the shortname here. if not, leave this value blank.
 
 google_analytics: UA-66296557-1
