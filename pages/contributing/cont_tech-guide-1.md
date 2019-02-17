@@ -31,10 +31,13 @@ Before proposing any changes, test your changes first by building a local copy i
 
 ### Road map {#road-map}
 
-- Split lenghty pages into smaller chunks
-- Create diagrams for SOP pages
+- ~~Split lenghty pages into smaller chunks~~
+- ~~Create diagrams for SOP pages~~
 - Add authors' contact details next to the pages they contribute to
 - Generate pdf files of the SOPs
+- Integrate with Disqus for easy commenting
+- Add license information to pages
+- Add proper H3ABioNet branding
 
 ### Credit and Contributions
 
