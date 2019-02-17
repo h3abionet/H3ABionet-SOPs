@@ -19,7 +19,7 @@ topnav_dropdowns:
         - title: RNA Sequencing data analysis
           url: /RNA-Seq-1-0.html
         - title: 16S Diversity analysis 
-          url: /16s-rRNA 
+          url: /16s-rRNA-1-0.html
     - title: Contributing 
       folderitems:
         - title: Technical Guide

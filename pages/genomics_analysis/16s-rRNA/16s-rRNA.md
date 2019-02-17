@@ -3,7 +3,7 @@ title: 16s data processing and microbiome analysis
 keywords: 16s rRNA, microbiome
 tags: [genomics_analysis]
 last_updated: September 17, 2014
-summary: "This document briefly outlines the processing of 16s rRNA data, and provides guidance to key concepts and terms used"
+toc: true
 sidebar: 16Smicro_sidebar
 permalink: 16s-rRNA.html
 folder: genomics_analysis/16s-rRNA/
@@ -22,86 +22,45 @@ The SOP describes the essential steps for processing 16S rRNA gene sequences. Th
 
 ### Glossary of terms and jargon {#glossary}
 
-<table>
-  <tr>
-   <td>16S rRNA gene
-   </td>
-   <td>The gene that is responsible for the coding of the 16S ribosomal RNA. The gene is used in constructing phylogenies.
-   </td>
-  </tr>
-  <tr>
-   <td>Barcodes
-   </td>
-   <td>Short nucleotide sequences added onto the ends of the DNA fragments that are to be sequenced. It allows for indexing of samples, so multiple DNA libraries can be mixed together into one sequencing lane.
-   </td>
-  </tr>
-  <tr>
-   <td>Variable region
-   </td>
-   <td>16S rRNA gene sequences contain hypervariable regions that can provide clade-specific signature sequences useful for bacterial identification.
-   </td>
-  </tr>
-  <tr>
-   <td>Demultiplex
-   </td>
-   <td>This is a process of binning reads based on barcodes, primarily used to split them amongst samples.
-   </td>
-  </tr>
-  <tr>
-   <td>Operational Taxonomic Unit (OTU)
-   </td>
-   <td>An operational taxonomic unit is an operational definition of a species or group of species often used when only DNA sequence data is available.
-   </td>
-  </tr>
-  <tr>
-   <td>Rarefaction analysis
-   </td>
-   <td>Rarefaction is a process used to estimate the true diversity of a sample by extracting random subsets of sequences. The analysis estimates diversity from subsets of different sizes and extrapolates the resulting rarefaction curve to an infinite number of sequences. Rarefaction is also used to determine whether the sequencing depth achieved (number of reads per sample) is sufficient to capture the diversity within a sample. A plot is generated showing increase in number of species (or other diversity metrics) as the number of sequence reads increase. A curve that is reaching asymptote indicates that no further diversity would be expected if sequencing depth was increased.
-   </td>
-  </tr>
-  <tr>
-   <td>Phred quality score or Q score
-   </td>
-   <td>Measure of sequencing accuracy. Logarithmically related to the probability that a base is called incorrectly by a sequencer. Example: a Phred score of 30 (Q30) means that the probability of an incorrect call for that base is 1 in 1000 and the base call accuracy is 99.9%. The base call accuracy for a base with Q10 is 90%, Q20 is 99%, Q30 is 99.9%, Q40 is 99.99%, and Q50 = 99.999%.
-   </td>
-  </tr>
-  <tr>
-   <td>Adapter
-   </td>
-   <td>Platform specific nucleotide sequence added to the ends of DNA molecule to facilitate sequencing e.g. in Illumina the adapter facilitates binding to the complementary target sequences mobilised on the flow cell.
-   </td>
-  </tr>
-  <tr>
-   <td>Chimera
-   </td>
-   <td>PCR artefact. Chimeras are potentially formed during PCR when incompletely extended DNA fragments from different templates anneal due to closely related sequences generating recombinants between starting templates. Chimeras can greatly impact estimates of diversity (generally overestimate).
-   </td>
-  </tr>
-  <tr>
-   <td>Alpha diversity
-   </td>
-   <td>Diversity within a single sample. Diversity can be characterised using the number of different species (richness), the abundance of each species (evenness), with indices that combine richness and evenness, and with divergence-based methods (phylogenetic diversity).
-   </td>
-  </tr>
-  <tr>
-   <td>Beta diversity
-   </td>
-   <td>Comparison of diversity between samples.
-   </td>
-  </tr>
-  <tr>
-   <td>Unifrac
-   </td>
-   <td>Beta diversity distance metric based on the phylogenetic distance between the members of communities/samples. Unifrac captures the total amount of evolution that is unique to each sample.
-   </td>
-  </tr>
-  <tr>
-   <td>ASV
-   </td>
-   <td>Amplicon sequence variance
-   </td>
-  </tr>
-</table>
+16S rRNA gene
+: The gene that is responsible for the coding of the 16S ribosomal RNA. The gene is used in constructing phylogenies.
+
+Barcodes
+: Short nucleotide sequences added onto the ends of the DNA fragments that are to be sequenced. It allows for indexing of samples, so multiple DNA libraries can be mixed together into one sequencing lane.
+
+Variable region
+: 16S rRNA gene sequences contain hypervariable regions that can provide clade-specific signature sequences useful for bacterial identification.
+
+Demultiplex
+: This is a process of binning reads based on barcodes, primarily used to split them amongst samples.
+
+Operational Taxonomic Unit (OTU)
+: An operational taxonomic unit is an operational definition of a species or group of species often used when only DNA sequence data is available.
+
+Rarefaction analysis
+: Rarefaction is a process used to estimate the true diversity of a sample by extracting random subsets of sequences. The analysis estimates diversity from subsets of different sizes and extrapolates the resulting rarefaction curve to an infinite number of sequences. Rarefaction is also used to determine whether the sequencing depth achieved (number of reads per sample) is sufficient to capture the diversity within a sample. A plot is generated showing increase in number of species (or other diversity metrics) as the number of sequence reads increase. A curve that is reaching asymptote indicates that no further diversity would be expected if sequencing depth was increased.
+
+Phred quality score or Q score
+: Measure of sequencing accuracy. Logarithmically related to the probability that a base is called incorrectly by a sequencer. Example: a Phred score of 30 (Q30) means that the probability of an incorrect call for that base is 1 in 1000 and the base call accuracy is 99.9%. The base call accuracy for a base with Q10 is 90%, Q20 is 99%, Q30 is 99.9%, Q40 is 99.99%, and Q50 = 99.999%.
+
+Adapter
+: Platform specific nucleotide sequence added to the ends of DNA molecule to facilitate sequencing e.g. in Illumina the adapter facilitates binding to the complementary target sequences mobilised on the flow cell.
+
+Chimera
+: PCR artefact. Chimeras are potentially formed during PCR when incompletely extended DNA fragments from different templates anneal due to closely related sequences generating recombinants between starting templates. Chimeras can greatly impact estimates of diversity (generally overestimate).
+
+Alpha diversity
+: Diversity within a single sample. Diversity can be characterised using the number of different species (richness), the abundance of each species (evenness), with indices that combine richness and evenness, and with divergence-based methods (phylogenetic diversity).
+
+Beta diversity
+: Comparison of diversity between samples.
+
+Unifrac
+: Beta diversity distance metric based on the phylogenetic distance between the members of communities/samples. Unifrac captures the total amount of evolution that is unique to each sample.
+
+ASV
+: Amplicon sequence variance
+
 
 ### Schematic workflow of the analysis {#workflow}
 
@@ -310,6 +269,18 @@ This is useful information for making predictions for the clients and collaborat
 [//]: <> (Below are the common abbreviations in the page.)
 *[SOPs]: Standard Operating Procedures
 *[16S rRNA]: 16S ribosomal RNA
-*[OTU]: Operational Taxonomic Unit
-*[Q score]: Phred Quality score, a measure of sequencing accuracy.
-*[PCR]:
+*[16S rRNA gene]: The gene that is responsible for the coding of the 16S ribosomal RNA. The gene is used in constructing phylogenies.
+*[Barcodes]: Short nucleotide sequences added onto the ends of the DNA fragments that are to be sequenced. It allows for indexing of samples, so multiple DNA libraries can be mixed together into one sequencing lane.
+*[Variable region]: 16S rRNA gene sequences contain hypervariable regions that can provide clade-specific signature sequences useful for bacterial identification.
+*[Demultiplex]: This is a process of binning reads based on barcodes, primarily used to split them amongst samples.
+*[OTU]: An operational taxonomic unit is an operational definition of a species or group of species often used when only DNA sequence data is available.
+*[Rarefaction analysis]: Rarefaction is a process used to estimate the true diversity of a sample by extracting random subsets of sequences. The analysis estimates diversity from subsets of different sizes and extrapolates the resulting rarefaction curve to an infinite number of sequences. Rarefaction is also used to determine whether the sequencing depth achieved (number of reads per sample) is sufficient to capture the diversity within a sample. A plot is generated showing increase in number of species (or other diversity metrics) as the number of sequence reads increase. A curve that is reaching asymptote indicates that no further diversity would be expected if sequencing depth was increased.
+*[Phred quality score]: Measure of sequencing accuracy. Logarithmically related to the probability that a base is called incorrectly by a sequencer. Example: a Phred score of 30 (Q30) means that the probability of an incorrect call for that base is 1 in 1000 and the base call accuracy is 99.9%. The base call accuracy for a base with Q10 is 90%, Q20 is 99%, Q30 is 99.9%, Q40 is 99.99%, and Q50 = 99.999%.
+*[Q score]: Measure of sequencing accuracy. Logarithmically related to the probability that a base is called incorrectly by a sequencer. Example: a Phred score of 30 (Q30) means that the probability of an incorrect call for that base is 1 in 1000 and the base call accuracy is 99.9%. The base call accuracy for a base with Q10 is 90%, Q20 is 99%, Q30 is 99.9%, Q40 is 99.99%, and Q50 = 99.999%.
+*[Adapter]: Platform specific nucleotide sequence added to the ends of DNA molecule to facilitate sequencing e.g. in Illumina the adapter facilitates binding to the complementary target sequences mobilised on the flow cell.
+*[Chimera]: PCR artefact. Chimeras are potentially formed during PCR when incompletely extended DNA fragments from different templates anneal due to closely related sequences generating recombinants between starting templates. Chimeras can greatly impact estimates of diversity (generally overestimate).
+*[Alpha diversity]: Diversity within a single sample. Diversity can be characterised using the number of different species (richness), the abundance of each species (evenness), with indices that combine richness and evenness, and with divergence-based methods (phylogenetic diversity).
+*[Beta diversity]: Comparison of diversity between samples.
+*[Unifrac]: Beta diversity distance metric based on the phylogenetic distance between the members of communities/samples. Unifrac captures the total amount of evolution that is unique to each sample.
+*[ASV]: Amplicon sequence variance
+

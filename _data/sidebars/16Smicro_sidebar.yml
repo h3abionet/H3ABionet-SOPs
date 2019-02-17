@@ -23,86 +23,91 @@ entries:
     output: web, pdf
     folderitems:
     - title: General Introduction
-      url: 16s-rRNA/#introduction
+      url: /16s-rRNA-1-0.html
       output: web, pdf 
     - title: Glossary of associated terms and jargon
-      url: RNA-Seq#glossary-of-associated-terms-and-jargon
+      url: /16s-rRNA-1-1.html 
       output: web, pdf
     - title: Schematic analysis workflow 
-      url: 16s-rRNA/#workflow
+      url: /16s-rRNA-1-2.html
       output: web, pdf
                 
   - title: Phase I Preprocessing of reads
     output: web, pdf
+    url: /16s-rRNA-2-0.html
     folderitems:
     - title: QC plots and stats
-      url: 16s-rRNA/#qc_plots
+      url: /16s-rRNA-2-1.html
       output: web, pdf
     - title: Trim and filter reads
-      url: 16s-rRNA/#trim
+      url: /16s-rRNA-2-2.html
       output: web, pdf
     - title: Paired read stitching
-      url: 16s-rRNA/#stitching
+      url: /16s-rRNA-2-3.html
       output: web, pdf
     - title: Chimera detection
-      url: 16s-rRNA/#chimera
+      url: /16s-rRNA-2-4.html
       output: web, pdf
 
   - title: Phase II OTU picking, classification and phylogenetic tree generation
     output: web, pdf
+    url: /16s-rRNA-3-0.html
     folderitems:
     - title: OTU picking
-      url: 16s-rRNA/#otu_picking
+      url: /16s-rRNA-3-1.html
+      output: web, pdf
+    - title: ASV prediction 
+      url: /16s-rRNA-3-2.html
       output: web, pdf
     - title: Classification
-      url: 16s-rRNA/#classification
+      url: /16s-rRNA-3-3.html
       output: web, pdf
-    - title: Alignment
-      url: 16s-rRNA/#alignment
-      output: web, pdf
-    - title: Phylogenetic tree creation
-      url: 16s-rRNA/#phylogene
+    - title: Alignment 
+      url: /16s-rRNA-3-4.html
       output: web, pdf
 
   - title: Phase III Measure diversity and other statistical analysis
     output: web, pdf
+    url: /16s-rRNA-4-0.html
     folderitems:
     - title: Determine alpha diversity
-      url: 16s-rRNA/#alpha_diversity
+      url: /16s-rRNA-4-1.html
       output: web, pdf
     - title: Determine beta diversity
-      url: 16s-rRNA/#beta_diversity
+      url: /16s-rRNA-4-2.html
       output: web, pdf
     - title: Other statistical analysis
-      url: 16s-rRNA/#other
+      url: /16s-rRNA-4-3.html
+      output: web, pdf
+
+  - title: H3ABioNet assessments
+    output: web, pdf
+    url: /16s-rRNA-7-0.html
+    folderitems:
+    - title: Practice dataset
+      url: /16s-rRNA-7-1.html
+      output: web, pdf
+    - title: Input data assessment questions
+      url: /16s-rRNA-7-2.html
+      output: web, pdf
+    - title: Operational assessment questions
+      url: /16s-rRNA-7-3.html
+      output: web, pdf
+    - title: Runtime analysis
+      url: /16s-rRNA-7-4.html
+      output: web, pdf
+    - title: Analysis of the results
+      url: /16s-rRNA-7-5.html
       output: web, pdf
 
   - title: Appendices
     output: web, pdf
     folderitems:
-      - title: Tools referred to in SOP
-        url: 16s-rRNA/#tools
+      - title: Additional notes
+        url: /16s-rRNA-5.html
         output: web, pdf
-      - title: Databases referred to in SOP
-        url: 16s-rRNA/#databases
+      - title: Tools & Databases
+        url: /16s-rRNA-6.html
         output: web, pdf
 
-  - title: H3ABioNet assessments
-    output: web, pdf
-    folderitems:
-    - title: Practice dataset
-      url: 16s-rRNA#practice_dataset
-      output: web, pdf
-    - title: Input data assessment questions
-      url: 16s-rRNA#input-assessment-questions
-      output: web, pdf
-    - title: Operational assessment questions
-      url: 16s-rRNA#operational-assessment-questions
-      output: web, pdf
-    - title: Runtime analysis
-      url: 16s-rRNA#runtime-analysis
-      output: web, pdf
-    - title: Analysis of the results
-      url: 16s-rRNA#results-analysis
-      output: web, pdf
 
