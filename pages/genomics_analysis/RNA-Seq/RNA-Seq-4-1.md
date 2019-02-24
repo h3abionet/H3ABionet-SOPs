@@ -17,7 +17,7 @@ authors:
  - Radhika_Khetani
  - Jessica_Holmes
  - Chris_Fields
- - Meng-Chun Tseng
+ - Meng_Chun_Tseng
 ---
 ### _Step 3.1: QC and outlier/batch detection_ {#step-3-1-qc-and-outlier-batch-detection}
 

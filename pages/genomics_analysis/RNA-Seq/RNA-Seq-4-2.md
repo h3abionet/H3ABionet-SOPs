@@ -17,7 +17,7 @@ authors:
  - Radhika_Khetani
  - Jessica_Holmes
  - Chris_Fields
- - Meng-Chun Tseng
+ - Meng_Chun_Tseng
 ---
 ### _Step 3.2: Removal of low count genes and normalization_ {#step-3-2-remove-low-count-genes-and-normalize}
 

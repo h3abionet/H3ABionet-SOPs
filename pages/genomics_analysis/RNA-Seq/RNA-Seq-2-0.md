@@ -16,7 +16,7 @@ authors:
  - Radhika_Khetani
  - Jessica_Holmes
  - Chris_Fields
- - Meng-Chun Tseng
+ - Meng_Chun_Tseng
 ---
 
 ## Phase 1: Preprocessing of the raw reads {#phase-1-preprocessing-of-the-raw-reads}

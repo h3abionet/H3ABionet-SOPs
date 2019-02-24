@@ -17,7 +17,7 @@ authors:
  - Radhika_Khetani
  - Jessica_Holmes
  - Chris_Fields
- - Meng-Chun Tseng
+ - Meng_Chun_Tseng
 ---
 ### _Step 2.2: Count generation_ {#step-2-2-count-generation}
 

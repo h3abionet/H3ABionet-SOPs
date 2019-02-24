@@ -17,7 +17,7 @@ authors:
  - Radhika_Khetani
  - Jessica_Holmes
  - Chris_Fields
- - Meng-Chun Tseng
+ - Meng_Chun_Tseng
 ---
 ### _Step 2.1: Generation of gene/transcript-level counts_ {#step-2-1-generation-of-gene-transcript-level-counts}
 

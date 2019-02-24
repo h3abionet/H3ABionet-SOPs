@@ -16,7 +16,7 @@ authors:
  - Radhika_Khetani
  - Jessica_Holmes
  - Chris_Fields
- - Meng-Chun Tseng
+ - Meng_Chun_Tseng
 ---
 
 ## Phase 3: Statistical analysis {#phase-3-statistical-analysis}

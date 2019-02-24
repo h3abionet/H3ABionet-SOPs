@@ -13,7 +13,7 @@ authors:
  - Radhika_Khetani
  - Jessica_Holmes
  - Chris_Fields
- - Meng-Chun Tseng
+ - Meng_Chun_Tseng
 ---
 
 ## Phase 2: Determining how many read counts are associated with known genes {#phase-2-determining-how-many-read-counts-are-associated-with-known-genes}

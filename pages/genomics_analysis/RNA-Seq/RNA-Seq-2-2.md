@@ -17,7 +17,7 @@ authors:
  - Radhika_Khetani
  - Jessica_Holmes
  - Chris_Fields
- - Meng-Chun Tseng
+ - Meng_Chun_Tseng
 ---
 ### _Step 1.2: Adaptor and Quality trimming + Removal of very short reads_ {#step-1-2-adaptor-and-quality-trimming-removal-of-very-short-reads}
 

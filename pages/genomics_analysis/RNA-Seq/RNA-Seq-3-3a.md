@@ -17,7 +17,7 @@ authors:
  - Radhika_Khetani
  - Jessica_Holmes
  - Chris_Fields
- - Meng-Chun Tseng
+ - Meng_Chun_Tseng
 ---
 ### _Step 2.3: Collecting and tabulating alignment stats_ {#step-2-3-collecting-and-tabulating-alignment-stats}
 
