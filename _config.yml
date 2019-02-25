@@ -15,7 +15,7 @@ company_name: H3ABioNet
 github_editme_path: h3abionet/H3ABionet-SOPs/tree/master/
 # if you're using Github, provide the basepath to the branch you've created for reviews, following the sample here. if not, leave this value blank.
 
-disqus_shortname: https-h3abionet-github-io-h3abionet-sops 
+disqus_shortname: h3abionet-sops 
 # if you're using disqus for comments, add the shortname here. if not, leave this value blank.
 
 google_analytics: UA-66296557-1
@@ -34,7 +34,7 @@ exclude:
 
 feedback_subject_line: H3ABioNet SOPs feedback 
 
-feedback_email: h3abionet@gmail.com
+feedback_email: social@h3abionet.org 
 # used as a contact email for the Feedback link in the top navigation bar
 
 # feedback_disable: true
@@ -101,7 +101,7 @@ sidebars:
 - sops_sidebar
 - other
 
-description: "Intended as a documentation theme based on Jekyll for technical writers documenting software and other technical products, this theme has all the elements you would need to handle multiple products with both multi-level sidebar navigation, tags, and other documentation features."
+description: "This website hosts the Standard Operating Procedures (SOPs) for common genomics data analysis tasks developed within the H3ABioNet consortium."
 # the description is used in the feed.xml file
 
 # needed for sitemap.xml file only
