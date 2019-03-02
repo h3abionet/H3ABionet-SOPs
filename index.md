@@ -11,7 +11,7 @@ permalink: index.html
 ---
 
 
-| ![H3ABioNet logo](assets/images/LOGO-HEADER.svg "image_tooltip") |
+ ![H3ABioNet logo](assets/images/LOGO-HEADER.svg "image_tooltip") 
 
 This website hosts the Standard Operating Procedures (SOPs) for common data analysis tasks within the [H3ABioNet](https://h3abionet.org/) consortium, which are:
 
