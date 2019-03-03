@@ -1,5 +1,9 @@
 #!/bin/bash
 
+
+## Licensed under MIT License (MIT)
+## Code is courtesy of Azza E Ahmed (@azzaea)
+
 ## Usage: ./split_by_h3.sh input_file.md
 ##
 ## input_file.md a properly formatted markdown file of a working page 

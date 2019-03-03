@@ -17,7 +17,11 @@ Thank you for your interest in contributing to this effort! These SOPs are publi
 
  To make it easier, we created this guide- let's dive in!
 
-### Inner working of the site
+#### Credit and Contributions
+
+We find it important that all contributors get credit for their work. Along with including your name in the `yml` header of your contributed effort, please make sure you also update the [authors.yml](https://github.com/h3abionet/H3ABionet-SOPs/blob/master/authors.yml) to include your contact details. 
+
+## Inner working of the site
 This website is based on the [Documentation Jekyll theme](http://idratherbewriting.com/documentation-theme-jekyll/). [Jekyll](https://jekyllrb.com/), written in Ruby, is a "simple, blog-aware, static site generator".
 
 Before proposing any changes, test your changes first by building a local copy in your computer and viewing from your own browser as below:
@@ -38,10 +42,6 @@ Before proposing any changes, test your changes first by building a local copy i
 - ~~Integrate with Disqus for easy commenting~~
 - ~~Add license information to pages~~
 - ~~Add proper H3ABioNet branding~~
-
-### Credit and Contributions
-
-We find it important that all contributors get credit for their work. Along with including your name in the `yml` header of your contributed effort, please make sure you also update the [authors.yml](https://github.com/h3abionet/H3ABionet-SOPs/blob/master/authors.yml) to include your contact details. 
 
 #### Notes
 
