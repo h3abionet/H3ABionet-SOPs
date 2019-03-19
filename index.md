@@ -21,7 +21,7 @@ This website hosts the Standard Operating Procedures (SOPs) for common data anal
 * [Gene expression analysis using RNA-Seq](./RNA-Seq-1-0)
 * [16s microbiome analysis](./16s-rRNA-1-0)
 
-These SOPs were meant to help various H3ABioNet nodes in their accreditation exercises [^1].
+These SOPs were meant to help various H3ABioNet nodes in their accreditation exercises [^1], as per [this protocol](assets/Assessment_protocol.pdf).
 
 You can use the buttons at the top of the page to navigate those various SOPs, or the side panel to access the subsections within each.
 
