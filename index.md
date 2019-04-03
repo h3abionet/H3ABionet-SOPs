@@ -11,21 +11,21 @@ permalink: index.html
 ---
 
 
- ![H3ABioNet logo](assets/images/LOGO-HEADER.jpg "image_tooltip") 
+[![H3ABioNet logo](assets/images/LOGO-HEADER.jpg "H3ABioNet logo")](https://h3abionet.org)
 
 This website hosts the Standard Operating Procedures (SOPs) for common data analysis tasks within the [H3ABioNet](https://h3abionet.org/) consortium, which are:
 
 
-* [Human Variant calling](./Variant-Calling-1-0)
-* [Genome Wide Association Studies](./GWAS)
-* [Gene expression analysis using RNA-Seq](./RNA-Seq-1-0)
-* [16s microbiome analysis](./16s-rRNA-1-0)
+* [Human Variant calling]({% link pages/genomics_analysis/Variant-Calling/Variant-Calling-1-0.md %})
+* [Genome Wide Association Studies]({% link pages/genomics_analysis/GWAS/GWAS.md %})
+* [Gene expression analysis using RNA-Seq]({% link pages/genomics_analysis/RNA-Seq/RNA-Seq-1-0.md %})
+* [16s microbiome analysis]({% link  pages/genomics_analysis/16s-rRNA/16s-rRNA-1-0.md %})
 
-These SOPs were meant to help various H3ABioNet nodes in their accreditation exercises [^1], as per [this protocol](assets/Assessment_protocol.pdf).
+These SOPs were meant to help various H3ABioNet nodes in their accreditation exercises [^1], as per [this protocol]({{ site.baseurl }}/assets/Assessment_protocol.pdf ).
 
 You can use the buttons at the top of the page to navigate those various SOPs, or the side panel to access the subsections within each.
 
-Feedback is also welcome! Please feel free to [fork this repo](https://github.com/h3abionet/H3ABionet-SOPs), open an issue or a pull request. Additionally, check out our [contribution guide](https://h3abionet.github.io/H3ABionet-SOPs/cont_tech-guide-1).
+Feedback is also welcome! Please feel free to [fork this repo](https://github.com/h3abionet/H3ABionet-SOPs), open an issue or a pull request. Additionally, check out our [contribution guide]({% link pages/contributing/cont_tech-guide-1.md %}).
 
 
 ### Funding
