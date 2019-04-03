@@ -28,6 +28,8 @@ authors:
 
 - For top navigation, simply edit the file: `_data/topnav.yml`
 
+- For linking to external sites, simply format your text and link as follows: `[text to be linked](actual link)`. If you wish to link to a page within your own site, simply replace the `actual link` with the `permalink` of your desired page. However, you may find it optimal to use the complete path along with liquid `link` tag to have Jekyll inernally check your links before your site is deployed. You may refer to [this entry](https://jekyllrb.com/docs/liquid/tags/#links) from the official Jekyll site for more details on the later case.
+ 
 - It is desirable to have a `hover-over` tooltip helpers next to key abbreviations or terms in each SOP. The convention here is to put such content at the end of a given SOP file, and start the section with `[\\]:`. Next, put each term in tits own line as in: `*[term]: explanation`. Again, the [template page](https://github.com/h3abionet/H3ABionet-SOPs/blob/master/template_sop.md) has some examples.
 
 - `References` are included as footnotes in this site. In markdown, this means using a `[^label]` for inline citations, and `[^label]: complete citation details in Vancuver style?` for biblography. Note that the `label` does not need to be numeric, as this will be done automatically by the engine.

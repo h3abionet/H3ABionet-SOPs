@@ -17,7 +17,7 @@ Thank you for your interest in contributing to this effort! These SOPs are publi
 
  To make it easier, we created this guide- let's dive in!
 
-#### Credit and Contributions
+### Credit and Contributions
 
 We find it important that all contributors get credit for their work. Along with including your name in the `yml` header of your contributed effort, please make sure you also update the [authors.yml](https://github.com/h3abionet/H3ABionet-SOPs/blob/master/authors.yml) to include your contact details. 
 
