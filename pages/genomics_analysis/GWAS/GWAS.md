@@ -33,6 +33,16 @@ This SOP assumes that is that much data is in the binary format used by the PLIN
 
 ### Glossary of associated terms and jargon  {#glossary-of-associated-terms-and-jargon}
 
+* **Case/control**: A type of GWAS in which all individuals in the study are placed into one of two groups.  *Case* has the disease or trait of interest, and *control* does not.  Alternatively, GWAS can be performed on a quantitative trait.
+* **dbSNP**: A database maintained by NCBI at https://www.ncbi.nlm.nih.gov/snp/ where metadata about variants can be found.
+* **Genotype calling**: The process of determining the genotype of each individual in the population at each variant of interest.
+* **GWAS**: Genome-wide association study.  An analysis that identifies genomic variants that are associated with a disease or trait in a population, and are putatively linked to a causative variant.
+* **Illumina**: A company that produces genomic arrays and DNA sequencing equipment and reagents.  In this SOP, we are generally referring to Illumina genotyping arrays.
+* **Minor allele frequency (MAF)**: A statistic for each SNP, ranging from 0 to 0.5, indicating the frequency of the less common allele in the population.  This is out of the total number of allele copies in the population, so if there were two heterozygotes and no minor allele homozygotes in a population of 100, the minor allele frequency would be 0.01.
+* **PCA**: Principal components analysis.  In GWAS, it is generally used to reduce thousands of SNPs to a few variables that describe population structure.
+* **PLINK**: A popular software for performing GWAS.
+* **Population structure**: Generally resulting from geographic separation of subpopulations, population structure means that different subgroups of the study population have different allele frequencies. Population structure can be a confounding factor in GWAS if the disease or trait is more common in some subpopulations than in others.
+* **SNP**: Single nucleotide polymorphism.  A common type of variant used in GWAS.  SNPs are straightforward to assay from sequencing or array data.
 
 ## Genotype calling {#calling}
 
