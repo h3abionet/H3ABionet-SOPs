@@ -11,6 +11,7 @@ author_profile: true
 authors:
  - Scott_Hazelhurst
  - Segun_Fatumo
+ - Lindsay_Clark
 ---
 
 ## Introduction {#introduction}
