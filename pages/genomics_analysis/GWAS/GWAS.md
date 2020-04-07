@@ -2,7 +2,7 @@
 title: GWAS data processing
 keywords: GWAS, population structure, association testing
 tags: [genomics_analysis]
-last_updated: December 23, 2018
+last_updated: April 7, 2020
 summary: "This SOP is intended to layout best practices for GWAS data processing, especially for groups undertaking H3ABioNet accreditation exercises"
 sidebar: gwas_sidebar
 permalink: GWAS.html  
@@ -39,6 +39,7 @@ This SOP assumes that is that much data is in the binary format used by the PLIN
 * **Genotype calling**: The process of determining the genotype of each individual in the population at each variant of interest.
 * **GWAS**: Genome-wide association study.  An analysis that identifies genomic variants that are associated with a disease or trait in a population, and are putatively linked to a causative variant.
 * **Illumina**: A company that produces genomic arrays and DNA sequencing equipment and reagents.  In this SOP, we are generally referring to Illumina genotyping arrays.
+* **Imputation**: Filling in missing data using estimated values.  In GWAS, SNP data are commonly imputed using known linkage disequilibrium with nearby SNPs.
 * **Minor allele frequency (MAF)**: A statistic for each SNP, ranging from 0 to 0.5, indicating the frequency of the less common allele in the population.  This is out of the total number of allele copies in the population, so if there were two heterozygotes and no minor allele homozygotes in a population of 100, the minor allele frequency would be 0.01.
 * **PCA**: Principal components analysis.  In GWAS, it is generally used to reduce thousands of SNPs to a few variables that describe population structure.
 * **PLINK**: A popular software for performing GWAS.
@@ -232,13 +233,13 @@ Covariates include population structure, sex, smoking, age, socio-economic statu
 
 ### Imputation {#imputation}
 
-Imputation can be done in two modes -- first, one can use imputation just to fill in missing genotypes. Second, imputation can be done to impute values for as many positions as possible
+Imputation can be done in two modes -- first, one can use imputation just to fill in missing genotypes. Second, imputation can be done to impute values for as many positions as possible.
 
 ### Multi-locus testing {#multi-locus-testing}
 
 ### Replication {#replication}
 The relatively low power of most GWAS designs means that a substantial number of false positives can be expected to be generated, so validation via replication in an independent population is an important part of most studies.
-A common strategy is to genotype a subset of the samples on a high coverage array, and then follow up with targeted genotyping of markers that appear interesting, on a larger number of samples
+A common strategy is to genotype a subset of the samples on a high coverage array, and then follow up with targeted genotyping of markers that appear interesting, on a larger number of samples.
 
 ### Meta analyses {#meta-analyses}
 
