@@ -83,17 +83,17 @@ There may be different ways of dividing samples into batches (e.g. by recruitmen
 
 If participants are recruited in different places, differences may occur due to the way in which samples are handled at these places.
 
-### Case/control or phenotype  differences {#case-control-errors}
+### Case/control or phenotype differences {#case-control-errors}
 
-Of course, the whole purpose of a GWAS is to discover genetic differences between cases and controls. However, in a well designed study it very highly unlikely that the condition or disease of interest will cause observable differences at the genomic level. If there are overall genomic differences then this is most probably due to the way in which participants were sampled or the different processes in which DNA was extracted or genotyped. For example, a study might recruit 3000 cases and use results from a matched cohort for controls. As different people/labs might be responsible for collection and processing, even if indentical arrays are used and genotyping is done at the same centre, there may be systemic errors.
+Of course, the whole purpose of a GWAS is to discover genetic differences between cases and controls. However, in a well designed study it very highly unlikely that the condition or disease of interest will be associated with widespread genomic differences. If there are overall genomic differences then this is most probably due to the way in which participants were sampled or the different processes in which DNA was extracted or genotyped. For example, a study might recruit 3000 cases and use results from a matched cohort for controls. As different people/labs might be responsible for collection and processing of the cases and controls, even if identical arrays are used and genotyping is done at the same centre, there may be systemic errors.
 
 One useful phenotype to use for QC is sex. For many studies, it would not be expected that in the autosomal SNPs that there are differences at the genomic level.
 
 ### Population structure {#population-structure}
 
-As discussed later, population structure is a potential confounding factor. This may also make QC more difficult. In a highly homogeneous sample, one would not expect there to be significant genomic level difference between plates (e.g., when doing a PC analysis). However, in a large multi-country project with diverse ancestries, this would not be unexpected. This is especially because unless a deliberate effort is made to randomise (which may be not be practical) it is likely that bacthes of samples from the same site are likely to be processed close to each other.
+As discussed later, population structure is a potential confounding factor. This may also make QC more difficult. In a highly homogeneous sample, one would not expect there to be significant genomic level difference between plates (e.g., when doing a PC analysis). However, in a large multi-country project with diverse ancestries, this would not be unexpected. This is especially because unless a deliberate effort is made to randomise (which may be not be practical) it is likely that batches of samples from the same site are likely to be processed on the same plate.
 
-A particular concern in a study with population structure is if the number of cases and controls is not balanced across different sub-groups and even more so when differences in both environmental and genomic background might lead to different outcomes
+A particular concern in a study with population structure is if the number of cases and controls is not balanced across different sub-groups, and even more so when differences in both environmental and genomic background might cause different variants to be associated with the trait in different sub-groups.
 
 
 
