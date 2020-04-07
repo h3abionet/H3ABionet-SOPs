@@ -262,6 +262,6 @@ Practice dataset for GWAS studies can be found [here](http://h3data.cbio.uct.ac.
 
 
 
-* Turner et al. [Quality Control Procedures for Genome Wide Association Studies](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3066182/). _Current Protoclols in Human Genetics_, 2011,
+* Turner et al. [Quality Control Procedures for Genome Wide Association Studies](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3066182/). _Current Protocols in Human Genetics_, 2011,
 
 * Zeggini and Morris 2010. Analysis of Complex Disease Association Studies: A Practical Guide. Academic Press.
