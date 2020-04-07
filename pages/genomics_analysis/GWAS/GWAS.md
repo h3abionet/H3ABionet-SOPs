@@ -48,7 +48,7 @@ This SOP assumes that the data are in the binary format used by the PLINK softwa
 
 ## Genotype calling {#calling}
 
-The raw output of the genotyping process are files containing two signals for each genotyped sample -- for Illumina products, these are IDAT files.  The two signals correspond to the two alleles for a single SNP. These are commonly visualized as a scatter plot with one signal on the x-axis and the other signal on the y-axis, with each individual will be having one dot on the image. For haploid SNPs, typically the dots will visually cluster into three groups: those homozygous for the reference allele, those heterozygous, those homozygous for the alternate allele. Note that the IDAT files just describe the raw assay data of each individual for each SNP: usually the clusters are visually obvious, and the process of *calling* is to rigorously put each call in one of three clusters.
+The raw output of the genotyping process are files containing two signals for each genotyped sample -- for Illumina products, these are IDAT files.  The two signals correspond to the two alleles for a single SNP. These are commonly visualized as a scatter plot with one signal on the x-axis and the other signal on the y-axis, with each individual will be having one dot on the image. For diploid SNPs, typically the dots will visually cluster into three groups: those homozygous for the reference allele, those heterozygous, those homozygous for the alternate allele. Note that the IDAT files just describe the raw assay data of each individual for each SNP: usually the clusters are visually obvious, and the process of *calling* is to rigorously put each call in one of three clusters.
 
 Typically most SNPs will have well behaved clusters and most individuals will clearly associate with one of the clusters, but there are always errors, anomalies and some borderline cases. Different clustering algorithms will produce different results. Typically, genotyping centres will provide a cluster report which describes for each SNP and each individual what the calls are. While well reputed centres will produce high quality calls, it is always a  good idea to try alternate approaches. Well known calling tools are Illumina's GenomeStudio and crlmm.
 
@@ -208,7 +208,7 @@ Different types and levels of structure can be observed. At one extreme, samplin
 
 ### Autosomal, X, Y and MT SNPs {#snps}
 
-Many GWASes only consider the haploid chromosomes and so only autosomal SNP are considered.
+Many GWASes only consider the diploid chromosomes and so only autosomal SNP are considered.
 
 
 ### Association testing for single locus  {#single-locus}
