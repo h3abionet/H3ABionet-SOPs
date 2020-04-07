@@ -99,14 +99,14 @@ A particular concern in a study with population structure is if the number of ca
 
 ### Random errors {#random-errors}
 
-Many errors will be due to random effects at either the SNP or individual level. The systematic errors above are often detected by comparing groups of things with each other, while random effects are usually detected using some experiment-wide cut-off.
+Many errors will be due to random effects at either the SNP or individual level. The systematic errors above are often detected by comparing groups of things with each other, while random effects are usually detected using some experiment-wide cut-off, for example using the GenCall value (see below).
 
 
 ## Calling quality {#quality}
 
-For Illumina data, the key quality measure is called _GenCall_. Once clustering is done (recall, clustering is done per SNP, using the (x,y) coordinates of all the individuals for that SNP), a GenCall score is given for each sample/person of that SNP which a confidence score of the correctness of the call. This confidence score is  a function of the clustering algorithm used. From this is derived
-* The _call rate_ or _call frequency_.  The person doing the calling picks a lower value for an acceptable _GenCall_ value, and any calls lower than this are rejected.
-* The 10%\_GenCall value: The GenCall value of the SNP at the 10% percentile of GenCall value (e.g, the SNP/Indvidual for which 90% of other individuals have a _better_ GenCall score). For a well genotyped SNP or individual this should be a very high quality absolute value even though it is relatively poor.
+For Illumina array data, the key quality measure is called _GenCall_. Once clustering is done (recall, clustering is done per SNP, using the (x,y) coordinates of all the individuals for that SNP), a GenCall score is given for each sample/person of that SNP which a confidence score of the correctness of the call. This confidence score is a function of the clustering algorithm used.  Illumina [indicates](https://www.illumina.com/Documents/products/technotes/technote_gencall_data_analysis_software.pdf) that GenCall scores above 0.7 indicate highly accurate genotypes, and scores below 0.2 indicate failed genotypes. From this is derived
+* The _call rate_ or _call frequency_.  The person doing the calling picks a minimum acceptable _GenCall_ value, and any calls lower than this are rejected.  The call rate is the proportion of calls that were not rejected for a given SNP or individual.
+* The 10%\_GenCall value: The GenCall value of the SNP at the 10% percentile of GenCall value (e.g, the SNP/individual for which 90% of other individuals have a _better_ GenCall score). For a well genotyped SNP or individual this should be a very high quality absolute value (_e.g._ 0.7) even though it is relatively poor.
 
 
 These can be measured per sample or per SNP.  Good graphs to look at are _call rate_ versus sample number, and _call rate_ versus 10%\_GenCall value, both of which may be used to identify poor performing individuals.
@@ -118,7 +118,7 @@ If biological replicates have been included in your study (a good idea), the con
 The following should be checked in the QC process:
 
 * Missingness
-  * Missingness at the SNP-level. SNPs with high missingness should be removed. Usually this is set at the 1-2% level. (PLINK `--geno` option)
+  * Missingness at the SNP-level. SNPs with high missingness (_i.e._ a low call rate) should be removed. Usually this is set at the 1-2% level. (PLINK `--geno` option)
   * Missingness at the individual level. Individuals with high missingness should be removed. Usually this is set at the 1-2% level. (PLINK `--mind` option)
 
    Of course, the two are inter-related so a small benefit may be gained by iteratively removing badly behaved SNPs and poor individuals. Note that if a significant number of poorly genotyped samples are found, it may be desirable to remove the individuals and re-call the genotypes since poorly performing samples may significantly affect how clustering is done.
