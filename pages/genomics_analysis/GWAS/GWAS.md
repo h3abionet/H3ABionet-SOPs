@@ -101,6 +101,11 @@ A particular concern in a study with population structure is if the number of ca
 
 Many errors will be due to random effects at either the SNP or individual level. The systematic errors above are often detected by comparing groups of things with each other, while random effects are usually detected using some experiment-wide cut-off, for example using the GenCall value (see below).
 
+## Evaluating sources of error {#evaluating-errors}
+
+To test the various sources of error listed in the previous section, one approach would be to perform a principal components analysis (PCA) of the SNP data, and plot either the first two axes, or some number of axes determined by examining a scree plot.  Every individual would be represented by one point in the PCA, and the points can then be colored by factors such as plate, batch, site, and case/control.  Ideally in a randomized experiment, the observed clustering will not correspond to any of those factors.  The PCA should also be plotted with individuals colored according to their reported ancestry, which _should_ largely correspond to the observed clustering.  If clusters are observed that don't seem to have anything to do with ancestry, care should be taken to determine if they correspond to any known experimental factors.
+
+Another useful approach would be to calculate the median or 10th percentile GenCall score per individual (see below) and relate that to various experimental factors.  For example, a box plot or violin plot could show the distribution of median GenCall scores for each plate or batch. One should consider removing any poor quality plates or batches from the association analysis.
 
 ## Calling quality {#quality}
 
