@@ -18,14 +18,14 @@ authors:
 
 GWAS is a key workflow of the H3A. Our recommended approach to SOP is shown below. Note, this is not an algorithm -- there are multiple ways of doing QC which are good. Also, what is shown below is not necessarily linear. For example, some of the analyses at the plate level might only be possible after doing an initial QC and then coming back to look at plate and batch effects.
 
-While this SOP is designed for bioinformaticists doing the GWAS analysis once the data is ready, we recommend that it be studied thoroughly to help plan the entire process. This GWAS is written as a general guide for bioinformaticists, and in particular to assist groups undertaking H3ABioNet accreditation, both to prepare for and do the accreditation exercise.
+While this SOP is designed for bioinformaticists doing the GWAS analysis once the data are ready, we recommend that it be studied thoroughly to help plan the entire process. This GWAS is written as a general guide for bioinformaticists, and in particular to assist groups undertaking H3ABioNet accreditation, both to prepare for and do the accreditation exercise.
 
 *Disclaimer: * Although we hope this SOP is educational and will help groups learn to do GWAS, it is not meant as a tutorial or a complete checklist. *Groups undertaking accreditation should realise that accreditation is undertaking by an independent international evaluation committee, and while they will have regard to the SOP, they make their decision at their own discretion.*
 
 
 
 ### Tool and file format {#tools-file-format}
-This SOP assumes that is that much data is in the binary format used by the PLINK software suite. However, this is not mean to say that PLINK is the only or even best tool to be used.  The PLINK binary format (hereafter referred to as bped) encodes a dataset as a set of three files, with the following suffixes to their names:
+This SOP assumes that the data are in the binary format used by the PLINK software suite. However, this is not mean to say that PLINK is the only or even best tool to be used.  The PLINK binary format (hereafter referred to as bped) encodes a dataset as a set of three files, with the following suffixes to their names:
 
 * .bed: this is the binary genotype data, stored as 2 bits per genotype per sample
 * .bim: a text file containing marker information, one line per marker, in genomic order
@@ -50,7 +50,7 @@ This SOP assumes that is that much data is in the binary format used by the PLIN
 
 The raw output of the genotyping process are image files -- for Illumina products, these are IDAT files. Each image gives the data for one SNP, and each individual will be have one dot on the image. For haploid SNPs, typically the dots will visually cluster into three groups: those homozygous for the reference allele, those heterozygous, those homozygous for the alternate allele. Note that the image files just describe the positions of each individual for each SNP: usually the clusters are visually obvious, and the process of *calling* is to rigorously put each call in one of three clusters.
 
-Typically most SNPs will have well behaved clusters and most individuals will clearly associate with one of the clusters, but there are always errors, anomalies and some borderline cases. Different clustering algorithms will produce different results. Typically, genotyping centres will provide a cluster report which describes for each SNP and each individual what the calls are. While, well reputed centres will produce high quality calls, it is always a  good idea to try alternate approaches. Well known calling tools are Illumina's GenomeStudio and crlmm.
+Typically most SNPs will have well behaved clusters and most individuals will clearly associate with one of the clusters, but there are always errors, anomalies and some borderline cases. Different clustering algorithms will produce different results. Typically, genotyping centres will provide a cluster report which describes for each SNP and each individual what the calls are. While well reputed centres will produce high quality calls, it is always a  good idea to try alternate approaches. Well known calling tools are Illumina's GenomeStudio and crlmm.
 
 Our SOP does not yet take this process forward.
 
