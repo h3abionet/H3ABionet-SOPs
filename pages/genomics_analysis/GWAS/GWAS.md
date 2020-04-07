@@ -218,7 +218,7 @@ Many GWASes only consider the diploid chromosomes and so only autosomal SNP are 
 
 ### Association testing for single locus  {#single-locus}
 
-The most common tests are single locus testing. Most GWAS tools provide multiple tests and insight into your biological question is needed. For example, if it is known that the disease being studied is recessive or dominant the correct variation on the association test can be used
+The most common tests are single locus testing. Most GWAS tools provide multiple tests and insight into your biological question is needed. For example, if it is known that the disease being studied is recessive or dominant the correct variation on the association test can be used.  A disadvantage of single-locus approaches is that they tend to overestimate the proportion of phenotypic variance explained by each SNP.
 
 Some of the approaches are
 * chi^2, logistic regression (case control)
@@ -228,25 +228,31 @@ Some of the approaches are
 
 ### Multiple testing {#multiple-testing}
 
-Multiple testing should be dealt with, for example using Bonferroni correction or permutation testing.
+Multiple testing should be dealt with, for example using Bonferroni correction, Benjamini and Hochberg's false discovery rate (FDR), or permutation testing.
 
 ### Covariates {#covariates}
 
-Covariates include population structure, sex, smoking, age, socio-economic status. How to handle covariates is complex. Crudely there are two types of covariates:
+Covariates include population structure, sex, smoking, age, socio-economic status, etc. How to handle covariates is complex. Crudely there are two types of covariates:
 * confounding covariates where not including the co-variate may cause false signals. Population structure is a good example of this. These are often covariates which mediate the genomic background (like population structure)
 * covariates where not taking them into account will hide signals
 
+Where possible (depending on the software used), covariates can be included directly in the model for association testing.  An alternative approach would be to regress the trait of interest on the covariates, calculate the residuals, and then use those residuals as a quantitative trait in GWAS.
+
 ### Imputation {#imputation}
 
-Imputation can be done in two modes -- first, one can use imputation just to fill in missing genotypes. Second, imputation can be done to impute values for as many positions as possible.
+Imputation can be done in two modes -- first, one can use imputation just to fill in missing genotypes. Second, imputation can be done to impute values for as many positions as possible, including SNPs that were not genotyped on the array but are part of known haplotype blocks.  The latter is desirable when combining data across multiple genotyping platforms.
 
 ### Multi-locus testing {#multi-locus-testing}
+
+There are several approaches that iteratively add SNPs to the model until a sufficient amount of phenotypic variance is explained.  One advantage of this is that when multiple SNPs are all linked to the same causative locus, only the top (_i.e._ most tightly linked) SNP will be added to the model, and the rest will be omitted because they do not explain any additional phenotypic variance.  Each SNP that is included in the final model represents a distinct putative causative locus, and the proportion of variance explained by each SNP will not be overestimated as it is in single locus approaches.
 
 ### Replication {#replication}
 The relatively low power of most GWAS designs means that a substantial number of false positives can be expected to be generated, so validation via replication in an independent population is an important part of most studies.
 A common strategy is to genotype a subset of the samples on a high coverage array, and then follow up with targeted genotyping of markers that appear interesting, on a larger number of samples.
 
 ### Meta analyses {#meta-analyses}
+
+Related to the issue of replication, meta analyses can help to distinguish true associations from false positives.  This approach involves searching across multiple published studies to identify genomic loci that have repeatedly been found to be associated with a given trait.  Linkage disequilibrium is an important consideration here; different SNPs within the same haplotype block can be considered as evidence for the same causative locus.
 
 ## Practice data
 
