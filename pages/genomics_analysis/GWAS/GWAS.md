@@ -15,15 +15,15 @@ authors:
 
 ## Introduction {#introduction}
 
-GWAS is a key workflow of the H3A. Our recommended approach to SOP is shown below. Note, this is not an algorithm -- there are multiple ways of doing QC which are good. Also, what is shown below is not necessarily linear. For example, some of the analyses at the plate level might only be possible after doing an initial QC and then coming back to look at plate and batch effects.
+GWAS is a key workflow of the H3A. Our recommended approach to SOP is shown below. Note, this is not an algorithm -- there are multiple ways of doing Quality Control (QC) which are good. Also, what is shown below is not necessarily linear. For example, some of the analyses at the plate level might only be possible after doing an initial QC and then coming back to look at plate and batch effects.
 
-While this SOP is designed for bioinformaticists doing the GWAS analysis once the data is ready, we recommend that it be studied thoroughly to help plan the entire process. This GWAS is written as a general guide for bioinformaticists, and in particular to assist groups undertaking H3ABioNet accreditation, both to prepare for and do the accreditation exercisde.
+While this SOP is designed for bioinformaticists doing the GWAS analysis once the data is ready, we recommend that it be studied thoroughly to help plan the entire process. This GWAS is written as a general guide for bioinformaticists, and in particular to assist groups undertaking H3ABioNet accreditation, both to prepare for and do the accreditation exercises.
 
 *Disclaimer: * Although we hope this SOP is educational and will help groups learn to do GWAS, it is not meant as a tutorial or a complete checklist. *Groups undertaking accreditation should realise that accreditation is undertaking by an independent international evaluation committee, and while they will have regard to the SOP, they make their decision at their own discretion.*
 
 
 
-### Tool and file format {#tools-file-format}
+### Tools and file formats {#tools-file-format}
 This SOP assumes that is that much data is in the binary format used by the PLINK software suite. However, this is not mean to say that PLINK is the only or even best tool to be used.  The PLINK binary format (hereafter referred to as bped) encodes a dataset as a set of three files, with the following suffixes to their names:
 
 * .bed: this is the binary genotype data, stored as 2 bits per genotype per sample
@@ -34,9 +34,9 @@ This SOP assumes that is that much data is in the binary format used by the PLIN
 ### Glossary of associated terms and jargon  {#glossary-of-associated-terms-and-jargon}
 
 
-## Genotype calling {#calling}
+## Genotype Calling {#calling}
 
-The raw output of the genotyping process are image files -- for Illumina products, these are IDAT files. Each image gives the data for one SNP, and each individual will be have one dot on the image. For haploid SNPs, typically the dots will visually cluster into three groups: those homoazygous for the reference allele, those heterozygous, those homozygous for the alternate allele. Note that the image files just describe the positions of each individual for each SNP: usually the clusters are visually obviously, and the process of *calling* is to rigorously put each call in one of three clusters.
+The raw outputs of the genotyping process are image files -- for Illumina products, these are IDAT files. Each image gives the data for one SNP, and each individual will have one dot on the image. For haploid SNPs, typically the dots will visually cluster into three groups: those homozygous for the reference allele, those heterozygous, those homozygous for the alternate allele. Note that the image files just describe the positions of each individual for each SNP: usually the clusters are visually obviously, and the process of *calling* is to rigorously put each call in one of the three clusters.
 
 Typically most SNPs will have well behaved clusters and most individuals will clearly associate with one of the clusters, but there are always errors, anomalies and some borderline cases. Different clustering algorithms will produce different results. Typically, genotyping centres will provide a cluster report which describes for each SNP and each individual what the calls are. While, well reputed centres will produce high quality calls, it is always a  good idea to try alternate approaches. Well known calling tools are Illumina's GenomeStudion and crlmm
 
@@ -44,7 +44,7 @@ Our SOP does not yet take this process forward.
 
 As is noted later, part of the QC will require coming back to the raw data.
 
-## Sources of error {#errors}
+## Sources of Errors {#errors}
 
 Error can occur at multiple places, and these errors can easily introduce false signals or mask real signals
 
@@ -57,27 +57,27 @@ Effort should be made to detect and eliminate any such problems.
 
 Problems may occur randomly but there may also be due to non-random effects. For examples, a problem with a particular consignment of reagents may make two or three days' worth of DNA extraction unreliable. The better record keeping there is of samples, the easier it is to work out problems. Particular considerations are.
 
-### Plate Level errors {#plate-errors}
+### Plate Level Errors {#plate-errors}
 
 Currently (2019), samples are processed in batches of 96 wells (8x12), with one sample per well.  Comparative QC should be done across the plates according to the QC parameters described below. If an entire plate is found to be found to behave poorly, it should be removed. 
 
-### Batch level {#batch-errors}
+### Batch Level Errors {#batch-errors}
 
-A batch is a set of samples that are processed together. Ideally for consistency, all samples would be processed at the same   time (collected, DNA extraction, genotyping) but for any real study this is not practical. As an example, in one H3A project, the samples were divided into four roughly equal batches, each batch corresponding to one campaign of DNA extractions. Batches 1-3 were shipped together to the genotyping centre and genotyped, and about 6 months later Batch 4 was shipped and genotyped. In this case, the group had to compare the four batches with each other and compare batch 1-3 with batch 4.
+A batch is a set of samples that are processed together. Ideally for consistency, all samples would be processed at the same time (collection, DNA extraction, genotyping) but for any real study this is not practical. As an example, in one H3A project, the samples were divided into four roughly equal batches, each batch corresponding to one campaign of DNA extractions. Batches 1-3 were shipped together to the genotyping centre and genotyped, and about 6 months later Batch 4 was shipped and genotyped. In this case, the group had to compare the four batches with each other and compare batch 1-3 with batch 4.
 
 There may be different ways of dividing samples into batches (e.g. by recruitment stratum, when DNA extracted etc).
 
-### Site level {#site-errors}
+### Site Level Errors {#site-errors}
 
 If participants are recruited in different places, differences may occur due to the way in which samples are handled at these places.
 
-### Case/control or phenotype  differences {#case-control-errors}
+### Case/Control or Phenotype Differences {#case-control-errors}
 
 Of course, the whole purpose of a GWAS is to discover genetic differences between cases and controls. However, in a well designed study it very highly unlikely that the condition or disease of interest will cause observable differences at the genomic level. If there are overall genomic differences then this is most probably due to the way in which participants were sampled or the different processes in which DNA was extracted or genotyped. For example, a study might recruit 3000 cases and use results from a matched cohort for controls. As different people/labs might be responsible for collection and processing, even if indentical arrays are used and genotyping is done at the same centre, there may be systemic errors.
 
 One useful phenotype to use for QC is sex. For many studies, it would not be expected that in the autosomal SNPs that there are differences at the genomic ldevel. 
 
-### Population structure {#population-structure}
+### Population Structure {#population-structure}
 
 As discussed later, population structure is a potential confounding factor. This may also make QC more difficult. In a highly homogeneous sample, one would not expect there to be significant genomic level difference between plates (e.g., when doing a PC analysis). However, in a large multi-country project with diverse ancestries, this would not be unexpected. This is especially because unless a deliberate effort is made to randomise (which may be not be practical) it is likely that bacthes of samples from the same site are likely to be processed close to each other.
 
@@ -85,12 +85,12 @@ A particular concern in a study with population structure is if the number of ca
 
 
 
-### Random errors {#random-errors}
+### Random Errors {#random-errors}
 
 Many errors will be due to random effects at either the SNP or individual level. The systematic errors above are often detected by comparing groups of things with each other, while random effects are usually detected using some experiment-wide cut-off
 
 
-## Calling quality {#quality}
+## Calling Quality {#quality}
 
 For Illumina data, the key quality measure is called _GenCall_. Once clustering is done (recall, clustering is done per SNP, using the (x,y) coordinates of all the individuals for that SNP), a GenCall score is given for each sample/person of that SNP which a confidence score of the correctness of the call. This confidence score is  a function of the the clustering algorithm used. From this is derived
 * The _call rate_ or _call frequency_.  The person doing the calling picks a lower value for an acceptable _GenCall_value, and any calls lower than this are rejected.
@@ -101,7 +101,7 @@ These can be measured per sample or per SNP.  Good graphs to look at are _call r
 
 If biological replicates have been included in your study (a good idea), the concordance between these replicates should be examined as these will give good empirical evidence of thquality of genotyping. Similarly, if there are big differences in genoyping for biological replicates, these may indicate problems in sample handling.
 
-## Quality control {#qc}
+## Quality Control {#qc}
 
 The following should be checked in the QC process:
 
@@ -142,14 +142,14 @@ The following should be checked in the QC process:
   Chromosomal abnormalities such as aneuploidy or long stretches of homozygosity should be tested for and the causes identified. These cases should be examined with a geneticist to determined possible causes and decide whether the sample should be removed.
 
 
-### Strand errors {#strand-errors}
+### Strand Errors {#strand-errors}
 
 As a byproduct of the genotyping technology, and the annotation data that accompanies the chips, SNP data from both Illumina and Affymetrix platforms may be reported as the allele on either the “forward” or “reverse” strand. Although the information to orient these calls properly is contained within the annotation data, conversion from the native format to PLINK format can be tricky, and errors will not be evident in “ambiguous” A­T/G­C SNPs. Therefore it is prudent to check that the alleles reported in the bim file match the known alleles in dbSNP or on the Ensembl genome browser. Another easy check is to identify the control samples that are often included in the dataset (eg samples from HapMap) and compare these to their known genotypes.
 
 This is a particular problem when you will be merging your data with other sets.
 
 
-### Build errors {#build-errors}
+### Build Errors {#build-errors}
 
 
 ### Merging data from different genotype experiments {#merging-data}
@@ -169,7 +169,7 @@ Some steps below may be repeat QC steps mentioned above. If QC has been done tho
 
 
 
-### Population stratification {#strafication}
+### Population Stratification {#strafication}
 Population stratification refers to structure within the sample group that is the result of systematic genetic differences between individuals that correlate with the phenotypic data. This could result in allele frequency differences that are due to ancestral proportion differences between cases and controls being mistaken for an association with the phenotype.
 
 Population structure be can used
@@ -209,7 +209,7 @@ Some of the approaches are
 * mixed models approaches (e.g., GEMMA, BOLTLMM) which 
 
 
-### Multiple testing {#multiple-testing}
+### Multiple Testing {#multiple-testing}
 
 Multiple testing should be dealt with, for example using Bonferroni correction or permuation testing.
 
@@ -223,15 +223,15 @@ Covariates include population structure, sex, smoking , age, socio-economic stat
 
 Imputation can be done in two modes -- first, one can use imputation just to fill in missing genotypes. Second, imputation can be done to impute values for as many postions as pssoble
 
-### Multi-locus testing {#multi-locus-testing}
+### Multi-locus Testing {#multi-locus-testing}
 
 ### Replication {#replication}
 The relatively low power of most GWAS designs means that a substantial number of false positives can be expected to be generated, so validation via replication in an independent population is an important part of most studies.
 A common strategy is to genotype a subset of the samples on a high coverage array, and then follow up with targeted genotyping of markers that appear interesting, on a larger number of samples
 
-### Meta analyses {#meta-analyses}
+### Meta Analyses {#meta-analyses}
 
-## Practice data
+## Practice Data
 
 Practice dataset for GWAS studies can be found [here](http://h3data.cbio.uct.ac.za/assessments/GWAS/practice/)
 
