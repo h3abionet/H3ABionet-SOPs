@@ -19,7 +19,7 @@ authors:
 
 Beta diversity is a measure of diversity between samples. One of the most commonly used metrics is the Unifrac distance that compares samples using phylogenetic information. An all-by all or pairwise matrix of the beta diversity metrics between all the samples in the study is generated and can be visualized in different ways such as a tree, graph, network etc. Mothur and QIIME have several tools to generate distance metrics, phylogenetic trees and PCoA plots.
 
-<span style="text-decoration:underline;">Software</span>:  UNIFRAC for distance metrics, mothur, QIIME
+<span style="text-decoration:underline;">Software</span>:  UNIFRAC for distance metrics, Mothur, QIIME
 
 ## Bibliography {#bibliography}
 
