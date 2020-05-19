@@ -19,7 +19,7 @@ authors:
 
 Alpha diversity is a measure of diversity within a sample. It gives an indication of richness and/or evenness of species present in a sample. The accuracy of the measured diversity is mainly affected by the sequencing depth (number of reads per sample). Sequencing depth must be high enough to capture the true diversity within a sample. Samples with higher number of reads would show higher diversity than samples with lower number of reads. Rarefaction analysis is therefore required to understand the actual diversity within a sample and to determine if your sequencing effort is sufficient and if the total diversity within the sample has been captured. Mothur as well as QIIME have tools to generate multiple rarefactions and then measure alpha diversity on the rarefied OTU tables. Several popular alpha diversity measures are available both in Mothur and QIIME: Shannon index, chao1, observed species, and phylogenetic diversity whole tree.
 
-<span style="text-decoration:underline;">Software</span>:  mothur, QIIME
+<span style="text-decoration:underline;">Software</span>:  Mothur, QIIME
 
 ## Bibliography {#bibliography}
 
