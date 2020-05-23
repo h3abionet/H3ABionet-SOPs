@@ -21,7 +21,7 @@ authors:
 ---
 ### _Step 2.3: Base quality score recalibration_ {#step-2-4-base-quality-score-recalibration}
 
-Base quality scores, which refer to the per-base error estimates assigned by the sequencing machine to each called base, can often be inaccurate or biased. The recalibration stage aims to correct for these errors via an empirical error model built based on the characteristics of the data at hand [^33]. The quality score recalibration can be performed using GATK's BQSR protocol [^33], which is also the recommendation for functional equivalence, along with specific reference genome files [^9]. For speed up of analysis, and if using GATK < v4, one may skip the PrintReads step and pass the output from BaseRecalibrator to the HaplotypeCaller directly. Bioconductor's ReQON is an alternative tool [^42] for this purpose.
+Base quality scores, which refer to the per-base error estimates assigned by the sequencing machine to each called base, can often be inaccurate or biased. The recalibration stage aims to correct for these errors via an empirical error model built based on the characteristics of the data at hand [^33]. The quality score recalibration can be performed using GATK's BQSR protocol [^33], which is also the recommendation for functional equivalence, along with specific reference genome files [^9]. For speed up of analysis, and if using GATK v4, one may skip the PrintReads step and pass the output from BaseRecalibrator to the HaplotypeCaller directly. Bioconductor's ReQON is an alternative tool [^42] for this purpose.
 
 
 ## Bibliography {#bibliography}

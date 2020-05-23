@@ -2,7 +2,7 @@
 title: Variant calling in human whole genome/exome sequencing data
 keywords: wgs, wes, ngs
 tags: [genomics_analysis]
-last_updated: Fall, 2018
+last_updated: May 23, 2020
 
 sidebar: varcall_sidebar
 toc: false
@@ -17,14 +17,15 @@ authors:
  - Matthew_Weber
  - Faisal_Fadlelmola
  - Luidmila_Mainzer
+ - Edward Lukyamuzi
 ---
-### _Step 1.1: Adaptor trimming_ {#step-1-1-adaptor-trimming}
+### _Step 1.1: Adapter trimming_ {#step-1-1-adapter-trimming}
 
-Sequencing facilities usually produce read files in fastq format [^13], which contain a base sequence and a quality score for each base in a read. Usually the adaptor sequences have already been removed from the reads, but sometimes bits of adapters are left behind, anywhere from 90% to 20% of the adaptor length. These need to be removed from the reads. This can be done using your own script based on a sliding window algorithm. A number of tools will also perform this operation: Trimmomatic [^14],  Fastx-toolkit (fastx_clipper), Bioconductor (ShortRead package), Flexbar [^15], as well as a number of tools listed on BioScholar 
+Sequencing facilities usually produce read files in fastq format [^13], which contain a base sequence and a quality score for each base in a read. Usually the adapter sequences have already been removed from the reads, but sometimes bits of adapters are left behind, anywhere from 90% to 20% of the adapter length. These need to be removed from the reads. This can be done using your own script based on a sliding window algorithm. A number of tools will also perform this operation: Trimmomatic [^14],  Fastx-toolkit (fastx_clipper), Bioconductor (ShortRead package), Flexbar [^15], as well as a number of tools listed on BioScholar 
 [^16]  and Omics tools 
 [^17] databases.
 
-Selection of the tool to use depends on the amount of adaptor sequence leftover in the data. This can be assessed manually by grepping for parts of known adaptor sequences on the command line.
+Selection of the tool to use depends on the amount of adapter sequences leftover in the data. This can be assessed manually by grepping for parts of known adapter sequences on the command line.
 
 
 ## Bibliography {#bibliography}

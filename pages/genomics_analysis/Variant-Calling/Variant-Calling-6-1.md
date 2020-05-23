@@ -17,7 +17,7 @@ authors:
 ---
 ## Useful Resources {#useful-resources}
 
-### Example complete implementations of a variant calling pipeline:
+### Examples of complete implementations of a variant calling pipeline:
 
 * The Broad institute WDL reference implementations of the GATK best practices- [here](https://software.broadinstitute.org/gatk/best-practices/workflow?id=11145) 
 * The H3ABioNet CWL implementation of the best practices (GATK3.5)- [here](https://github.com/h3abionet/h3agatk)

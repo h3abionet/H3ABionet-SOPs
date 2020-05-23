@@ -2,7 +2,7 @@
 title: Variant calling in human whole genome/exome sequencing data
 keywords: wgs, wes, ngs
 tags: [genomics_analysis]
-last_updated: Fall, 2018
+last_updated: May 23, 2020
 summary: "This document briefly outlines the essential steps in calling short germline variants, and recommends tools that have gained community acceptance for this purpose."
 sidebar: varcall_sidebar
 toc: true
@@ -14,6 +14,7 @@ authors:
  - Matthew_Weber
  - Faisal_Fadlelmola
  - Luidmila_Mainzer
+ - Edward Lukyamuzi
 ---
 
 
@@ -29,7 +30,7 @@ The table below (partly borrowed from the GATK dictionary [^4] ) provides defini
 Adapters
 : Short nucleotide sequences added on to the ends of the DNA fragments that are to be sequenced [^5] <sup>,</sup>[^6]<sup>,</sup>[^7]). Functions:
 1. permit binding to the flow cell;
-2. allow for PCR enrichment of adaptor-ligated DNA only;
+2. allow for PCR enrichment of adapter-ligated DNA only;
 3. allow for indexing or "barcoding" of samples, so multiple DNA libraries can be mixed together into 1 sequencing lane.
 
 Genetic variant
@@ -92,23 +93,23 @@ The following steps prepare reads for analysis and must be performed in sequence
 
 
 
-### _Step 1.1: Adaptor trimming_ {#step-1-1-adaptor-trimming}
+### _Step 1.1: Adapter trimming_ {#step-1-1-adapter-trimming}
 
-Sequencing facilities usually produce read files in fastq format [^13], which contain a base sequence and a quality score for each base in a read. Usually the adaptor sequences have already been removed from the reads, but sometimes bits of adapters are left behind, anywhere from 90% to 20% of the adaptor length. These need to be removed from the reads. This can be done using your own script based on a sliding window algorithm. A number of tools will also perform this operation: Trimmomatic [^14],  Fastx-toolkit (fastx_clipper), Bioconductor (ShortRead package), Flexbar [^15], as well as a number of tools listed on BioScholar
+Sequencing facilities usually produce read files in fastq format [^13], which contain a base sequence and a quality score for each base in a read. Usually the adapter sequences have already been removed from the reads, but sometimes bits of adapters are left behind, anywhere from 90% to 20% of the adapter length. These need to be removed from the reads. This can be done using your own script based on a sliding window algorithm. A number of tools will also perform this operation: Trimmomatic [^14],  Fastx-toolkit (fastx_clipper), Bioconductor (ShortRead package), Flexbar [^15], as well as a number of tools listed on BioScholar
 [^16]  and Omics tools
 [^17] databases.
 
-Selection of the tool to use depends on the amount of adaptor sequence leftover in the data. This can be assessed manually by grepping for parts of known adaptor sequences on the command line.
+Selection of the tool to use depends on the amount of adapter sequences leftover in the data. This can be assessed manually by grepping for parts of known adapter sequences on the command line.
 
 
 ### _Step 1.2: Quality trimming_ {#step-1-2-quality-trimming}
 
-Once the adaptors have been trimmed, it is useful to inspect the quality of reads in bulk, and try to trim low quality nucleotides [^18]. Also, frequently the quality tends to drop off toward one end of the read. FASTQC [^19] and PrinSeq [^20] will show that very nicely . These read ends with low average quality can then be trimmed, if desired, using Trimmomatic [^14], FASTX-Toolkit fastq_quality_filter, PrinSeq, or SolexaQA [^21].
+Once the adapters have been trimmed, it is useful to inspect the quality of reads in bulk, and try to trim low quality nucleotides [^18]. Also, frequently the quality tends to drop off toward one end of the read. FASTQC [^19] and PrinSeq [^20] will show that very nicely . These read ends with low average quality can then be trimmed, if desired, using Trimmomatic [^14], FASTX-Toolkit fastq_quality_filter, PrinSeq, or SolexaQA [^21].
 
 
 ### _Step 1.3: Removal of very short reads_ {#step-1-3-removal-of-very-short-reads}
 
-Once the adaptor remnants and low quality ends have been trimmed, some reads may end up being very short (i.e. <20 bases). These short reads are likely to align to multiple (wrong) locations on the reference, introducing noise into the variation calls. They can be removed using PrinSeq, Trimmomatic (using the MINLEN option), or a simple in-house script. Minimum acceptable read length should be chosen based on the length of sequencing fragment: longer for longer fragments, shorter for shorter ones – it is a matter of some experimentation with the data.
+Once the adapter remnants and low quality ends have been trimmed, some reads may end up being very short (i.e. <20 bases). These short reads are likely to align to multiple (wrong) locations on the reference, introducing noise into the variation calls. They can be removed using PrinSeq, Trimmomatic (using the MINLEN option), or a simple in-house script. Minimum acceptable read length should be chosen based on the length of sequencing fragment: longer for longer fragments, shorter for shorter ones – it is a matter of some experimentation with the data.
 
 The three pre-processing steps above can be parallelized by chunking the initial fastq file (hundreds of millions of reads, up to 50-150 G of hard disk space per file depending on sequencing depth) into several files that can be processed simultaneously. The results can then be combined.
 
@@ -121,7 +122,7 @@ Analysis proceeds as a series of the following sequential steps.
 
 ### _Step 2.1 Alignment_ {#step-2-1-alignment}
 
-Reads need to be aligned to the reference genome in order to identify the similar and polymorphic regions in the sample. As of 2016, the GATK team recommends their b37 bundle as the standard reference for Whole Exome and Whole Genome Sequencing analyses pending the completion of the GRcH38/Hg38 bundle [^22]. However, the 2018 functional equivalence specifications recommends the GRCh38DH from the 1000 Genomes project <[^9]. Either way, a number of aligners can perform the alignment task.
+Reads need to be aligned to the reference genome in order to identify the similar and polymorphic regions in the sample. As of 2016, the GATK team recommends their b37 bundle as the standard reference for Whole Exome and Whole Genome Sequencing analyses pending the completion of the GRcH38/Hg38 bundle [^22]. However, the 2018 functional equivalence specifications recommends the GRCh38DH from the 1000 Genomes project [^9]. Either way, a number of aligners can perform the alignment task.
 
 Among these, BWA MEM [^23] and bowtie2 [^24] have become trusted tools for short reads Illumina data, because they are accurate, fast, well supported, and open-source. Combined with variant callers, different aligners can offer different performance advantages with respect to SNPs, InDels and other structural variants, benchmarked in works like  [^23]<sup>,</sup>[^25]<sup>,</sup>[^26]. Functional equivalence specifications recommends BWA-MEM v0.7.15 in particular (with at least the following parameters `-K 100000000 -Y`, and without `-M` so that split reads are marked as supplementary reads in congruence with BAM specification ).
 
@@ -130,7 +131,7 @@ The output file is usually in a binary BAM format [^27], still taking tens or hu
 
 ### _Step 2.2: De-duplication_ {#step-2-2-de-duplication}
 
-The presence of duplicate reads in a sequencing project is a notorious problem. The causes are discussed in a blog post by Eric Vallabh Minikel (2012) [^28]. Duplicately sequenced molecules should not be counted as additional evidence for or against a putative variant – they must be removed prior to the analysis. A number of tools can be used including: samblaster [^29], sambamba [^30], the commercial novosort from the novocraft suit <[^31], Picard, and FASTX-Toolkit has fastx_collapser for this purpose.  Additionally, MarkDuplicates is shipped as part of GATK4, but is called from Picard tools [^32] in older GATK releases. For functional equivalence [^9], it is recommended to use Picard tools v>2.4.1.
+The presence of duplicate reads in a sequencing project is a notorious problem. The causes are discussed in a blog post by Eric Vallabh Minikel (2012) [^28]. Duplicately sequenced molecules should not be counted as additional evidence for or against a putative variant – they must be removed prior to the analysis. A number of tools can be used including: samblaster [^29], sambamba [^30], the commercial novosort from the novocraft suit [^31], Picard, and FASTX-Toolkit has fastx_collapser for this purpose.  Additionally, MarkDuplicates is shipped as part of GATK4, but is called from Picard tools [^32] in older GATK releases. For functional equivalence [^9], it is recommended to use Picard tools v2.4.1.
 
 De-duplication can also be performed by a simple in-house written Perl script.
 
@@ -147,7 +148,7 @@ Ultimately however, characteristics of the dataset at hand would dictate whether
 
 ### _Step 2.4: Base quality score recalibration_ {#step-2-4-base-quality-score-recalibration}
 
-Base quality scores, which refer to the per-base error estimates assigned by the sequencing machine to each called base, can often be inaccurate or biased. The recalibration stage aims to correct for these errors via an empirical error model built based on the characteristics of the data at hand [^33]. The quality score recalibration can be performed using GATK's BQSR protocol [^33], which is also the recommendation for functional equivalence, along with specific reference genome files [^9]. For speed up of analysis, and if using GATK < v4, one may skip the PrintReads step and pass the output from BaseRecalibrator to the HaplotypeCaller directly. Bioconductor's ReQON is an alternative tool [^42] for this purpose.
+Base quality scores, which refer to the per-base error estimates assigned by the sequencing machine to each called base, can often be inaccurate or biased. The recalibration stage aims to correct for these errors via an empirical error model built based on the characteristics of the data at hand [^33]. The quality score recalibration can be performed using GATK's BQSR protocol [^33], which is also the recommendation for functional equivalence, along with specific reference genome files [^9]. For speed up of analysis, and if using GATK v4, one may skip the PrintReads step and pass the output from BaseRecalibrator to the HaplotypeCaller directly. Bioconductor's ReQON is an alternative tool [^42] for this purpose.
 
 
 ### _Step 2.5 Calling the variants_ {#step-2-5-calling-the-variants}
@@ -165,20 +166,20 @@ Recently, MuTect2 was added as a variant discovery tool to the GATK specifically
 The variant calls are usually produced in the form of VCF files [^45], occupying much smaller size than the BAMs generating them.
 
 
+### _Step 2.6 Statistical filtering_ {#statistical-filtering}
 
+The VCF files resulting from the previous steps frequently have many sites that are not really genetic variants, but rather machine artifacts that make the site statistically non-reference. In small studies, hard filtering of variants based on annotations of genomic context is typically sufficient
 
-
-## _Phase 3: Variant annotation and prioritization_ {#phase-3-variant-annotation-and-prioritization}
-
-This last preliminary stage is highly dependent on the study design and objectives, so only a brief coverage is provided herein.
-
-### _Statistical filtering_ {#statistical-filtering}
-
-The VCF files resulting from the previous steps frequently have many sites that are not really genetic variants, but rather machine artifacts that make the site statistically non-reference. In small studies, hard filtering of variants based on annotations of genomic context is typically sufficient.
-
-While, it requires expertise to define appropriate filtering thresholds, Heng Li provides some general guidelines in this paper [^46]. For experiments with a sufficiently large number of samples (30 or more), the GATK team designed the Variant Quality Score Recalibrator (VQSR) protocol to separate out the false positive machine artifacts from the true positive genetic variants using a Gaussian Mixture model based on the learned annotations of known datasets [^33]. A full tutorial is posted on GATK forums:
+While, it requires expertise to define appropriate filtering thresholds, Heng Li provides some general guidelines in this paper [^46]. For experiments with a sufficiently large number of  samples (30 or more), the GATK team designed the Variant Quality Score Recalibrator (VQSR) protocol to separate out the false positive machine artifacts from the true positive genetic  variants using a Gaussian Mixture model based on the learned annotations of known datasets [^33]. A full tutorial is posted on GATK forums:
 
 [http://gatkforums.broadinstitute.org/discussion/39/variant-quality-score-recalibration-vqsr](http://gatkforums.broadinstitute.org/discussion/39/variant-quality-score-recalibration-vqsr)
+
+
+
+
+## Phase 3: Variant annotation and prioritization {#phase-3-variant-annotation-and-prioritization}
+
+This last preliminary stage is highly dependent on the study design and objectives, so only a brief coverage is provided herein.
 
 
 ### Annotation and prioritization {#annotation--and-prioritization}
@@ -193,7 +194,18 @@ This phase serves to select those variants that are of particular interest, depe
 
 
 
-## H3ABionet Next Gen Accreditation Questions
+## H3ABioNet Accreditation Exercise
+ 
+
+### H3ABioNet Next Gen Training dataset
+
+Practice data set for Variant Calling is available [here](http://h3data.cbio.uct.ac.za/assessments/NextGenVariantCalling/practice/)
+
+These are synthetic data, generated using the NEAT simulator[^53] to produce synthetic reads with "golden" variants inserted into the reference genome before "sequencing". This practice dataset was generated as WES for chromosome 1 at 50X, with mutation rates of 0.0005 and sequencing error rates at 0.005. Also posted is the reference that was used to generate the data, along with the golden vcf.
+Finaly, posted are all the SNP and Indel files from the GATK bundle that were used to call variants to check concordance with GATK.
+
+
+### H3ABionet Next Gen Accreditation Questions
 
 The following are questions to keep in mind when running the NextGen Workflow during the H3ABioNet accreditation exercise. Use them to plan your work in a way that would allow gathering the necessary information for your final report. The report should not be limited to only providing brief answers to these questions; it is expected to be a well-rounded description of the process of running the workflow, and of the results. Please note that only _<a href="Variant-Calling-2-0.html">Phase I</a>_ and _<a href="Variant-Calling-3-0.html">Phase II</a>_ of the variant calling SOP need to be performed.
 
@@ -228,27 +240,33 @@ This is useful information for making predictions for the clients and collaborat
 
 ## Appendices {#appendices}
 
-### Useful Resources {#useful-resources}
+## Useful Resources {#useful-resources}
 
-Example complete implementations of a variant calling pipeline:
-The Broad institute WDL reference implementations of the GATK best practices:
-https://software.broadinstitute.org/gatk/best-practices/workflow?id=11145
-The H3ABioNet CWL implementation of the best practices (GATK3.5):
-https://github.com/h3abionet/h3agatk
-A configurable Swift-t implementation (different tools, versions and options can be interchanged, so it is easy to confirm to functional equivalence specifications 9 ):
-https://github.com/ncsa/Swift-T-Variant-Calling
+### Examples of complete implementations of a variant calling pipeline:
 
-The GATK Resource Bundle [^51]
+* The Broad institute WDL reference implementations of the GATK best practices- [here](https://software.broadinstitute.org/gatk/best-practices/workflow?id=11145)
+* The H3ABioNet CWL implementation of the best practices (GATK3.5)- [here](https://github.com/h3abionet/h3agatk)
+* A configurable Swift-t implementation (different tools, versions and options can be interchanged, so it is easy to confirm to functional equivalence specifications[^9] )- [here](https://github.com/ncsa/Swift-T-Variant-Calling )
+ 
+
+### The GATK Resource Bundle[^51]
+
 The GATK resource bundle is a collection of standard files for working with human resequencing data with the GATK. Until the Hg38 bundle is complete, the b37 resources remain the standard data. To access the bundle on the FTP server, use the following login credentials:
-Location: ftp.broadinstitute.org/bundle/b37
-Username: gsapubftp-anonymous
-Password:
-And download using:
+
+
+```
+ Location: ftp.broadinstitute.org/bundle/b37
+ Username: gsapubftp-anonymous
+ Password:
+```
+
+Or, simply  download using:
+
 ```
 wget -r ftp://gsapubftp-anonymous@ftp.broadinstitute.org/bundle/b37
 ```
 
-
+## List of Tools {#list-of-tools}
 
 ### Alphabetized list of recommended tools {#alphabetized-list-of-recommended-tools}
 
@@ -263,7 +281,7 @@ If it is desirable to perform all processing in Galaxy [^52], then it is possibl
 **ANNOVAR**--------------------------------------------------http://annovar.openbioinformatics.org/en/latest/
 Utilizes update-to-date information to generate gene-based, region-based and filter-based functional annotations of genetic variants detected from diverse genomes.
 
-_Usage</_
+_Usage_
 
 
 
@@ -298,7 +316,7 @@ perl annotate_variation.pl -filter -dbtype 1000g_ceu example/ex1.human humandb/
 **Bed tools**-------------------------------------------------------------http://bedtools.readthedocs.io/en/latest/
 A flexible suite of utilities for comparing genomic features.
 
-_Filtering SNPs</_
+_Filtering SNPs_
 
 To remove known SNPs, use intersectBed (bedtools). Known SNPs can be downloaded from Ensembl or NCBI/UCSC (eg. dbSNP)
 
@@ -317,9 +335,9 @@ intersectBed -a accepted_hits.raw.filtered.vcf \
 **Bioconductor**---------------------------------------------------------------------------[http://bioconductor.org/](http://bioconductor.org/)
 Provides tools for the analysis and comprehension of high-throughput genomic data. Bioconductor uses the R statistical programming language, and is open source and open development.
 
-_Sequence trimming</_
+_Sequence trimming_
 
-Use trimLRPatterns for adaptor trimming. From [http://manuals.bioinformatics.ucr.edu/home/ht-seq](http://manuals.bioinformatics.ucr.edu/home/ht-seq):
+Use trimLRPatterns for adapter trimming. From [http://manuals.bioinformatics.ucr.edu/home/ht-seq](http://manuals.bioinformatics.ucr.edu/home/ht-seq):
 
 
 ```
@@ -333,7 +351,7 @@ names(myseq) <- letters[1:3];
 trimLRPatterns(Lpattern ="CCC", Rpattern="AGTG", subject=myseq, max.Lmismatch = 0.33,
                max.Rmismatch = 1)
 
-# To remove partial adaptors, the number of mismatches for all possible partial matches
+# To remove partial adapters, the number of mismatches for all possible partial matches
 # can be specified by providing a numeric vector of length nchar(mypattern).
 # The numbers specifiy the number of mismatches for each partial match.
 # Negative numbers are used to prevent trimming of a minimum fragment length,
@@ -348,7 +366,7 @@ trimLRPatterns(Lpattern = "CCC", Rpattern="AGTG", subject=myseq,
 ```
 
 
-_Base quality score recalibration</_
+_Base quality score recalibration_
 
 Use ReQON to recalibrate quality of nucleotides for aligned sequencing data in BAM format: [http://bioconductor.org/packages/2.12/bioc/html/ReQON.html](http://bioconductor.org/packages/2.12/bioc/html/ReQON.html) See ReQON tutorial for detailed examples of usage: [http://bioconductor.org/packages/devel/bioc/vignettes/ReQON/inst//doc/ReQON.pdf](http://bioconductor.org/packages/devel/bioc/vignettes/ReQON/inst//doc/ReQON.pdf)
 
@@ -371,7 +389,7 @@ Blat is an alignment tool like BLAST, but it is structured differently. On DNA, 
 1.  alignment block details in natural genomic order
 1.  an option to launch the alignment later as part of a custom track
 
-_Usage</_
+_Usage_
 
 
 ```
@@ -391,7 +409,7 @@ The option `-ooc=11.ooc` tells the program to load over-occurring 11-mers from a
 **Bowtie2**---------------------------------------------[http://bowtie-bio.sourceforge.net/bowtie2/index.shtml](http://bowtie-bio.sourceforge.net/bowtie2/index.shtml)
 An ultrafast and memory-efficient tool for aligning sequencing reads to long reference sequences. It is particularly good at aligning reads of about 50 up to 100s or 1,000s of characters to relatively long (e.g. mammalian) genomes.
 
-_Usage</_
+_Usage_
 
 
 ```
@@ -417,7 +435,7 @@ bowtie2 [options]* -x <bt2-idx> {-1 <m1> -2 <m2> | -U <r>} -S [<sam>]
 **BWA**------------------------------------------------------------------------------[http://bio-bwa.sourceforge.net/](http://bio-bwa.sourceforge.net/)
 Burrows-Wheeler Alignment Tool. A software package for mapping low-divergent sequences against a large reference genome, such as the human genome. It consists of three algorithms: BWA-backtrack, BWA-SW and BWA-MEM. The first algorithm is designed for Illumina sequence reads up to 100bp, while the rest two for longer sequences ranged from 70bp to 1Mbp. BWA-MEM and BWA-SW share similar features such as long-read support and split alignment, but BWA-MEM, which is the latest, is generally recommended for high-quality queries as it is faster and more accurate. BWA-MEM also has better performance than BWA-backtrack for 70-100bp Illumina reads.
 
-_Usage</_
+_Usage_
 
 
 ```
@@ -451,7 +469,7 @@ bwa sampe ref.fa read1.sai read2.sai read1.fq read2.fq > aln-pe.sam
 **FASTX-Toolkit**-------------------------------------------------------[http://hannonlab.cshl.edu/fastx_toolkit/](http://hannonlab.cshl.edu/fastx_toolkit/)
 A collection of command line tools for Short-Reads FASTA/FASTQ files preprocessing.
 
-_fastq_quality_filter</_
+_fastq_quality_filter_
 
 Filters sequences based on quality.  [http://hannonlab.cshl.edu/fastx_toolkit/commandline.html#fastq_quality_filter_usage](http://hannonlab.cshl.edu/fastx_toolkit/commandline.html#fastq_quality_filter_usage)
 
@@ -467,7 +485,7 @@ fastq_quality_filter [-q N] [-p N] [-z] [-i INFILE] [-o OUTFILE]
 ```
 
 
-_fastx-collapser</_
+_fastx-collapser_
 
 Collapses identical sequences in a FASTQ/A file into a single sequence). [http://hannonlab.cshl.edu/fastx_toolkit/commandline.html#fastx_collapser_usage](http://hannonlab.cshl.edu/fastx_toolkit/commandline.html#fastx_collapser_usage)
 
@@ -483,7 +501,7 @@ fastx_collapser [-i INFILE] [-o OUTFILE]
 **Flexbar**----------------------------------------------------------[ https://github.com/seqan/flexbar](http://sourceforge.net/p/flexbar/wiki/Manual/)
 Flexbar — flexible barcode and adapter removal. Flexbar is a software to preprocess high-throughput sequencing data efficiently. It demultiplexes barcoded runs and removes adapter sequences. Trimming and filtering features are provided. Flexbar increases mapping rates and improves genome and transcriptome assemblies. It supports next-generation sequencing data from Illumina, Roche 454, and the SOLiD platform. Recognition is based on exact overlap sequence alignment.
 
-_Usage</_
+_Usage_
 
 
 ```
@@ -518,7 +536,7 @@ gatk [--java-options <jvm args like -Xmx4G go here>] <ToolName> [GATK args go he
 ```
 
 
-_BQSR</_             [http://gatkforums.broadinstitute.org/discussion/44/base-quality-score-recalibration-bqsr](http://gatkforums.broadinstitute.org/discussion/44/base-quality-score-recalibration-bqsr)
+_BQSR_             [http://gatkforums.broadinstitute.org/discussion/44/base-quality-score-recalibration-bqsr](http://gatkforums.broadinstitute.org/discussion/44/base-quality-score-recalibration-bqsr)
 
 The tools in this package recalibrate base quality scores of sequencing-by-synthesis reads in an aligned BAM file. After recalibration, the quality scores in the QUAL field in each read in the output BAM are more accurate in that the reported quality score is closer to its actual probability of mismatching the reference genome. Moreover, the recalibration tool attempts to correct for variation in quality with machine cycle and sequence context, and by doing so provides not only more accurate quality scores but also more widely dispersed ones. The system works on BAM files coming from many sequencing platforms: Illumina, SOLiD, 454, Complete Genomics, Pacific Biosciences, etc. Invocation based on recommended functional equivalent parameters [^9] is below:
 
@@ -553,7 +571,7 @@ java -jar GenomeAnalysisTK.jar \
 ```
 
 
-_IndelRealigner</_
+_IndelRealigner_
 
 Performs local realignment of reads to correct misalignments due to the presence of indels. Realginemet is no longer needed with a haplotype-aware variant caller like the HaplotypeCaller  [^39] , but this is provided for completion [https://software.broadinstitute.org/gatk/documentation/tooldocs/3.8-0/org_broadinstitute_gatk_tools_walkers_indels_IndelRealigner.php](https://software.broadinstitute.org/gatk/documentation/tooldocs/3.8-0/org_broadinstitute_gatk_tools_walkers_indels_IndelRealigner.php)
 
@@ -569,7 +587,7 @@ java -Xmx4g -jar GenomeAnalysisTK.jar \
 ```
 
 
-_HaplotypeCaller</_
+_HaplotypeCaller_
 
 Call SNPs and indels simultaneously via local de-novo assembly of haplotypes in an active region. [https://software.broadinstitute.org/gatk/documentation/tooldocs/3.8-0/org_broadinstitute_gatk_tools_walkers_haplotypecaller_HaplotypeCaller.php](https://software.broadinstitute.org/gatk/documentation/tooldocs/3.8-0/org_broadinstitute_gatk_tools_walkers_haplotypecaller_HaplotypeCaller.php)
 
@@ -587,7 +605,7 @@ java -jar GenomeAnalysisTK.jar
 ```
 
 
-_MuTect2</_
+_MuTect2_
 
 Call SNPs and indels simultaneously via local de-novo assembly of haplotypes, combining the MuTect genotyping engine and the assembly-based machinery of HaplotypeCaller. For cancer variant discovery. Tumor/Normal or Normal-only calls.
 
@@ -607,7 +625,7 @@ java -jar GenomeAnalysisTK.jar
 ```
 
 
-_UnifiedGenotyper</_
+_UnifiedGenotyper_
 
 A variant caller which unifies the approaches of several disparate callers -- Works for single-sample and multi-sample data. In most applications, the recommendation is to use the newer HaplotypeCaller [https://software.broadinstitute.org/gatk/documentation/tooldocs/3.8-0/org_broadinstitute_gatk_tools_walkers_genotyper_UnifiedGenotyper.php](https://software.broadinstitute.org/gatk/documentation/tooldocs/3.8-0/org_broadinstitute_gatk_tools_walkers_genotyper_UnifiedGenotyper.php)
 
@@ -626,7 +644,7 @@ java -jar GenomeAnalysisTK.jar
 ```
 
 
-_GATK Variant Quality Score Recalibrator</_
+_GATK Variant Quality Score Recalibrator_
 
 Creates a Gaussian mixture model by looking at the annotations values over a high quality subset of the input call set and then evaluate all input variants. [http://www.broadinstitute.org/gatk/gatkdocs/org_broadinstitute_sting_gatk_walkers_variantrecalibration_VariantRecalibrator.html](http://www.broadinstitute.org/gatk/gatkdocs/org_broadinstitute_sting_gatk_walkers_variantrecalibration_VariantRecalibrator.html)
 
@@ -666,7 +684,7 @@ Has a straightforward web interface.
 **KGGSeq**---------------------------------------------------[http://statgenpro.psychiatry.hku.hk/limx/kggseq/](http://statgenpro.psychiatry.hku.hk/limx/kggseq/)
 A biological Knowledge-based mining platform for Genomic and Genetic studies using Sequence data.
 
-_Usage</_
+_Usage_
 
 To prioritize variants based on the hg18 assembly for a rare Mendelian disease, need input files:
 
@@ -687,7 +705,7 @@ java  -jar   -Xms256m   -Xmx1300m  kggseq.jar   examples/param.rare.disease.hg18
 **NEAT-genReads**---------------------------------------[https://github.com/zstephens/neat-genreads.git](https://github.com/zstephens/neat-genreads.git)
 NEAT-genReads is a fine-grained read simulator published in PLoS One  [^53]. GenReads simulates real-looking data using models learned from specific datasets. Simulated reads can be whole genome, whole exome, specific targeted regions, or tumor/normal, with optional vcf and bam file outputs. Additionally, there are several supporting utilities for generating models used for simulation. Requires Python 2.7 and Numpy 1.9.1+.
 
-_Usage:</_
+_Usage:_
 
 
 ```
@@ -724,7 +742,7 @@ python genReads.py                  \
 **Picard MarkDuplicates**----- [https://software.broadinstitute.org/gatk/documentation/tooldocs/4.0.4.0/picard_sam_markduplicates_MarkDuplicates.php](https://software.broadinstitute.org/gatk/documentation/tooldocs/4.0.4.0/picard_sam_markduplicates_MarkDuplicates.php)
 Examines aligned records in the supplied SAM or BAM file to locate duplicate molecules. All records are then written to the output file with the duplicate records flagged.
 
-Usage</
+_Usage_
 
 Starting with GATK4.0, all Picard tools are directly available from the GATK suit itself. This means that for older GATK releases, one would call a tool as below:
 
@@ -762,7 +780,7 @@ Has a straightforward web interface.
 
 SAM Tools provide various utilities for manipulating alignments in the SAM format, including sorting, merging, indexing and generating alignments in a per-position format.
 
-_SNP calling with mpileup</_                                               [http://samtools.sourceforge.net/mpileup.shtml](http://samtools.sourceforge.net/mpileup.shtml)
+_SNP calling with mpileup_                                               [http://samtools.sourceforge.net/mpileup.shtml](http://samtools.sourceforge.net/mpileup.shtml)
 
 
 ```
@@ -784,7 +802,7 @@ bcftools view accepted_hits.raw.bcf | vcfutils.pl varFilter -d 5 -Q 20 > \
 **SolexaQA++**----------------------------------------------------------------------[http://solexaqa.sourceforge.net/](http://solexaqa.sourceforge.net/)
 SolexaQA is a software package to calculate sequence quality statistics and create visual representations of data quality for Illumina's second-generation sequencing technology (historically known as "Solexa").
 
-_Usage</_
+_Usage_
 
 Running directly on Illumina FASTQ files:
 
@@ -810,7 +828,7 @@ Running directly on Illumina FASTQ files:
 **snpEff**------------------------------------------------------------------------------[http://snpeff.sourceforge.net/](http://snpeff.sourceforge.net/)
 Genetic variant annotation and effect prediction toolbox. Version 2.0.5 is is included in the GATK suit, but not newer versions. For human data, the recommendation is to use the **GRCh37.64 database**
 
-_Usage</_
+_Usage_
 
 
 ```
@@ -835,7 +853,7 @@ Helps filter and manipulate annotated files. Included in GATK.
 
 Once your genomic variants have been annotated, you need to filter them out in order to find the "interesting / relevant variants". Given the large data files, this is not a trivial task (e.g. you cannot load all the variants into XLS spreasheet). SnpSift helps to perform this VCF file manipulation and filtering required at this stage in data processing pipelines.
 
-_Usage</_
+_Usage_
 
 To filter out samples with quality less than 30:
 
@@ -863,7 +881,7 @@ The Variant Annotation, Analysis and Search Tool) is a probabilistic search tool
 
 It has outstanding quickstart quide:  [http://www.yandell-lab.org/software/VAAST/VAAST_Quick-Start-Guide.pdf](http://www.yandell-lab.org/software/VAAST/VAAST_Quick-Start-Guide.pdf)
 
-_Usage</_
+_Usage_
 
 The set of genomes being analyzed for disease causing features (cases) are referred to as the target genomes. The set of healthy genomes (controls) that the target genomes are being compared to are referred to as the background genomes. The basic inputs to VAAST consist of:
 
