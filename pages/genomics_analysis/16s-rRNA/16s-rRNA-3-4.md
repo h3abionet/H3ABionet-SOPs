@@ -17,7 +17,7 @@ authors:
 ---
 ### **_Alignment_** {#alignment}
 
-To understand the evolutionary relationships between the sequences in the sample and to perform a diversity analysis, it is necessary to generate a phylogenetic tree of the OTUs. The first step in generating the tree is to generate a multiple alignment of the representative OTU sequences. PyNAST aligns the sequences to a template alignment of reference 16S sequences. Infernal makes use of a Hidden Markov Model that also incorporates secondary structure information.
+To understand the evolutionary relationships between the sequences in the sample and to perform a diversity analysis, it is necessary to generate a phylogenetic tree of the OTUs. The first step in generating the tree is to generate a multiple alignment of the representative OTU sequences. PyNAST aligns the sequences to a template alignment of reference 16S sequences. INFERNAL makes use of a Hidden Markov Model that also incorporates secondary structure information.
 
 <span style="text-decoration:underline;">Software</span>:  PyNAST, INFERNAL
 
