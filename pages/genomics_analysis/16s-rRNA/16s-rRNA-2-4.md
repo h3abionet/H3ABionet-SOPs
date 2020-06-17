@@ -17,7 +17,7 @@ authors:
 ---
 ### **_Chimera detection_** {#chimera}
 
-Chimeras are artifacts of PCR. These are formed during PCR cycles by the joining of two or more different parent DNA templates. If these chimeras are not removed they may be recognized as novel sequences during the alignment process and therefore mislead interpretation. At present there are no tools that can remove chimeras completely without throwing away non-chimeric sequences. Of the various tools available, UCHIME was found to perform better than ChimeraSlayer, which was the best program to detect chimeras before UCHIME was developed[^2]. To remove chimeras from 454 sequences Perseus can also be used[^3].
+Chimeras are artefacts of PCR. These are formed during PCR cycles by the joining of two or more different parent DNA templates. If these chimeras are not removed they may be recognized as novel sequences during the alignment process and therefore mislead interpretation. At present there are no tools that can remove chimeras completely without throwing away non-chimeric sequences. Of the various tools available, UCHIME was found to perform better than ChimeraSlayer, which was the best program to detect chimeras before UCHIME was developed[^2]. To remove chimeras from 454 sequences Perseus can also be used[^3].
 
 <span style="text-decoration:underline;">Software</span>: UCHIME, ChimeraSlayer, Perseus
 

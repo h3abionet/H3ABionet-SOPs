@@ -17,7 +17,7 @@ authors:
 ---
 ### **_Trim and Filter reads_** {#trim}
 
-Data received from sequencing facilities might still contain sequencing artefacts and would therefor need to be removed or reads need to be filtered. For example at the 3' end of reads there are often adaptor sequences left from library preparation. These adaptor bases need to be removed, and low quality bases need to be trimmed off. Any of the indicated programs can be used for this. Bokulich et al. 2013 [^1] recommend a minimum phred quality score of 3 to trim low quality bases at the ends of the reads. Jeraldo et al. 2014 (in review) recommend trimming the 3' end of the reads with a moving average score of 15, with a window size of 4 bases and to removal of any reads shorter than 75% of the original read length. It is also recommended that reads containing ambiguous bases (N) be discarded.
+Data received from sequencing facilities might still contain sequencing artefacts and would therefore need to be removed or reads need to be filtered. For example at the 3' end of reads there are often adapter sequences left from library preparation. These adaptor bases need to be removed, and low quality bases need to be trimmed off. Any of the indicated programs can be used for this. Bokulich et al. 2013 [^1] recommend a minimum phred quality score of 3 to trim low quality bases at the ends of the reads. Jeraldo et al. 2014 (add link to the published paper) recommend trimming the 3' end of the reads with a moving average score of 15, with a window size of 4 bases and removal of any reads shorter than 75% of the original read length. It is also recommended that reads containing ambiguous bases (N) be discarded.
 
 <span style="text-decoration:underline;">Software</span>: Trimmomatic, PRINSEQ, SolexaQA
 
