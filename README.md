@@ -13,7 +13,7 @@ The live version of this website is accessible via: [https://h3abionet.github.io
 
 ## Contributing
 
-Feedback is most welcome, and so are contributions of any kind (e.g. reporting typos, issues, suggesting content, ... etc). Please see our [contribution guide](https://h3abionet.github.io/H3ABionet-SOPs/cont_tech-guide-1).
+Feedback is most welcome, and so are contributions of any kind (e.g. reporting typos, issues, suggesting content, ... etc). Please see our [contribution guide](https://h3abionet.github.io/H3ABionet-SOPs/cont_tech-guide-1) and the [comprehensive contribution guide](https://h3abionet.github.io/H3ABionet-SOPs/contributing) intended for those not very comfortable with git/jekyll 
 
 ## Notes
 

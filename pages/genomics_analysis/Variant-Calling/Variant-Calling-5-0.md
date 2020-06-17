@@ -2,7 +2,7 @@
 title: Variant calling in human whole genome/exome sequencing data
 keywords: wgs, wes, ngs
 tags: [genomics_analysis]
-last_updated: Fall, 2018
+last_updated: May 23, 2020
 sidebar: varcall_sidebar
 toc: false 
 permalink: Variant-Calling-5-0.html
@@ -13,9 +13,10 @@ authors:
  - Matthew_Weber
  - Faisal_Fadlelmola
  - Luidmila_Mainzer
+ - Edward Lukyamuzi
 ---
 
-## H3ABioNet Next Gen Training dataset
+### H3ABioNet Next Gen Training dataset
 
 Practice data set for Variant Calling is available [here](http://h3data.cbio.uct.ac.za/assessments/NextGenVariantCalling/practice/)
 

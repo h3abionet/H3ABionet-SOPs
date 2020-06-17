@@ -2,7 +2,7 @@
 title: Variant calling in human whole genome/exome sequencing data
 keywords: wgs, wes, ngs
 tags: [genomics_analysis]
-last_updated: Fall, 2018
+last_updated: May 23, 2020
 
 sidebar: varcall_sidebar
 toc: false
@@ -15,10 +15,11 @@ authors:
  - Matthew_Weber
  - Faisal_Fadlelmola
  - Luidmila_Mainzer
+ - Edward Lukyamuzi
 ---
 
 
-## _Phase 3: Variant annotation and prioritization_ {#phase-3-variant-annotation-and-prioritization}
+### _Phase 3: Variant annotation and prioritization_ {#phase-3-variant-annotation-and-prioritization}
 
 This phase serves to select those variants that are of particular interest, depending on the research problem at hand. The methods are specific to the problem, thus we do not elaborate on them, and only provide a list of some commonly used tools below:
 

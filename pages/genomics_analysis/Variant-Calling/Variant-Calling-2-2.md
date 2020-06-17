@@ -2,7 +2,7 @@
 title: Variant calling in human whole genome/exome sequencing data
 keywords: wgs, wes, ngs
 tags: [genomics_analysis]
-last_updated: Fall, 2018
+last_updated: May 23, 2020
 
 sidebar: varcall_sidebar
 toc: false
@@ -18,10 +18,11 @@ authors:
  - Matthew_Weber
  - Faisal_Fadlelmola
  - Luidmila_Mainzer
+ - Edward Lukyamuzi
 ---
 ### _Step 1.2: Quality trimming_ {#step-1-2-quality-trimming}
 
-Once the adaptors have been trimmed, it is useful to inspect the quality of reads in bulk, and try to trim low quality nucleotides [^18]. Also, frequently the quality tends to drop off toward one end of the read. FASTQC [^19] and PrinSeq [^20] will show that very nicely . These read ends with low average quality can then be trimmed, if desired, using Trimmomatic [^14], FASTX-Toolkit fastq_quality_filter, PrinSeq, or SolexaQA [^21].
+Once the adapters have been trimmed, it is useful to inspect the quality of reads in bulk, and try to trim low quality nucleotides [^18]. Also, frequently the quality tends to drop off toward one end of the read. FASTQC [^19] and PrinSeq [^20] will show that very nicely . These read ends with low average quality can then be trimmed, if desired, using Trimmomatic [^14], FASTX-Toolkit fastq_quality_filter, PrinSeq, or SolexaQA [^21].
 
 
 ## Bibliography {#bibliography}
