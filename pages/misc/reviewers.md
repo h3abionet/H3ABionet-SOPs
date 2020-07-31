@@ -1,34 +1,9 @@
-<!-----
-NEW: Check the "Suppress top comment" option to remove this info from the output.
-
-Conversion time: 0.575 seconds.
-
-
-Using this Markdown file:
-
-1. Paste this output into your source file.
-2. See the notes and action items below regarding this conversion run.
-3. Check the rendered output (headings, lists, code blocks, tables) for proper
-   formatting and use a linkchecker before you publish this page.
-
-Conversion notes:
-
-* Docs to Markdown version 1.0β28
-* Thu Jul 02 2020 06:28:42 GMT-0700 (PDT)
-* Source doc: SOP - Reviewing a Node Accreditation Exercise - DRAFT
------>
-
-
-
 # Node Accreditation Reviewer Guide
 
 
 ## Introduction to node accreditation
 
 Node accreditation exercises have been developed by the H3Africa Bioinformatics Network (H3ABioNet) to assess the ability of participating Nodes to perform common bioinformatics tasks. This is to ensure that these Nodes can undertake processing and analysis of data produced by the H3Africa consortium. Work towards this purpose was initiated during the first phase of H3ABioNet, with an initial assessment published in 2017 [(Jongeneel et al. 2017)](https://paperpile.com/c/zs0EoN/n7Xl).  This included the generation of:
-
- 
-
 
 
 1. standard operating procedures (SOPs) for four commonly performed tasks: variant calling, genome-wide association studies (GWAS), gene expression analysis using RNA-Seq, and 16S microbiome analysis;
@@ -95,3 +70,4 @@ We rely on the opinions of two external reviewers to make a decision. This can b
 
 
     [Jongeneel, C. Victor, Ovokeraye Achinike-Oduaran, Ezekiel Adebiyi, Marion Adebiyi, Seun Adeyemi, Bola Akanle, Shaun Aron, et al. 2017. “Assessing Computational Genomics Skills: Our Experience in the H3ABioNet African Bioinformatics Network.” PLoS Computational Biology 13 (6): e1005419.](http://paperpile.com/b/zs0EoN/n7Xl)
+
