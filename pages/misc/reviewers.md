@@ -9,6 +9,7 @@ permalink: reviewers.html
 author_profile: true
 authors:
  - Chris_Fields
+ - Victor_Jongeneel
 ---
 
 <!-- 
@@ -17,7 +18,7 @@ sidebar: 16Smicro_sidebar
 
 ## Introduction to node accreditation
 
-Node accreditation exercises have been developed by the H3Africa Bioinformatics Network (H3ABioNet) to assess the ability of participating Nodes to perform common bioinformatics tasks. This is to ensure that these Nodes can undertake processing and analysis of data produced by the H3Africa consortium. Work towards this purpose was initiated during the first phase of H3ABioNet, with an initial assessment published in 2017 [(Jongeneel et al. 2017)](https://paperpile.com/c/zs0EoN/n7Xl).  This included the generation of:
+Node accreditation exercises have been developed by the H3Africa Bioinformatics Network (H3ABioNet) to assess the ability of participating Nodes to perform common bioinformatics tasks. This is to ensure that these Nodes can undertake processing and analysis of data produced by the H3Africa consortium. Work towards this purpose was initiated during the first phase of H3ABioNet, with an initial assessment published in 2017 [^1].  This included the generation of:
 
 
 1. standard operating procedures (SOPs) for four commonly performed tasks: variant calling, genome-wide association studies (GWAS), gene expression analysis using RNA-Seq, and 16S microbiome analysis;
@@ -29,19 +30,14 @@ Below we focus briefly on the SOPs, the procedure for taking the accreditation e
 
 ## Standard operating procedures
 
-The SOPs are now hosted on Github:
-
-[https://h3abionet.github.io/H3ABionet-SOPs/index.html](https://h3abionet.github.io/H3ABionet-SOPs/index.html)
-
+The SOPs are now[ hosted on Github](https://h3abionet.github.io/H3ABionet-SOPs/index.html) . 
 The SOPs are not meant to be prescriptive but outline the overall procedure for analysis of each data type with some specific examples of useful tools where appropriate.  The SOPs are not completely focused on just procedure but also include thinking about the resources that may be needed for data processing and analysis, an important consideration as nodes may have limited access to high performance resources and thus should be capable of assessing these needs. It should be noted that H3ABioNet funded the purchase of capable servers for many Nodes, and that these should be shared among Nodes. 
-
 As the documentation is now hosted on Github and are thus version controlled, the SOPs are regularly updated based on input from working groups in the Node Accreditation Task Force (NATF).  Each exercise also has some guiding questions that nodes who wish to undertake the exercise may want to consider when writing their report. 
 
 
 ## The accreditation exercise
 
 Each exercise comprises three phases.
-
 
 
 1. The candidate Node downloads the small sample datasets and the SOP for the method it wants to validate. Typically, a small team is formed that will take on the exercise together. During this first phase, the team puts in place and tests the workflows they are planning to use. There are predefined workflows available from the H3ABioNet consortium, or the team can build their own. Often, the team will get additional training at one of the H3ABioNet technical workshops. There is no time limit on this phase.
@@ -82,6 +78,9 @@ We do not provide a fixed template for the review, but request that it flags maj
 
 We rely on the opinions of two external reviewers to make a decision. This can be a pass (sometimes with congratulations for a job particularly well done), a conditional pass with an allowance of two weeks to revise the report based on reviewer comments, and a fail.
 
+## Bibliography {#bibliography}
 
-    [Jongeneel, C. Victor, Ovokeraye Achinike-Oduaran, Ezekiel Adebiyi, Marion Adebiyi, Seun Adeyemi, Bola Akanle, Shaun Aron, et al. 2017. “Assessing Computational Genomics Skills: Our Experience in the H3ABioNet African Bioinformatics Network.” PLoS Computational Biology 13 (6): e1005419.](http://paperpile.com/b/zs0EoN/n7Xl)
+
+[^1]: Jongeneel, C. V. et al. [Assessing Computational Genomics Skills: Our Experience in the H3ABioNet African Bioinformatics Network](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005419). PLoS Computational Biology 13 (6): e1005419. 
+
 
