@@ -1,5 +1,19 @@
-# Node Accreditation Reviewer Guide
+---
+title: Node Accreditation Reviewer Guide
+keywords: reviewer, report
+tags: [misc]
+last_updated: August 2, 2020
+toc: true
+folder: misc/
+permalink: reviewers.html
+author_profile: true
+authors:
+ - Chris_Fields
+---
 
+<!-- 
+sidebar: 16Smicro_sidebar
+ -->
 
 ## Introduction to node accreditation
 

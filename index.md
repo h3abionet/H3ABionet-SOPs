@@ -13,7 +13,9 @@ permalink: index.html
 
 [![H3ABioNet logo](assets/images/LOGO-HEADER.jpg "H3ABioNet logo")](https://h3abionet.org)
 
-This website hosts the Standard Operating Procedures (SOPs) for common data analysis tasks within the [H3ABioNet](https://h3abionet.org/) consortium, which are:
+This website hosts the Standard Operating Procedures (SOPs) for common data analysis tasks within the [H3ABioNet](https://h3abionet.org/) consortium. 
+
+The following have associated node accreditation exercises:
 
 
 * [Human Variant calling]({{ site.baseurl}}{% link pages/genomics_analysis/Variant-Calling/Variant-Calling-1-0.md %})
@@ -21,7 +23,7 @@ This website hosts the Standard Operating Procedures (SOPs) for common data anal
 * [Gene expression analysis using RNA-Seq]({{ site.baseurl}}{% link pages/genomics_analysis/RNA-Seq/RNA-Seq-1-0.md %})
 * [16s microbiome analysis]({{ site.baseurl}}{% link  pages/genomics_analysis/16s-rRNA/16s-rRNA-1-0.md %})
 
-In addition, we also have basic SOPs for:
+In addition, we have additional SOPs that cover some of the reporting and review process:
 
 * [Reviewers of node accreditation reports]({{ site.baseurl}}{% link pages/misc/reviewers.md %})
 
