@@ -261,7 +261,7 @@ Practice dataset for GWAS studies can be found [here](http://h3data.cbio.uct.ac.
 ## Bibliography {#bibliography}
 
 
-* Highland et al, 2018. Quality Control Analysis of Add Health GWAS Data. https://www.cpc.unc.edu/projects/addhealth/documentation/guides/AH_GWAS_QC.pdf    (Example of a good QC)
+* Highland et al, 2018. Quality Control Analysis of Add Health GWAS Data. https://cdr.lib.unc.edu/concern/parent/1n79h642n/file_sets/g158bk38b    (Example of a good QC)
 
 
 * Illumina Inc, 2014. Infinium Genotyping Data Analysis. https://www.illumina.com/Documents/products/technotes//technote_infinium_genotyping_data_analysis.pdf
