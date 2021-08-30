@@ -21,7 +21,7 @@ The following have associated node accreditation exercises:
 * [Human Variant calling]({{ site.baseurl}}{% link pages/genomics_analysis/Variant-Calling/Variant-Calling-1-0.md %})
 * [Genome Wide Association Studies]({{ site.baseurl}}{% link pages/genomics_analysis/GWAS/GWAS.md %})
 * [Gene expression analysis using RNA-Seq]({{ site.baseurl}}{% link pages/genomics_analysis/RNA-Seq/RNA-Seq-1-0.md %})
-* [16s microbiome analysis]({{ site.baseurl}}{% link  pages/genomics_analysis/16s-rRNA/16s-rRNA-1-0.md %})
+* [16S microbiome analysis]({{ site.baseurl}}{% link  pages/genomics_analysis/16s-rRNA/16s-rRNA-1-0.md %})
 
 In addition, we have additional SOPs that cover some of the reporting and review process:
 
